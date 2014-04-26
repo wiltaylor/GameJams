@@ -21,13 +21,23 @@ public class GUIHandler : MonoBehaviour
     {
         var healthNorm = _healthController.Health/_healthController.MaxHealth;
 
-        GUI.BeginGroup(new Rect(0, 0, 256, 32));
-            GUI.Box(new Rect(0, 0, 256, 32), HPBarEmpty);
+        if (healthNorm < 0f)
+            healthNorm = 0f;
 
-            GUI.BeginGroup(new Rect(0, 0, 256f * healthNorm, 32));
-                GUI.Box(new Rect(0, 0, 256f, 32), HPBarFull);
+        if (healthNorm == 0f)
+        {
+            GUI.Label(new Rect(0, 0, Screen.width, Screen.height), "GAME OVER!", Skin.GetStyle("label"));
+        }
+        else
+        {
+            GUI.BeginGroup(new Rect(0, 0, 256, 32));
+                GUI.Box(new Rect(0, 0, 256, 32), HPBarEmpty);
+
+                GUI.BeginGroup(new Rect(0, 0, 256f*healthNorm, 32));
+                    GUI.Box(new Rect(0, 0, 256f, 32), HPBarFull);
+                GUI.EndGroup();
             GUI.EndGroup();
-        GUI.EndGroup();
+        }
 
     }
 }
