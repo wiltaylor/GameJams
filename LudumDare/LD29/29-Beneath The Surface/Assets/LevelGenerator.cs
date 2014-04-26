@@ -8,6 +8,7 @@ public class LevelGenerator : MonoBehaviour
     public GameObject Player;
     public GameObject DirtBlock;
     public GameObject ShieldWall;
+    public GameObject LavaBlock;
     public int WorldWidth = 100;
     public int WorldHeight = 100;
     public float BlockOffSet = 100f;
@@ -73,7 +74,10 @@ public class LevelGenerator : MonoBehaviour
         for (var y = 0; y < WorldHeight; y++)
         {
             for (var x = 0; x < WorldWidth; x++)
-                World[x, y] = 0;
+                if(y < 5)
+                    World[x, y] = 2;
+                else
+                    World[x, y] = 0;
 
             World[0, y] = 1;
             World[WorldWidth -1, y] = 1;            
@@ -89,6 +93,8 @@ public class LevelGenerator : MonoBehaviour
                     newBlock = (GameObject) Instantiate(DirtBlock);
                 if (World[x, y] == 1)
                     newBlock = (GameObject) Instantiate(ShieldWall);
+                if (World[x, y] == 2)
+                    newBlock = (GameObject) Instantiate(LavaBlock);
 
                 if (newBlock == null)
                 {
