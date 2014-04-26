@@ -22,18 +22,13 @@ public class PlayerMovment : MonoBehaviour {
         {
             transform.Rotate(0, 0,RotateSpeed);
 
-            rigidbody2D.AddForce(new Vector2(MoveForce, 0f));
-
-            Debug.Log(transform.eulerAngles); //90
+            rigidbody2D.AddForce(Vector2.right * MoveForce);
         }
 
         if (Input.GetAxis("Horizontal") < 0f)
         {
             transform.Rotate(0, 0, -RotateSpeed);
-            rigidbody2D.AddForce(new Vector2(-MoveForce, 0f));
-
-            Debug.Log(transform.eulerAngles); //260
-
+            rigidbody2D.AddForce(-Vector2.right * MoveForce);
         }
 
         if (Input.GetButton("Bomb"))

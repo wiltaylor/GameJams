@@ -31,6 +31,7 @@ public class LevelGenerator : MonoBehaviour
     private new BoxCollider2D collider;
     private List<GameObject> _currentBlocks = new List<GameObject>();
     private List<GameObject> _lastBlocks = new List<GameObject>();
+    private bool FirstLoad = true;
     
 	// Use this for initialization
 	void Start ()
@@ -41,8 +42,9 @@ public class LevelGenerator : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void Update () {
-	    
+	void FixedUpdate () {
+	    if(FirstLoad)
+            Player.SetActive(false);
 	}
 
     void OnTriggerEnter2D(Collider2D collider)
@@ -164,6 +166,12 @@ public class LevelGenerator : MonoBehaviour
             }
 
             yield return 0;
+        }
+
+        if (FirstLoad)
+        {
+            FirstLoad = false;
+            Player.SetActive(true);
         }
     }
 }
