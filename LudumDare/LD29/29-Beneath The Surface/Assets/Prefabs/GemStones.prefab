@@ -53,6 +53,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: 2
   Invulnerable: 0
+  MoneyOnDestruct: 10
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

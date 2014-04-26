@@ -32,10 +32,12 @@ public class LevelGenerator : MonoBehaviour
     private List<GameObject> _currentBlocks = new List<GameObject>();
     private List<GameObject> _lastBlocks = new List<GameObject>();
     private bool FirstLoad = true;
+    private PlayerMovment _movmentScript;
     
 	// Use this for initialization
 	void Start ()
 	{
+	    _movmentScript = Player.GetComponent<PlayerMovment>();
         collider = GetComponent<BoxCollider2D>();
         StartCoroutine("GenerateWorld");
 	    
@@ -55,6 +57,7 @@ public class LevelGenerator : MonoBehaviour
 
         var distance = WorldHeight*BlockHeight/BlockOffSet;
 
+        _movmentScript.LastPosition = new Vector3(_movmentScript.LastPosition.x, _movmentScript.LastPosition.y + distance, 0f);
         Player.transform.position = new Vector3(Player.transform.position.x, Player.transform.position.y + distance, 0f);
 
         foreach (var i in _currentBlocks)
