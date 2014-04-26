@@ -34,10 +34,12 @@ public class PlayerMovment : MonoBehaviour {
             rigidbody2D.AddForce(-Vector2.right * MoveForce);
         }
 
+        /*
         if (Input.GetButton("Bomb"))
         {
             _bomb.SetActive(true);
         }
+         */
     }
 
     void FixedUpdate()

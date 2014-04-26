@@ -108,6 +108,8 @@ MonoBehaviour:
   HowToPlayImage: {fileID: 2800000, guid: 32dde7eba66ec8743a49df2dbcb3b251, type: 3}
   Logo: {fileID: 2800000, guid: 3654135c25042494bb6fef517061ff1e, type: 3}
   Backdrop: {fileID: 2800000, guid: fe2b7d72378a4c84b8081751025dc284, type: 3}
+  StartButton: {fileID: 2800000, guid: 4d54de787819e2d44b5c534deb441002, type: 3}
+  GUINormal: {fileID: 11400000, guid: ef9566b76d105034eb0460f77a8c7550, type: 2}
 --- !u!81 &1200960647
 AudioListener:
   m_ObjectHideFlags: 0
