@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Linq;
 using System.Runtime.Serialization.Formatters;
 using UnityEngine;
 using System.Collections.Generic;
@@ -54,7 +55,7 @@ public class LevelGenerator : MonoBehaviour
     private new BoxCollider2D collider;
     private List<GameObject> _currentBlocks = new List<GameObject>();
     private List<GameObject> _lastBlocks = new List<GameObject>();
-    private bool FirstLoad = true;
+    private bool _firstLoad = true;
     private PlayerMovment _movmentScript;
     
 	// Use this for initialization
@@ -68,7 +69,7 @@ public class LevelGenerator : MonoBehaviour
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-	    if(FirstLoad)
+	    if(_firstLoad)
             Player.SetActive(false);
 	}
 
@@ -121,17 +122,27 @@ public class LevelGenerator : MonoBehaviour
         }
 
         world = AddOre(3, MaxGemstones, MinGemstones, world);
+        yield return 0;
         world = AddOre(5, MaxGold, MinGold, world);
+        yield return 0;
         world = AddOre(6, MaxHealthBoxes, MinHealthBoxes, world);
+        yield return 0;
 
-        world = GeneratePool(2, MaxLavaPools, MinLavaPools, MaxLavaPoolWidth, MinLavaPoolWidth, MaxLavaPoolHeight,
-            MinLavaPoolHeight, world);
+        if (!_firstLoad)
+        {
+            world = GeneratePool(2, MaxLavaPools, MinLavaPools, MaxLavaPoolWidth, MinLavaPoolWidth, MaxLavaPoolHeight,
+                MinLavaPoolHeight, world, new[] {0, 3, 5, 6});
+            yield return 0;
 
-        world = GeneratePool(4, MaxSlimePools, MinSlimePools, MaxSlimePoolWidth, MinSlimePoolWidth, MaxSlimePoolHeight,
-    MinSlimePoolHeight, world);
+            world = GeneratePool(4, MaxSlimePools, MinSlimePools, MaxSlimePoolWidth, MinSlimePoolWidth,
+                MaxSlimePoolHeight,
+                MinSlimePoolHeight, world, new[] {0, 3, 5, 6});
+            yield return 0;
+        }
 
         world = GeneratePool(7, MaxWaterPools, MinWaterPools, MaxWaterPoolWidth, MinWaterPoolWidth, MaxWaterPoolHeight,
-            MinWaterPoolHeight, world);
+            MinWaterPoolHeight, world, new [] {0, 3, 5, 6});
+        yield return 0;
 
         for (var y = 0; y < WorldHeight; y++)
         {
@@ -171,8 +182,8 @@ public class LevelGenerator : MonoBehaviour
             yield return 0;
         }
 
-        if (!FirstLoad) yield break;
-        FirstLoad = false;
+        if (!_firstLoad) yield break;
+        _firstLoad = false;
         Player.SetActive(true);
     }
 
@@ -195,7 +206,7 @@ public class LevelGenerator : MonoBehaviour
     }
 
     private int[, ] GeneratePool(int blockID, int maxPool, int minPool, int maxPoolWidth, int minPoolWidth, int maxPoolHeight,
-        int minPoolHeight, int[, ]world)
+        int minPoolHeight, int[, ]world,  int[] Replaceable)
     {
         var poolCount = UnityEngine.Random.Range(minPool, maxPool);
 
@@ -220,7 +231,7 @@ public class LevelGenerator : MonoBehaviour
             {
                 for (var iY = y; iY < y + poolHeight; iY++)
                 {
-                    if (world[iX, iY] == 0)
+                    if (Replaceable.Contains(world[iX, iY]))
                         world[iX, iY] = blockID;
                 }
             }

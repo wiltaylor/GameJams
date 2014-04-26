@@ -105,6 +105,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6632f708fdafb0a40a6ec100574a7dcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HowToPlayImage: {fileID: 2800000, guid: 32dde7eba66ec8743a49df2dbcb3b251, type: 3}
+  Logo: {fileID: 2800000, guid: 3654135c25042494bb6fef517061ff1e, type: 3}
+  Backdrop: {fileID: 2800000, guid: fe2b7d72378a4c84b8081751025dc284, type: 3}
 --- !u!81 &1200960647
 AudioListener:
   m_ObjectHideFlags: 0
@@ -135,7 +138,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: .0196078438}
+  m_BackGroundColor: {r: .573529422, g: .573529422, b: .573529422, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
