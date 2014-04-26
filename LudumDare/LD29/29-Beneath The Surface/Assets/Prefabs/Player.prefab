@@ -111,7 +111,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100006}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.16636372, y: 8, z: 0}
+  m_LocalPosition: {x: 0, y: 6, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 400004}
@@ -238,9 +238,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c88ca71ef0e16e44881b99f9d75cb0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HurtTimeOut: 1
   Health: 20
   MaxHealth: 20
   Money: 0
+  MoneySound: {fileID: 8300000, guid: e412e9dfa116a4f4ab7f1af83756eda2, type: 3}
+  HurtSound: {fileID: 8300000, guid: 7586da3b8deb45c4eab4656a49eca731, type: 3}
+  HealthSound: {fileID: 8300000, guid: 5019651f5a740874abc11647baca493a, type: 3}
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1

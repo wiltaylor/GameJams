@@ -8,7 +8,15 @@ public class LavaHandler : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D collider)
     {
+        if (DamageAmmount == 0)
+            return;
+
         if(collider.tag == "Player")
             collider.gameObject.SendMessage("Damage", DamageAmmount);
+    }
+
+    void OnDrill(GameObject player)
+    {
+        //do nothing.
     }
 }

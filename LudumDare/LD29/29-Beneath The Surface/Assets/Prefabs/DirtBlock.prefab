@@ -64,8 +64,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78b7dc6cc0cd9964b9f1e0b4703bc473, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 1
+  Health: 3
   Invulnerable: 0
+  MoneyOnDestruct: 0
+  LifeGainOnDestruct: 0
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

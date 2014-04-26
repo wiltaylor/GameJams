@@ -56,6 +56,9 @@ MonoBehaviour:
   LavaBlock: {fileID: 100000, guid: 1ef8e7b5f3aed7e4a9e009f58ffab35d, type: 2}
   GemStones: {fileID: 100000, guid: ae4e94317fa48ec4580b062562ef2c52, type: 2}
   Slime: {fileID: 100000, guid: 948f3bb7bf5b8ba40a6c8a4f4c201d50, type: 2}
+  Gold: {fileID: 100000, guid: df82cd53cf537fd4a8462b1f3cce136f, type: 2}
+  Heath: {fileID: 100000, guid: c1ff85c46003d434fbbe65a582bbdcec, type: 2}
+  Water: {fileID: 100000, guid: d9caf16124a1f8f4cbccf793606d56bc, type: 2}
   WorldWidth: 100
   WorldHeight: 20
   BlockOffSet: 100
@@ -63,18 +66,28 @@ MonoBehaviour:
   BlockHeight: 32
   MaxGemstones: 30
   MinGemstones: 10
+  MaxGold: 3
+  MinGold: 0
+  MaxHealthBoxes: 10
+  MinHealthBoxes: 1
   MaxLavaPools: 10
   MinLavaPools: 3
   MinLavaPoolHeight: 2
   MaxLavaPoolHeight: 8
   MinLavaPoolWidth: 1
   MaxLavaPoolWidth: 20
-  MaxSlimePools: 10
+  MaxSlimePools: 5
   MinSlimePools: 1
   MinSlimePoolHeight: 2
   MaxSlimePoolHeight: 5
   MinSlimePoolWidth: 2
   MaxSlimePoolWidth: 10
+  MaxWaterPools: 10
+  MinWaterPools: 1
+  MinWaterPoolHeight: 5
+  MaxWaterPoolHeight: 8
+  MinWaterPoolWidth: 5
+  MaxWaterPoolWidth: 20
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

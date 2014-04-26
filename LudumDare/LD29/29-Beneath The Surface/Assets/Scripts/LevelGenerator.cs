@@ -14,6 +14,7 @@ public class LevelGenerator : MonoBehaviour
     public GameObject Slime;
     public GameObject Gold;
     public GameObject Heath;
+    public GameObject Water;
 
     public int WorldWidth = 100;
     public int WorldHeight = 100;
@@ -41,6 +42,13 @@ public class LevelGenerator : MonoBehaviour
     public int MaxSlimePoolHeight = 3;
     public int MinSlimePoolWidth = 1;
     public int MaxSlimePoolWidth = 5;
+
+    public int MaxWaterPools = 3;
+    public int MinWaterPools = 0;
+    public int MinWaterPoolHeight = 1;
+    public int MaxWaterPoolHeight = 3;
+    public int MinWaterPoolWidth = 1;
+    public int MaxWaterPoolWidth = 5;
 
     private float _xOffset = 0f;
     private new BoxCollider2D collider;
@@ -122,6 +130,9 @@ public class LevelGenerator : MonoBehaviour
         world = GeneratePool(4, MaxSlimePools, MinSlimePools, MaxSlimePoolWidth, MinSlimePoolWidth, MaxSlimePoolHeight,
     MinSlimePoolHeight, world);
 
+        world = GeneratePool(7, MaxWaterPools, MinWaterPools, MaxWaterPoolWidth, MinWaterPoolWidth, MaxWaterPoolHeight,
+            MinWaterPoolHeight, world);
+
         for (var y = 0; y < WorldHeight; y++)
         {
             for (var x = 0; x < WorldWidth; x++)
@@ -141,7 +152,9 @@ public class LevelGenerator : MonoBehaviour
                 if (world[x, y] == 5)
                     newBlock = (GameObject) Instantiate(Gold);
                 if (world[x, y] == 6)
-                    newBlock = (GameObject) Instantiate((Heath));
+                    newBlock = (GameObject) Instantiate(Heath);
+                if (world[x, y] == 7)
+                    newBlock = (GameObject) Instantiate(Water);
 
                 if (newBlock == null)
                 {
