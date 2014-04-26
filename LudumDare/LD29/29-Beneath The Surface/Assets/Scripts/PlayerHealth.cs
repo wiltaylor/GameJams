@@ -5,6 +5,7 @@ public class PlayerHealth : MonoBehaviour
 {
     public float Health = 20f;
     public float MaxHealth = 20f;
+    public int Money = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -22,5 +23,10 @@ public class PlayerHealth : MonoBehaviour
     void Damage(float ammout)
     {
         Health -= ammout;
+    }
+
+    void PickUpCash(int ammount)
+    {
+        Money += ammount;
     }
 }

@@ -8,7 +8,9 @@ public class GUIHandler : MonoBehaviour
     public GameObject Player;
     public Texture2D HPBarEmpty;
     public Texture2D HPBarFull;
-    public GUISkin Skin;
+    public GUISkin GameOverSkin;
+    public GUISkin NormalGUISkin;
+
 
     private PlayerHealth _healthController;
 
@@ -20,13 +22,14 @@ public class GUIHandler : MonoBehaviour
     void OnGUI()
     {
         var healthNorm = _healthController.Health/_healthController.MaxHealth;
+        var money = _healthController.Money;
 
         if (healthNorm < 0f)
             healthNorm = 0f;
 
         if (healthNorm == 0f)
         {
-            GUI.Label(new Rect(0, 0, Screen.width, Screen.height), "GAME OVER!", Skin.GetStyle("label"));
+            GUI.Label(new Rect(0, 0, Screen.width, Screen.height), "GAME OVER!", GameOverSkin.GetStyle("label"));
         }
         else
         {
@@ -37,6 +40,8 @@ public class GUIHandler : MonoBehaviour
                     GUI.Box(new Rect(0, 0, 256f, 32), HPBarFull);
                 GUI.EndGroup();
             GUI.EndGroup();
+
+            GUI.Label(new Rect(Screen.width - 100, 0, 100, 40), string.Format("${0}", money), NormalGUISkin.GetStyle("label"));
         }
 
     }

@@ -5,6 +5,7 @@ public class Drillable : MonoBehaviour {
 
     public float Health = 10f;
     public bool Invulnerable = false;
+    public int MoneyOnDestruct = 0;
 
     public void OnBomb()
     {
@@ -12,7 +13,7 @@ public class Drillable : MonoBehaviour {
             Destroy(gameObject);
     }
 
-    public void OnDrill()
+    public void OnDrill(GameObject player)
     {
         if (Invulnerable)
             return;
@@ -21,6 +22,9 @@ public class Drillable : MonoBehaviour {
 
         if (Health < 0f)
         {
+            if(MoneyOnDestruct != 0)
+                player.SendMessage("PickUpCash", MoneyOnDestruct);
+
             Destroy(gameObject);
         }
     }
