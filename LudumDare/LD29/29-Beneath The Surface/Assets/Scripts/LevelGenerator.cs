@@ -10,6 +10,7 @@ public class LevelGenerator : MonoBehaviour
     public GameObject ShieldWall;
     public GameObject LavaBlock;
     public GameObject GemStones;
+    public GameObject Slime;
     public int WorldWidth = 100;
     public int WorldHeight = 100;
     public float BlockOffSet = 100f;
@@ -24,6 +25,13 @@ public class LevelGenerator : MonoBehaviour
     public int MaxLavaPoolHeight = 3;
     public int MinLavaPoolWidth = 1;
     public int MaxLavaPoolWidth = 5;
+
+    public int MaxSlimePools = 3;
+    public int MinSlimePools = 0;
+    public int MinSlimePoolHeight = 1;
+    public int MaxSlimePoolHeight = 3;
+    public int MinSlimePoolWidth = 1;
+    public int MaxSlimePoolWidth = 5;
 
 
     private float _xOffset = 0f;
@@ -85,60 +93,38 @@ public class LevelGenerator : MonoBehaviour
         _xOffset = ((BlockWidth*WorldWidth) / BlockOffSet) / 2;
         _xOffset = -_xOffset;
 
-        var GemStoneCount = UnityEngine.Random.Range(MinGemstones, MaxGemstones);
-        var LavaPoolCount = UnityEngine.Random.Range(MinLavaPools, MaxLavaPools);
+        var gemStoneCount = UnityEngine.Random.Range(MinGemstones, MaxGemstones);
+        
 
 
 
-        var World = new int[WorldWidth, WorldHeight];
+        var world = new int[WorldWidth, WorldHeight];
 
         for (var y = 0; y < WorldHeight; y++)
         {
             for (var x = 0; x < WorldWidth; x++)
-                    World[x, y] = 0;
+                    world[x, y] = 0;
 
-            World[0, y] = 1;
-            World[WorldWidth -1, y] = 1;            
+            world[0, y] = 1;
+            world[WorldWidth -1, y] = 1;            
         }
 
-        for (var i = GemStoneCount; i != 0;)
+        for (var i = gemStoneCount; i != 0;)
         {
             var x = UnityEngine.Random.Range(0, WorldWidth - 1);
             var y = UnityEngine.Random.Range(0, WorldHeight - 1);
 
-            if (World[x, y] != 0) continue;
+            if (world[x, y] != 0) continue;
 
             i--;
-            World[x, y] = 3;
+            world[x, y] = 3;
         }
 
-        for (var i = LavaPoolCount; i != 0; i--)
-        {
-            var x = UnityEngine.Random.Range(0, WorldWidth - 1);
-            var y = UnityEngine.Random.Range(0, WorldHeight - 1);
-            var poolWidth = UnityEngine.Random.Range(MinLavaPoolWidth, MaxLavaPoolWidth);
-            var poolHeight = UnityEngine.Random.Range(MinLavaPoolHeight, MaxLavaPoolHeight);
+        world = GeneratePool(2, MaxLavaPools, MinLavaPools, MaxLavaPoolWidth, MinLavaPoolWidth, MaxLavaPoolHeight,
+            MinLavaPoolHeight, world);
 
-            while (poolWidth + x > WorldWidth - 1)
-            {
-                poolWidth--;
-            }
-
-            while (poolHeight + y > WorldHeight - 1)
-            {
-                poolHeight--;
-            }
-
-            for (var iX = x; iX < x + poolWidth; iX++)
-            {
-                for (var iY = y; iY < y + poolHeight; iY++)
-                {
-                    if (World[iX, iY] == 0)
-                        World[iX, iY] = 2;
-                }
-            }
-            World[x, y] = 2;
-        }
+        world = GeneratePool(4, MaxSlimePools, MinSlimePools, MaxSlimePoolWidth, MinSlimePoolWidth, MaxSlimePoolHeight,
+    MinSlimePoolHeight, world);
 
         for (var y = 0; y < WorldHeight; y++)
         {
@@ -146,14 +132,16 @@ public class LevelGenerator : MonoBehaviour
             {
                 GameObject newBlock = null;
 
-                if (World[x, y] == 0)
+                if (world[x, y] == 0)
                     newBlock = (GameObject) Instantiate(DirtBlock);
-                if (World[x, y] == 1)
+                if (world[x, y] == 1)
                     newBlock = (GameObject) Instantiate(ShieldWall);
-                if (World[x, y] == 2)
+                if (world[x, y] == 2)
                     newBlock = (GameObject) Instantiate(LavaBlock);
-                if (World[x, y] == 3)
+                if (world[x, y] == 3)
                     newBlock = (GameObject) Instantiate(GemStones);
+                if (world[x, y] == 4)
+                    newBlock = (GameObject) Instantiate(Slime);
 
                 if (newBlock == null)
                 {
@@ -170,10 +158,43 @@ public class LevelGenerator : MonoBehaviour
             yield return 0;
         }
 
-        if (FirstLoad)
+        if (!FirstLoad) yield break;
+        FirstLoad = false;
+        Player.SetActive(true);
+    }
+
+    private int[, ] GeneratePool(int blockID, int maxPool, int minPool, int maxPoolWidth, int minPoolWidth, int maxPoolHeight,
+        int minPoolHeight, int[, ]world)
+    {
+        var poolCount = UnityEngine.Random.Range(minPool, maxPool);
+
+        for (var i = poolCount; i != 0; i--)
         {
-            FirstLoad = false;
-            Player.SetActive(true);
+            var x = UnityEngine.Random.Range(0, WorldWidth - 1);
+            var y = UnityEngine.Random.Range(0, WorldHeight - 1);
+            var poolWidth = UnityEngine.Random.Range(minPoolWidth, maxPoolWidth);
+            var poolHeight = UnityEngine.Random.Range(minPoolHeight, maxPoolHeight);
+
+            while (poolWidth + x > WorldWidth - 1)
+            {
+                poolWidth--;
+            }
+
+            while (poolHeight + y > WorldHeight - 1)
+            {
+                poolHeight--;
+            }
+
+            for (var iX = x; iX < x + poolWidth; iX++)
+            {
+                for (var iY = y; iY < y + poolHeight; iY++)
+                {
+                    if (world[iX, iY] == 0)
+                        world[iX, iY] = blockID;
+                }
+            }
         }
+
+        return world;
     }
 }
