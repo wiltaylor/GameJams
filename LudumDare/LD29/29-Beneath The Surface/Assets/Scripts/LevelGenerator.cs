@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Runtime.Serialization.Formatters;
 using UnityEngine;
 using System.Collections.Generic;
 
@@ -11,13 +12,18 @@ public class LevelGenerator : MonoBehaviour
     public GameObject LavaBlock;
     public GameObject GemStones;
     public GameObject Slime;
+    public GameObject Gold;
+
     public int WorldWidth = 100;
     public int WorldHeight = 100;
     public float BlockOffSet = 100f;
     public int BlockWidth = 32;
     public int BlockHeight = 32;
+
     public int MaxGemstones = 30;
     public int MinGemstones = 10;
+    public int MaxGold = 3;
+    public int MinGold = 0;
     
     public int MaxLavaPools = 3;
     public int MinLavaPools = 0;
@@ -32,7 +38,6 @@ public class LevelGenerator : MonoBehaviour
     public int MaxSlimePoolHeight = 3;
     public int MinSlimePoolWidth = 1;
     public int MaxSlimePoolWidth = 5;
-
 
     private float _xOffset = 0f;
     private new BoxCollider2D collider;
@@ -93,11 +98,6 @@ public class LevelGenerator : MonoBehaviour
         _xOffset = ((BlockWidth*WorldWidth) / BlockOffSet) / 2;
         _xOffset = -_xOffset;
 
-        var gemStoneCount = UnityEngine.Random.Range(MinGemstones, MaxGemstones);
-        
-
-
-
         var world = new int[WorldWidth, WorldHeight];
 
         for (var y = 0; y < WorldHeight; y++)
@@ -109,16 +109,8 @@ public class LevelGenerator : MonoBehaviour
             world[WorldWidth -1, y] = 1;            
         }
 
-        for (var i = gemStoneCount; i != 0;)
-        {
-            var x = UnityEngine.Random.Range(0, WorldWidth - 1);
-            var y = UnityEngine.Random.Range(0, WorldHeight - 1);
-
-            if (world[x, y] != 0) continue;
-
-            i--;
-            world[x, y] = 3;
-        }
+        world = AddOre(3, MaxGemstones, MinGemstones, world);
+        world = AddOre(5, MaxGold, MinGold, world);
 
         world = GeneratePool(2, MaxLavaPools, MinLavaPools, MaxLavaPoolWidth, MinLavaPoolWidth, MaxLavaPoolHeight,
             MinLavaPoolHeight, world);
@@ -142,6 +134,8 @@ public class LevelGenerator : MonoBehaviour
                     newBlock = (GameObject) Instantiate(GemStones);
                 if (world[x, y] == 4)
                     newBlock = (GameObject) Instantiate(Slime);
+                if (world[x, y] == 5)
+                    newBlock = (GameObject) Instantiate(Gold);
 
                 if (newBlock == null)
                 {
@@ -161,6 +155,24 @@ public class LevelGenerator : MonoBehaviour
         if (!FirstLoad) yield break;
         FirstLoad = false;
         Player.SetActive(true);
+    }
+
+    private int[,] AddOre(int blockID, int maxOre, int minOre, int[,] world)
+    {
+        var oreCount = UnityEngine.Random.Range(minOre, maxOre);
+
+        for (var i = oreCount; i != 0; )
+        {
+            var x = UnityEngine.Random.Range(0, WorldWidth - 1);
+            var y = UnityEngine.Random.Range(0, WorldHeight - 1);
+
+            if (world[x, y] != 0) continue;
+
+            i--;
+            world[x, y] = blockID;
+        }
+
+        return world;
     }
 
     private int[, ] GeneratePool(int blockID, int maxPool, int minPool, int maxPoolWidth, int minPoolWidth, int maxPoolHeight,

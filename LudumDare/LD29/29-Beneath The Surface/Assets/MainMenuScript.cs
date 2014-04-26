@@ -21,7 +21,7 @@ public class MainMenuScript : MonoBehaviour
             Application.LoadLevel("MainGame");
         }
 
-        if (GUI.Button(new Rect(100, 150, 100, 40), "How To Play"))
+        if (GUI.Button(new Rect(100, 150, 100, 40), "Settings"))
         {
             howToPlayer = !howToPlayer;
         }
