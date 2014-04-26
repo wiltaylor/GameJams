@@ -4,6 +4,7 @@ using System.Collections;
 public class PlayerHealth : MonoBehaviour
 {
     public float Health = 20f;
+    public float MaxHealth = 20f;
 
 	// Use this for initialization
 	void Start () {
