@@ -7,15 +7,12 @@ public class PlayerMovment : MonoBehaviour {
     public float RotateSpeed = 1f;
     public float MaxLeftAngle = 275f;
     public float MaxRightAngle = 75f;
-    public float BombRadius = 0.00000001f;
     public float DistanceTraveled = 0f;
     public Vector3 LastPosition;
 
-    private GameObject _bomb;
 
 	void Start ()
 	{
-	    _bomb = transform.FindChild("Bomb").gameObject;
 	    LastPosition = transform.position;
 	}
 
@@ -33,13 +30,6 @@ public class PlayerMovment : MonoBehaviour {
             transform.Rotate(0, 0, -RotateSpeed);
             rigidbody2D.AddForce(-Vector2.right * MoveForce);
         }
-
-        /*
-        if (Input.GetButton("Bomb"))
-        {
-            _bomb.SetActive(true);
-        }
-         */
     }
 
     void FixedUpdate()

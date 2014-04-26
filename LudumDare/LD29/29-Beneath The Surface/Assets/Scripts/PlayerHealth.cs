@@ -36,10 +36,9 @@ public class PlayerHealth : MonoBehaviour
 
         if (CurrentHurtTime < 0f)
         {
-            AudioSource.PlayClipAtPoint(HurtSound, transform.position);
             CurrentHurtTime = HurtTimeOut;
+            AudioSource.PlayClipAtPoint(HurtSound, transform.position);
         }
-
     }
 
     void PickUpCash(int ammount)

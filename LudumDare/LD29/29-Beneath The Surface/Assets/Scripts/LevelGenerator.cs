@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Runtime.Serialization.Formatters;
 using UnityEngine;
@@ -17,6 +18,7 @@ public class LevelGenerator : MonoBehaviour
     public GameObject Gold;
     public GameObject Heath;
     public GameObject Water;
+    public GameObject TNT;
     public LevelGenerationDataScript[] LevelData;
 
     public int WorldWidth = 100;
@@ -31,6 +33,8 @@ public class LevelGenerator : MonoBehaviour
     public int MinGold = 0;
     public int MaxHealthBoxes = 10;
     public int MinHealthBoxes = 1;
+    public int MaxTNT = 5;
+    public int MinTNT = 0;
     
     public int MaxLavaPools = 3;
     public int MinLavaPools = 0;
@@ -85,11 +89,13 @@ public class LevelGenerator : MonoBehaviour
 
         for (int i = 0; i < LevelData.Length; i++)
         {
-            if (LevelData[i].Distance < _movmentScript.DistanceTraveled)
+            if (LevelData[i].Distance < _movmentScript.DistanceTraveled /5)
                 index = i;
             else
                 break;
         }
+
+        Debug.Log(String.Format("Building Level from {0}", index));
 
         MaxGemstones = LevelData[index].MaxGemstones;
         MinGemstones = LevelData[index].MinGemstones;
@@ -176,21 +182,20 @@ public class LevelGenerator : MonoBehaviour
         yield return 0;
         world = AddOre(6, MaxHealthBoxes, MinHealthBoxes, world);
         yield return 0;
+        world = AddOre(8, MaxTNT, MinTNT, world);
+        yield return 0;
 
-        if (!_firstLoad)
-        {
-            world = GeneratePool(2, MaxLavaPools, MinLavaPools, MaxLavaPoolWidth, MinLavaPoolWidth, MaxLavaPoolHeight,
-                MinLavaPoolHeight, world, new[] {0, 3, 5, 6});
-            yield return 0;
+        world = GeneratePool(2, MaxLavaPools, MinLavaPools, MaxLavaPoolWidth, MinLavaPoolWidth, MaxLavaPoolHeight,
+            MinLavaPoolHeight, world, new[] {0, 3, 5, 6, 8});
+        yield return 0;
 
-            world = GeneratePool(4, MaxSlimePools, MinSlimePools, MaxSlimePoolWidth, MinSlimePoolWidth,
-                MaxSlimePoolHeight,
-                MinSlimePoolHeight, world, new[] {0, 3, 5, 6});
-            yield return 0;
-        }
+        world = GeneratePool(4, MaxSlimePools, MinSlimePools, MaxSlimePoolWidth, MinSlimePoolWidth,
+            MaxSlimePoolHeight,
+            MinSlimePoolHeight, world, new[] {0, 3, 5, 6, 8});
+        yield return 0;
 
         world = GeneratePool(7, MaxWaterPools, MinWaterPools, MaxWaterPoolWidth, MinWaterPoolWidth, MaxWaterPoolHeight,
-            MinWaterPoolHeight, world, new [] {0, 3, 5, 6});
+            MinWaterPoolHeight, world, new [] {0, 3, 5, 6, 8});
         yield return 0;
 
         for (var y = 0; y < WorldHeight; y++)
@@ -215,6 +220,8 @@ public class LevelGenerator : MonoBehaviour
                     newBlock = (GameObject) Instantiate(Heath);
                 if (world[x, y] == 7)
                     newBlock = (GameObject) Instantiate(Water);
+                if (world[x, y] == 8)
+                    newBlock = (GameObject)Instantiate(TNT);
 
                 if (newBlock == null)
                 {

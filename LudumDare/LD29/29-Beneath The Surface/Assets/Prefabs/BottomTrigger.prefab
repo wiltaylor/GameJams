@@ -17,6 +17,86 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &100002
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400002}
+  - 114: {fileID: 11400002}
+  m_Layer: 0
+  m_Name: Level5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &100004
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400004}
+  - 114: {fileID: 11400004}
+  m_Layer: 0
+  m_Name: Level1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &100006
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400006}
+  - 114: {fileID: 11400006}
+  m_Layer: 0
+  m_Name: Level2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &100008
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400008}
+  - 114: {fileID: 11400008}
+  m_Layer: 0
+  m_Name: Level3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &100010
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400010}
+  - 114: {fileID: 11400010}
+  m_Layer: 0
+  m_Name: Level4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &400000
 Transform:
   m_ObjectHideFlags: 1
@@ -26,8 +106,68 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -10, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 400004}
+  - {fileID: 400006}
+  - {fileID: 400008}
+  - {fileID: 400010}
+  - {fileID: 400002}
   m_Father: {fileID: 0}
+--- !u!4 &400002
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 10, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400000}
+--- !u!4 &400004
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100004}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 10, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400000}
+--- !u!4 &400006
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100006}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 10, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400000}
+--- !u!4 &400008
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100008}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 10, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400000}
+--- !u!4 &400010
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100010}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 10, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400000}
 --- !u!61 &6100000
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -59,6 +199,13 @@ MonoBehaviour:
   Gold: {fileID: 100000, guid: df82cd53cf537fd4a8462b1f3cce136f, type: 2}
   Heath: {fileID: 100000, guid: c1ff85c46003d434fbbe65a582bbdcec, type: 2}
   Water: {fileID: 100000, guid: d9caf16124a1f8f4cbccf793606d56bc, type: 2}
+  TNT: {fileID: 0}
+  LevelData:
+  - {fileID: 11400004}
+  - {fileID: 11400006}
+  - {fileID: 11400008}
+  - {fileID: 11400010}
+  - {fileID: 11400002}
   WorldWidth: 100
   WorldHeight: 20
   BlockOffSet: 100
@@ -70,6 +217,8 @@ MonoBehaviour:
   MinGold: 0
   MaxHealthBoxes: 10
   MinHealthBoxes: 1
+  MaxTNT: 5
+  MinTNT: 0
   MaxLavaPools: 10
   MinLavaPools: 3
   MinLavaPoolHeight: 2
@@ -88,6 +237,186 @@ MonoBehaviour:
   MaxWaterPoolHeight: 8
   MinWaterPoolWidth: 5
   MaxWaterPoolWidth: 20
+--- !u!114 &11400002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73e3a7146c038344ea772dccc726270e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Distance: 20
+  MaxGemstones: 30
+  MinGemstones: 10
+  MaxGold: 3
+  MinGold: 1
+  MaxHealthBoxes: 5
+  MinHealthBoxes: 1
+  MaxLavaPools: 10
+  MinLavaPools: 7
+  MinLavaPoolHeight: 4
+  MaxLavaPoolHeight: 7
+  MinLavaPoolWidth: 6
+  MaxLavaPoolWidth: 12
+  MaxSlimePools: 5
+  MinSlimePools: 3
+  MinSlimePoolHeight: 3
+  MaxSlimePoolHeight: 5
+  MinSlimePoolWidth: 2
+  MaxSlimePoolWidth: 5
+  MaxWaterPools: 10
+  MinWaterPools: 5
+  MinWaterPoolHeight: 1
+  MaxWaterPoolHeight: 10
+  MinWaterPoolWidth: 10
+  MaxWaterPoolWidth: 5
+--- !u!114 &11400004
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73e3a7146c038344ea772dccc726270e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Distance: 0
+  MaxGemstones: 30
+  MinGemstones: 10
+  MaxGold: 0
+  MinGold: 0
+  MaxHealthBoxes: 10
+  MinHealthBoxes: 1
+  MaxLavaPools: 0
+  MinLavaPools: 0
+  MinLavaPoolHeight: 0
+  MaxLavaPoolHeight: 0
+  MinLavaPoolWidth: 0
+  MaxLavaPoolWidth: 0
+  MaxSlimePools: 0
+  MinSlimePools: 0
+  MinSlimePoolHeight: 0
+  MaxSlimePoolHeight: 0
+  MinSlimePoolWidth: 0
+  MaxSlimePoolWidth: 0
+  MaxWaterPools: 10
+  MinWaterPools: 5
+  MinWaterPoolHeight: 1
+  MaxWaterPoolHeight: 10
+  MinWaterPoolWidth: 10
+  MaxWaterPoolWidth: 5
+--- !u!114 &11400006
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73e3a7146c038344ea772dccc726270e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Distance: 2
+  MaxGemstones: 30
+  MinGemstones: 10
+  MaxGold: 0
+  MinGold: 0
+  MaxHealthBoxes: 10
+  MinHealthBoxes: 1
+  MaxLavaPools: 5
+  MinLavaPools: 3
+  MinLavaPoolHeight: 2
+  MaxLavaPoolHeight: 3
+  MinLavaPoolWidth: 3
+  MaxLavaPoolWidth: 6
+  MaxSlimePools: 0
+  MinSlimePools: 0
+  MinSlimePoolHeight: 0
+  MaxSlimePoolHeight: 0
+  MinSlimePoolWidth: 0
+  MaxSlimePoolWidth: 0
+  MaxWaterPools: 10
+  MinWaterPools: 5
+  MinWaterPoolHeight: 1
+  MaxWaterPoolHeight: 10
+  MinWaterPoolWidth: 10
+  MaxWaterPoolWidth: 5
+--- !u!114 &11400008
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73e3a7146c038344ea772dccc726270e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Distance: 10
+  MaxGemstones: 30
+  MinGemstones: 10
+  MaxGold: 1
+  MinGold: 0
+  MaxHealthBoxes: 10
+  MinHealthBoxes: 1
+  MaxLavaPools: 10
+  MinLavaPools: 5
+  MinLavaPoolHeight: 3
+  MaxLavaPoolHeight: 5
+  MinLavaPoolWidth: 4
+  MaxLavaPoolWidth: 10
+  MaxSlimePools: 0
+  MinSlimePools: 0
+  MinSlimePoolHeight: 0
+  MaxSlimePoolHeight: 0
+  MinSlimePoolWidth: 0
+  MaxSlimePoolWidth: 0
+  MaxWaterPools: 10
+  MinWaterPools: 5
+  MinWaterPoolHeight: 1
+  MaxWaterPoolHeight: 10
+  MinWaterPoolWidth: 10
+  MaxWaterPoolWidth: 5
+--- !u!114 &11400010
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73e3a7146c038344ea772dccc726270e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Distance: 15
+  MaxGemstones: 30
+  MinGemstones: 10
+  MaxGold: 1
+  MinGold: 0
+  MaxHealthBoxes: 10
+  MinHealthBoxes: 1
+  MaxLavaPools: 10
+  MinLavaPools: 5
+  MinLavaPoolHeight: 3
+  MaxLavaPoolHeight: 5
+  MinLavaPoolWidth: 4
+  MaxLavaPoolWidth: 10
+  MaxSlimePools: 3
+  MinSlimePools: 0
+  MinSlimePoolHeight: 3
+  MaxSlimePoolHeight: 5
+  MinSlimePoolWidth: 2
+  MaxSlimePoolWidth: 5
+  MaxWaterPools: 10
+  MinWaterPools: 5
+  MinWaterPoolHeight: 1
+  MaxWaterPoolHeight: 10
+  MinWaterPoolWidth: 10
+  MaxWaterPoolWidth: 5
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
