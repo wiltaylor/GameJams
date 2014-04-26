@@ -9,6 +9,7 @@ public class PlayerHealth : MonoBehaviour
     public int Money = 0;
     public AudioClip MoneySound;
     public AudioClip HurtSound;
+    public AudioClip HealthSound;
 
     private AudioSource _audioSource;
     private float _hurtTime = -1f;
@@ -45,5 +46,14 @@ public class PlayerHealth : MonoBehaviour
     {
         Money += ammount;
         AudioSource.PlayClipAtPoint(MoneySound, transform.position);
+    }
+
+    void PickUpHealth(float ammount)
+    {
+        Health += ammount;
+        if (Health > MaxHealth)
+            Health = MaxHealth;
+
+        AudioSource.PlayClipAtPoint(HealthSound, transform.position);
     }
 }

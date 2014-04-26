@@ -13,6 +13,7 @@ public class LevelGenerator : MonoBehaviour
     public GameObject GemStones;
     public GameObject Slime;
     public GameObject Gold;
+    public GameObject Heath;
 
     public int WorldWidth = 100;
     public int WorldHeight = 100;
@@ -24,6 +25,8 @@ public class LevelGenerator : MonoBehaviour
     public int MinGemstones = 10;
     public int MaxGold = 3;
     public int MinGold = 0;
+    public int MaxHealthBoxes = 10;
+    public int MinHealthBoxes = 1;
     
     public int MaxLavaPools = 3;
     public int MinLavaPools = 0;
@@ -111,6 +114,7 @@ public class LevelGenerator : MonoBehaviour
 
         world = AddOre(3, MaxGemstones, MinGemstones, world);
         world = AddOre(5, MaxGold, MinGold, world);
+        world = AddOre(6, MaxHealthBoxes, MinHealthBoxes, world);
 
         world = GeneratePool(2, MaxLavaPools, MinLavaPools, MaxLavaPoolWidth, MinLavaPoolWidth, MaxLavaPoolHeight,
             MinLavaPoolHeight, world);
@@ -136,6 +140,8 @@ public class LevelGenerator : MonoBehaviour
                     newBlock = (GameObject) Instantiate(Slime);
                 if (world[x, y] == 5)
                     newBlock = (GameObject) Instantiate(Gold);
+                if (world[x, y] == 6)
+                    newBlock = (GameObject) Instantiate((Heath));
 
                 if (newBlock == null)
                 {
