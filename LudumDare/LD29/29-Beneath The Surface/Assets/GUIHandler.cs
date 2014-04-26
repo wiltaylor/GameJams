@@ -10,7 +10,7 @@ public class GUIHandler : MonoBehaviour
     public Texture2D HPBarFull;
     public GUISkin GameOverSkin;
     public GUISkin NormalGUISkin;
-
+    public AudioClip GameOverSound;
 
     private PlayerHealth _healthController;
     private PlayerMovment _moveController;
@@ -33,17 +33,22 @@ public class GUIHandler : MonoBehaviour
 
         if (healthNorm == 0f)
         {
+            if (!GameOverMode)
+            {
+                AudioSource.PlayClipAtPoint(GameOverSound, transform.position);
+            }
+
             GameOverMode = true;
-            var score = distance*money;
+            var score = (int)distance*money;
             GUI.Label(new Rect(0, 0, Screen.width, Screen.height), string.Format("GAME OVER!\n SCORE: {0}", score), GameOverSkin.GetStyle("label"));
         }
         else
         {
             GUI.BeginGroup(new Rect(0, 0, 256, 32));
-                GUI.Box(new Rect(0, 0, 256, 32), HPBarEmpty);
+                GUI.DrawTexture(new Rect(0, 0, 256, 32), HPBarEmpty);
 
                 GUI.BeginGroup(new Rect(0, 0, 256f*healthNorm, 32));
-                    GUI.Box(new Rect(0, 0, 256f, 32), HPBarFull);
+                    GUI.DrawTexture(new Rect(0, 0, 256f, 32), HPBarFull);
                 GUI.EndGroup();
             GUI.EndGroup();
 
