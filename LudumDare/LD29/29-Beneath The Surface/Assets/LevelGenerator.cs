@@ -74,9 +74,6 @@ public class LevelGenerator : MonoBehaviour
         for (var y = 0; y < WorldHeight; y++)
         {
             for (var x = 0; x < WorldWidth; x++)
-                if(y < 5)
-                    World[x, y] = 2;
-                else
                     World[x, y] = 0;
 
             World[0, y] = 1;

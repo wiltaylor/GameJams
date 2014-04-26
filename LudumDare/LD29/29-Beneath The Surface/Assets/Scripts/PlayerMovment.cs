@@ -7,13 +7,15 @@ public class PlayerMovment : MonoBehaviour {
     public float RotateSpeed = 1f;
     public float MaxLeftAngle = 275f;
     public float MaxRightAngle = 75f;
+    public float BombRadius = 0.00000001f;
 
-	// Use this for initialization
-	void Start () {
-	
+    private GameObject _bomb;
+
+	void Start ()
+	{
+	    _bomb = transform.FindChild("Bomb").gameObject;
 	}
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetAxis("Horizontal") > 0f)
@@ -33,6 +35,11 @@ public class PlayerMovment : MonoBehaviour {
             Debug.Log(transform.eulerAngles); //260
 
         }
+
+        if (Input.GetButton("Bomb"))
+        {
+            _bomb.SetActive(true);
+        }
     }
 
     void FixedUpdate()
@@ -51,5 +58,10 @@ public class PlayerMovment : MonoBehaviour {
 
             
         }
+    }
+
+    void OnBomb()
+    {
+        rigidbody2D.AddForce(new Vector2(0, 10f));
     }
 }
