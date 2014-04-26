@@ -382,6 +382,54 @@ Light:
   m_ShadowAngle: 0
   m_IndirectIntensity: 1
   m_AreaSize: {x: 1, y: 1}
+--- !u!1001 &1730190901
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 400000, guid: 98131292851fca046a34d06e3d621993, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 98131292851fca046a34d06e3d621993, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 98131292851fca046a34d06e3d621993, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 98131292851fca046a34d06e3d621993, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 98131292851fca046a34d06e3d621993, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 98131292851fca046a34d06e3d621993, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 98131292851fca046a34d06e3d621993, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 98131292851fca046a34d06e3d621993, type: 2}
+      propertyPath: m_Name
+      value: LevelGenerator
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 98131292851fca046a34d06e3d621993, type: 2}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 636347316}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 98131292851fca046a34d06e3d621993, type: 2}
+  m_RootGameObject: {fileID: 2012207336}
+  m_IsPrefabParent: 0
+  m_IsExploded: 1
 --- !u!1 &1762924250
 GameObject:
   m_ObjectHideFlags: 0
@@ -497,14 +545,14 @@ MonoBehaviour:
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 100000, guid: 98131292851fca046a34d06e3d621993, type: 2}
-  m_PrefabInternal: {fileID: 2089062781}
+  m_PrefabInternal: {fileID: 1730190901}
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 2012207339}
   - 61: {fileID: 2012207338}
   - 114: {fileID: 2012207337}
   m_Layer: 0
-  m_Name: BottomTrigger
+  m_Name: LevelGenerator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -515,7 +563,7 @@ MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 11400000, guid: 98131292851fca046a34d06e3d621993,
     type: 2}
-  m_PrefabInternal: {fileID: 2089062781}
+  m_PrefabInternal: {fileID: 1730190901}
   m_GameObject: {fileID: 2012207336}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -541,18 +589,18 @@ MonoBehaviour:
   MaxLavaPoolHeight: 8
   MinLavaPoolWidth: 1
   MaxLavaPoolWidth: 20
-  MaxSlimePools: 3
-  MinSlimePools: 0
-  MinSlimePoolHeight: 1
-  MaxSlimePoolHeight: 3
-  MinSlimePoolWidth: 1
-  MaxSlimePoolWidth: 5
+  MaxSlimePools: 10
+  MinSlimePools: 1
+  MinSlimePoolHeight: 2
+  MaxSlimePoolHeight: 5
+  MinSlimePoolWidth: 2
+  MaxSlimePoolWidth: 10
 --- !u!61 &2012207338
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 6100000, guid: 98131292851fca046a34d06e3d621993,
     type: 2}
-  m_PrefabInternal: {fileID: 2089062781}
+  m_PrefabInternal: {fileID: 1730190901}
   m_GameObject: {fileID: 2012207336}
   m_Enabled: 1
   m_Material: {fileID: 0}
@@ -563,7 +611,7 @@ BoxCollider2D:
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 400000, guid: 98131292851fca046a34d06e3d621993, type: 2}
-  m_PrefabInternal: {fileID: 2089062781}
+  m_PrefabInternal: {fileID: 1730190901}
   m_GameObject: {fileID: 2012207336}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -10, z: 0}
@@ -616,61 +664,5 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4a046eb1e02c7b246bba4a52d0f30ae4, type: 2}
   m_RootGameObject: {fileID: 636347316}
-  m_IsPrefabParent: 0
-  m_IsExploded: 1
---- !u!1001 &2089062781
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 400000, guid: 98131292851fca046a34d06e3d621993, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 98131292851fca046a34d06e3d621993, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -10
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 98131292851fca046a34d06e3d621993, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 98131292851fca046a34d06e3d621993, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 98131292851fca046a34d06e3d621993, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 98131292851fca046a34d06e3d621993, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 98131292851fca046a34d06e3d621993, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400000, guid: 98131292851fca046a34d06e3d621993, type: 2}
-      propertyPath: Player
-      value: 
-      objectReference: {fileID: 636347316}
-    - target: {fileID: 11400000, guid: 98131292851fca046a34d06e3d621993, type: 2}
-      propertyPath: MaxLavaPoolHeight
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400000, guid: 98131292851fca046a34d06e3d621993, type: 2}
-      propertyPath: MaxLavaPoolWidth
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400000, guid: 98131292851fca046a34d06e3d621993, type: 2}
-      propertyPath: Slime
-      value: 
-      objectReference: {fileID: 100000, guid: 948f3bb7bf5b8ba40a6c8a4f4c201d50, type: 2}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 98131292851fca046a34d06e3d621993, type: 2}
-  m_RootGameObject: {fileID: 2012207336}
   m_IsPrefabParent: 0
   m_IsExploded: 1
