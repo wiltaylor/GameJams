@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Runtime.Serialization.Formatters;
 using UnityEngine;
 using System.Collections.Generic;
@@ -16,6 +17,7 @@ public class LevelGenerator : MonoBehaviour
     public GameObject Gold;
     public GameObject Heath;
     public GameObject Water;
+    public LevelGenerationDataScript[] LevelData;
 
     public int WorldWidth = 100;
     public int WorldHeight = 100;
@@ -73,6 +75,51 @@ public class LevelGenerator : MonoBehaviour
             Player.SetActive(false);
 	}
 
+    void GetLevelSettings()
+    {
+
+        if (LevelData.Length == 0)
+            return;
+
+        int index = 0;
+
+        for (int i = 0; i < LevelData.Length; i++)
+        {
+            if (LevelData[i].Distance < _movmentScript.DistanceTraveled)
+                index = i;
+            else
+                break;
+        }
+
+        MaxGemstones = LevelData[index].MaxGemstones;
+        MinGemstones = LevelData[index].MinGemstones;
+        MaxGold = LevelData[index].MaxGold;
+        MinGold = LevelData[index].MinGold;
+        MaxHealthBoxes = LevelData[index].MaxHealthBoxes;
+        MinHealthBoxes = LevelData[index].MinHealthBoxes;
+
+        MaxLavaPools = LevelData[index].MaxLavaPools;
+        MinLavaPools = LevelData[index].MinLavaPools;
+        MinLavaPoolHeight = LevelData[index].MinLavaPoolHeight;
+        MaxLavaPoolHeight = LevelData[index].MaxLavaPoolHeight;
+        MinLavaPoolWidth = LevelData[index].MinLavaPoolWidth;
+        MaxLavaPoolWidth = LevelData[index].MaxLavaPoolWidth;
+
+        MaxSlimePools = LevelData[index].MaxSlimePools;
+        MinSlimePools = LevelData[index].MinSlimePools;
+        MinSlimePoolHeight = LevelData[index].MinSlimePoolHeight;
+        MaxSlimePoolHeight = LevelData[index].MaxSlimePoolHeight;
+        MinSlimePoolWidth = LevelData[index].MinSlimePoolWidth;
+        MaxSlimePoolWidth = LevelData[index].MaxSlimePoolWidth;
+
+        MaxWaterPools = LevelData[index].MaxWaterPools;
+        MinWaterPools = LevelData[index].MinWaterPools;
+        MinWaterPoolHeight = LevelData[index].MinWaterPoolHeight;
+        MaxWaterPoolHeight = LevelData[index].MaxWaterPoolHeight;
+        MinWaterPoolWidth = LevelData[index].MinWaterPoolWidth;
+        MaxWaterPoolWidth = LevelData[index].MaxWaterPoolHeight;
+    }
+
     void OnTriggerEnter2D(Collider2D collider)
     {
 
@@ -104,6 +151,8 @@ public class LevelGenerator : MonoBehaviour
 
     IEnumerator GenerateWorld()
     {
+
+        GetLevelSettings();
 
         collider.size = new Vector2((BlockWidth * WorldWidth) / BlockOffSet, BlockHeight / BlockOffSet);
         transform.position = new Vector3(-(BlockWidth / 2) / BlockOffSet, (BlockHeight * WorldHeight / BlockOffSet) / 2, 0f);

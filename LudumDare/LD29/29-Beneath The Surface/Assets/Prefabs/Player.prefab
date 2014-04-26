@@ -209,7 +209,7 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 1
+  m_Lightmapping: 0
   m_ShadowSamples: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -245,6 +245,7 @@ MonoBehaviour:
   MoneySound: {fileID: 8300000, guid: e412e9dfa116a4f4ab7f1af83756eda2, type: 3}
   HurtSound: {fileID: 8300000, guid: 7586da3b8deb45c4eab4656a49eca731, type: 3}
   HealthSound: {fileID: 8300000, guid: 5019651f5a740874abc11647baca493a, type: 3}
+  CurrentHurtTime: -1
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1

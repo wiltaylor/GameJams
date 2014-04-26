@@ -11,12 +11,22 @@ public class LavaHandler : MonoBehaviour
         if (DamageAmmount == 0)
             return;
 
-        if(collider.tag == "Player")
+        if (collider.tag != "Player") 
+            return;
+
+        var health = collider.GetComponent<PlayerHealth>();
+
+        if(health.CurrentHurtTime < 0f)
             collider.gameObject.SendMessage("Damage", DamageAmmount);
     }
 
     void OnDrill(GameObject player)
     {
         //do nothing.
+    }
+
+    void OnBomb(int ammount)
+    {
+        //Do nothing.
     }
 }

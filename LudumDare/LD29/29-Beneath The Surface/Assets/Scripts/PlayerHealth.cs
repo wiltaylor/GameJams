@@ -12,7 +12,7 @@ public class PlayerHealth : MonoBehaviour
     public AudioClip HealthSound;
 
     private AudioSource _audioSource;
-    private float _hurtTime = -1f;
+    public float CurrentHurtTime = -1f;
 	// Use this for initialization
 	void Start ()
 	{
@@ -21,23 +21,23 @@ public class PlayerHealth : MonoBehaviour
 	
 	// Update is called once per frame
 	void Update () {
-	    if (Health < 0f)
+	    if (Health <= 0f)
 	    {
 	        gameObject.SetActive(false);
 	    }
 
-	    if (_hurtTime > 0f)
-	        _hurtTime -= Time.deltaTime;
+	    if (CurrentHurtTime > 0f)
+	        CurrentHurtTime -= Time.deltaTime;
 	}
 
     void Damage(float ammout)
     {
         Health -= ammout;
 
-        if (_hurtTime < 0f)
+        if (CurrentHurtTime < 0f)
         {
             AudioSource.PlayClipAtPoint(HurtSound, transform.position);
-            _hurtTime = HurtTimeOut;
+            CurrentHurtTime = HurtTimeOut;
         }
 
     }
