@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
 
 public class CameraFollow : MonoBehaviour
@@ -15,6 +16,14 @@ public class CameraFollow : MonoBehaviour
 	// Update is called once per frame
 	void LateUpdate ()
 	{
-        transform.position = new Vector3(followObject.position.x, followObject.position.y, -10);
+	    try
+	    {
+            transform.position = new Vector3(followObject.position.x, followObject.position.y, -10);
+	    }
+	    catch (Exception)
+	    {
+	        //Do nothing player is destroyed.
+	    }
+        
 	}
 }

@@ -59,9 +59,4 @@ public class PlayerMovment : MonoBehaviour {
             
         }
     }
-
-    void OnBomb()
-    {
-        rigidbody2D.AddForce(new Vector2(0, 10f));
-    }
 }
