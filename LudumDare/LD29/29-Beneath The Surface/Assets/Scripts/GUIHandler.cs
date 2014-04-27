@@ -14,12 +14,14 @@ public class GUIHandler : MonoBehaviour
 
     private PlayerHealth _healthController;
     private PlayerMovment _moveController;
+    private AudioSource _music;
     private bool GameOverMode = false;
 
     void Start() 
     {
         _healthController = Player.GetComponent<PlayerHealth>();
         _moveController = Player.GetComponent<PlayerMovment>();
+        _music = GetComponent<AudioSource>();
     }
 
     void OnGUI()
@@ -35,7 +37,8 @@ public class GUIHandler : MonoBehaviour
         {
             if (!GameOverMode)
             {
-                AudioSource.PlayClipAtPoint(GameOverSound, transform.position);
+                _music.Stop();
+                AudioSource.PlayClipAtPoint(GameOverSound, transform.position);               
             }
 
             GameOverMode = true;
@@ -52,7 +55,7 @@ public class GUIHandler : MonoBehaviour
                 GUI.EndGroup();
             GUI.EndGroup();
 
-            GUI.Label(new Rect(Screen.width - 200, 0, 200, 40), string.Format("{0} KM - ${1}", distance, money), NormalGUISkin.GetStyle("label"));
+            GUI.Label(new Rect(Screen.width - 200, 0, 200, 40), string.Format("{0} KM - Score: {1}", distance, money), NormalGUISkin.GetStyle("label"));
             
         }
     }

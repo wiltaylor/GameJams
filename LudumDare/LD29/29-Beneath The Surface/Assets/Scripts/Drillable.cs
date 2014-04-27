@@ -19,11 +19,6 @@ public class Drillable : MonoBehaviour {
             _bomb = transform.FindChild("Bomb").gameObject;
     }
 
-    public void OnBomb()
-    {
-        if (!Invulnerable)
-            Destroy(gameObject);
-    }
 
     public void Update()
     {

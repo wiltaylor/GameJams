@@ -12,6 +12,8 @@ public class LevelGenerationDataScript : MonoBehaviour
     public int MinGold = 0;
     public int MaxHealthBoxes = 10;
     public int MinHealthBoxes = 1;
+    public int MaxMonsters = 0;
+    public int MinMonsters = 0;
 
     public int MaxLavaPools = 3;
     public int MinLavaPools = 0;

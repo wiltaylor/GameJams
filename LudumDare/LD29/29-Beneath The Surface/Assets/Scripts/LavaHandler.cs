@@ -25,8 +25,4 @@ public class LavaHandler : MonoBehaviour
         //do nothing.
     }
 
-    void OnBomb(int ammount)
-    {
-        //Do nothing.
-    }
 }

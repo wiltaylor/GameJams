@@ -18,6 +18,7 @@ public class LevelGenerator : MonoBehaviour
     public GameObject Gold;
     public GameObject Heath;
     public GameObject Water;
+    public GameObject Monster;
     public LevelGenerationDataScript[] LevelData;
 
     public int WorldWidth = 100;
@@ -32,6 +33,9 @@ public class LevelGenerator : MonoBehaviour
     public int MinGold = 0;
     public int MaxHealthBoxes = 10;
     public int MinHealthBoxes = 1;
+    public int MaxMonsters = 1;
+    public int MinMonsters = 1;
+    public float MaxMonsterHight = 8f;
     
     public int MaxLavaPools = 3;
     public int MinLavaPools = 0;
@@ -54,10 +58,14 @@ public class LevelGenerator : MonoBehaviour
     public int MinWaterPoolWidth = 1;
     public int MaxWaterPoolWidth = 5;
 
+
+
+
     private float _xOffset = 0f;
     private new BoxCollider2D collider;
     private List<GameObject> _currentBlocks = new List<GameObject>();
     private List<GameObject> _lastBlocks = new List<GameObject>();
+    private List<GameObject> _monsters = new List<GameObject>(); 
     private bool _firstLoad = true;
     private PlayerMovment _movmentScript;
     
@@ -100,6 +108,8 @@ public class LevelGenerator : MonoBehaviour
         MinGold = LevelData[index].MinGold;
         MaxHealthBoxes = LevelData[index].MaxHealthBoxes;
         MinHealthBoxes = LevelData[index].MinHealthBoxes;
+        MaxMonsters = LevelData[index].MaxMonsters;
+        MinMonsters = LevelData[index].MinMonsters;
 
         MaxLavaPools = LevelData[index].MaxLavaPools;
         MinLavaPools = LevelData[index].MinLavaPools;
@@ -126,6 +136,9 @@ public class LevelGenerator : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collider)
     {
 
+        if (collider.tag != "Player")
+            return;
+
         foreach(var i in _lastBlocks)
             Destroy(i);
 
@@ -135,6 +148,18 @@ public class LevelGenerator : MonoBehaviour
         Player.transform.position = new Vector3(Player.transform.position.x, Player.transform.position.y + distance, 0f);
 
         foreach (var i in _currentBlocks)
+        {
+            try
+            {
+                i.transform.position = new Vector3(i.transform.position.x, i.transform.position.y + distance, 0f);
+            }
+            catch (Exception)
+            {
+                //Skip exceptions. It will be destroyed objects.
+            }
+        }
+
+        foreach (var i in _monsters)
         {
             try
             {
@@ -226,9 +251,41 @@ public class LevelGenerator : MonoBehaviour
                     (y*BlockHeight)/BlockOffSet, 0f);
 
                 _currentBlocks.Add(newBlock);
+
             }
 
             yield return 0;
+        }
+
+        var monsterCount = UnityEngine.Random.Range(MinMonsters, MaxMonsters);
+        _monsters.RemoveAll(m =>
+        {
+            if (m.transform.position.y > MaxMonsterHight)
+            {
+                Destroy(m);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        });
+
+        if (_monsters.Count < monsterCount)
+        {
+            Debug.Log(string.Format("Creating new monster level monster count is {0} and current monster count is {1}", monsterCount, _monsters.Count));
+            for (var i = 0; _monsters.Count < monsterCount; i++)
+            {
+                var x = UnityEngine.Random.Range(0, WorldWidth - 1);
+                var y = UnityEngine.Random.Range(0, WorldHeight - 1);
+                var newMonster = (GameObject)Instantiate(Monster);
+
+                newMonster.transform.position = new Vector3(_xOffset + (x * BlockWidth) / BlockOffSet,
+                    (y * BlockHeight) / BlockOffSet, 0f);
+
+
+                _monsters.Add(newMonster);
+            }
         }
 
         if (!_firstLoad) yield break;
