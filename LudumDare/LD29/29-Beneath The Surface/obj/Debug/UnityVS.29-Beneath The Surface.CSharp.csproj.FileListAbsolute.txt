@@ -5,3 +5,5 @@ C:\Projects\Ludum Dare\29\29-Beneath The Surface\Temp\UnityVS_bin\Debug\UnityEng
 C:\Projects\Ludum Dare\29\29-Beneath The Surface\obj\Debug\UnityVS.29-Beneath The Surface.CSharp.csprojResolveAssemblyReference.cache
 C:\Projects\Ludum Dare\29\29-Beneath The Surface\obj\Debug\Assembly-CSharp.dll
 C:\Projects\Ludum Dare\29\29-Beneath The Surface\obj\Debug\Assembly-CSharp.pdb
+C:\Projects\Ludum Dare\29\29-Beneath The Surface\Temp\UnityVS_bin\Debug\UnityEngine.xml
+C:\Projects\Ludum Dare\29\29-Beneath The Surface\Temp\UnityVS_bin\Debug\UnityEditor.xml

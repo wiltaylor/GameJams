@@ -23,6 +23,7 @@ public class BombScript : MonoBehaviour
 	
     void OnTriggerStay2D(Collider2D collider)
     {
+        Debug.Log("Colided with " + collider.name);
         collider.gameObject.SendMessage("OnBomb");
     }
 

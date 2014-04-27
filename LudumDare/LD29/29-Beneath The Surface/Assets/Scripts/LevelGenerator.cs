@@ -18,7 +18,6 @@ public class LevelGenerator : MonoBehaviour
     public GameObject Gold;
     public GameObject Heath;
     public GameObject Water;
-    public GameObject TNT;
     public LevelGenerationDataScript[] LevelData;
 
     public int WorldWidth = 100;
@@ -33,8 +32,6 @@ public class LevelGenerator : MonoBehaviour
     public int MinGold = 0;
     public int MaxHealthBoxes = 10;
     public int MinHealthBoxes = 1;
-    public int MaxTNT = 5;
-    public int MinTNT = 0;
     
     public int MaxLavaPools = 3;
     public int MinLavaPools = 0;
@@ -182,8 +179,6 @@ public class LevelGenerator : MonoBehaviour
         yield return 0;
         world = AddOre(6, MaxHealthBoxes, MinHealthBoxes, world);
         yield return 0;
-        world = AddOre(8, MaxTNT, MinTNT, world);
-        yield return 0;
 
         world = GeneratePool(2, MaxLavaPools, MinLavaPools, MaxLavaPoolWidth, MinLavaPoolWidth, MaxLavaPoolHeight,
             MinLavaPoolHeight, world, new[] {0, 3, 5, 6, 8});
@@ -220,8 +215,6 @@ public class LevelGenerator : MonoBehaviour
                     newBlock = (GameObject) Instantiate(Heath);
                 if (world[x, y] == 7)
                     newBlock = (GameObject) Instantiate(Water);
-                if (world[x, y] == 8)
-                    newBlock = (GameObject)Instantiate(TNT);
 
                 if (newBlock == null)
                 {
