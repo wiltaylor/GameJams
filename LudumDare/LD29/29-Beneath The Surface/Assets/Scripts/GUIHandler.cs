@@ -48,7 +48,7 @@ public class GUIHandler : MonoBehaviour
 
             GameOverMode = true;
             var score = (int)distance*money;
-            GUI.Label(new Rect(0, 0, Screen.width, Screen.height), string.Format("GAME OVER!\n SCORE: {0}\nPress Space To Restart", score), GameOverSkin.GetStyle("label"));
+            GUI.Label(new Rect(0, 0, Screen.width, Screen.height), string.Format("GAME OVER!\n\nResource Score: {0}\nDistance Traveled: {1}KM\nTotal Score: {2}\nPress Space To Restart", money, distance, score), GameOverSkin.GetStyle("label"));
         }
         else
         {
