@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-using System.Runtime.Serialization.Formatters;
 using UnityEngine;
 using System.Collections.Generic;
 
@@ -19,6 +16,8 @@ public class LevelGenerator : MonoBehaviour
     public GameObject Heath;
     public GameObject Water;
     public GameObject Monster;
+    public GameObject SlowBlock;
+    public GameObject Dimond;
     public LevelGenerationDataScript[] LevelData;
 
     public int WorldWidth = 100;
@@ -33,6 +32,8 @@ public class LevelGenerator : MonoBehaviour
     public int MinGold = 0;
     public int MaxHealthBoxes = 10;
     public int MinHealthBoxes = 1;
+    public int MaxDimond = 0;
+    public int MinDimond = 0;
     public int MaxMonsters = 1;
     public int MinMonsters = 1;
     public float MaxMonsterHight = 8f;
@@ -57,9 +58,13 @@ public class LevelGenerator : MonoBehaviour
     public int MaxWaterPoolHeight = 3;
     public int MinWaterPoolWidth = 1;
     public int MaxWaterPoolWidth = 5;
-
-
-
+    
+    public int MaxSlowBlockPool = 0;
+    public int MinSlowBlockPool = 0;
+    public int MaxSlowBlockPoolHeight = 0;
+    public int MinSlowBlockPoolHeight = 0;
+    public int MaxSlowBlockPoolWidth = 0;
+    public int MinSlowBlockPoolWidth = 0;
 
     private float _xOffset = 0f;
     private new BoxCollider2D collider;
@@ -75,6 +80,7 @@ public class LevelGenerator : MonoBehaviour
 	    _movmentScript = Player.GetComponent<PlayerMovment>();
         collider = GetComponent<BoxCollider2D>();
         StartCoroutine("GenerateWorld");
+        _lastBlocks.AddRange(GameObject.FindGameObjectsWithTag("Block"));
 	    
 	}
 	
@@ -110,6 +116,8 @@ public class LevelGenerator : MonoBehaviour
         MinHealthBoxes = LevelData[index].MinHealthBoxes;
         MaxMonsters = LevelData[index].MaxMonsters;
         MinMonsters = LevelData[index].MinMonsters;
+        MaxDimond = LevelData[index].MaxDimond;
+        MinDimond = LevelData[index].MinDimond;
 
         MaxLavaPools = LevelData[index].MaxLavaPools;
         MinLavaPools = LevelData[index].MinLavaPools;
@@ -131,6 +139,13 @@ public class LevelGenerator : MonoBehaviour
         MaxWaterPoolHeight = LevelData[index].MaxWaterPoolHeight;
         MinWaterPoolWidth = LevelData[index].MinWaterPoolWidth;
         MaxWaterPoolWidth = LevelData[index].MaxWaterPoolHeight;
+
+        MaxSlowBlockPool = LevelData[index].MaxSlowBlockPool;
+        MinSlowBlockPool = LevelData[index].MinSlowBlockPool;
+        MaxSlowBlockPoolHeight = LevelData[index].MaxSlowBlockPoolHeight;
+        MinSlowBlockPoolHeight = LevelData[index].MinSlowBlockPoolHeight;
+        MaxSlowBlockPoolWidth = LevelData[index].MaxSlowBlockPoolWidth;
+        MinSlowBlockPoolWidth = LevelData[index].MinSlowBlockPoolWidth;
     }
 
 
@@ -210,18 +225,23 @@ public class LevelGenerator : MonoBehaviour
         yield return 0;
         world = AddOre(6, MaxHealthBoxes, MinHealthBoxes, world);
         yield return 0;
+        world = AddOre(9, MaxDimond, MinDimond, world);
 
         world = GeneratePool(2, MaxLavaPools, MinLavaPools, MaxLavaPoolWidth, MinLavaPoolWidth, MaxLavaPoolHeight,
-            MinLavaPoolHeight, world, new[] {0, 3, 5, 6, 8});
+            MinLavaPoolHeight, world, new[] {0, 3, 5, 6, 9});
         yield return 0;
 
         world = GeneratePool(4, MaxSlimePools, MinSlimePools, MaxSlimePoolWidth, MinSlimePoolWidth,
             MaxSlimePoolHeight,
-            MinSlimePoolHeight, world, new[] {0, 3, 5, 6, 8});
+            MinSlimePoolHeight, world, new[] {0, 3, 5, 6,  9});
         yield return 0;
 
         world = GeneratePool(7, MaxWaterPools, MinWaterPools, MaxWaterPoolWidth, MinWaterPoolWidth, MaxWaterPoolHeight,
-            MinWaterPoolHeight, world, new [] {0, 3, 5, 6, 8});
+            MinWaterPoolHeight, world, new [] {0, 3, 5, 6, 9});
+        yield return 0;
+
+        world = GeneratePool(8, MaxSlowBlockPool, MinSlowBlockPool, MaxSlowBlockPoolWidth, MinSlowBlockPoolWidth, MaxSlowBlockPoolHeight,
+            MinSlowBlockPoolHeight, world, new[] { 0, 3, 5, 6, 9 });
         yield return 0;
 
         for (var y = 0; y < WorldHeight; y++)
@@ -246,6 +266,10 @@ public class LevelGenerator : MonoBehaviour
                     newBlock = (GameObject) Instantiate(Heath);
                 if (world[x, y] == 7)
                     newBlock = (GameObject) Instantiate(Water);
+                if (world[x, y] == 8)
+                    newBlock = (GameObject) Instantiate(SlowBlock);
+                if (world[x, y] == 9)
+                    newBlock = (GameObject) Instantiate(Dimond);
 
                 if (newBlock == null)
                 {

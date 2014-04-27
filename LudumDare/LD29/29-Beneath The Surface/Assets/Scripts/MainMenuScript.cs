@@ -28,7 +28,8 @@ public class MainMenuScript : MonoBehaviour
 
         GUI.DrawTexture(new Rect(0,0,Screen.width, Screen.height), Backdrop);
         GUI.DrawTexture(new Rect(100, 50, 256, 64), Logo);
-        GUI.DrawTexture(new Rect(500, 0, 256, 512), HowToPlayImage);
+        GUI.DrawTexture(new Rect(Screen.width - 356, 50, 256, 512), HowToPlayImage);
+        GUI.Label(new Rect(Screen.width - 170, Screen.height - 40, 170, 40), "Copyright Wil Taylor 2014\nCreated for Ludum Dare #29");
 
         GUI.backgroundColor = new Color(0, 0, 0, 0);
         GUI.skin = GUINormal;

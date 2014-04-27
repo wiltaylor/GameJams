@@ -13,7 +13,7 @@ GameObject:
   - 61: {fileID: 6100000}
   m_Layer: 0
   m_Name: GemStones
-  m_TagString: Untagged
+  m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55,6 +55,8 @@ MonoBehaviour:
   Invulnerable: 0
   MoneyOnDestruct: 10
   LifeGainOnDestruct: 0
+  IsBomb: 0
+  BombCountDown: 1
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

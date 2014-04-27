@@ -14,6 +14,8 @@ public class LevelGenerationDataScript : MonoBehaviour
     public int MinHealthBoxes = 1;
     public int MaxMonsters = 0;
     public int MinMonsters = 0;
+    public int MaxDimond = 0;
+    public int MinDimond = 0;
 
     public int MaxLavaPools = 3;
     public int MinLavaPools = 0;
@@ -35,5 +37,13 @@ public class LevelGenerationDataScript : MonoBehaviour
     public int MaxWaterPoolHeight = 3;
     public int MinWaterPoolWidth = 1;
     public int MaxWaterPoolWidth = 5;
+
+    public int MaxSlowBlockPool = 0;
+    public int MinSlowBlockPool = 0;
+    public int MaxSlowBlockPoolHeight = 0;
+    public int MinSlowBlockPoolHeight = 0;
+    public int MaxSlowBlockPoolWidth = 0;
+    public int MinSlowBlockPoolWidth = 0;
+    
 
 }

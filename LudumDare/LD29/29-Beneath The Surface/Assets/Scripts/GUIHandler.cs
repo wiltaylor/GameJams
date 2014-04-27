@@ -11,7 +11,8 @@ public class GUIHandler : MonoBehaviour
     public GUISkin GameOverSkin;
     public GUISkin NormalGUISkin;
     public AudioClip GameOverSound;
-
+    public TouchController TouchControl;
+    
     private PlayerHealth _healthController;
     private PlayerMovment _moveController;
     private AudioSource _music;
@@ -51,7 +52,7 @@ public class GUIHandler : MonoBehaviour
         }
         else
         {
-            GUI.BeginGroup(new Rect(0, 0, 256, 32));
+            GUI.BeginGroup(new Rect(10, 10, 256, 32));
                 GUI.DrawTexture(new Rect(0, 0, 256, 32), HPBarEmpty);
 
                 GUI.BeginGroup(new Rect(0, 0, 256f*healthNorm, 32));
@@ -59,8 +60,8 @@ public class GUIHandler : MonoBehaviour
                 GUI.EndGroup();
             GUI.EndGroup();
 
-            GUI.Label(new Rect(Screen.width - 200, 0, 200, 40), string.Format("{0} KM - Score: {1}", distance, money), NormalGUISkin.GetStyle("label"));
-            
+            GUI.Label(new Rect(Screen.width - 100, 0, 200, 40), string.Format("{0} KM", distance), NormalGUISkin.GetStyle("label"));
+            GUI.Label(new Rect(Screen.width / 2 - 20, 0, 200, 40), string.Format("Score: {0}", money), NormalGUISkin.GetStyle("label"));
         }
     }
 

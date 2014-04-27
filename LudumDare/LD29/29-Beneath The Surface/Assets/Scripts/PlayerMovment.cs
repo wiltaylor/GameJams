@@ -9,7 +9,7 @@ public class PlayerMovment : MonoBehaviour {
     public float MaxRightAngle = 75f;
     public float DistanceTraveled = 0f;
     public Vector3 LastPosition;
-
+    public TouchController TouchControl;
 
 	void Start ()
 	{
@@ -18,14 +18,14 @@ public class PlayerMovment : MonoBehaviour {
 
     void Update()
     {
-        if (Input.GetAxis("Horizontal") > 0f)
+        if (Input.GetAxis("Horizontal") > 0f || TouchControl.XAxis > 0f)
         {
             transform.Rotate(0, 0,RotateSpeed);
 
             rigidbody2D.AddForce(Vector2.right * MoveForce);
         }
 
-        if (Input.GetAxis("Horizontal") < 0f)
+        if (Input.GetAxis("Horizontal") < 0f || TouchControl.XAxis < 0f)
         {
             transform.Rotate(0, 0, -RotateSpeed);
             rigidbody2D.AddForce(-Vector2.right * MoveForce);

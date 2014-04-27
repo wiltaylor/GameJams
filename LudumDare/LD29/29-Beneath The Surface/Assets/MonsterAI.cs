@@ -19,7 +19,7 @@ public class MonsterAI : MonoBehaviour
 	// Update is called once per frame
 	void FixedUpdate ()
 	{
-	    if (!_player.activeInHierarchy)
+	    if (!_player.activeSelf)
 	        return;
 
 	    if (_timeOut > 0f)
