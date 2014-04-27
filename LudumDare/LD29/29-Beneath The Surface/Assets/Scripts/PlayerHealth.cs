@@ -11,12 +11,10 @@ public class PlayerHealth : MonoBehaviour
     public AudioClip HurtSound;
     public AudioClip HealthSound;
 
-    private AudioSource _audioSource;
     public float CurrentHurtTime = -1f;
 	// Use this for initialization
 	void Start ()
 	{
-	    _audioSource = GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame

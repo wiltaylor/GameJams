@@ -11,7 +11,6 @@ public class GUIHandler : MonoBehaviour
     public GUISkin GameOverSkin;
     public GUISkin NormalGUISkin;
     public AudioClip GameOverSound;
-    public TouchController TouchControl;
     
     private PlayerHealth _healthController;
     private PlayerMovment _moveController;
