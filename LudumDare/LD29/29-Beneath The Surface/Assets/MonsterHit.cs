@@ -18,7 +18,7 @@ public class MonsterHit : MonoBehaviour
         var health = collider.GetComponent<PlayerHealth>();
 
         if (health.CurrentHurtTime < 0f)
-            collider.SendMessage("Damage", DamageOnHit);
+            collider.GetComponent<PlayerHealth>().Damage(DamageOnHit);
 
         AIController.DoTimeOut();
     }

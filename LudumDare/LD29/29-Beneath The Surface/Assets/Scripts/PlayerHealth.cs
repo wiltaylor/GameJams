@@ -30,7 +30,7 @@ public class PlayerHealth : MonoBehaviour
 	        CurrentHurtTime -= Time.deltaTime;
 	}
 
-    void Damage(float ammout)
+    public void Damage(float ammout)
     {
         Health -= ammout;
 

@@ -17,7 +17,7 @@ public class LavaHandler : MonoBehaviour
         var health = collider.GetComponent<PlayerHealth>();
 
         if(health.CurrentHurtTime < 0f)
-            collider.gameObject.SendMessage("Damage", DamageAmmount);
+            collider.GetComponent<PlayerHealth>().Damage(DamageAmmount);
     }
 
     void OnDrill(GameObject player)
