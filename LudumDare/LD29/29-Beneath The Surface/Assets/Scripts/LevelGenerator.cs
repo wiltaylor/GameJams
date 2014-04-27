@@ -133,6 +133,12 @@ public class LevelGenerator : MonoBehaviour
         MaxWaterPoolWidth = LevelData[index].MaxWaterPoolHeight;
     }
 
+
+    void OnDrill(GameObject player)
+    {
+        //do nothing.
+    }
+    
     void OnTriggerEnter2D(Collider2D collider)
     {
 

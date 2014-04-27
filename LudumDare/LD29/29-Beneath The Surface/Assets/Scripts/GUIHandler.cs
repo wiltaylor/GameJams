@@ -22,6 +22,10 @@ public class GUIHandler : MonoBehaviour
         _healthController = Player.GetComponent<PlayerHealth>();
         _moveController = Player.GetComponent<PlayerMovment>();
         _music = GetComponent<AudioSource>();
+
+        if(GlobalGameSettings.Instance.MusicEnabled)
+            _music.Play();
+        
     }
 
     void OnGUI()

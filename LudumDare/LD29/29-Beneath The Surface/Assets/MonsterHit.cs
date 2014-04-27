@@ -22,4 +22,9 @@ public class MonsterHit : MonoBehaviour
 
         AIController.DoTimeOut();
     }
+
+    void OnDrill(GameObject player)
+    {
+        //do nothing.
+    }
 }

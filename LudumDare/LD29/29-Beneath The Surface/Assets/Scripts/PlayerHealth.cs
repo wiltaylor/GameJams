@@ -37,14 +37,16 @@ public class PlayerHealth : MonoBehaviour
         if (CurrentHurtTime < 0f)
         {
             CurrentHurtTime = HurtTimeOut;
-            AudioSource.PlayClipAtPoint(HurtSound, transform.position);
+            if (GlobalGameSettings.Instance.SoundEnabled)
+                AudioSource.PlayClipAtPoint(HurtSound, transform.position);
         }
     }
 
     void PickUpCash(int ammount)
     {
         Money += ammount;
-        AudioSource.PlayClipAtPoint(MoneySound, transform.position);
+        if (GlobalGameSettings.Instance.SoundEnabled)
+            AudioSource.PlayClipAtPoint(MoneySound, transform.position);
     }
 
     void PickUpHealth(float ammount)
@@ -53,6 +55,7 @@ public class PlayerHealth : MonoBehaviour
         if (Health > MaxHealth)
             Health = MaxHealth;
 
-        AudioSource.PlayClipAtPoint(HealthSound, transform.position);
+        if (GlobalGameSettings.Instance.SoundEnabled)
+            AudioSource.PlayClipAtPoint(HealthSound, transform.position);
     }
 }
