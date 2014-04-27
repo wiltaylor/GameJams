@@ -42,7 +42,7 @@ public class GUIHandler : MonoBehaviour
             if (!GameOverMode)
             {
                 _music.Stop();
-                AudioSource.PlayClipAtPoint(GameOverSound, transform.position);               
+                AudioSource.PlayClipAtPoint(GameOverSound, _healthController.transform.position);               
             }
 
             GameOverMode = true;
