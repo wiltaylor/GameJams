@@ -19,12 +19,12 @@ public class CarController : MonoBehaviour
 	void Update () {
 	    if (Input.GetAxis("Vertical") > 0f)
 	    {
-            _rbody.AddForce(transform.up.normalized * EnginePower, ForceMode2D.Impulse);
+            _rbody.AddForce(transform.up.normalized * EnginePower, ForceMode2D.Force);
 	    }
 
         if (Input.GetAxis("Vertical") < 0f)
         {
-            _rbody.AddForce(-transform.up.normalized * BrakePower, ForceMode2D.Impulse);
+            _rbody.AddForce(-transform.up.normalized * BrakePower, ForceMode2D.Force);
         }
 
 	    if (Input.GetAxis("Horizontal") < 0f)
@@ -36,5 +36,15 @@ public class CarController : MonoBehaviour
         {
             _rbody.MoveRotation(_rbody.rotation - TurnSpeed * Time.deltaTime);
         }
+
+	    if (Input.GetButton("Powerup"))
+	    {
+	        
+	    }
 	}
+
+    public void ModEnginePower(float power)
+    {
+        EnginePower += power;
+    }
 }
