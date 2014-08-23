@@ -9,13 +9,19 @@ public class CarAI : MonoBehaviour
     public float StunTimeOut = 10f;
 
     private float _stuneTimeOut = 0f;
-    private Vector3 _targetLocation; 
+    private Vector3 _targetLocation;
+    private AudioSource _audio;
+    private Animator _animator;
 
     private Rigidbody2D _rbody;
 	void Start ()
 	{
 	    _rbody = gameObject.GetComponent<Rigidbody2D>();
         _targetLocation = new Vector2(NavNode.transform.position.x, NavNode.transform.position.y) + Random.insideUnitCircle * 5;
+	    _audio = GetComponent<AudioSource>();
+	    _animator = GetComponent<Animator>();
+
+	    _audio.pitch = Random.Range(0f, 1f);
 	}
 
     void OnProjectileHit()
@@ -25,6 +31,19 @@ public class CarAI : MonoBehaviour
 	
 	void FixedUpdate ()
 	{
+        _animator.SetFloat("Speed", _rbody.velocity.magnitude);
+
+	    if (_rbody.velocity.magnitude < 0.1)
+	    {
+            if (_audio.isPlaying)
+	            _audio.Stop();
+	    }
+	    else
+	    {
+	        if(!_audio.isPlaying)
+                _audio.Play();
+	    }
+
 	    if (_stuneTimeOut > 0)
 	    {
 	        _stuneTimeOut -= Time.fixedDeltaTime;

@@ -11,6 +11,8 @@ public class PowerUpCollector : MonoBehaviour
     {
         if (CurrentItem == null)
             CurrentItem = item;
+        else
+            Destroy(item);
     }
 
     public void UseItem()
