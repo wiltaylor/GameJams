@@ -32,7 +32,7 @@ GameObject:
   - 95: {fileID: 9500000}
   m_Layer: 0
   m_Name: Car
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -193,8 +193,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnginePower: 100
-  BrakePower: .5
+  BrakePower: 50
   TurnSpeed: 40
+  StunTimeout: 10
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1

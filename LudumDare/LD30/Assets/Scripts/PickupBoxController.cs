@@ -9,10 +9,13 @@ public class PickupBoxController : MonoBehaviour
     
     private SpriteRenderer _sprite;
     private float _timeLeft;
+    private AudioSource _audio;
     
 	void Start ()
 	{
 	    _sprite = GetComponent<SpriteRenderer>();
+        _audio = GetComponent<AudioSource>();
+        _audio.pitch = Random.Range(0.5f, 0.7f);
 	}
 
 	void Update ()
@@ -44,5 +47,6 @@ public class PickupBoxController : MonoBehaviour
 
         _sprite.enabled = false;
         _timeLeft = TimeOut;
+        _audio.Play();
     }
 }
