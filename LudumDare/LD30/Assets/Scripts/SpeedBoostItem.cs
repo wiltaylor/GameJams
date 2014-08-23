@@ -28,6 +28,6 @@ public class SpeedBoostItem : MonoBehaviour
         if (!(_timeleft < 0f)) return;
 
         _user.SendMessage("ModEnginePower", -SpeedAdded);
-        Destroy(this);
+        Destroy(gameObject);
     }
 }
