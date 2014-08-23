@@ -5,6 +5,8 @@ public class CarController : MonoBehaviour
 {
 
     private Rigidbody2D _rbody;
+    public GameObject NavNode;
+    public float MaxDistanceToNode = 5f;
     public float EnginePower = 1f;
     public float BrakePower = 0.5f;
     public float TurnSpeed = 10f;
@@ -13,6 +15,7 @@ public class CarController : MonoBehaviour
     private PowerUpCollector _powerCollector;
     private float _stunTimeOut = 0f;
     private AudioSource _audio;
+    private CarRankTracker _rankTracker;
 
 	// Use this for initialization
 	void Start ()
@@ -22,6 +25,7 @@ public class CarController : MonoBehaviour
 	    _powerCollector = gameObject.GetComponent<PowerUpCollector>();
         _audio = GetComponent<AudioSource>();
         _audio.pitch = Random.Range(0f, 1f);
+        _rankTracker = GetComponent<CarRankTracker>();
 	}
 
     void OnProjectileHit()
@@ -50,6 +54,17 @@ public class CarController : MonoBehaviour
 	        _stunTimeOut -= Time.deltaTime;
 	        return;
 	    }
+
+        var dist = Vector3.Distance(NavNode.transform.position, transform.position);
+
+        if (dist < MaxDistanceToNode)
+        {
+            NavNode = NavNode.GetComponent<NavNodeController>().NextNode;
+            dist = Vector3.Distance(NavNode.transform.position, transform.position);
+        }
+
+	    _rankTracker.NodeDistance = dist;
+	    _rankTracker.NodeID = NavNode.GetComponent<NavNodeController>().NodeID;
 
 	    if (Input.GetAxis("Vertical") > 0f)
 	    {

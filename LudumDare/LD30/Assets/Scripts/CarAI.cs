@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Linq.Expressions;
+using UnityEngine;
 using System.Collections;
 
 public class CarAI : MonoBehaviour
@@ -12,6 +13,8 @@ public class CarAI : MonoBehaviour
     private Vector3 _targetLocation;
     private AudioSource _audio;
     private Animator _animator;
+    private PowerUpCollector _collector;
+    private CarRankTracker _rankTracker;
 
     private Rigidbody2D _rbody;
 	void Start ()
@@ -20,6 +23,8 @@ public class CarAI : MonoBehaviour
         _targetLocation = new Vector2(NavNode.transform.position.x, NavNode.transform.position.y) + Random.insideUnitCircle * 5;
 	    _audio = GetComponent<AudioSource>();
 	    _animator = GetComponent<Animator>();
+        _collector = GetComponent<PowerUpCollector>();
+	    _rankTracker = GetComponent<CarRankTracker>();
 
 	    _audio.pitch = Random.Range(0f, 1f);
 	}
@@ -50,14 +55,37 @@ public class CarAI : MonoBehaviour
 	        return;
 	    }
 
+	    if (_collector.CurrentItem != null)
+	    {
+	        var Item = _collector.CurrentItem.GetComponent<PowerUpInfo>();
+	        switch (Item.Type)
+	        {
+	            case PowerUpInfo.ItemType.Buff:
+                    _collector.UseItem();
+	                break;
+                case PowerUpInfo.ItemType.ProjectileBack:
+	                break;
+                case PowerUpInfo.ItemType.ProjectileFoward:
+                    if (CanSeeCar())
+                        _collector.UseItem();
+	                break;
+
+	        }
+	    }
+
         var dist = Vector3.Distance(_targetLocation, transform.position);
 
 	    if (dist < MaxDistanceToNode)
 	    {
 	        NavNode = NavNode.GetComponent<NavNodeController>().NextNode;
+            dist = Vector3.Distance(NavNode.transform.position, transform.position);
             _targetLocation = new Vector2(NavNode.transform.position.x, NavNode.transform.position.y) + Random.insideUnitCircle * 5;
 
 	    }
+
+        _rankTracker.NodeDistance = dist;
+        _rankTracker.NodeID = NavNode.GetComponent<NavNodeController>().NodeID;
+
         var lookdir = _targetLocation - transform.position;
 
         var rotation = Quaternion.LookRotation(_targetLocation - transform.position,
@@ -72,5 +100,23 @@ public class CarAI : MonoBehaviour
     public void ModEnginePower(float power)
     {
         EnginePower += power;
+    }
+
+    bool CanSeeCar()
+    {
+        var hits = Physics2D.CircleCastAll(new Vector2(transform.position.x, transform.position.y), 5f, Vector2.up);
+
+        foreach (var hit in hits)
+        {
+            if (hit.collider.gameObject == gameObject)
+                continue;
+
+            if (hit.collider.tag != "Car")
+                continue;
+
+            return true;
+        }
+
+        return false;
     }
 }
