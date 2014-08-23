@@ -15,7 +15,11 @@ public class PowerUpCollector : MonoBehaviour
 
     public void UseItem()
     {
-        
+        if (CurrentItem == null)
+            return;
+
+        CurrentItem.SendMessage("UseItem", gameObject);
+        CurrentItem = null;
     }
 
 }

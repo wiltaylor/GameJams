@@ -8,11 +8,15 @@ public class CarController : MonoBehaviour
     public float EnginePower = 1f;
     public float BrakePower = 0.5f;
     public float TurnSpeed = 10f;
+    private Animator _animator;
+    private PowerUpCollector _powerCollector;
 
 	// Use this for initialization
 	void Start ()
 	{
 	    _rbody = gameObject.rigidbody2D;
+	    _animator = gameObject.GetComponent<Animator>();
+	    _powerCollector = gameObject.GetComponent<PowerUpCollector>();
 	}
 	
 	// Update is called once per frame
@@ -39,8 +43,10 @@ public class CarController : MonoBehaviour
 
 	    if (Input.GetButton("Powerup"))
 	    {
-	        
+	       _powerCollector.UseItem();
 	    }
+
+        _animator.SetFloat("Speed", _rbody.velocity.magnitude);
 	}
 
     public void ModEnginePower(float power)

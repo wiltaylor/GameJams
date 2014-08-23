@@ -68,8 +68,8 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 10
   m_AngularDrag: .0500000007
-  m_GravityScale: 1
-  m_FixedAngle: 1
+  m_GravityScale: 0
+  m_FixedAngle: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -97,8 +97,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NavNode: {fileID: 0}
-  MaxDistanceToNode: 5
-  EnginePower: 100
+  MaxDistanceToNode: 1
+  EnginePower: 10
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

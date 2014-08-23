@@ -26,13 +26,13 @@ public class CarAI : MonoBehaviour
 	    }
         var lookdir = NavNode.transform.position - transform.position;
 
-        _rbody.velocity = lookdir.normalized * EnginePower;
         
-
 	    var angle = Mathf.Atan2(lookdir.y, lookdir.x)*Mathf.Rad2Deg;
 	    transform.rotation = Quaternion.Euler(0f, 0f, angle*Mathf.Rad2Deg);
 
         //_rbody.AddForce(transform.up.normalized * EnginePower, ForceMode2D.Force);
+        _rbody.velocity = lookdir.normalized * EnginePower;
+
 
 	}
 

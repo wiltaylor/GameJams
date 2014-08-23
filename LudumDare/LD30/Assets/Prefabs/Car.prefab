@@ -29,6 +29,7 @@ GameObject:
   - 58: {fileID: 5800000}
   - 114: {fileID: 11400004}
   - 114: {fileID: 11400002}
+  - 95: {fileID: 9500000}
   m_Layer: 0
   m_Name: Car
   m_TagString: Untagged
@@ -149,7 +150,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Radius: .289999992
+  m_Radius: .370000005
   m_Center: {x: 0, y: 0}
 --- !u!81 &8100000
 AudioListener:
@@ -165,6 +166,21 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
   m_Enabled: 1
+--- !u!95 &9500000
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: be0ae6727702f264897311dcafbd1e2f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -229,7 +245,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 4215963383
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 58131b2a2d114044b9e7c40867c0ac4e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e9b1d698b919a594ebcca7ae8c02c27d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
