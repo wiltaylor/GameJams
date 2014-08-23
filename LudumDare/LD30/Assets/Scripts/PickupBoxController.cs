@@ -37,7 +37,8 @@ public class PickupBoxController : MonoBehaviour
         if(collector == null)
             return;
 
-        var powerUpIndex = Random.Range(0, AvailablePowerUps.GetLowerBound(0));
+        var powerUpIndex = Random.Range(1, AvailablePowerUps.GetUpperBound(0) + 1);
+
 
         collector.GetItem((GameObject)Instantiate(AvailablePowerUps[powerUpIndex]));
 

@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 
 public class CarAI : MonoBehaviour
@@ -10,11 +9,13 @@ public class CarAI : MonoBehaviour
     public float StunTimeOut = 10f;
 
     private float _stuneTimeOut = 0f;
+    private Vector3 _targetLocation; 
 
     private Rigidbody2D _rbody;
 	void Start ()
 	{
 	    _rbody = gameObject.GetComponent<Rigidbody2D>();
+        _targetLocation = new Vector2(NavNode.transform.position.x, NavNode.transform.position.y) + Random.insideUnitCircle * 5;
 	}
 
     void OnProjectileHit()
@@ -30,23 +31,23 @@ public class CarAI : MonoBehaviour
 	        return;
 	    }
 
-	    var dist = Vector3.Distance(NavNode.transform.position, transform.position);
+        var dist = Vector3.Distance(_targetLocation, transform.position);
 
 	    if (dist < MaxDistanceToNode)
 	    {
 	        NavNode = NavNode.GetComponent<NavNodeController>().NextNode;
-            dist = Vector3.Distance(NavNode.transform.position, transform.position);
+            _targetLocation = new Vector2(NavNode.transform.position.x, NavNode.transform.position.y) + Random.insideUnitCircle * 5;
 
 	    }
-        var lookdir = NavNode.transform.position - transform.position;
+        var lookdir = _targetLocation - transform.position;
+
+        var rotation = Quaternion.LookRotation(_targetLocation - transform.position,
+	        transform.TransformDirection(Vector3.back));
+        transform.rotation = new Quaternion(0,0, rotation.z, rotation.w);
 
         
-	    var angle = Mathf.Atan2(lookdir.y, lookdir.x)*Mathf.Rad2Deg;
-	    transform.rotation = Quaternion.Euler(0f, 0f, angle*Mathf.Rad2Deg);
 
-        _rbody.velocity = lookdir.normalized * EnginePower;
-
-
+        _rbody.AddForce(transform.up.normalized * EnginePower, ForceMode2D.Force);
 	}
 
     public void ModEnginePower(float power)
