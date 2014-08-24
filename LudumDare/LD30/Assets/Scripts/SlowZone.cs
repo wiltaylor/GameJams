@@ -7,9 +7,7 @@ public class SlowZone : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        var car = other.GetComponent<CarController>();
-
-        if (car == null)
+        if (other.tag != "Car")
             return;
 
         var body = other.GetComponent<Rigidbody2D>();
@@ -19,9 +17,7 @@ public class SlowZone : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other)
     {
-        var car = other.GetComponent<CarController>();
-
-        if (car == null)
+        if (other.tag != "Car")
             return;
 
         var body = other.GetComponent<Rigidbody2D>();

@@ -31,10 +31,11 @@ public class MissileController : MonoBehaviour
         if (other.gameObject == Spawner)
             return;
 
-        if (other.gameObject.tag != "Car")
-            return;
-
-        other.gameObject.SendMessage("OnProjectileHit");
+        if (other.gameObject.tag == "Car")
+        {
+            other.gameObject.SendMessage("OnProjectileHit");
+        }
+        
         Destroy(gameObject);
     }
 }
