@@ -253,11 +253,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NavNode: {fileID: 0}
-  MaxDistanceToNode: 5
+  MaxDistanceToNode: 20
   EnginePower: 100
   BrakePower: 50
   TurnSpeed: 60
-  StunTimeout: 10
+  StunTimeout: 2
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
