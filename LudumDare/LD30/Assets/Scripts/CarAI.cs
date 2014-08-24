@@ -9,6 +9,7 @@ public class CarAI : MonoBehaviour
     public float EnginePower = 10f;
     public float StunTimeOut = 10f;
     public AudioClip HitSound;
+    public float DropTimeOut = 2f;
 
     private float _stuneTimeOut = 0f;
     private Vector3 _targetLocation;
@@ -17,6 +18,8 @@ public class CarAI : MonoBehaviour
     private PowerUpCollector _collector;
     private CarRankTracker _rankTracker;
     private bool _connectedToNAVNodes = false;
+    private bool _haveDropItem = false;
+    private float _currrentDropTimeOut = 0f;
 
     private Rigidbody2D _rbody;
 	void Start ()
@@ -76,6 +79,25 @@ public class CarAI : MonoBehaviour
                     _collector.UseItem();
 	                break;
                 case PowerUpInfo.ItemType.ProjectileBack:
+	                if (_haveDropItem != false)
+	                {
+	                    _currrentDropTimeOut = DropTimeOut;
+	                    _haveDropItem = true;
+	                }
+	                else
+	                {
+	                    if (_currrentDropTimeOut > 0f)
+	                    {
+	                        _currrentDropTimeOut = - Time.deltaTime;
+	                    }
+	                    else
+	                    {
+	                        _collector.UseItem();
+	                        _haveDropItem = false;
+	                    }
+	                    
+	                }
+                    
 	                break;
                 case PowerUpInfo.ItemType.ProjectileFoward:
                     if (CanSeeCar())

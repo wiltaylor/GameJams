@@ -16,6 +16,7 @@ public class RaceMan : MonoBehaviour
     public string TrackName;
     public GameObject PlayerPrefab;
     public GameObject AIPrefab;
+    public GameObject MegPrefab;
     public GameObject FirstNode;
     public float ReadyTimeOut = 2f;
     public AudioClip RaceBeep;
@@ -30,6 +31,7 @@ public class RaceMan : MonoBehaviour
         _readyStyle.fontSize = 32;
 
         var startPoses = GameObject.FindGameObjectsWithTag("StartPosition");
+        var placedMeg = false;
 
         foreach (var pos in startPoses)
         {
@@ -43,9 +45,19 @@ public class RaceMan : MonoBehaviour
             }
             else
             {
-                var car = (GameObject)Instantiate(AIPrefab, pos.transform.position, pos.transform.rotation);
-                _cars.Add(car.GetComponent<CarRankTracker>());
-                car.GetComponent<CarAI>().NavNode = FirstNode;
+                if (!placedMeg)
+                {
+                    var car = (GameObject)Instantiate(MegPrefab, pos.transform.position, pos.transform.rotation);
+                    _cars.Add(car.GetComponent<CarRankTracker>());
+                    car.GetComponent<CarAI>().NavNode = FirstNode;
+                    placedMeg = true;
+                }
+                else
+                {
+                var car = (GameObject) Instantiate(AIPrefab, pos.transform.position, pos.transform.rotation);
+                    _cars.Add(car.GetComponent<CarRankTracker>());
+                    car.GetComponent<CarAI>().NavNode = FirstNode;
+                }
             }
         }
 

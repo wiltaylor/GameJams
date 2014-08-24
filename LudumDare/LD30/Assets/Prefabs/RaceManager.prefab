@@ -42,6 +42,7 @@ MonoBehaviour:
   TrackName: TestLevel
   PlayerPrefab: {fileID: 100002, guid: ce7d5fb34ae433d4c9018d122cbde5f7, type: 2}
   AIPrefab: {fileID: 100000, guid: fc5d05eb673db6a47aa112983f1fdbc0, type: 2}
+  MegPrefab: {fileID: 100004, guid: 17f0693eedead514d999f8f03fac992a, type: 2}
   FirstNode: {fileID: 0}
   ReadyTimeOut: 2
   RaceBeep: {fileID: 8300000, guid: 846bd189bde29da4988dd5073ad249e7, type: 3}
