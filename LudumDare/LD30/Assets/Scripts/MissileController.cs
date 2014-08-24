@@ -7,11 +7,13 @@ public class MissileController : MonoBehaviour
     public float TimeOut = 20f;
     public float Speed = 10f;
     public GameObject Spawner;
+    public AudioClip FireSound;
 
     private Rigidbody2D _rbody;
     void Start()
     {
         _rbody = gameObject.rigidbody2D;
+        AudioSource.PlayClipAtPoint(FireSound, transform.position);
     }
 	
 	void Update ()

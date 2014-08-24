@@ -11,11 +11,19 @@ public class CarController : MonoBehaviour
     public float BrakePower = 0.5f;
     public float TurnSpeed = 10f;
     public float StunTimeout = 10f;
+    public AudioClip HitSound;
     private Animator _animator;
     private PowerUpCollector _powerCollector;
     private float _stunTimeOut = 0f;
     private AudioSource _audio;
     private CarRankTracker _rankTracker;
+    private ParticleSystem _particleSystem;
+    private bool _leftDown = false;
+    private bool _rightDown = false;
+    private bool _upDown = false;
+    private bool _downDown = false;
+
+
 
 	// Use this for initialization
 	void Start ()
@@ -26,13 +34,41 @@ public class CarController : MonoBehaviour
         _audio = GetComponent<AudioSource>();
         _audio.pitch = Random.Range(0f, 1f);
         _rankTracker = GetComponent<CarRankTracker>();
+
+	    _particleSystem = GetComponent<ParticleSystem>();
 	}
 
     void OnProjectileHit()
     {
         _stunTimeOut = StunTimeout;
+        _particleSystem.Play();
+        
+        AudioSource.PlayClipAtPoint(HitSound, transform.position);
     }
-	
+
+    void FixedUpdate()
+    {
+        if (_upDown)
+        {
+            _rbody.AddForce(transform.up.normalized * EnginePower, ForceMode2D.Force);
+        }
+
+        if (_downDown)
+        {
+            _rbody.AddForce(-transform.up.normalized * BrakePower, ForceMode2D.Force);
+        }
+
+        if (_leftDown)
+        {
+            _rbody.MoveRotation(_rbody.rotation + TurnSpeed * Time.deltaTime);
+        }
+
+        if (_rightDown)
+        {
+            _rbody.MoveRotation(_rbody.rotation - TurnSpeed * Time.deltaTime);
+        }
+    }
+
 	// Update is called once per frame
 	void Update () {
         _animator.SetFloat("Speed", _rbody.velocity.magnitude);
@@ -46,6 +82,8 @@ public class CarController : MonoBehaviour
         {
             if (!_audio.isPlaying)
                 _audio.Play();
+
+            _particleSystem.Stop();
         }
 
 
@@ -67,25 +105,13 @@ public class CarController : MonoBehaviour
 	    _rankTracker.NodeID = NavNode.GetComponent<NavNodeController>().NodeID;
 	    _rankTracker.NextNode = NavNode;
 
-	    if (Input.GetAxis("Vertical") > 0f)
-	    {
-            _rbody.AddForce(transform.up.normalized * EnginePower, ForceMode2D.Force);
-	    }
+	    _upDown = Input.GetAxis("Vertical") > 0f;
 
-        if (Input.GetAxis("Vertical") < 0f)
-        {
-            _rbody.AddForce(-transform.up.normalized * BrakePower, ForceMode2D.Force);
-        }
+	    _downDown = Input.GetAxis("Vertical") < 0f;
 
-	    if (Input.GetAxis("Horizontal") < 0f)
-	    {
-            _rbody.MoveRotation(_rbody.rotation + TurnSpeed * Time.deltaTime);
-	    }
+        _leftDown = Input.GetAxis("Horizontal") < 0f;
 
-        if (Input.GetAxis("Horizontal") > 0f)
-        {
-            _rbody.MoveRotation(_rbody.rotation - TurnSpeed * Time.deltaTime);
-        }
+	    _rightDown = Input.GetAxis("Horizontal") > 0f;
 
 	    if (Input.GetButton("Powerup"))
 	    {

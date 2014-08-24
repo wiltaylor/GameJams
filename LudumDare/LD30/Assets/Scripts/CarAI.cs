@@ -8,6 +8,7 @@ public class CarAI : MonoBehaviour
     public float MaxDistanceToNode = 5f;
     public float EnginePower = 10f;
     public float StunTimeOut = 10f;
+    public AudioClip HitSound;
 
     private float _stuneTimeOut = 0f;
     private Vector3 _targetLocation;
@@ -15,12 +16,12 @@ public class CarAI : MonoBehaviour
     private Animator _animator;
     private PowerUpCollector _collector;
     private CarRankTracker _rankTracker;
+    private bool _connectedToNAVNodes = false;
 
     private Rigidbody2D _rbody;
 	void Start ()
 	{
 	    _rbody = gameObject.GetComponent<Rigidbody2D>();
-        _targetLocation = new Vector2(NavNode.transform.position.x, NavNode.transform.position.y) + Random.insideUnitCircle * 5;
 	    _audio = GetComponent<AudioSource>();
 	    _animator = GetComponent<Animator>();
         _collector = GetComponent<PowerUpCollector>();
@@ -32,10 +33,21 @@ public class CarAI : MonoBehaviour
     void OnProjectileHit()
     {
         _stuneTimeOut = StunTimeOut;
+        AudioSource.PlayClipAtPoint(HitSound, transform.position);
     }
 	
 	void FixedUpdate ()
 	{
+	    if (!_connectedToNAVNodes && NavNode == null)
+	        return;
+
+	    if (!_connectedToNAVNodes && NavNode != null)
+	    {
+	        _connectedToNAVNodes = true;
+            _targetLocation = new Vector2(NavNode.transform.position.x, NavNode.transform.position.y) + Random.insideUnitCircle * 5;
+
+	    }
+
         _animator.SetFloat("Speed", _rbody.velocity.magnitude);
 
 	    if (_rbody.velocity.magnitude < 0.1)
