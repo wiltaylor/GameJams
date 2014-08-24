@@ -114,6 +114,7 @@ MonoBehaviour:
   AvailablePowerUps:
   - {fileID: 100000, guid: 2483a733f6ce0ad4ba365f305434184c, type: 2}
   - {fileID: 100000, guid: 70a29d727459b2046abab75c916b10af, type: 2}
+  - {fileID: 100000, guid: e8909f0f6cef4f5498a4b0793fb4a86a, type: 2}
   TimeOut: 20
 --- !u!212 &21200000
 SpriteRenderer:
