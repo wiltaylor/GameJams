@@ -4,6 +4,8 @@
 TagManager:
   tags:
   - Car
+  - RaceManager
+  - StartPosition
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
@@ -45,6 +47,10 @@ TagManager:
   - name: Track
     userID: 2
     uniqueID: 2910558775
+    locked: 0
+  - name: Decal
+    userID: 4
+    uniqueID: 1362093007
     locked: 0
   - name: Cars
     userID: 1

@@ -65,6 +65,7 @@ public class CarController : MonoBehaviour
 
 	    _rankTracker.NodeDistance = dist;
 	    _rankTracker.NodeID = NavNode.GetComponent<NavNodeController>().NodeID;
+	    _rankTracker.NextNode = NavNode;
 
 	    if (Input.GetAxis("Vertical") > 0f)
 	    {

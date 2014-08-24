@@ -85,6 +85,7 @@ public class CarAI : MonoBehaviour
 
         _rankTracker.NodeDistance = dist;
         _rankTracker.NodeID = NavNode.GetComponent<NavNodeController>().NodeID;
+	    _rankTracker.NextNode = NavNode;
 
         var lookdir = _targetLocation - transform.position;
 
