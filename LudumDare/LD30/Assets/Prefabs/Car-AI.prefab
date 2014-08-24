@@ -168,15 +168,16 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb814850c7959d3499b42372fe8ce86c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   NavNode: {fileID: 0}
   MaxDistanceToNode: 1
-  EnginePower: 110
+  EnginePower: 100
   StunTimeOut: 10
+  HitSound: {fileID: 8300000, guid: 25e047041faf7424ba83fb1aec9606da, type: 3}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -206,6 +207,7 @@ MonoBehaviour:
   NodeID: 0
   NextNode: {fileID: 0}
   IsPlayer: 0
+  HasPassedMidPoint: 0
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

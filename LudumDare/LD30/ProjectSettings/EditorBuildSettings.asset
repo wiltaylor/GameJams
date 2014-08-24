@@ -10,4 +10,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TestLevel.unity
   - enabled: 1
+    path: Assets/Scenes/AlienLevel.unity
+  - enabled: 1
     path: Assets/Scenes/RaceOver.unity

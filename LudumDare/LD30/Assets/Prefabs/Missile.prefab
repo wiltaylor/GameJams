@@ -71,6 +71,7 @@ MonoBehaviour:
   TimeOut: 20
   Speed: 200
   Spawner: {fileID: 0}
+  FireSound: {fileID: 8300000, guid: 5d3e723feba064745ad966bb4a56825a, type: 3}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

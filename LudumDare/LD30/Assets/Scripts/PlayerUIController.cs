@@ -15,8 +15,11 @@ public class PlayerUIController : MonoBehaviour
         _rankTracker = GetComponent<CarRankTracker>();
 	}
 	
-	void Update () 
-    {
+	void Update ()
+	{
+	    if (_powerUpCollector.CurrentItem == null)
+	        _powerUpIcon = null;
+
 	    if (_lastObject == _powerUpCollector.CurrentItem) return;
 
 	    _lastObject = _powerUpCollector.CurrentItem;
@@ -40,7 +43,7 @@ public class PlayerUIController : MonoBehaviour
             GUI.DrawTexture(new Rect(0,0, 64,64), _powerUpIcon, ScaleMode.ScaleToFit, true, 1f);
         }
 
-        GUI.Label(new Rect(Screen.width / 2 - 10, 0, 20, 20), Math.Floor(rigidbody2D.velocity.magnitude).ToString());
+        GUI.Label(new Rect(Screen.width / 2 - 10, 0, 20, 20), Math.Floor(rigidbody2D.velocity.magnitude * 3600 / 1000).ToString());
         GUI.Label(new Rect(Screen.width - 20, 0, 20, 20), _rankTracker.Rank.ToString());
     }
 }

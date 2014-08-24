@@ -39,6 +39,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77d1a86af6ae87448ab0d54c3f470a9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TrackName: TestLevel
+  PlayerPrefab: {fileID: 100002, guid: ce7d5fb34ae433d4c9018d122cbde5f7, type: 2}
+  AIPrefab: {fileID: 100000, guid: fc5d05eb673db6a47aa112983f1fdbc0, type: 2}
+  FirstNode: {fileID: 0}
+  ReadyTimeOut: 2
+  RaceBeep: {fileID: 8300000, guid: 846bd189bde29da4988dd5073ad249e7, type: 3}
+  GoBeep: {fileID: 8300000, guid: e7b88d0dc888b584586936716a5d1ea6, type: 3}
+  TimeOutBeforeCalc: 3
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
