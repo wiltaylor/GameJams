@@ -47,4 +47,10 @@ public class SelectorController : MonoBehaviour
         GameManager.Instance.TransferController.SetActive(true);
         GameManager.Instance.TransferController.GetComponent<TransferController>().StartTransfer(CurrentSelectedPlanet);
     }
+
+    public void Attack()
+    {
+        GameManager.Instance.SpaceBattleController.SetActive(true);
+        GameManager.Instance.SpaceBattleController.GetComponent<SpaceBattleController>().StartSpaceBattle(CurrentSelectedPlanet);
+    }
 }

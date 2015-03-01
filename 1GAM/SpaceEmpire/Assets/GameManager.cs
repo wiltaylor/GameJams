@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     public EmpireController Empire;
     public PlanetViewController ViewController;
     public GameObject TransferController;
+    public GameObject SpaceBattleController;
+    public GameObject GroundBattleController;
     
     private LevelGenerator LevelGen;
 
