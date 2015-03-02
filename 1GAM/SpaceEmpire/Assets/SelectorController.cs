@@ -53,4 +53,10 @@ public class SelectorController : MonoBehaviour
         GameManager.Instance.SpaceBattleController.SetActive(true);
         GameManager.Instance.SpaceBattleController.GetComponent<SpaceBattleController>().StartSpaceBattle(CurrentSelectedPlanet);
     }
+
+    public void Wait()
+    {
+        GameManager.Instance.WaitController.SetActive(true);
+        GameManager.Instance.WaitController.GetComponent<WaitPanelController>().StartWaitPanel();
+    }
 }

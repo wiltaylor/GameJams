@@ -34,8 +34,8 @@ public class LevelGenerator : MonoBehaviour
 
     public int MinStartTroops = 10;
     public int MaxStartTroops = 1000;
-    public int MaxStartShips = 10;
-    public int MinStartShips = 1000;
+    public int MaxStartShips = 1000;
+    public int MinStartShips = 10;
     public int MinStartFuel = 0;
     public int MaxStartFuel = 100;
     public int MinStartFood = 10;
@@ -46,6 +46,8 @@ public class LevelGenerator : MonoBehaviour
     public int EmpireStartTroops = 1000;
     public int EmpireStartShips = 400;
 
+    public int StartYear = 0;
+
     public void GenerateLevel()
     {
         ClearLevel();
@@ -53,10 +55,12 @@ public class LevelGenerator : MonoBehaviour
         var planets = new List<GameObject>();
 
         var homePlanet = (GameObject)Instantiate(PlanetPrefab);
+        
         homePlanet.GetComponent<RectTransform>().position = HomePlanetLocation;
         homePlanet.transform.SetParent(GameMap.transform);
 
         var homePlanetController = homePlanet.GetComponent<PlanetController>();
+        GameManager.Instance.PlanetDirectory.Add(homePlanetController);
         homePlanetController.PlanetName = "Imperium Prime";
         homePlanetController.PlayerOwned = true;
         homePlanetController.Food = MaxStartFood;
@@ -65,6 +69,10 @@ public class LevelGenerator : MonoBehaviour
         homePlanetController.Ships = MaxStartShips;
         homePlanetController.Food = MaxStartFood;
         homePlanetController.UpdateOwner();
+        homePlanetController.FoodProductionRate = MaxFoodProductionRate;
+        homePlanetController.FuelProductionRate = MaxFuelProductionRate;
+        homePlanetController.TroopProductionRate = MaxTroopProductionRate;
+        homePlanetController.ShipProductionRate = MaxShipProductionRate;
 
         var empire = EmpireObject.GetComponent<EmpireController>();
         empire.MoveToPlanet(homePlanet);
@@ -76,6 +84,8 @@ public class LevelGenerator : MonoBehaviour
         SelectorObject.GetComponent<SelectorController>().SelectPlanet(homePlanet);
         planets.Add(homePlanet);
 
+        GameManager.Instance.Year = StartYear;
+
         for (var i = 0; i < NumberOfPlanets; i++)
         {
             var newPlanet = (GameObject)Instantiate(PlanetPrefab);
@@ -83,6 +93,7 @@ public class LevelGenerator : MonoBehaviour
             var newPlanetRect = newPlanet.GetComponent<RectTransform>();
             
             var controller = newPlanet.GetComponent<PlanetController>();
+            GameManager.Instance.PlanetDirectory.Add(controller);
             controller.PlanetName = GeneratePlanetName();
             controller.Food = Random.Range(MinStartFood, MaxStartFood);
             controller.Troops = Random.Range(MinStartTroops, MaxStartTroops);
@@ -120,6 +131,8 @@ public class LevelGenerator : MonoBehaviour
 
     public void ClearLevel()
     {
+        GameManager.Instance.PlanetDirectory = new List<PlanetController>();
+
         var children = new List<GameObject>();
 
         for (var i = 0; i < GameMap.transform.childCount; i++)

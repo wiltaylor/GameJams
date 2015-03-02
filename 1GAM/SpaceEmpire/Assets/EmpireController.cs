@@ -20,6 +20,7 @@ public class EmpireController : MonoBehaviour
         {
             Food -= FoodToFlyTo(target);
             Fuel -= FuelToFlyTo(target);
+            GameManager.Instance.PassTime(YearsToFlyTo(target));
         }
 
         transform.position = target.transform.position;
@@ -44,5 +45,11 @@ public class EmpireController : MonoBehaviour
     {
         var distance = Vector3.Distance(CurrentPlanet.transform.position, planet.transform.position);
         return (int) Math.Floor(distance*FuelToSpyPerUnit);
+    }
+
+    public int YearsToFlyTo(GameObject planet)
+    {
+        var distance = Vector3.Distance(CurrentPlanet.transform.position, planet.transform.position);
+        return (int)Math.Floor(distance);
     }
 }

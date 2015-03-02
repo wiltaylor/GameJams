@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class PlanetViewController : MonoBehaviour
 {
     public Text PlanetNameText;
+    public Text YearText;
     public Image PlanetIcon;
     public Text EmpireTroops;
     public Text EmpireShips;
@@ -58,6 +59,9 @@ public class PlanetViewController : MonoBehaviour
         EmpireShips.text = GameManager.Instance.Empire.Ships.ToString();
         EmpireFood.text = GameManager.Instance.Empire.Food.ToString();
         EmpireFuel.text = GameManager.Instance.Empire.Fuel.ToString();
+
+        //Year
+        YearText.text = string.Format("{0} AE", GameManager.Instance.Year);
 
         if (GameManager.Instance.Empire.CurrentPlanet == target)
         {
