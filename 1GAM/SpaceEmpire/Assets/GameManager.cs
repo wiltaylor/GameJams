@@ -55,6 +55,9 @@ public class GameManager : MonoBehaviour
 
     public void CheckForWin()
     {
+        if (PlanetDirectory.Any(p => p.PlayerOwned == false))
+            return;
+
         YouWinController.SetActive(true);
         YouWinController.GetComponent<WinController>().StartWinController();
     }
