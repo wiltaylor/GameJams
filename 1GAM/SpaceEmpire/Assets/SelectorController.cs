@@ -59,4 +59,10 @@ public class SelectorController : MonoBehaviour
         GameManager.Instance.WaitController.SetActive(true);
         GameManager.Instance.WaitController.GetComponent<WaitPanelController>().StartWaitPanel();
     }
+
+    public void Disband()
+    {
+        GameManager.Instance.Empire.Ships = 0;
+        GameManager.Instance.Empire.Troops = 0;
+    }
 }
