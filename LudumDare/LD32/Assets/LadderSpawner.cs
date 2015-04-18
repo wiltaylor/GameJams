@@ -1,21 +1,30 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Linq;
 
 public class LadderSpawner : MonoBehaviour
 {
-    public int LadderLength = 1;
     public GameObject LadderPrefab;
     public GameObject LadderEndPrefab;
-    public float LadderBlockHeight = 0.32f;
+    public int MaxLadderHeight = 20;
+
+    private SpriteRenderer _sprite;
+    
+
+    void Start()
+    {
+        _sprite = GetComponent<SpriteRenderer>();
+    }
 
     void BuildItem()
     {
-        LadderLength = CalculateLadderLength();
+        var ladderLength = CalculateLadderLength();
         var position = transform.position;
+        var height = _sprite.bounds.size.y;
 
-        for (var p = 0; p < LadderLength; p++)
+        for (var p = 0; p < ladderLength; p++)
         {
-            if (p == LadderLength - 1 || p == 0)
+            if (p == ladderLength - 1 || p == 0)
             {
                 Instantiate(LadderEndPrefab, position, transform.rotation);
             }
@@ -24,7 +33,7 @@ public class LadderSpawner : MonoBehaviour
                 Instantiate(LadderPrefab, position, transform.rotation);
             }
 
-            position = new Vector3(position.x, position.y + LadderBlockHeight, position.z);
+            position = new Vector3(position.x, position.y + height, position.z);
         }
 
         Destroy(gameObject);
@@ -34,45 +43,37 @@ public class LadderSpawner : MonoBehaviour
     {
         var returnData = 1;
         var position = new Vector2(transform.position.x, transform.position.y);
-        var sprite = GetComponent<SpriteRenderer>();
-        var height = sprite.bounds.size.y;
-        var width = sprite.bounds.size.x;
+        var height = _sprite.bounds.size.y;
+        var width = _sprite.bounds.size.x;
 
   
         while (true)
         {
+            if (returnData >= MaxLadderHeight)
+                return MaxLadderHeight;
+
             var upScan = Physics2D.RaycastAll(position, Vector2.up, height);
 
-            foreach (var i in upScan)
-            {
-                if (i.transform.tag.Contains("Ground"))
-                    break;
-            }
+            if (upScan.Any(i => i.transform.tag.Contains("Ground")))
+                break;
 
             position = new Vector2(position.x, position.y + height);
 
             var leftScan = Physics2D.RaycastAll(position, Vector2.right*-1, width * 2);
             var rightScan = Physics2D.RaycastAll(position, Vector2.right, width * 2);
-            var hit = false;
 
-            foreach (var i in leftScan)
+            if (leftScan.Any(i => i.transform.tag.Contains("Ground")))
             {
-                if (i.transform.tag.Contains("Ground"))
-                {
-                    returnData++;
-                    continue;
-                }
+                returnData++;
+                continue;
             }
 
-            foreach (var i in rightScan)
+            if (rightScan.Any(i => i.transform.tag.Contains("Ground")))
             {
-                if (i.transform.tag.Contains("Ground"))
-                {
-                    returnData++;
-                    continue;
-                }
+                returnData++;
+                continue;
             }
-
+            
             break;
         }
 

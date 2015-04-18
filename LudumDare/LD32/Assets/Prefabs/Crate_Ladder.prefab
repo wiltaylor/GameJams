@@ -87,10 +87,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee27736685f8fbb49aef29a3461ec2dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LadderLength: 5
   LadderPrefab: {fileID: 192104, guid: c1faef861a2483740a55437132a8d118, type: 2}
   LadderEndPrefab: {fileID: 190986, guid: 381770608739fa54498f85892971d38d, type: 2}
-  LadderBlockHeight: .319999993
+  MaxLadderHeight: 20
 --- !u!212 &21232656
 SpriteRenderer:
   m_ObjectHideFlags: 1
