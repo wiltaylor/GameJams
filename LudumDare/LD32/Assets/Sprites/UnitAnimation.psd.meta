@@ -1,0 +1,199 @@
+fileFormatVersion: 2
+guid: 8f3e96ee6ca3f7a4c8a5a76b60985c5c
+timeCreated: 1429337420
+licenseType: Pro
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: UnitAnimation_0
+    21300002: UnitAnimation_1
+    21300004: UnitAnimation_2
+    21300006: UnitAnimation_3
+    21300008: UnitAnimation_4
+    21300010: UnitAnimation_5
+    21300012: UnitAnimation_6
+    21300014: UnitAnimation_7
+    21300016: UnitAnimation_8
+    21300018: UnitAnimation_9
+    21300020: UnitAnimation_10
+    21300022: UnitAnimation_11
+    21300024: UnitAnimation_12
+    21300026: UnitAnimation_13
+    21300028: UnitAnimation_14
+    21300030: UnitAnimation_15
+    21300032: UnitAnimation_16
+    21300034: UnitAnimation_17
+    21300036: UnitAnimation_18
+    21300038: UnitAnimation_19
+    21300040: UnitAnimation_20
+    21300042: UnitAnimation_21
+    21300044: UnitAnimation_22
+    21300046: UnitAnimation_23
+    21300048: UnitAnimation_24
+    21300050: UnitAnimation_25
+    21300052: UnitAnimation_26
+    21300054: UnitAnimation_27
+    21300056: UnitAnimation_28
+    21300058: UnitAnimation_29
+    21300060: UnitAnimation_30
+    21300062: UnitAnimation_31
+    21300064: UnitAnimation_32
+    21300066: UnitAnimation_33
+    21300068: UnitAnimation_34
+    21300070: UnitAnimation_35
+    21300072: UnitAnimation_36
+    21300074: UnitAnimation_37
+    21300076: UnitAnimation_38
+    21300078: UnitAnimation_39
+    21300080: UnitAnimation_40
+    21300082: UnitAnimation_41
+    21300084: UnitAnimation_42
+    21300086: UnitAnimation_43
+    21300088: UnitAnimation_44
+    21300090: UnitAnimation_45
+    21300092: UnitAnimation_46
+    21300094: UnitAnimation_47
+    21300096: UnitAnimation_48
+    21300098: UnitAnimation_49
+    21300100: UnitAnimation_50
+    21300102: UnitAnimation_51
+    21300104: UnitAnimation_52
+    21300106: UnitAnimation_53
+    21300108: UnitAnimation_54
+    21300110: UnitAnimation_55
+    21300112: UnitAnimation_56
+    21300114: UnitAnimation_57
+    21300116: UnitAnimation_58
+    21300118: UnitAnimation_59
+    21300120: UnitAnimation_60
+    21300122: UnitAnimation_61
+    21300124: UnitAnimation_62
+    21300126: UnitAnimation_63
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -2
+  maxTextureSize: 128
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: UnitAnimation_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: UnitAnimation_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: UnitAnimation_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: UnitAnimation_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: UnitAnimation_4
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 112
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: UnitAnimation_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: UnitAnimation_6
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 96
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: UnitAnimation_7
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 96
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
