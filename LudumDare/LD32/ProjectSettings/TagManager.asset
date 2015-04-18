@@ -8,6 +8,7 @@ TagManager:
   - Ground_Slope
   - Unit
   - Unit_Turn
+  - Usable
   layers:
   - Default
   - TransparentFX
@@ -18,8 +19,8 @@ TagManager:
   - 
   - 
   - Ground
-  - Unit
-  - 
+  - Unit_player
+  - Unit_enemy
   - 
   - 
   - 
@@ -44,4 +45,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Overlays
+    uniqueID: 3571712213
     locked: 0

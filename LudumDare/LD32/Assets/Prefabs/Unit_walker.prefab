@@ -92,9 +92,10 @@ MonoBehaviour:
   MoveSpeed: 300
   FreeForce: .5
   Walking: 1
-  HasCuttingTools: 1
+  HasCuttingTools: 0
   CuttingDamage: 1
   Height: .200000003
+  PlayerOwned: 1
 --- !u!212 &21214388
 SpriteRenderer:
   m_ObjectHideFlags: 1

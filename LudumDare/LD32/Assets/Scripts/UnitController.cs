@@ -20,28 +20,36 @@ public class UnitController : MonoBehaviour
     public bool HasCuttingTools = true;
     public float CuttingDamage = 1f;
     public float Height = 0.10f;
+    public bool PlayerOwned = true;
 
     private Rigidbody2D _rigidbody2D;
     private Vector3 _lastPosition;
     private Animator _animator;
     private bool _Cutting = false;
     private BlockController _CuttingTarget = null;
-
-    public UnitController(bool cutting)
-    {
-        _Cutting = cutting;
-    }
+    private GameController _gameController;
+    private int _onLadder = 0;
 
     // Use this for initialization
     private void Start()
     {
+        _gameController = GameController.Instance;
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
+
+        if (PlayerOwned)
+            _gameController.PlayerUnits++;
+        else
+            _gameController.EnamyUnits++;
 
     }
 
     private void FixedUpdate()
     {
+        if (transform.position.y < _gameController.YCutOff)
+            Destroy(gameObject);
+
+
         if (_Cutting)
         {
             if (_CuttingTarget == null)
@@ -56,13 +64,14 @@ public class UnitController : MonoBehaviour
             }
         }
 
+        if (_onLadder > 0)
+            return;
 
         if (!Walking)
         {
             _animator.SetBool("Blocking", true);
             return;
         }
-            
 
         if (_lastPosition != null && transform.position == _lastPosition)
         {
@@ -79,17 +88,34 @@ public class UnitController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D coll)
     {
-        if (coll.gameObject.tag == "Ground")
+        if (_onLadder > 0)
+            return;
+
+        if (!PlayerOwned)
+        {
+            if (coll.transform.tag == "Unit")
+            {
+                var unit = coll.gameObject.GetComponent<UnitController>();
+                if (unit.PlayerOwned)
+                {
+                    _animator.SetTrigger("Attack");
+                    Destroy(coll.gameObject);
+                }
+
+                return;
+            }
+        }
+
+        if (coll.gameObject.tag == "Ground" || coll.gameObject.tag == "Usable")
         {
             if (coll.transform.position.y < transform.position.y - Height)
             {
-                Debug.Log(string.Format("{0} - {1}/{2}", coll.transform.name, coll.transform.position.y, transform.position.y - Height));
                 return;
             }
 
             var blockcontroller = coll.gameObject.GetComponent<BlockController>();
 
-            if (blockcontroller.Targeted && HasCuttingTools)
+            if (blockcontroller.Targeted && HasCuttingTools || blockcontroller.Targeted && coll.gameObject.tag == "Usable")
             {
                 _Cutting = true;
                 _animator.SetTrigger("Cutting");
@@ -98,10 +124,41 @@ public class UnitController : MonoBehaviour
             }
         }
 
-        if (coll.gameObject.tag == "Ground" || coll.gameObject.tag == "Unit_Turn")
+        if (coll.gameObject.tag == "Ground" || coll.gameObject.tag == "Unit_Turn" || coll.gameObject.tag == "Usable")
         {
             Direction = Direction == UnitFacingDirection.Right ? UnitFacingDirection.Left : UnitFacingDirection.Right;
             transform.localScale = new Vector3(transform.localScale.x*-1, transform.localScale.y, transform.localScale.z);
         }
+    }
+
+    void OnMouseDown()
+    {
+        if (_gameController.CurrentClickHandler == null)
+            return;
+
+        if (PlayerOwned && _gameController.CurrentClickHandler.SupportFriendlyUnit)
+            _gameController.CurrentClickHandler.ClickUnit(gameObject);
+
+        if (!PlayerOwned && _gameController.CurrentClickHandler.SupportEnamyUnit)
+            _gameController.CurrentClickHandler.ClickUnit(gameObject);
+
+    }
+
+    void OnDestroy()
+    {
+        if (PlayerOwned)
+            _gameController.PlayerUnits--;
+        else
+            _gameController.EnamyUnits--;
+    }
+
+    void EnterLadder()
+    {
+        _onLadder++;
+    }
+
+    void ExitLadder()
+    {
+        _onLadder--;
     }
 }

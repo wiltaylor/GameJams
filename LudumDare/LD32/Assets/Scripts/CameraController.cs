@@ -14,10 +14,13 @@ public class CameraController : MonoBehaviour
     public float MinZoom = 0.5f;
 
     private Camera _camera;
+    private GameController _gameController;
+
     
 	void Start ()
 	{
 	    _camera = GetComponent<Camera>();
+	    _gameController = GameController.Instance;
 	}
 	
 	void Update () {
@@ -69,7 +72,20 @@ public class CameraController : MonoBehaviour
 
         if (transform.position.y > MaxY)
             transform.position = new Vector3(transform.position.x, MaxY, transform.position.z);
-        
-        
+
+	    if (Input.GetMouseButtonUp(0))
+	    {
+            if (_gameController.CurrentClickHandler != null && _gameController.CurrentClickHandler.SupportWorld && !_gameController.MouseOverUI)
+	        {
+	            var point = _camera.ScreenToWorldPoint(Input.mousePosition);
+
+	            var ray = _camera.ScreenPointToRay(Input.mousePosition);
+
+	            var hit = Physics2D.GetRayIntersection(ray);
+
+                if(hit.transform == null)
+                    _gameController.CurrentClickHandler.ClickWorld(new Vector3(point.x,point.y, 0));
+	        }
+	    }
 	}
 }

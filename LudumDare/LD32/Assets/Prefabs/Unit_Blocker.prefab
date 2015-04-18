@@ -95,6 +95,7 @@ MonoBehaviour:
   HasCuttingTools: 0
   CuttingDamage: 0
   Height: .200000003
+  PlayerOwned: 1
 --- !u!212 &21206230
 SpriteRenderer:
   m_ObjectHideFlags: 1
