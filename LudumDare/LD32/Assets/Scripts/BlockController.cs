@@ -26,6 +26,9 @@ public class BlockController : MonoBehaviour {
         if(Targeted && _selectedGraphic != null)
             _selectedGraphic.SetActive(true);
 
+        if (!Targeted && _selectedGraphic != null)
+            _selectedGraphic.SetActive(false);
+
         if (Health <= 0f)
         {
             if(DirtCloud != null) 

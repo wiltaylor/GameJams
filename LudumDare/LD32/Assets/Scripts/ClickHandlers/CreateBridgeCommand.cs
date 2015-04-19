@@ -48,6 +48,11 @@ public class CreateBridgeCommand : IGameClickHandler
 
     public void ClickWorld(Vector3 point)
     {
+        if (GameController.Instance.BridgesLeft <= 0)
+            return;
+
+        GameController.Instance.BridgesLeft--;
+
         Object.Instantiate(_bridgePrefab, point, Quaternion.identity);
     }
 }

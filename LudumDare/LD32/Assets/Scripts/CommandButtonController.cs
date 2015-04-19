@@ -8,6 +8,10 @@ public class CommandButtonController : MonoBehaviour
     public GameObject DigSelected;
     public GameObject LadderSelected;
     public GameObject BridgeSelected;
+    public GameObject MusicDisabled;
+    public GameObject SFXDisabled;
+    public GameObject RestartLevelPanel;
+
 
     public GameObject LadderCreatePrefab;
     public GameObject BridgeCreatePrefab;
@@ -89,6 +93,21 @@ public class CommandButtonController : MonoBehaviour
     public void MouseExitUI()
     {
         _gameController.MouseOverUI = false;
+    }
+
+    public void RestartLevel()
+    {
+        RestartLevelPanel.SetActive(true);
+    }
+
+    public void ToggleMusic()
+    {
+        MusicDisabled.SetActive(true);
+    }
+
+    public void ToggleSFX()
+    {
+        SFXDisabled.SetActive(true);
     }
 
 }

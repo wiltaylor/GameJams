@@ -47,9 +47,12 @@ public class UnitController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (transform.position.y < _gameController.YCutOff)
-            Destroy(gameObject);
-
+        if (_gameController.UILockedOut)
+        {
+            _rigidbody2D.isKinematic = true;
+            return;
+        }
+            
 
         if (_Cutting)
         {
@@ -60,8 +63,17 @@ public class UnitController : MonoBehaviour
             }
             else
             {
-                _CuttingTarget.Health -= CuttingDamage*Time.fixedDeltaTime;
-                return;
+                if (!_CuttingTarget.Targeted)
+                {
+                    _Cutting = false;
+                    _animator.SetTrigger("StopCutting");
+                    return;
+                }
+                else
+                {
+                    _CuttingTarget.Health -= CuttingDamage * Time.fixedDeltaTime;
+                    return;                    
+                }
             }
         }
 
@@ -111,7 +123,7 @@ public class UnitController : MonoBehaviour
 
         if (!PlayerOwned)
         {
-            if (coll.transform.tag == "Unit")
+            if (coll.transform.tag.Contains("Unit"))
             {
                 var unit = coll.gameObject.GetComponent<UnitController>();
 
@@ -126,13 +138,8 @@ public class UnitController : MonoBehaviour
             }
         }
 
-        if (coll.gameObject.tag == "Ground" || coll.gameObject.tag == "Usable")
+        if (coll.gameObject.tag.Contains("Ground") || coll.gameObject.tag == "Usable")
         {
-            if (coll.transform.position.y < transform.position.y - Height)
-            {
-                return;
-            }
-
             var blockcontroller = coll.gameObject.GetComponent<BlockController>();
 
             if (blockcontroller.Targeted && HasCuttingTools || blockcontroller.Targeted && coll.gameObject.tag == "Usable")
@@ -140,6 +147,11 @@ public class UnitController : MonoBehaviour
                 _Cutting = true;
                 _animator.SetTrigger("Cutting");
                 _CuttingTarget = blockcontroller;
+                return;
+            }
+
+            if (coll.transform.position.y < transform.position.y - Height)
+            {
                 return;
             }
         }

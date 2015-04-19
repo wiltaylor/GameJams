@@ -16,7 +16,7 @@ public class DigBlockCommand : IGameClickHandler {
 
     public bool SupportFriendlyUnit
     {
-        get { return true; }
+        get { return false; }
     }
 
     public bool SupportEnamyUnit
@@ -33,9 +33,18 @@ public class DigBlockCommand : IGameClickHandler {
     public void ClickBlock(GameObject block)
     {
         var blk = block.GetComponent<BlockController>();
-        
-        if(!blk.Indestructable)
-            blk.Targeted = !blk.Targeted;
+
+        if (blk.Indestructable) return;
+
+        if (GameController.Instance.DigLeft <= 0 && !blk.Targeted)
+            return;
+
+        if (blk.Targeted)
+            GameController.Instance.DigLeft++;
+        else
+            GameController.Instance.DigLeft--;
+
+        blk.Targeted = !blk.Targeted;
     }
 
 

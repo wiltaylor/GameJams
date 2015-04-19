@@ -49,6 +49,11 @@ public class CreateLadderCommand : IGameClickHandler
 
     public void ClickWorld(Vector3 point)
     {
+        if (GameController.Instance.LaddersLeft <= 0)
+            return;
+
+        GameController.Instance.LaddersLeft--;
+
         Object.Instantiate(_ladderPrefab, point, Quaternion.identity);
     }
 }

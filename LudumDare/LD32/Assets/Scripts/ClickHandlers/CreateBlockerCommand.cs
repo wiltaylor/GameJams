@@ -26,6 +26,10 @@ public class CreateBlockerCommand : IGameClickHandler
 
     public void ClickUnit(GameObject obj)
     {
+        if (GameController.Instance.BlockersLeft <= 0)
+        return;
+
+        GameController.Instance.BlockersLeft--;
         var unit = obj.GetComponent<UnitController>();
         unit.Walking = false;
         obj.layer = 0;

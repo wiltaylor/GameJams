@@ -10,11 +10,14 @@ public class LeaverController : MonoBehaviour
     public Sprite NormalImage;
 
     private SpriteRenderer _spriteRenderer;
+    private GameController _gameController;
+
     private bool _switched = false;
 
     void Start()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        _gameController = GameController.Instance;
     }
 
 
@@ -45,6 +48,9 @@ public class LeaverController : MonoBehaviour
     void OnMouseDown()
     {
         if (_switched)
+            return;
+
+        if (_gameController.UILockedOut)
             return;
 
         if (!Targeted)

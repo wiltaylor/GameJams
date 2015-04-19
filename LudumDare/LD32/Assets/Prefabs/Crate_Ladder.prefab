@@ -38,7 +38,7 @@ Rigidbody2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 139718}
-  m_Mass: 1
+  m_Mass: 50
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
   m_GravityScale: 1
@@ -76,6 +76,8 @@ MonoBehaviour:
   Health: 20
   DirtCloud: {fileID: 0}
   DestroyOnFinish: 0
+  BlockBackground: {fileID: 0}
+  LeaveBackground: 1
 --- !u!114 &11461928
 MonoBehaviour:
   m_ObjectHideFlags: 1

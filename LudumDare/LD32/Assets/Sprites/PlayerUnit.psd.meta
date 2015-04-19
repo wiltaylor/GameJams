@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 8f3e96ee6ca3f7a4c8a5a76b60985c5c
-timeCreated: 1429337420
+timeCreated: 1429419016
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
@@ -68,6 +68,15 @@ TextureImporter:
     21300122: UnitAnimation_61
     21300124: UnitAnimation_62
     21300126: UnitAnimation_63
+    21300128: PlayerUnit_0
+    21300130: PlayerUnit_1
+    21300132: PlayerUnit_2
+    21300134: PlayerUnit_3
+    21300136: PlayerUnit_4
+    21300138: PlayerUnit_5
+    21300140: PlayerUnit_6
+    21300142: PlayerUnit_7
+    21300144: PlayerUnit_8
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -113,7 +122,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: UnitAnimation_0
+    - name: PlayerUnit_0
       rect:
         serializedVersion: 2
         x: 0
@@ -121,9 +130,9 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: UnitAnimation_1
+    - name: PlayerUnit_1
       rect:
         serializedVersion: 2
         x: 16
@@ -131,9 +140,9 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: UnitAnimation_2
+    - name: PlayerUnit_2
       rect:
         serializedVersion: 2
         x: 32
@@ -141,9 +150,9 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: UnitAnimation_3
+    - name: PlayerUnit_3
       rect:
         serializedVersion: 2
         x: 48
@@ -151,9 +160,9 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: UnitAnimation_4
+    - name: PlayerUnit_4
       rect:
         serializedVersion: 2
         x: 64
@@ -161,9 +170,9 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: UnitAnimation_5
+    - name: PlayerUnit_5
       rect:
         serializedVersion: 2
         x: 0
@@ -173,7 +182,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: UnitAnimation_6
+    - name: PlayerUnit_6
       rect:
         serializedVersion: 2
         x: 16
@@ -183,10 +192,20 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: UnitAnimation_7
+    - name: PlayerUnit_7
       rect:
         serializedVersion: 2
         x: 32
+        y: 96
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: PlayerUnit_8
+      rect:
+        serializedVersion: 2
+        x: 48
         y: 96
         width: 16
         height: 15

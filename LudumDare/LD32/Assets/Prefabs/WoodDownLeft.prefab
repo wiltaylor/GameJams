@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 493568}
   - 212: {fileID: 21268986}
   - 114: {fileID: 11466886}
-  - 68: {fileID: 6867762}
+  - 60: {fileID: 6054726}
   m_Layer: 8
   m_Name: WoodDownLeft
   m_TagString: Ground_Slope
@@ -53,14 +53,14 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 147446}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.84699988, y: 1.33599997, z: 0}
+  m_LocalPosition: {x: .538574636, y: 1.48595464, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 475452}
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!68 &6867762
-EdgeCollider2D:
+--- !u!60 &6054726
+PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -71,10 +71,12 @@ EdgeCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   m_Points:
-  - {x: -.15433073, y: -.149288774}
-  - {x: .164091825, y: .169328332}
-  - {x: .158276796, y: -.154384851}
-  - {x: -.153695345, y: -.149288893}
+    m_Paths:
+    - - {x: .156240106, y: .156064034}
+      - {x: -.157375991, y: -.157552123}
+      - {x: -.159999996, y: -.159999996}
+      - {x: .159999996, y: -.159999996}
+      - {x: .157376051, y: .154751897}
 --- !u!114 &11466886
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -91,6 +93,8 @@ MonoBehaviour:
   Health: 5
   DirtCloud: {fileID: 0}
   DestroyOnFinish: 1
+  BlockBackground: {fileID: 0}
+  LeaveBackground: 1
 --- !u!212 &21223636
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -9,8 +9,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 462934}
   - 212: {fileID: 21203270}
-  - 68: {fileID: 6867070}
   - 114: {fileID: 11441352}
+  - 60: {fileID: 6072268}
   m_Layer: 0
   m_Name: GrassDownLeft
   m_TagString: Ground_Slope
@@ -41,7 +41,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 126798}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.60470891, y: -1.98715556, z: 0}
+  m_LocalPosition: {x: 1.03453624, y: .833043218, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 479552}
@@ -59,8 +59,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 462934}
   m_RootOrder: 0
---- !u!68 &6867070
-EdgeCollider2D:
+--- !u!60 &6072268
+PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -71,10 +71,12 @@ EdgeCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   m_Points:
-  - {x: .160788178, y: .157289788}
-  - {x: .160381436, y: -.159148172}
-  - {x: -.157984734, y: -.159288451}
-  - {x: .157930374, y: .157289743}
+    m_Paths:
+    - - {x: .159082294, y: .16264379}
+      - {x: -.153390348, y: -.159082294}
+      - {x: -.159999996, y: -.159999996}
+      - {x: .159999996, y: -.159999996}
+      - {x: .156034231, y: .159999967}
 --- !u!114 &11441352
 MonoBehaviour:
   m_ObjectHideFlags: 1

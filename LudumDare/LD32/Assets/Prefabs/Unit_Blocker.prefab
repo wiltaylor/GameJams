@@ -13,6 +13,8 @@ GameObject:
   - 50: {fileID: 5020356}
   - 61: {fileID: 6150256}
   - 114: {fileID: 11467764}
+  - 114: {fileID: 11476592}
+  - 114: {fileID: 11430016}
   m_Layer: 0
   m_Name: Unit_Blocker
   m_TagString: Unit_Turn
@@ -77,6 +79,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11430016
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 109632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a969aada9e071c4abb78b0ef9f5fab7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 1
 --- !u!114 &11467764
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -92,11 +106,23 @@ MonoBehaviour:
   MoveSpeed: 300
   FreeForce: .5
   Walking: 0
-  HasCuttingTools: 0
+  HasCuttingTools: 1
   CuttingDamage: 0
   Height: .200000003
   PlayerOwned: 1
   BloodPrefab: {fileID: 196750, guid: 671ec134b82ea1949a311f9b18213480, type: 2}
+--- !u!114 &11476592
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 109632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a969aada9e071c4abb78b0ef9f5fab7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
 --- !u!212 &21206230
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -121,7 +147,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300006, guid: 8f3e96ee6ca3f7a4c8a5a76b60985c5c, type: 3}
+  m_Sprite: {fileID: 21300134, guid: 8f3e96ee6ca3f7a4c8a5a76b60985c5c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
