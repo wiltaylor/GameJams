@@ -125,6 +125,13 @@ public class GameController : MonoBehaviour {
 
         return val <= -80f;
     }
+
+    public void SkipTutorial()
+    {
+        PlayerUnits = 0;
+        EnamyUnits = 0;
+        Application.LoadLevel("Level1");
+    }
 }
 
 
