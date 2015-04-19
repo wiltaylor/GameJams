@@ -11,6 +11,7 @@ GameObject:
   - 198: {fileID: 19889380}
   - 199: {fileID: 19980060}
   - 114: {fileID: 11491368}
+  - 82: {fileID: 8294382}
   m_Layer: 0
   m_Name: Blood
   m_TagString: Untagged
@@ -25,11 +26,81 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 196750}
   m_LocalRotation: {x: -.707106829, y: 0, z: 0, w: .707106829}
-  m_LocalPosition: {x: 1.23373103, y: .728939772, z: 0}
+  m_LocalPosition: {x: 2.05613518, y: 1.13673449, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!82 &8294382
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 196750}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 24304598, guid: b55d15a4dff22c64c8250dc020f36d76,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: 47151ad6c0b13ac46a5d678184a10fc7, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!114 &11491368
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -41,7 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3c53ef3c7cf1234ca6dfdccc3a6da58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeToDie: .25
+  TimeToDie: .899999976
 --- !u!198 &19889380
 ParticleSystem:
   m_ObjectHideFlags: 1

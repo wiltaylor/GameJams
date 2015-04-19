@@ -15,7 +15,11 @@ public class SpawnerController : MonoBehaviour {
     void Spawn()
     {
         if (Quantity <= 0)
+        {
+            Destroy(gameObject);
             return;
+        }
+            
 
         Instantiate(Prefab, transform.position, transform.rotation);
         Quantity--;

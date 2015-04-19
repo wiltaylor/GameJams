@@ -26,12 +26,14 @@ public class DigBlockCommand : IGameClickHandler {
 
     public void ClickUnit(GameObject obj)
     {
-        var unit = obj.GetComponent<UnitController>();
-        unit.HasCuttingTools = true;
+        throw new System.NotImplementedException();
     }
 
     public void ClickBlock(GameObject block)
     {
+        if (GameController.Instance.MouseOverUI)
+            return;
+
         var blk = block.GetComponent<BlockController>();
 
         if (blk.Indestructable) return;

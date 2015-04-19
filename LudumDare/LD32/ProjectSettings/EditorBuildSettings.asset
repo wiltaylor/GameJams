@@ -9,3 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/TestLevel.unity
   - enabled: 1
     path: Assets/Scenes/tiletest.unity
+  - enabled: 1
+    path: Assets/Scenes/Tutorial1.unity
+  - enabled: 1
+    path: Assets/Scenes/Tutorial2.unity

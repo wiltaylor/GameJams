@@ -22,6 +22,9 @@ public class UnitController : MonoBehaviour
     public float Height = 0.10f;
     public bool PlayerOwned = true;
     public GameObject BloodPrefab;
+    public AudioSource CutSound;
+    public float CutPitchMax = 1.5f;
+    public float CutPitchMin = 0.5f;
 
     private Rigidbody2D _rigidbody2D;
     private Vector3 _lastPosition;
@@ -144,6 +147,7 @@ public class UnitController : MonoBehaviour
 
             if (blockcontroller.Targeted && HasCuttingTools || blockcontroller.Targeted && coll.gameObject.tag == "Usable")
             {
+                PlayCutSound();
                 _Cutting = true;
                 _animator.SetTrigger("Cutting");
                 _CuttingTarget = blockcontroller;
@@ -180,7 +184,6 @@ public class UnitController : MonoBehaviour
     {
         Instantiate(BloodPrefab, transform.position, transform.rotation);
         
-
         if (PlayerOwned)
             _gameController.PlayerUnits--;
         else
@@ -197,5 +200,14 @@ public class UnitController : MonoBehaviour
     void ExitLadder()
     {
         _onLadder--;
+    }
+
+    public void PlayCutSound()
+    {
+        if (CutSound != null)
+        {
+            CutSound.pitch = UnityEngine.Random.Range(CutPitchMin, CutPitchMax);
+            CutSound.Play();
+        }
     }
 }

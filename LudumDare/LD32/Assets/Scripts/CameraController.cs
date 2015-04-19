@@ -68,7 +68,7 @@ public class CameraController : MonoBehaviour
             transform.position = new Vector3(transform.position.x, MinY, transform.position.z);
 
         if (transform.position.x > MaxX)
-            transform.position = new Vector3(MaxY, transform.position.y, transform.position.z);
+            transform.position = new Vector3(MaxX, transform.position.y, transform.position.z);
 
         if (transform.position.y > MaxY)
             transform.position = new Vector3(transform.position.x, MaxY, transform.position.z);

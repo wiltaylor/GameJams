@@ -120,12 +120,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxX: 10
   MaxY: 10
-  MinY: -10
-  MinX: -10
+  MinY: -2
+  MinX: 2
   MoveSpeed: 1
   ZoomSpeed: 5
-  MaxZoom: 4
-  MinZoom: .5
+  MaxZoom: 3
+  MinZoom: 2
 --- !u!114 &11478328
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -138,12 +138,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: 
-  NextLevel: tiletest
+  NextLevel: Tutorial2
   YCutOff: -20
-  Blockers: 5
-  DigLeft: 2
-  Ladders: 1
-  Bridges: 1
+  Blockers: 0
+  DigLeft: 50
+  Ladders: 0
+  Bridges: 0
 --- !u!124 &12480820
 Behaviour:
   m_ObjectHideFlags: 1
