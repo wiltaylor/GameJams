@@ -13,11 +13,13 @@ public class LeaverController : MonoBehaviour
     private GameController _gameController;
 
     private bool _switched = false;
+    private AudioSource _audio;
 
     void Start()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _gameController = GameController.Instance;
+        _audio = GetComponent<AudioSource>();
     }
 
 
@@ -40,6 +42,7 @@ public class LeaverController : MonoBehaviour
                 transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
                 _switched = true;
                 _spriteRenderer.sprite = NormalImage;
+                _audio.Play();
 
             }
         }

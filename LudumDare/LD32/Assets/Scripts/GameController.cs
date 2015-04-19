@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Linq;
 using JetBrains.Annotations;
+using UnityEngine.Audio;
 using UnityEngine.EventSystems;
 
 public class GameController : MonoBehaviour {
@@ -14,12 +16,17 @@ public class GameController : MonoBehaviour {
     public bool MouseOverUI = false;
     public bool UILockedOut = false;
 
+    public AudioMixer Mixer;
+
     public int BlockersLeft = 5;
     public int DigLeft = 2;
     public int LaddersLeft = 1;
     public int BridgesLeft = 1;
 
     private LevelInfo _currentLevelInfo;
+    private float _initialMusicVol;
+    private float _initialSFXVol;
+
      
     void Awake()
     {
@@ -39,6 +46,12 @@ public class GameController : MonoBehaviour {
     void Start()
     {
         OnLevelWasLoaded(Application.loadedLevel);
+
+        Mixer.GetFloat("MusicVol", out _initialMusicVol);
+        Mixer.GetFloat("SFXVol", out _initialSFXVol);
+
+        Debug.Log("Music: " + _initialMusicVol.ToString() + " SFX: " + _initialSFXVol.ToString());
+
     }
 
     void OnLevelWasLoaded(int level)
@@ -74,4 +87,44 @@ public class GameController : MonoBehaviour {
         EnamyUnits = 0;
         Application.LoadLevel(Application.loadedLevelName);
     }
+
+    public void MuteMusic()
+    {
+        Mixer.SetFloat("MusicVol", -80f);
+
+    }
+
+    public void MuteSFX()
+    {
+        Mixer.SetFloat("SFXVol", -80f);
+    }
+
+    public void UnMuteMusic()
+    {
+        Mixer.SetFloat("MusicVol", _initialMusicVol);
+
+    }
+
+    public void UnMuteSFX()
+    {
+        Mixer.SetFloat("SFXVol", _initialSFXVol);
+    }
+
+    public bool IsMusicMuted()
+    {
+        float val;
+        Mixer.GetFloat("MusicVol", out val);
+
+        return val <= -80f;
+    }
+
+    public bool IsSFXMuted()
+    {
+        float val;
+        Mixer.GetFloat("SFXVol", out val);
+
+        return val <= -80f;
+    }
 }
+
+

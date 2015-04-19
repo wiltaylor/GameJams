@@ -147,7 +147,6 @@ public class UnitController : MonoBehaviour
 
             if (blockcontroller.Targeted && HasCuttingTools || blockcontroller.Targeted && coll.gameObject.tag == "Usable")
             {
-                PlayCutSound();
                 _Cutting = true;
                 _animator.SetTrigger("Cutting");
                 _CuttingTarget = blockcontroller;

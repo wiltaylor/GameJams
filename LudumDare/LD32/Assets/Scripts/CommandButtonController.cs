@@ -21,6 +21,12 @@ public class CommandButtonController : MonoBehaviour
     void Start()
     {
         _gameController = GameController.Instance;
+
+        if (_gameController.IsMusicMuted())
+            MusicDisabled.SetActive(true);
+        if (_gameController.IsSFXMuted())
+            SFXDisabled.SetActive(true);
+
     }
 
 
@@ -102,12 +108,30 @@ public class CommandButtonController : MonoBehaviour
 
     public void ToggleMusic()
     {
-        MusicDisabled.SetActive(true);
+        if (!MusicDisabled.activeInHierarchy)
+        {
+            MusicDisabled.SetActive(true);
+            _gameController.MuteMusic();
+        }
+        else
+        {
+            MusicDisabled.SetActive(false);
+            _gameController.UnMuteMusic();
+        }
     }
 
     public void ToggleSFX()
     {
-        SFXDisabled.SetActive(true);
+        if (!SFXDisabled.activeInHierarchy)
+        {
+            SFXDisabled.SetActive(true);
+            _gameController.MuteSFX();
+        }
+        else
+        {
+            SFXDisabled.SetActive(false);
+            _gameController.UnMuteSFX();
+        }
     }
 
 }

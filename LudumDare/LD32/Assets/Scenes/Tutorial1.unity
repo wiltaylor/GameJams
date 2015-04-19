@@ -2157,53 +2157,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d2c825f9d6003a4438b915d0e9d31e96, type: 2}
   m_IsPrefabParent: 0
---- !u!1001 &100449453
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 489066, guid: 38b8d38ecf170754aa7580ddbf78daf8, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 4.70509386
-      objectReference: {fileID: 0}
-    - target: {fileID: 489066, guid: 38b8d38ecf170754aa7580ddbf78daf8, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: .673607111
-      objectReference: {fileID: 0}
-    - target: {fileID: 489066, guid: 38b8d38ecf170754aa7580ddbf78daf8, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 489066, guid: 38b8d38ecf170754aa7580ddbf78daf8, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 489066, guid: 38b8d38ecf170754aa7580ddbf78daf8, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 489066, guid: 38b8d38ecf170754aa7580ddbf78daf8, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 489066, guid: 38b8d38ecf170754aa7580ddbf78daf8, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 489066, guid: 38b8d38ecf170754aa7580ddbf78daf8, type: 2}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 11435566, guid: 38b8d38ecf170754aa7580ddbf78daf8, type: 2}
-      propertyPath: CutSound
-      value: 
-      objectReference: {fileID: 1271470616}
-    m_RemovedComponents:
-    - {fileID: 8237714, guid: 38b8d38ecf170754aa7580ddbf78daf8, type: 2}
-  m_ParentPrefab: {fileID: 100100000, guid: 38b8d38ecf170754aa7580ddbf78daf8, type: 2}
-  m_IsPrefabParent: 0
 --- !u!4 &103582106 stripped
 Transform:
   m_PrefabParentObject: {fileID: 442572, guid: d2c825f9d6003a4438b915d0e9d31e96, type: 2}
@@ -17962,48 +17915,6 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 466374, guid: f744727a00998b5409d93fae68ac862e, type: 2}
   m_PrefabInternal: {fileID: 116651524}
---- !u!1001 &704733736
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 435970, guid: 0af9a7a186a16724c8758fc25dde42d7, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 3.26205134
-      objectReference: {fileID: 0}
-    - target: {fileID: 435970, guid: 0af9a7a186a16724c8758fc25dde42d7, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 1.49049425
-      objectReference: {fileID: 0}
-    - target: {fileID: 435970, guid: 0af9a7a186a16724c8758fc25dde42d7, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 435970, guid: 0af9a7a186a16724c8758fc25dde42d7, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 435970, guid: 0af9a7a186a16724c8758fc25dde42d7, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 435970, guid: 0af9a7a186a16724c8758fc25dde42d7, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 435970, guid: 0af9a7a186a16724c8758fc25dde42d7, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 435970, guid: 0af9a7a186a16724c8758fc25dde42d7, type: 2}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 0af9a7a186a16724c8758fc25dde42d7, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1001 &708188735
 Prefab:
   m_ObjectHideFlags: 0
@@ -20680,7 +20591,7 @@ Transform:
   - {fileID: 401253942}
   - {fileID: 1668950648}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!4 &811296906 stripped
 Transform:
   m_PrefabParentObject: {fileID: 442572, guid: d2c825f9d6003a4438b915d0e9d31e96, type: 2}
@@ -31965,80 +31876,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d2c825f9d6003a4438b915d0e9d31e96, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1271470615 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 117744, guid: 38b8d38ecf170754aa7580ddbf78daf8, type: 2}
-  m_PrefabInternal: {fileID: 100449453}
---- !u!82 &1271470616
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1271470615}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24304598, guid: b55d15a4dff22c64c8250dc020f36d76,
-    type: 2}
-  m_audioClip: {fileID: 8300000, guid: bba8415482b276a4b9ae15cc56b80a73, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
 --- !u!4 &1274645392 stripped
 Transform:
   m_PrefabParentObject: {fileID: 442572, guid: d2c825f9d6003a4438b915d0e9d31e96, type: 2}
