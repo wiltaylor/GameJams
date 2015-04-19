@@ -3632,12 +3632,6 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 430532, guid: 72fc5d58f413df14bb2f981ec2cf385d, type: 2}
   m_PrefabInternal: {fileID: 466488380}
---- !u!114 &933614302 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11494110, guid: f4f4287ee397efd4cad092ec55901783,
-    type: 2}
-  m_PrefabInternal: {fileID: 1952939525}
-  m_Script: {fileID: 11500000, guid: caff16bf51e892a45a0d81852c46b731, type: 3}
 --- !u!1001 &952786204
 Prefab:
   m_ObjectHideFlags: 0
@@ -5807,6 +5801,7 @@ GameObject:
   - 222: {fileID: 1524510107}
   - 114: {fileID: 1524510106}
   - 114: {fileID: 1524510105}
+  - 114: {fileID: 1524510108}
   m_Layer: 5
   m_Name: NewGame
   m_TagString: Untagged
@@ -5871,8 +5866,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 933614302}
-        m_MethodName: NextLevel
+      - m_Target: {fileID: 1524510108}
+        m_MethodName: RestartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5912,6 +5907,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1524510103}
+--- !u!114 &1524510108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1524510103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92c32240415f17c48b4231ce0a96f430, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1526924600
 Prefab:
   m_ObjectHideFlags: 0

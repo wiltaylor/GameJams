@@ -11,5 +11,6 @@ public class LevelInfo : MonoBehaviour
     public int DigLeft = 2;
     public int Ladders = 1;
     public int Bridges = 1;
+    public string Music = "MainTheme";
 
 }

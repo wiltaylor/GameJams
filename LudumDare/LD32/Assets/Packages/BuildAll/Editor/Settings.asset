@@ -11,14 +11,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c3d20f7c7ed04445b0b4c3f20bd6d2e, type: 3}
   m_Name: Settings
   m_EditorClassIdentifier: 
-  BinaryName: MyGame
-  Release: 0
-  PublishRoot: 
+  BinaryName: Pixilion
+  Release: 1
+  PublishRoot: c:\cloud\dropbox\public\ludum dare\32
   PackageFolder: 
-  BuildWindows: 0
-  BuildWindows64: 0
-  BuildLinux: 0
+  BuildWindows: 1
+  BuildWindows64: 1
+  BuildLinux: 1
   BuildWeb: 1
   BuildPackage: 0
   BuildAndroid: 0
-  BuildWebGL: 0
+  BuildWebGL: 1

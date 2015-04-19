@@ -12,6 +12,7 @@ GameObject:
   - 50: {fileID: 5060884}
   - 58: {fileID: 5858360}
   - 114: {fileID: 11405578}
+  - 114: {fileID: 11447116}
   m_Layer: 0
   m_Name: SpikeBall
   m_TagString: Untagged
@@ -70,6 +71,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be22c07feb482264180abfc7ef462410, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11447116
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 175032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a969aada9e071c4abb78b0ef9f5fab7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 2
 --- !u!212 &21219588
 SpriteRenderer:
   m_ObjectHideFlags: 1

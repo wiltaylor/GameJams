@@ -15,6 +15,8 @@ public class GameController : MonoBehaviour {
     public int EnamyUnits = 0;
     public bool MouseOverUI = false;
     public bool UILockedOut = false;
+    public AudioClip MainTheme;
+    public AudioClip EndTheme;
 
     public AudioMixer Mixer;
 
@@ -26,6 +28,8 @@ public class GameController : MonoBehaviour {
     private LevelInfo _currentLevelInfo;
     private float _initialMusicVol;
     private float _initialSFXVol;
+    private string _currentMusic = "";
+    private AudioSource _audioSource;
 
      
     void Awake()
@@ -41,6 +45,7 @@ public class GameController : MonoBehaviour {
         DontDestroyOnLoad(gameObject);
 
         CurrentClickHandler = new CreateBlockerCommand();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     void Start()
@@ -63,6 +68,24 @@ public class GameController : MonoBehaviour {
            Debug.LogError("No Level Info Object found!");
            return;
         }
+
+        if (_currentLevelInfo.Music != _currentMusic && _audioSource != null)
+        {
+            if (_currentLevelInfo.Music == "MainTheme")
+            {
+                _audioSource.clip = MainTheme;
+                _audioSource.Play();
+                _currentMusic = "MainTheme";
+            }
+
+            if (_currentLevelInfo.Music == "EndTheme")
+            {
+                _audioSource.clip = EndTheme;
+                _audioSource.Play();
+                _currentMusic = "EndThme";
+            }
+        }
+
 
         YCutOff = _currentLevelInfo.YCutOff;
         BlockersLeft = _currentLevelInfo.Blockers;

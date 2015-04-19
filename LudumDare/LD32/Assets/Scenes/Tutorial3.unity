@@ -16852,7 +16852,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11478328, guid: c48faae57ddefa2498bdf46c8dff0c68, type: 2}
       propertyPath: NextLevel
-      value: Level1
+      value: End
       objectReference: {fileID: 0}
     - target: {fileID: 11478328, guid: c48faae57ddefa2498bdf46c8dff0c68, type: 2}
       propertyPath: DigLeft
@@ -16881,6 +16881,10 @@ Prefab:
     - target: {fileID: 11478328, guid: c48faae57ddefa2498bdf46c8dff0c68, type: 2}
       propertyPath: Name
       value: Tutorial 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11422008, guid: c48faae57ddefa2498bdf46c8dff0c68, type: 2}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c48faae57ddefa2498bdf46c8dff0c68, type: 2}

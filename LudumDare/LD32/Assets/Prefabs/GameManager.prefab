@@ -39,7 +39,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24346316, guid: b55d15a4dff22c64c8250dc020f36d76,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 4b07aedd7d31e8d47a4d3957c8f60fba, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -115,6 +115,8 @@ MonoBehaviour:
   EnamyUnits: 0
   MouseOverUI: 0
   UILockedOut: 0
+  MainTheme: {fileID: 8300000, guid: 4b07aedd7d31e8d47a4d3957c8f60fba, type: 3}
+  EndTheme: {fileID: 8300000, guid: 5c596767312022849933f25864408bc1, type: 3}
   Mixer: {fileID: 24100000, guid: b55d15a4dff22c64c8250dc020f36d76, type: 2}
   BlockersLeft: 5
   DigLeft: 2
