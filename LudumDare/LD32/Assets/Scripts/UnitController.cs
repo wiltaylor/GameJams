@@ -21,6 +21,7 @@ public class UnitController : MonoBehaviour
     public float CuttingDamage = 1f;
     public float Height = 0.10f;
     public bool PlayerOwned = true;
+    public GameObject BloodPrefab;
 
     private Rigidbody2D _rigidbody2D;
     private Vector3 _lastPosition;
@@ -88,6 +89,23 @@ public class UnitController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D coll)
     {
+        if (Direction == UnitFacingDirection.Left)
+        {
+            if (transform.localScale.x > 0)
+            {
+                transform.localScale = new Vector3(transform.localScale.x*-1, transform.localScale.y,
+                    transform.localScale.z);
+            }
+        }
+        else
+        {
+            if (transform.localScale.x < 0)
+            {
+                transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y,
+                    transform.localScale.z);
+            }
+        }
+
         if (_onLadder > 0)
             return;
 
@@ -96,11 +114,13 @@ public class UnitController : MonoBehaviour
             if (coll.transform.tag == "Unit")
             {
                 var unit = coll.gameObject.GetComponent<UnitController>();
-                if (unit.PlayerOwned)
-                {
-                    _animator.SetTrigger("Attack");
-                    Destroy(coll.gameObject);
-                }
+
+                if (!unit.PlayerOwned) return;
+
+                _animator.SetTrigger("Attack");
+                unit.Kill();
+
+                Direction = coll.transform.position.x > transform.position.x ? UnitFacingDirection.Right : UnitFacingDirection.Left;
 
                 return;
             }
@@ -124,11 +144,11 @@ public class UnitController : MonoBehaviour
             }
         }
 
-        if (coll.gameObject.tag == "Ground" || coll.gameObject.tag == "Unit_Turn" || coll.gameObject.tag == "Usable")
-        {
-            Direction = Direction == UnitFacingDirection.Right ? UnitFacingDirection.Left : UnitFacingDirection.Right;
-            transform.localScale = new Vector3(transform.localScale.x*-1, transform.localScale.y, transform.localScale.z);
-        }
+        if (coll.gameObject.tag != "Ground" && coll.gameObject.tag != "Unit_Turn" && coll.gameObject.tag != "Usable")
+            return;
+
+        Direction = Direction == UnitFacingDirection.Right ? UnitFacingDirection.Left : UnitFacingDirection.Right;
+        transform.localScale = new Vector3(transform.localScale.x*-1, transform.localScale.y, transform.localScale.z);
     }
 
     void OnMouseDown()
@@ -144,12 +164,17 @@ public class UnitController : MonoBehaviour
 
     }
 
-    void OnDestroy()
+    public void Kill()
     {
+        Instantiate(BloodPrefab, transform.position, transform.rotation);
+        
+
         if (PlayerOwned)
             _gameController.PlayerUnits--;
         else
             _gameController.EnamyUnits--;
+
+        Destroy(gameObject);
     }
 
     void EnterLadder()

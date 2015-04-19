@@ -96,6 +96,7 @@ MonoBehaviour:
   CuttingDamage: 0
   Height: .200000003
   PlayerOwned: 1
+  BloodPrefab: {fileID: 196750, guid: 671ec134b82ea1949a311f9b18213480, type: 2}
 --- !u!212 &21206230
 SpriteRenderer:
   m_ObjectHideFlags: 1

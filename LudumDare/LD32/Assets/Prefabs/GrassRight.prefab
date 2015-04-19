@@ -88,6 +88,8 @@ MonoBehaviour:
   Health: 10
   DirtCloud: {fileID: 176896, guid: 8e72a537c9dcca0408c3d4490bc992d4, type: 2}
   DestroyOnFinish: 1
+  BlockBackground: {fileID: 21300000, guid: 9cfcab8ced2378947aad9e88b8ecced9, type: 3}
+  LeaveBackground: 1
 --- !u!212 &21210036
 SpriteRenderer:
   m_ObjectHideFlags: 1

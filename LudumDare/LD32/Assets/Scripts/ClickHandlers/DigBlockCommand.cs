@@ -35,7 +35,7 @@ public class DigBlockCommand : IGameClickHandler {
         var blk = block.GetComponent<BlockController>();
         
         if(!blk.Indestructable)
-            blk.Targeted = true;
+            blk.Targeted = !blk.Targeted;
     }
 
 
