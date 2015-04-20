@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Name: Settings
   m_EditorClassIdentifier: 
   BinaryName: Pixilion
-  Release: 1
-  PublishRoot: c:\cloud\dropbox\public\ludum dare\32
+  Release: 3
+  PublishRoot: c:\cloud\dropbox\public\ludum dare\32\Release3
   PackageFolder: 
   BuildWindows: 1
   BuildWindows64: 1

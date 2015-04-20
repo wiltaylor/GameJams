@@ -66922,39 +66922,23 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 436100, guid: c48faae57ddefa2498bdf46c8dff0c68, type: 2}
       propertyPath: m_RootOrder
-      value: 12
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 11478328, guid: c48faae57ddefa2498bdf46c8dff0c68, type: 2}
+      propertyPath: Music
+      value: MainTheme
+      objectReference: {fileID: 0}
+    - target: {fileID: 11478328, guid: c48faae57ddefa2498bdf46c8dff0c68, type: 2}
+      propertyPath: NextLevel
+      value: Level3
       objectReference: {fileID: 0}
     - target: {fileID: 11478328, guid: c48faae57ddefa2498bdf46c8dff0c68, type: 2}
       propertyPath: Name
       value: Level 2
       objectReference: {fileID: 0}
-    - target: {fileID: 11478328, guid: c48faae57ddefa2498bdf46c8dff0c68, type: 2}
-      propertyPath: NextLevel
-      value: End
-      objectReference: {fileID: 0}
     - target: {fileID: 11422008, guid: c48faae57ddefa2498bdf46c8dff0c68, type: 2}
       propertyPath: m_Enabled
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11478328, guid: c48faae57ddefa2498bdf46c8dff0c68, type: 2}
-      propertyPath: DigLeft
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 11422008, guid: c48faae57ddefa2498bdf46c8dff0c68, type: 2}
-      propertyPath: MinY
-      value: -8
-      objectReference: {fileID: 0}
-    - target: {fileID: 11422008, guid: c48faae57ddefa2498bdf46c8dff0c68, type: 2}
-      propertyPath: MaxX
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 11422008, guid: c48faae57ddefa2498bdf46c8dff0c68, type: 2}
-      propertyPath: MaxY
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 464642, guid: c48faae57ddefa2498bdf46c8dff0c68, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 2.62299991
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c48faae57ddefa2498bdf46c8dff0c68, type: 2}

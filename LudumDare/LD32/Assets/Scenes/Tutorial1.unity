@@ -14066,6 +14066,22 @@ Prefab:
       propertyPath: NextLevel
       value: Tutorial2
       objectReference: {fileID: 0}
+    - target: {fileID: 11422008, guid: c48faae57ddefa2498bdf46c8dff0c68, type: 2}
+      propertyPath: MinX
+      value: 3.4000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 11422008, guid: c48faae57ddefa2498bdf46c8dff0c68, type: 2}
+      propertyPath: MinY
+      value: -1.89999998
+      objectReference: {fileID: 0}
+    - target: {fileID: 11422008, guid: c48faae57ddefa2498bdf46c8dff0c68, type: 2}
+      propertyPath: MaxX
+      value: 9.10000038
+      objectReference: {fileID: 0}
+    - target: {fileID: 11478328, guid: c48faae57ddefa2498bdf46c8dff0c68, type: 2}
+      propertyPath: Music
+      value: MainTheme
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c48faae57ddefa2498bdf46c8dff0c68, type: 2}
   m_IsPrefabParent: 0
@@ -41459,11 +41475,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 489956, guid: 837b16a5b2ab8eb46a49dd1c54350f5c, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -6.0644908
+      value: -5.83400011
       objectReference: {fileID: 0}
     - target: {fileID: 489956, guid: 837b16a5b2ab8eb46a49dd1c54350f5c, type: 2}
       propertyPath: m_LocalPosition.y
-      value: .529827118
+      value: .529999971
       objectReference: {fileID: 0}
     - target: {fileID: 489956, guid: 837b16a5b2ab8eb46a49dd1c54350f5c, type: 2}
       propertyPath: m_LocalPosition.z
