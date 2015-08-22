@@ -26,8 +26,18 @@ public class LitchController : MonoBehaviour {
         _anim.SetTrigger("Attack");
     }
 
-    public void TakeHit(int ammount)
+    public void TakeHit(int qty)
     {
-        HP -= ammount;
+        HP -= qty;
+    }
+
+    public void AITriggered(GameObject obj)
+    {
+        Debug.Log("Detected NPC");
+    }
+
+    public void AITargetLost(GameObject obj)
+    {
+        
     }
 }

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class RoomController : MonoBehaviour
+public class ResourceRoomController : MonoBehaviour
 {
     public GameObject ResourceDrop;
     public GameObject ResourceEnterance;

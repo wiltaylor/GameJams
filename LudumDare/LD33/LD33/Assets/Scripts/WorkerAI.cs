@@ -7,8 +7,9 @@ public class WorkerAI : MonoBehaviour
 
     public float MoveSpeed = 1f;
     public float StopDistance = 1f;
-    public float FreeForce = 1f;
-    public RoomController CurrentRoomController;
+    public float SleepTime = 1f;
+
+    public ResourceRoomController CurrentRoomController;
     public float MiningTime = 10f;
     private Animator _anim;
     private Rigidbody2D _rigidbody2D;
@@ -17,7 +18,9 @@ public class WorkerAI : MonoBehaviour
     private bool _facingleft = true;
     private Vector3 _target = Vector3.zero;
     private ImpState _currentImpState = ImpState.SeekingResource;
-    public float _currentMineTime = 10f;
+    private float _currentMineTime = 10f;
+    private float _currentSleepTime = 0f;
+
 
     public enum ImpState
     {
@@ -78,6 +81,7 @@ public class WorkerAI : MonoBehaviour
                 _currentImpState = ImpState.SeekingResource;
                 _target = CurrentRoomController.ResourceEnterance.transform.position;
                 GameManager.Instance.DropGold();
+                _currentSleepTime = SleepTime;
                 break;
         }
     }
@@ -94,6 +98,13 @@ public class WorkerAI : MonoBehaviour
                 return;
             }
         }
+
+	    if (_currentSleepTime > 0f)
+	    {
+	        _currentSleepTime -= Time.fixedDeltaTime;
+            _anim.SetFloat("Speed", 0f);
+            return;
+	    }
 
 	    if (_target == Vector3.zero)
 	    {
@@ -157,10 +168,5 @@ public class WorkerAI : MonoBehaviour
             transform.position = new Vector2(movex, movey);
             _anim.SetFloat("Speed", 0f);
         }
-
-	    
-        
-
-
     }
 }

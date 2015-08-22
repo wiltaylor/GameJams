@@ -13,4 +13,9 @@ public class UnitController : MonoBehaviour {
             Destroy(gameObject);
         }
     }
+
+    public void TakeHit(int qty)
+    {
+        HP -= qty;
+    }
 }

@@ -31,6 +31,16 @@ public class RoomManager : MonoBehaviour
         {
             Destroy(room);
         }
+
+        foreach (var unit in GameObject.FindGameObjectsWithTag("Unit"))
+        {
+            Destroy(unit);
+        }
+
+        foreach (var hero in GameObject.FindGameObjectsWithTag("Hero"))
+        {
+            Destroy(hero);
+        }
     }
 
     public void NewLevel()
