@@ -83,4 +83,9 @@ public class ActionBarController : MonoBehaviour
                 break;
         }
     }
+
+    public void ClickBuyGoldMine()
+    {
+        GameManager.Instance.BuyRoom(GameManager.RoomType.GoldMine);
+    }
 }

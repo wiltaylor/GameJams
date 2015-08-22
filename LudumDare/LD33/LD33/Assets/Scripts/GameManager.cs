@@ -9,7 +9,17 @@ public class GameManager : MonoBehaviour
     public int Evil = 0;
     public int Desire = 0;
 
+    public int GoldPerDrop = 10;
+
+    public GameObject GoldMinePrefab;
+    public GameObject GameUIPrefab;
+
     public static GameManager Instance;
+
+    public enum RoomType
+    {
+        GoldMine
+    }
 
     void Awake()
     {
@@ -20,6 +30,27 @@ public class GameManager : MonoBehaviour
         }
 
         Instance = this;
+    }
+
+    void Start()
+    {
+        RoomManager.Instance.NewLevel();
+        Instantiate(GameUIPrefab);
+    }
+
+    public void DropGold()
+    {
+        Gold += GoldPerDrop;
+    }
+
+    public void BuyRoom(RoomType room)
+    {
+        switch (room)
+        {
+            case RoomType.GoldMine:
+                RoomManager.Instance.AddRoom(Instantiate(GoldMinePrefab));
+                break;
+        }
     }
 
 }
