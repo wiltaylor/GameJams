@@ -92,7 +92,6 @@ public class EntryRoomController : MonoBehaviour
         {
             case 0:
                 Instantiate(ArcherPrefab, SpawnPoint.transform.position, Quaternion.identity);
-                Instantiate(MagePrefab, SpawnPoint.transform.position, Quaternion.identity);
                 break;
             case 1:
                 Instantiate(ArcherPrefab, SpawnPoint.transform.position, Quaternion.identity);
