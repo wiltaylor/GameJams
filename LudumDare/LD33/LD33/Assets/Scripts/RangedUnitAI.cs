@@ -18,6 +18,14 @@ public class RangedUnitAI : MonoBehaviour
     private bool _clearKinematic = false;
     private float _KinematicTimer = 1f;
     private float _currentFightingCoolDown = 0f;
+    private UnitMode _mode = UnitMode.Still;
+
+    public enum UnitMode
+    {
+        Still,
+        ToEnterance,
+        ToLitch
+    }
 
     public enum UnitStates
     {
@@ -47,6 +55,18 @@ public class RangedUnitAI : MonoBehaviour
 
             _anim.SetFloat("Speed", 0f);
             _currentFightingCoolDown = 0;
+
+            if (_mode == UnitMode.ToEnterance)
+            {
+                _target = EntryRoomController.Instance.gameObject;
+                _currentState = UnitStates.MoveToTarget;
+            }
+
+            if (_mode == UnitMode.ToLitch)
+            {
+                _target = LitchController.Instance.gameObject;
+                _currentState = UnitStates.MoveToTarget;
+            }
         }
 
         if (_currentState == UnitStates.Attacking)
@@ -163,4 +183,26 @@ public class RangedUnitAI : MonoBehaviour
         _currentState = UnitStates.Attacking;
         _target = obj;
     }
+
+    /*public void OnMouseDown()
+    {
+        switch (_mode)
+        {
+            case UnitMode.Still:
+                _mode = UnitMode.ToEnterance;
+                _target = EntryRoomController.Instance.gameObject;
+                _currentState = UnitStates.MoveToTarget;
+                break;
+            case UnitMode.ToEnterance:
+                _mode = UnitMode.ToLitch;
+                _target = LitchController.Instance.gameObject;
+                _currentState = UnitStates.MoveToTarget;
+                break;
+            case UnitMode.ToLitch:
+                _mode = UnitMode.Still;
+                _currentState = UnitStates.Idle;
+                _target = null;
+                break;
+        }
+    }*/
 }

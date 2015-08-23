@@ -3,6 +3,20 @@ using System.Collections;
 
 public class EntryRoomController : MonoBehaviour
 {
+    public static EntryRoomController Instance;
+
+    public void Awake()
+    {
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+    }
+
+
     public GameObject ArcherPrefab;
     public GameObject MagePrefab;
     public GameObject SpawnPoint;
