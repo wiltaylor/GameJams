@@ -10,6 +10,7 @@ public class TopBarController : MonoBehaviour
     public Text GemText;
     public Text DesireText;
     public Text EvilText;
+    public Slider LitchHPSlider;
 
     public void Update()
     {
@@ -18,5 +19,13 @@ public class TopBarController : MonoBehaviour
         GemText.text = GameManager.Instance.Gems.ToString();
         DesireText.text = GameManager.Instance.Desire.ToString();
         EvilText.text = GameManager.Instance.Evil.ToString();
+
+        if (LitchController.Instance != null)
+        {
+            LitchHPSlider.maxValue = LitchController.Instance.MaxHP;
+            LitchHPSlider.minValue = 0;
+            LitchHPSlider.value = LitchController.Instance.HP;
+            
+        }
     }
 }

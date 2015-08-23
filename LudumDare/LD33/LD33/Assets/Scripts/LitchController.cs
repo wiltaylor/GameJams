@@ -5,9 +5,60 @@ public class LitchController : MonoBehaviour {
 
     private Animator _anim;
     public static LitchController Instance;
+    public GameObject ProjectilePrefab;
+    public GameObject ProjectileSpawnPoint;
+    public float FightingCoolDown = 5f;
+    public float CombatTimeout = 10f;
 
     public int HP = 100;
     public int MaxHP = 100;
+
+    private LitchStates _currentState = LitchStates.Waiting;
+    private GameObject _fightingTaret;
+    private float _currentFightCoolDown = 0f;
+    private float _combatTimeout = 10f;
+    private bool _ShootProjectile = false;
+
+    public enum LitchStates
+    {
+        Waiting,
+        Attacking
+    }
+
+    public void FixedUpdate()
+    {
+        if (_combatTimeout > 0f)
+        {
+            _combatTimeout -= Time.fixedDeltaTime;
+        }
+        else
+        {
+            _currentState = LitchStates.Waiting;
+        }
+
+        if (_currentState == LitchStates.Attacking)
+        {
+            if (_currentFightCoolDown <= 0f)
+            {
+                _currentFightCoolDown = FightingCoolDown;
+                CastSpell();
+                _ShootProjectile = true;
+            }
+            else
+            {
+                _currentFightCoolDown -= Time.fixedDeltaTime;
+            }
+        }
+    }
+
+    public void OnCastUp()
+    {
+        if (!_ShootProjectile)
+            return;
+
+        var projectile = Instantiate(ProjectilePrefab, ProjectileSpawnPoint.transform.position, Quaternion.identity);
+        _ShootProjectile = false;
+    }
 
     void Awake()
     {
@@ -33,10 +84,30 @@ public class LitchController : MonoBehaviour {
 
     public void AITriggered(GameObject obj)
     {
-        Debug.Log("Detected NPC");
+        if (obj.tag != "Hero")
+            return;
+
+        _currentState = LitchStates.Attacking;
     }
 
     public void AITargetLost(GameObject obj)
+    {
+        if (obj.tag != "Hero")
+            return;
+
+        _currentState = LitchStates.Waiting;
+    }
+
+    public void AITargetUpdate(GameObject obj)
+    {
+        if (obj.tag != "Hero")
+            return;
+
+        _currentState = LitchStates.Attacking;
+        _combatTimeout = CombatTimeout;
+    }
+
+    public void OnSpawn(GameObject room)
     {
         
     }

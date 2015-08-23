@@ -88,4 +88,9 @@ public class ActionBarController : MonoBehaviour
     {
         GameManager.Instance.BuyRoom(GameManager.RoomType.GoldMine);
     }
+
+    public void ClickBuyGemMine()
+    {
+        GameManager.Instance.BuyRoom(GameManager.RoomType.GemMine);
+    }
 }

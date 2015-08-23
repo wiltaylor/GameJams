@@ -10,15 +10,20 @@ public class GameManager : MonoBehaviour
     public int Desire = 0;
 
     public int GoldPerDrop = 10;
+    public int GemsPerDrop = 5;
 
     public GameObject GoldMinePrefab;
+    public GameObject GemMinePrefab;
     public GameObject GameUIPrefab;
+    public GameObject GemMineBuilder;
+    public BuildQueueManager QueueManager;
 
     public static GameManager Instance;
 
     public enum RoomType
     {
-        GoldMine
+        GoldMine,
+        GemMine
     }
 
     void Awake()
@@ -35,12 +40,17 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         RoomManager.Instance.NewLevel();
-        Instantiate(GameUIPrefab);
+        QueueManager = Instantiate(GameUIPrefab).GetComponent<BuildQueueManager>();
     }
 
     public void DropGold()
     {
         Gold += GoldPerDrop;
+    }
+
+    public void DropGems()
+    {
+        Gems += GemsPerDrop;
     }
 
     public void BuyRoom(RoomType room)
@@ -49,6 +59,10 @@ public class GameManager : MonoBehaviour
         {
             case RoomType.GoldMine:
                 RoomManager.Instance.AddRoom(Instantiate(GoldMinePrefab));
+                break;
+            case RoomType.GemMine:
+                QueueManager.Enqueue(GemMineBuilder);
+                //RoomManager.Instance.AddRoom(Instantiate(GemMinePrefab));
                 break;
         }
     }

@@ -10,6 +10,7 @@ public class HeroAI : MonoBehaviour
     public float FightingCoolDown = 10f;
     public GameObject ProjectilePrefab;
     public GameObject ProjectileSpawnPoint;
+    public float CombatTimeout = 5f;
 
     private Animator _animator;
     private Vector3 _target = Vector3.zero;
@@ -21,6 +22,7 @@ public class HeroAI : MonoBehaviour
     private Vector3 _lastPosition = Vector3.zero;
     private bool _clearKinematic = false;
     private float _KinematicTimer = 1f;
+    private float _combatTimeout = 10f;
 
     public enum HeroState
     {
@@ -47,6 +49,16 @@ public class HeroAI : MonoBehaviour
 
     public void FixedUpdate()
     {
+        if (_combatTimeout > 0f)
+        {
+            _combatTimeout -= Time.fixedDeltaTime;
+        }
+        else
+        {
+            _currentHeroState = HeroState.LookingForLitch;
+            _currentFightCoolDown = 0f;
+        }
+
         if (_clearKinematic)
         {
             if (_KinematicTimer > 0f)
@@ -158,6 +170,16 @@ public class HeroAI : MonoBehaviour
     {
         _currentHeroState = HeroState.LookingForLitch;
         _target = LitchController.Instance.transform.position;
+        _currentFightCoolDown = 0f;
+    }
+
+    public void AITargetUpdate(GameObject obj)
+    {
+        if (obj.tag == "Unit")
+        {
+            _currentHeroState = HeroState.Fighting;
+            _combatTimeout = CombatTimeout;
+        }
     }
 
 }

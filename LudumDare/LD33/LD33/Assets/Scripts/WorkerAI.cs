@@ -8,6 +8,7 @@ public class WorkerAI : MonoBehaviour
     public float MoveSpeed = 1f;
     public float StopDistance = 1f;
     public float SleepTime = 1f;
+    public float FleeTime = 20f;
 
     public ResourceRoomController CurrentRoomController;
     public float MiningTime = 10f;
@@ -20,7 +21,10 @@ public class WorkerAI : MonoBehaviour
     private ImpState _currentImpState = ImpState.SeekingResource;
     private float _currentMineTime = 10f;
     private float _currentSleepTime = 0f;
-
+    private Vector3 _lastPosition = Vector3.zero;
+    private bool _clearKinematic = false;
+    private float _KinematicTimer = 1f;
+    private float _fleeTimer = 0f;
 
     public enum ImpState
     {
@@ -28,7 +32,8 @@ public class WorkerAI : MonoBehaviour
         GoingDownLadder,
         GoingUpLadder,
         SeekingDropPoint,
-        Mining
+        Mining,
+        Fleeing
     }
   
 	void Start ()
@@ -37,10 +42,6 @@ public class WorkerAI : MonoBehaviour
 	    _rigidbody2D = GetComponent<Rigidbody2D>();
 	    _collider2D = GetComponent<Collider2D>();
 	    _renderer = GetComponent<SpriteRenderer>();
-
-        //Start Imp ai:
-        _currentImpState = ImpState.SeekingResource;
-        _target = CurrentRoomController.ResourceEnterance.transform.position;
     }
 
     public void MoveToLocation(Vector3 location)
@@ -80,7 +81,10 @@ public class WorkerAI : MonoBehaviour
             case ImpState.SeekingDropPoint:
                 _currentImpState = ImpState.SeekingResource;
                 _target = CurrentRoomController.ResourceEnterance.transform.position;
-                GameManager.Instance.DropGold();
+                if(CurrentRoomController.ResourceType == ResourceRoomController.ResourceTypes.Gold)
+                    GameManager.Instance.DropGold();
+                if(CurrentRoomController.ResourceType == ResourceRoomController.ResourceTypes.Gems)
+                    GameManager.Instance.DropGems();
                 _currentSleepTime = SleepTime;
                 break;
         }
@@ -88,7 +92,19 @@ public class WorkerAI : MonoBehaviour
 	
 	void FixedUpdate ()
 	{
-	    if (_currentImpState == ImpState.Mining)
+	    if (_fleeTimer > 0f)
+	    {
+	        _fleeTimer -= Time.fixedDeltaTime;
+	    }else if (_currentImpState == ImpState.Fleeing)
+	    {
+	        _currentImpState = ImpState.SeekingResource;
+            _target = CurrentRoomController.ResourceEnterance.transform.position;
+            _rigidbody2D.isKinematic = false;
+            _collider2D.enabled = true;
+	        return;
+	    }
+
+        if (_currentImpState == ImpState.Mining)
 	    {
 	        _currentMineTime -= Time.fixedDeltaTime;
 
@@ -121,9 +137,30 @@ public class WorkerAI : MonoBehaviour
 	    var movex = transform.position.x;
 	    var movey = transform.position.y;
 
-	    if (_currentImpState == ImpState.SeekingDropPoint || _currentImpState == ImpState.SeekingResource)
+	    if (_currentImpState == ImpState.SeekingDropPoint || _currentImpState == ImpState.SeekingResource || _currentImpState == ImpState.Fleeing)
 	    {
-	        if (_target.x > transform.position.x)
+            if (_clearKinematic)
+            {
+                if (_KinematicTimer > 0f)
+                    _KinematicTimer -= Time.fixedDeltaTime;
+                else
+                {
+                    _rigidbody2D.isKinematic = false;
+                    _clearKinematic = false;
+                    _KinematicTimer = 1f;
+                }
+            }
+
+            if (_lastPosition != Vector3.zero && _lastPosition == transform.position)
+            {
+                _rigidbody2D.isKinematic = true;
+                _clearKinematic = true;
+                _KinematicTimer = 1f;
+            }
+
+            _lastPosition = transform.position;
+
+            if (_target.x > transform.position.x)
 	        {
 	            if (_facingleft)
 	            {
@@ -168,5 +205,20 @@ public class WorkerAI : MonoBehaviour
             transform.position = new Vector2(movex, movey);
             _anim.SetFloat("Speed", 0f);
         }
+    }
+
+    public void OnSpawn(GameObject room)
+    {
+        CurrentRoomController = room.GetComponent<ResourceRoomController>();
+        //Start Imp ai:
+        _currentImpState = ImpState.SeekingResource;
+        _target = CurrentRoomController.ResourceEnterance.transform.position;
+    }
+
+    public void TakeHit(int qty)
+    {
+        _currentImpState = ImpState.Fleeing;
+        _target = LitchController.Instance.gameObject.transform.position;
+        _fleeTimer = FleeTime;
     }
 }

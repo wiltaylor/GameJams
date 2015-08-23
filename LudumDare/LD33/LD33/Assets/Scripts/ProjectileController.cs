@@ -7,8 +7,15 @@ public class ProjectileController : MonoBehaviour
     public float LifeTime = 10f;
     public int Damage = 10;
     public float Velocity = 1f;
+    public TargetTypes TargetType = TargetTypes.Unit;
 
     private Rigidbody2D _rigidbody2D;
+
+    public enum TargetTypes
+    {
+        Hero,
+        Unit
+    }
 
     void Start()
     {
@@ -29,7 +36,13 @@ public class ProjectileController : MonoBehaviour
             return;
         }
 
-        if (col.tag == "Unit" || col.tag == "Hero")
+        if (col.tag == "Unit" && TargetType == TargetTypes.Unit)
+        {
+            col.gameObject.SendMessage("TakeHit", Damage);
+            Destroy(gameObject);
+        }
+
+        if (col.tag == "Hero" && TargetType == TargetTypes.Hero)
         {
             col.gameObject.SendMessage("TakeHit", Damage);
             Destroy(gameObject);
