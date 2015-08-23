@@ -6,9 +6,7 @@ public class ActionBarController : MonoBehaviour
 {
     public GameObject MainBar;
     public GameObject RoomBar;
-    public GameObject MinionBar;
     public GameObject SpellBar;
-    public GameObject TrapBar;
 
     public GameObject BackButton;
     public GameObject SettingButton;
@@ -18,9 +16,7 @@ public class ActionBarController : MonoBehaviour
     {
         MainBar,
         RoomBar,
-        MinionBar,
         SpellBar,
-        TrapBar
     }
 
     public void SelectMainBar()
@@ -33,20 +29,11 @@ public class ActionBarController : MonoBehaviour
         SelectBar(ActionBars.RoomBar);
     }
 
-    public void SelectMinionBar()
-    {
-        SelectBar(ActionBars.MinionBar);
-    }
-
     public void SelectSpellBar()
     {
         SelectBar(ActionBars.SpellBar);
     }
 
-    public void SelectTrapBar()
-    {
-        SelectBar(ActionBars.TrapBar);
-    }
 
     public void SelectSettings()
     {
@@ -57,9 +44,7 @@ public class ActionBarController : MonoBehaviour
     {
         MainBar.SetActive(false);
         RoomBar.SetActive(false);
-        MinionBar.SetActive(false);
         SpellBar.SetActive(false);
-        TrapBar.SetActive(false);
         BackButton.SetActive(true);
         SettingButton.SetActive(true);
 
@@ -69,28 +54,27 @@ public class ActionBarController : MonoBehaviour
                 MainBar.SetActive(true);
                 BackButton.SetActive(false);
                 break;
-            case ActionBars.MinionBar:
-                MinionBar.SetActive(true);
-                break;
             case ActionBars.RoomBar:
                 RoomBar.SetActive(true);
                 break;
             case ActionBars.SpellBar:
                 SpellBar.SetActive(true);
                 break;
-            case ActionBars.TrapBar:
-                TrapBar.SetActive(true);
-                break;
         }
     }
 
     public void ClickBuyGoldMine()
     {
-        GameManager.Instance.BuyRoom(GameManager.RoomType.GoldMine);
+        GameManager.Instance.ShopMan.BuyGoldMine();
     }
 
     public void ClickBuyGemMine()
     {
-        GameManager.Instance.BuyRoom(GameManager.RoomType.GemMine);
+        GameManager.Instance.ShopMan.BuyGemMine();
+    }
+
+    public void ClickBuyBarracks()
+    {
+        GameManager.Instance.ShopMan.BuyBarracks();
     }
 }

@@ -4,7 +4,6 @@ using System.Collections;
 public class GameManager : MonoBehaviour
 {
     public int Gold = 0;
-    public int Food = 0;
     public int Gems = 0;
     public int Evil = 0;
     public int Desire = 0;
@@ -17,14 +16,10 @@ public class GameManager : MonoBehaviour
     public GameObject GameUIPrefab;
     public GameObject GemMineBuilder;
     public BuildQueueManager QueueManager;
+    public RoomSettingsManager SettingManager;
+    public ShopManager ShopMan;
 
     public static GameManager Instance;
-
-    public enum RoomType
-    {
-        GoldMine,
-        GemMine
-    }
 
     void Awake()
     {
@@ -35,12 +30,16 @@ public class GameManager : MonoBehaviour
         }
 
         Instance = this;
+
+        ShopMan = GetComponent<ShopManager>();
     }
 
     void Start()
     {
         RoomManager.Instance.NewLevel();
-        QueueManager = Instantiate(GameUIPrefab).GetComponent<BuildQueueManager>();
+        var obj = Instantiate(GameUIPrefab);
+        QueueManager = obj.GetComponent<BuildQueueManager>();
+        SettingManager = obj.GetComponent<RoomSettingsManager>();
     }
 
     public void DropGold()
@@ -52,19 +51,4 @@ public class GameManager : MonoBehaviour
     {
         Gems += GemsPerDrop;
     }
-
-    public void BuyRoom(RoomType room)
-    {
-        switch (room)
-        {
-            case RoomType.GoldMine:
-                RoomManager.Instance.AddRoom(Instantiate(GoldMinePrefab));
-                break;
-            case RoomType.GemMine:
-                QueueManager.Enqueue(GemMineBuilder);
-                //RoomManager.Instance.AddRoom(Instantiate(GemMinePrefab));
-                break;
-        }
-    }
-
 }

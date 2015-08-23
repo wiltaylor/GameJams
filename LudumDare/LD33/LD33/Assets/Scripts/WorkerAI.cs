@@ -213,6 +213,7 @@ public class WorkerAI : MonoBehaviour
         //Start Imp ai:
         _currentImpState = ImpState.SeekingResource;
         _target = CurrentRoomController.ResourceEnterance.transform.position;
+        transform.parent = CurrentRoomController.Units.transform;
     }
 
     public void TakeHit(int qty)

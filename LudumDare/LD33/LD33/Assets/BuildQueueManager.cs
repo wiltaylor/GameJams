@@ -15,11 +15,7 @@ public class BuildQueueManager : MonoBehaviour
     public void Enqueue(GameObject item)
     {
         BuildQueue.SetActive(true);
-
-        var obj = (GameObject)Instantiate(item);
-
-        obj.transform.SetParent(BuildQueueContent.transform, false);
-
+        item.transform.SetParent(BuildQueueContent.transform, false);
         ReorderQueue();
     }
 

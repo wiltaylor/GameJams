@@ -8,6 +8,8 @@ public class BuildItemController : MonoBehaviour
     public BuildTypes BuildType;
     public GameObject Prefab;
     public Text CountDown;
+    public GameObject Room;
+    public GameObject SpawnPoint;
 
     public enum BuildTypes
     {
@@ -24,13 +26,19 @@ public class BuildItemController : MonoBehaviour
                 RoomManager.Instance.AddRoom(Instantiate(Prefab));
             }
 
+            if (BuildType == BuildTypes.Unit)
+            {
+                var obj = (GameObject)Instantiate(Prefab, SpawnPoint.transform.position, SpawnPoint.transform.rotation);
+                obj.SendMessage("OnSpawn", Room);
+            }
+
             gameObject.SetActive(false);
             Destroy(gameObject);
         }
         else
         {
             TimeToBuild -= Time.fixedDeltaTime;
-            CountDown.text = TimeToBuild.ToString();
+            CountDown.text = ((int)TimeToBuild).ToString() + " Seconds";
         }
     }
 }
