@@ -4,6 +4,7 @@ using System.Collections;
 public class MainMenuController : MonoBehaviour
 {
     public GameObject ExitButton;
+    public GameObject HowToPlay;
 
     public void Start()
     {
@@ -25,7 +26,8 @@ public class MainMenuController : MonoBehaviour
 
     public void ClickHowToPlay()
     {
-        //Create tutorial.
+        HowToPlay.SetActive(true);
+        HowToPlay.GetComponent<HowToPlayController>().Show();
     }
 
     public void ClickNewGame()

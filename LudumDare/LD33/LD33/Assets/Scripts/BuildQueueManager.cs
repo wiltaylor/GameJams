@@ -19,6 +19,22 @@ public class BuildQueueManager : MonoBehaviour
         ReorderQueue();
     }
 
+    public int CountForRoom(GameObject room)
+    {
+        var ret = 0;
+
+        for (var i = 0; i < BuildQueueContent.transform.childCount; i++)
+        {
+            var obj = BuildQueueContent.transform.GetChild(i);
+            var ctr = obj.gameObject.GetComponent<BuildItemController>();
+
+            if (ctr.Room == room)
+                ret++;
+        }
+
+        return ret;
+    }
+
     public void Start()
     {
         ReorderQueue();
@@ -64,7 +80,6 @@ public class BuildQueueManager : MonoBehaviour
             var obj = BuildQueueContent.transform.GetChild(i).gameObject;
             var rect = obj.GetComponent<RectTransform>();
             var currentoffset = offset - (rect.sizeDelta.y/2) - ((rect.sizeDelta.y + Padding) * i);
-            Debug.Log("Offset:" + currentoffset);
             rect.anchoredPosition = new Vector2(-1 * rect.sizeDelta.x, currentoffset);
         }
     }

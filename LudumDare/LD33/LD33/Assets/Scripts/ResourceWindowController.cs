@@ -22,7 +22,7 @@ public class ResourceWindowController : MonoBehaviour
     public void FixedUpdate()
     {
         var maxWorkers = _controller.MaxWorkers;
-        var curWorkers = _controller.GetCurrentWorkers();
+        var curWorkers = _controller.GetCurrentWorkers() + GameManager.Instance.QueueManager.CountForRoom(Room);
 
         BuyButton.interactable = curWorkers < maxWorkers;
 
