@@ -11,6 +11,7 @@ public class HeroAI : MonoBehaviour
     public GameObject ProjectilePrefab;
     public GameObject ProjectileSpawnPoint;
     public float CombatTimeout = 5f;
+    public bool MeeleUnit = false;
 
     private Animator _animator;
     private Vector3 _target = Vector3.zero;
@@ -85,7 +86,8 @@ public class HeroAI : MonoBehaviour
                 if (_facingleft)
                 {
                     var projectile = (GameObject)Instantiate(ProjectilePrefab, ProjectileSpawnPoint.transform.position, Quaternion.identity);
-                    projectile.GetComponent<ProjectileController>().Velocity *= -1;
+                    if(!MeeleUnit)
+                        projectile.GetComponent<ProjectileController>().Velocity *= -1;
                 }
                 else
                 {

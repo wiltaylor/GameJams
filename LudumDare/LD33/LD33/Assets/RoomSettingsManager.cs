@@ -6,6 +6,7 @@ public class RoomSettingsManager : MonoBehaviour
     public GameObject BossRoomSettings;
     public GameObject GemMineRoomSettings;
     public GameObject GoldMineRoomSettings;
+    public GameObject BarracksRoomSettings;
 
     public void OpenRoomSettings(GameObject room)
     {
@@ -27,6 +28,14 @@ public class RoomSettingsManager : MonoBehaviour
             var ctrl = GoldMineRoomSettings.GetComponent<ResourceWindowController>();
             ctrl.SetRoom(room);
         }
+
+        if (room.name.StartsWith("Barracks"))
+        {
+            BarracksRoomSettings.SetActive(true);
+            var ctrl = BarracksRoomSettings.GetComponent<UnitTrainingWindowController>();
+            ctrl.SetRoom(room);
+
+        }
     }
 
     public void CloseBossRoomWindow()
@@ -42,5 +51,10 @@ public class RoomSettingsManager : MonoBehaviour
     public void CloseGoldMineRoomWindow()
     {
         GoldMineRoomSettings.SetActive(false);
+    }
+
+    public void CloseBarracksWindow()
+    {
+        BarracksRoomSettings.SetActive(false);
     }
 }

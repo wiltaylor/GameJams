@@ -37,7 +37,7 @@ public class ResourceWindowController : MonoBehaviour
 
     public void BuyClicked()
     {
-        if (GameManager.Instance.Gold < GameManager.Instance.ShopMan.ImpGemCost ||
+        if (GameManager.Instance.Gold < GameManager.Instance.ShopMan.ImpGoldCost ||
             GameManager.Instance.Gems < GameManager.Instance.ShopMan.ImpGemCost)
             return;
 

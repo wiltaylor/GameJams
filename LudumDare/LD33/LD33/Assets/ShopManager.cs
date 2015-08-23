@@ -7,6 +7,7 @@ public class ShopManager : MonoBehaviour
     public GameObject GoldMinePrefab;
     public GameObject GemMinePrefab;
     public GameObject BarracksPrefab;
+    public GameObject LibraryPrefab;
 
     public int GoldMineGoldCost = 1000;
     public int GemMineGoldCost = 5000;
@@ -14,9 +15,15 @@ public class ShopManager : MonoBehaviour
     public int GemMineGemCost = 0;
     public int BarracksGoldCost = 5;
     public int BarracksGemCost = 0;
+    public int LibraryGoldCost = 5;
+    public int LibraryGemCost = 0;
 
     public int ImpGoldCost = 100;
     public int ImpGemCost = 0;
+    public int SwordManGoldCost = 200;
+    public int SwordManGemCost = 0;
+    public int WizardGoldCost = 200;
+    public int WizardGemcost = 100;
 
     public void BuyGoldMine()
     {
@@ -55,5 +62,18 @@ public class ShopManager : MonoBehaviour
         GameManager.Instance.Gold -= BarracksGoldCost;
         GameManager.Instance.Gems -= BarracksGemCost;
         GameManager.Instance.QueueManager.Enqueue(Instantiate(BarracksPrefab));
+    }
+
+    public void BuyLibrary()
+    {
+        if (GameManager.Instance.Gold < LibraryGoldCost || GameManager.Instance.Gems < LibraryGemCost)
+        {
+            //not enough resoruces
+            return;
+        }
+
+        GameManager.Instance.Gold -= LibraryGoldCost;
+        GameManager.Instance.Gems -= LibraryGemCost;
+        GameManager.Instance.QueueManager.Enqueue(Instantiate(LibraryPrefab));
     }
 }

@@ -77,4 +77,9 @@ public class ActionBarController : MonoBehaviour
     {
         GameManager.Instance.ShopMan.BuyBarracks();
     }
+
+    public void ClickBuyLibrary()
+    {
+        GameManager.Instance.ShopMan.BuyLibrary();
+    }
 }
