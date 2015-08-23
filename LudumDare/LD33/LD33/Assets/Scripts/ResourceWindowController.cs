@@ -44,7 +44,10 @@ public class ResourceWindowController : MonoBehaviour
         var obj = Instantiate(UnitPurchasePrefab).GetComponent<BuildItemController>();
         obj.SpawnPoint = _controller.SpawnPoint;
         obj.Room = Room;
-        
+
+        GameManager.Instance.Gold -= GameManager.Instance.ShopMan.ImpGoldCost;
+        GameManager.Instance.Gems -= GameManager.Instance.ShopMan.ImpGemCost;
+
         GameManager.Instance.QueueManager.Enqueue(obj.gameObject);
     }
 

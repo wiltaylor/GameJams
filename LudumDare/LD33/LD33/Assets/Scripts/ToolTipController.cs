@@ -9,7 +9,7 @@ public class ToolTipController : MonoBehaviour
     public Text TipText;
     public GameObject ToolTipWindow;
 
-    public void SetToolTip(string gems, string gold, string tip)
+    public void SetToolTip(string gold, string gems, string tip)
     {
         GemText.text = gems;
         GoldText.text = gold;

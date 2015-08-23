@@ -55,6 +55,8 @@ public class UnitTrainingWindowController : MonoBehaviour
         var obj = Instantiate(UnitPurchasePrefab).GetComponent<BuildItemController>();
         obj.SpawnPoint = _controller.SpawnPoint;
         obj.Room = Room;
+        GameManager.Instance.Gold -= GoldCost;
+        GameManager.Instance.Gems -= GemCost;
 
         GameManager.Instance.QueueManager.Enqueue(obj.gameObject);
     }
