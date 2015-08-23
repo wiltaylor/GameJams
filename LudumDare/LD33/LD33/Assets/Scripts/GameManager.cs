@@ -34,6 +34,11 @@ public class GameManager : MonoBehaviour
         ShopMan = GetComponent<ShopManager>();
     }
 
+    public void GameOver()
+    {
+        QueueManager.gameObject.GetComponent<GameOverController>().ShowGameOver();
+    }
+
     void Start()
     {
         RoomManager.Instance.NewLevel();

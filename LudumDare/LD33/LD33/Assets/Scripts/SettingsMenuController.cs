@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Audio;
 using UnityEngine.UI;
 
 public class SettingsMenuController : MonoBehaviour
 {
     public Text MusicButtonText;
     public Text SoundFXButtonText;
+    public AudioMixer Mixer;
 
     public void CloseClicked()
     {
@@ -14,12 +16,38 @@ public class SettingsMenuController : MonoBehaviour
 
     public void MusicClicked()
     {
-        MusicButtonText.text = MusicButtonText.text.Contains("On") ? " Music: Off" : " Music: On";
+        var vol = 0f;
+
+        Mixer.GetFloat("MusicVol", out vol);
+
+        if (vol == -80)
+        {
+            Mixer.SetFloat("MusicVol", 0);
+            MusicButtonText.text = "Music: On";
+        }
+        else
+        {
+            Mixer.SetFloat("MusicVol", -80f);
+            MusicButtonText.text = "Music: Off";
+        }
     }
 
     public void SoundFXClicked()
     {
-        SoundFXButtonText.text = SoundFXButtonText.text.Contains("On") ? " SoundFX: Off" : " SoundFX: On";
+        var vol = 0f;
+
+        Mixer.GetFloat("SFXVol", out vol);
+
+        if (vol == -80)
+        {
+            Mixer.SetFloat("SFXVol", 0);
+            SoundFXButtonText.text = "SFX: On";
+        }
+        else
+        {
+            Mixer.SetFloat("SFXVol", -80f);
+            SoundFXButtonText.text = "SFX: Off";
+        }
     }
 
     public void RestartGameClicked()

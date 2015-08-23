@@ -9,6 +9,7 @@ public class LitchController : MonoBehaviour {
     public GameObject ProjectileSpawnPoint;
     public float FightingCoolDown = 5f;
     public float CombatTimeout = 10f;
+    public GameObject DeathPrefab;
 
     public int HP = 100;
     public int MaxHP = 100;
@@ -18,6 +19,7 @@ public class LitchController : MonoBehaviour {
     private float _currentFightCoolDown = 0f;
     private float _combatTimeout = 10f;
     private bool _ShootProjectile = false;
+    private AudioSource _audio;
 
     public enum LitchStates
     {
@@ -70,6 +72,7 @@ public class LitchController : MonoBehaviour {
 
         Instance = this;
         _anim = gameObject.GetComponent<Animator>();
+        _audio = GetComponent<AudioSource>();
     }
 
     public void CastSpell()
@@ -80,6 +83,19 @@ public class LitchController : MonoBehaviour {
     public void TakeHit(int qty)
     {
         HP -= qty;
+
+        _audio.Play();
+
+        if (HP <= 0)
+        {
+            if(DeathPrefab != null)
+                Instantiate(DeathPrefab, transform.position, transform.rotation);
+
+            GetComponent<SpriteRenderer>().enabled = false;
+            GetComponent<BoxCollider2D>().enabled = false;
+
+            GameManager.Instance.GameOver();
+        }
     }
 
     public void AITriggered(GameObject obj)

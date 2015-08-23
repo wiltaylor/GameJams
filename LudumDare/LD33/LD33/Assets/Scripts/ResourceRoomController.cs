@@ -11,11 +11,19 @@ public class ResourceRoomController : MonoBehaviour
     public GameObject TopOfLadder;
     public ResourceTypes ResourceType;
     public int MaxWorkers = 5;
+    public int DesireOnCreate = 5;
+    public int EvilOnCreate = 0;
 
     public enum ResourceTypes
     {
         Gold,
         Gems
+    }
+
+    public void Start()
+    {
+        GameManager.Instance.Desire += DesireOnCreate;
+        GameManager.Instance.Evil += EvilOnCreate;
     }
 
     public void AddUnit(GameObject prefab)
