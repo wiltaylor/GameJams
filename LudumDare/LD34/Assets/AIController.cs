@@ -23,8 +23,9 @@ public class AIController : MonoBehaviour {
             return;
 
         transform.LookAt(Target.transform);
+        transform.rotation = new Quaternion(0, transform.rotation.y, 0, transform.rotation.w);
 
-        if(_currentCoolDown <= 0)
+        if (_currentCoolDown <= 0)
         {
             _currentCoolDown = ShootCoolDown;
 
