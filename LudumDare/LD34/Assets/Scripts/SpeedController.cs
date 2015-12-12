@@ -15,6 +15,6 @@ public class SpeedController : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        text.text = Mathf.Round(Target.velocity.magnitude).ToString();
+        text.text = Mathf.Round(Target.velocity.sqrMagnitude).ToString();
 	}
 }

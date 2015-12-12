@@ -125,6 +125,8 @@ public class MouseLook : MonoBehaviour
         if (rigidbody)
             rigidbody.freezeRotation = true;
         originalRotation = transform.localRotation;
+
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public static float ClampAngle(float angle, float min, float max)

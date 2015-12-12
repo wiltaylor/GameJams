@@ -20,26 +20,28 @@ public class PlayerController : MonoBehaviour {
 
     void Update ()
     {
-        //Debug.Log(ridgidbody.velocity);
 
-        if (Input.GetButton("Thrust"))
+        
+        if (Input.GetAxis("Vertical") > 0f & ridgidbody.velocity.magnitude < MaxSpeed)
         {
-            if (ridgidbody.velocity.z < MaxSpeed)
-            {
-                //ridgidbody.AddForce(Vector3.zero, ForceMode.VelocityChange);
-                //ridgidbody  AddForce(transform.forward * Speed * Time.deltaTime, ForceMode.VelocityChange);
-                ridgidbody.AddRelativeForce(Vector3.forward * Speed * Time.deltaTime, ForceMode.Force);
-            }
+            ridgidbody.AddForce(new Vector3(transform.forward.x, 0, transform.forward.z) * Speed * Time.deltaTime, ForceMode.Force);
         }
-        else
+        else if(Input.GetAxis("Vertical") < 0f)
         {
-            ridgidbody.AddForce(Vector3.zero, ForceMode.VelocityChange);
+            ridgidbody.AddForce(new Vector3(transform.forward.x, 0, transform.forward.z) * Speed * Time.deltaTime * -1, ForceMode.Force);
+        }
+
+        if(Input.GetAxis("Horizontal") > 0f)
+        {
+            ridgidbody.AddForce(new Vector3(transform.right.x, 0, transform.right.z) * Speed * Time.deltaTime, ForceMode.Force);
+        }
+        else if(Input.GetAxis("Horizontal") < 0f)
+        {
+            ridgidbody.AddForce(new Vector3(transform.right.x, 0, transform.right.z) * Speed * Time.deltaTime * -1, ForceMode.Force);
         }
 
         if (Input.GetButtonDown("Fire"))
         {
-
-            Debug.Log("Pew pew");
             var projectile = _factory.GetObject("PlayerProjectile");
 
             projectile.transform.rotation = transform.rotation;
@@ -47,4 +49,9 @@ public class PlayerController : MonoBehaviour {
             projectile.SetActive(true);
         }
 	}
+
+    void Hit(int damage)
+    {
+        Debug.Log("Ow!");
+    }
 }

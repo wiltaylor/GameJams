@@ -47,6 +47,7 @@ public class ProjectileHandler : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
+        Debug.Log("Hit " + collision.gameObject.tag);
         if(collision.gameObject.tag == "Player" || collision.gameObject.tag == "AI")
             collision.gameObject.SendMessage("Hit", Damage);
         Destruct();
