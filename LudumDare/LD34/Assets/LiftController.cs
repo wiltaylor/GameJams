@@ -8,10 +8,11 @@ public class LiftController : MonoBehaviour
     public GameObject Door;
     public float CountDown = 5f;
     public bool TriggeredNextLevel;
+    public bool ShowMessage = true;
 
     void Update()
     {
-        if (Trigger == null)
+        if (Trigger == null && Door != null)
             Door.SetActive(false);
 
         if(CountDown <= 0f)
@@ -29,7 +30,8 @@ public class LiftController : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            GlobalController.Instance.AddMessage("Elevator reached...");
+            if(ShowMessage)
+                GlobalController.Instance.AddMessage("Elevator reached...");
             TriggeredNextLevel = true;
             
         }

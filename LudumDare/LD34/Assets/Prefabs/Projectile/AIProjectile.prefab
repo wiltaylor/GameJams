@@ -157,9 +157,9 @@ MonoBehaviour:
   Duration: 10
   Damage: 10
   Speed: 5000
-  BlastSpotPrefab: {fileID: 0}
-  ProjectileName: 
-  HitSound: {fileID: 0}
+  BlastSpotPrefab: {fileID: 125048, guid: 394419352c0a78141baf4cb15cb704e8, type: 2}
+  ProjectileName: EnamyProjectile
+  HitSound: {fileID: 8300000, guid: 4f1ad28b42f329a449827a1032c7e8ab, type: 3}
 --- !u!135 &13543094
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -211,6 +211,18 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: HitSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 4f1ad28b42f329a449827a1032c7e8ab, type: 3}
+    - target: {fileID: 0}
+      propertyPath: ProjectileName
+      value: EnamyProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: BlastSpotPrefab
+      value: 
+      objectReference: {fileID: 125048, guid: 394419352c0a78141baf4cb15cb704e8, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 129124}
