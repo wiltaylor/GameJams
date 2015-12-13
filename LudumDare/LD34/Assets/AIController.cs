@@ -10,6 +10,7 @@ public class AIController : MonoBehaviour {
     public float DeathCooldown = 10f;
     public float DeathExplosionForce = 1000f;
     public float DeathExplosionSize = 100f;
+    public float Range = 20f;
 
     private float _currentCoolDown = 0;
     private FactoryController _factory;
@@ -36,12 +37,13 @@ public class AIController : MonoBehaviour {
         if (_currentCoolDown <= 0)
         {
             _currentCoolDown = ShootCoolDown;
-
+            
             var projectile = _factory.GetObject("AIProjectile");
 
             projectile.transform.position = ProjectilePoint.position;
             projectile.transform.LookAt(Target.transform);
             projectile.SetActive(true);
+
         }
         else
         {

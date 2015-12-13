@@ -120,7 +120,7 @@ Transform:
   - {fileID: 2022156995}
   - {fileID: 1014371874}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 5
 --- !u!1001 &21862762
 Prefab:
   m_ObjectHideFlags: 0
@@ -3518,7 +3518,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
 --- !u!1001 &1584494121
 Prefab:
   m_ObjectHideFlags: 0
@@ -4582,6 +4582,76 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3f8d8404518ad874eb6e5540962c2b82, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1001 &2090819956
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 11441402, guid: e416e72c483a3404ea64e914df91cedc, type: 2}
+      propertyPath: Messages.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 474626, guid: e416e72c483a3404ea64e914df91cedc, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 474626, guid: e416e72c483a3404ea64e914df91cedc, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 474626, guid: e416e72c483a3404ea64e914df91cedc, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 474626, guid: e416e72c483a3404ea64e914df91cedc, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 474626, guid: e416e72c483a3404ea64e914df91cedc, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 474626, guid: e416e72c483a3404ea64e914df91cedc, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 474626, guid: e416e72c483a3404ea64e914df91cedc, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 474626, guid: e416e72c483a3404ea64e914df91cedc, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11441402, guid: e416e72c483a3404ea64e914df91cedc, type: 2}
+      propertyPath: Messages.Array.data[0]
+      value: Level 3 - Turret Trap Maze
+      objectReference: {fileID: 0}
+    - target: {fileID: 11441402, guid: e416e72c483a3404ea64e914df91cedc, type: 2}
+      propertyPath: Messages.Array.data[1]
+      value: Watch those corners!
+      objectReference: {fileID: 0}
+    - target: {fileID: 11441402, guid: e416e72c483a3404ea64e914df91cedc, type: 2}
+      propertyPath: Messages.Array.data[2]
+      value: Most of its system are offline however.
+      objectReference: {fileID: 0}
+    - target: {fileID: 11441402, guid: e416e72c483a3404ea64e914df91cedc, type: 2}
+      propertyPath: Messages.Array.data[3]
+      value: You will need to find repeair kits to fix it.
+      objectReference: {fileID: 0}
+    - target: {fileID: 11441402, guid: e416e72c483a3404ea64e914df91cedc, type: 2}
+      propertyPath: Messages.Array.data[4]
+      value: Press W to move forward and steer with the mouse.
+      objectReference: {fileID: 0}
+    - target: {fileID: 11441402, guid: e416e72c483a3404ea64e914df91cedc, type: 2}
+      propertyPath: Messages.Array.data[5]
+      value: Your first priority is to get your weapon systems back online.
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e416e72c483a3404ea64e914df91cedc, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &2094450911
 Prefab:
