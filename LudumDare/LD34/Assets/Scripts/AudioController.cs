@@ -8,14 +8,27 @@ public class AudioController : MonoBehaviour
 {
     public AudioMixer Mixer;
     public AudioSource MusicSource;
+    public AudioMixerGroup SFXGroup;
     public string StartPlayList = "Main";
+    public GameObject SoundDropperPrefab;
     private MusicPlaylist[] _playlists;
     private MusicPlaylist _currentPlayList;
     private AudioClip _currentTrack;
+    private FactoryController _factory;
+
+
     void Start()
     {
         _playlists = GetComponents<MusicPlaylist>();
         SelectPlaylist(StartPlayList);
+        _factory = GlobalController.Instance.FactoryController;
+
+        _factory.RegisterType("SoundDropper", SoundDropperPrefab);
+    }
+
+    public void Reset()
+    {
+        _factory.RegisterType("SoundDropper", SoundDropperPrefab);
     }
 
     public void SelectPlaylist(string trackName)
@@ -93,5 +106,24 @@ public class AudioController : MonoBehaviour
         }
 
         return vol;
+    }
+
+    public void PlaySFXAt(AudioClip clip, Vector3 position)
+    {
+        var obj = _factory.GetObject("SoundDropper");
+        var source = obj.GetComponent<AudioSource>();
+        obj.transform.position = position;
+        source.clip = clip;
+        obj.SetActive(true);
+    }
+
+    public void PlaySFXAt(AudioClip clip, Vector3 position, float UpperPitch, float LowerPitch)
+    {
+        var obj = _factory.GetObject("SoundDropper");
+        var source = obj.GetComponent<AudioSource>();
+        obj.transform.position = position;
+        source.clip = clip;
+        source.pitch = UnityEngine.Random.Range(LowerPitch, UpperPitch);
+        obj.SetActive(true);
     }
 }

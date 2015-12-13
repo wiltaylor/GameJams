@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -17,6 +18,11 @@ public class CreditController : MonoBehaviour
     private float _lastItemSize = 0f;
     private float _stoppoint = 0f;
 
+    public void OnReturnToMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
     void Start()
     {
         _rect = GetComponent<RectTransform>();
@@ -29,6 +35,9 @@ public class CreditController : MonoBehaviour
         }
 
         _stoppoint = _rect.rect.height/2*-1;
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     void Update()

@@ -21,6 +21,9 @@ public class MenuController : MonoBehaviour
         {
             ExitButton.SetActive(false);
         }
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     public void OnNewGame()
