@@ -258,3 +258,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ScrollSpeed: 20
+  ZoomSpeed: 5
+  MaxZoom: 10
+  MinZoom: 1

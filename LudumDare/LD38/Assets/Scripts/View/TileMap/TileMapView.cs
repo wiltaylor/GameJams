@@ -75,7 +75,7 @@ public class TileMapView : MonoBehaviour
         if (tile == null) return;
         if (_map.MapData[e.X, e.Y].TileType != TileType.Void) return;
 
-        Destroy(tile.gameObject, 1f);
+        tile.Destruct();
 
         if(building != null)
             Destroy(building.gameObject);
