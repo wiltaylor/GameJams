@@ -55,7 +55,17 @@ MonoBehaviour:
     Qty: 8
   Buildings:
   - Type: 0
-    MaxQty: 30
+    MaxQty: 20
+    MinQty: 10
+    MaxCityPopulation: 1
+    MinCityPopulation: 1
+  - Type: 1
+    MaxQty: 20
+    MinQty: 10
+    MaxCityPopulation: 1
+    MinCityPopulation: 1
+  - Type: 2
+    MaxQty: 20
     MinQty: 10
     MaxCityPopulation: 1
     MinCityPopulation: 1

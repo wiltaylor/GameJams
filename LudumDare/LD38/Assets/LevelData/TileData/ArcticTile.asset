@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: ArcticTile
   m_EditorClassIdentifier: 
   TileId: 5
-  StartHp: 10
+  StartHp: 40
   DecayRate: 0.1
-  MoveCost: 1
+  MoveCost: 2
   Passable: 1

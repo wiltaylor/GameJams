@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: MountainTile
   m_EditorClassIdentifier: 
   TileId: 7
-  StartHp: 10
+  StartHp: 70
   DecayRate: 0.1
-  MoveCost: 0
-  Passable: 0
+  MoveCost: 3
+  Passable: 1
