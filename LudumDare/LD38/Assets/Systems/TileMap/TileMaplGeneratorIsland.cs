@@ -13,5 +13,6 @@ namespace Assets.Systems.TileMap
         public int MinWidth;
         public int MaxHeight;
         public int MinHeight;
+        public int Qty;
     }
 }

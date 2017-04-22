@@ -6,10 +6,12 @@ namespace Assets.Systems.TileMap
     {
         Void = 0,
         Water = 1,
-        Grass = 2,
-        Sand = 3,
-        Forest = 4
-        
+        Plains = 2,
+        Desert = 3,
+        Forest = 4,
+        Arctic = 5,
+        Wasteland = 6,
+        Mountain = 7
     }
 
     [CreateAssetMenu(fileName = "MapGeneratorSettings", menuName = "MapGenerator/MapGeneratorSettings", order = 1)]

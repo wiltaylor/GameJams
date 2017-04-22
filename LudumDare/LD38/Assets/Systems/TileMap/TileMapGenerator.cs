@@ -16,27 +16,30 @@ namespace Assets.Systems.TileMap
 
             foreach (var island in settings.Islands)
             {
-                var islandWidth = Random.Range(island.MinWidth, island.MaxHeight);
-                var islandHeight = Random.Range(island.MinHeight, island.MinHeight);
-
-                var left = Random.Range(0, map.MapWidth - 1);
-                var top = Random.Range(0, map.MapHeight - 1);
-
-                for (var x = 0; x < islandWidth; x++)
+                for (var qty = 0; qty < island.Qty; qty++)
                 {
-                    var targetX = x;
-                    if (left + targetX >= map.MapWidth)
-                        targetX -= map.MapWidth;
+                    var islandWidth = Random.Range(island.MinWidth, island.MaxHeight);
+                    var islandHeight = Random.Range(island.MinHeight, island.MinHeight);
 
-                    for (var y = 0; y < islandHeight; y++)
+                    var left = Random.Range(0, map.MapWidth - 1);
+                    var top = Random.Range(0, map.MapHeight - 1);
+
+                    for (var x = 0; x < islandWidth; x++)
                     {
-                        var targetY = y;
+                        var targetX = x;
+                        if (left + targetX >= map.MapWidth)
+                            targetX -= map.MapWidth;
 
-                        if (top + targetY >= map.MapHeight)
-                            targetY -= map.MapHeight;
+                        for (var y = 0; y < islandHeight; y++)
+                        {
+                            var targetY = y;
+
+                            if (top + targetY >= map.MapHeight)
+                                targetY -= map.MapHeight;
 
 
-                        map.SetTile(left + targetX, top + targetY, island.Tile);
+                            map.SetTile(left + targetX, top + targetY, island.Tile);
+                        }
                     }
                 }
             }
