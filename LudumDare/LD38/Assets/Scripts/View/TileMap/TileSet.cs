@@ -1,5 +1,6 @@
 ﻿using System;
 using Assets.Systems.TileMap;
+using NUnit.Framework.Constraints;
 using UnityEngine;
 
 namespace Assets.Scripts.View.TileMap
@@ -8,6 +9,7 @@ namespace Assets.Scripts.View.TileMap
     public class TileSet : ScriptableObject
     {
         public TilePrefab[] Tiles;
+        public BuildingPrefab[] Buildings;
     }
 
     [Serializable]
@@ -16,5 +18,13 @@ namespace Assets.Scripts.View.TileMap
         public TileType Type;
         public GameObject Prefab;
         public TileSettings TileSettings;
+    }
+
+    [Serializable]
+    public class BuildingPrefab
+    {
+        public BuildingType Type;
+        public GameObject Prefab;
+        public BuildingSetting BuildingSettings;
     }
 }

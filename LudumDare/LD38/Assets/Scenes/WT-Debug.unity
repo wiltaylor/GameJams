@@ -151,7 +151,7 @@ Prefab:
         type: 2}
       propertyPath: GeneratorSettings
       value: 
-      objectReference: {fileID: 11400000, guid: 2acd96609b7090d408de0da443184ebc,
+      objectReference: {fileID: 11400000, guid: 575d7340605adaa4dbfb763628d8f492,
         type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ce63d312e0c05a04499ddb9218d5e8a7, type: 2}

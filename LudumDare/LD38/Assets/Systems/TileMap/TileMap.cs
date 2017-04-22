@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 
 namespace Assets.Systems.TileMap
@@ -12,16 +11,21 @@ namespace Assets.Systems.TileMap
         public Tile[,] MapData { get; set; }
         public event Action<TileMap> MapRefresh;
         public readonly IList<TileSettings> TileSettings;
+        public readonly IList<BuildingSetting> BuildingSettings;
         public int TileDamageRange { get; set; }
         public float TileDamageAmmount { get; set; }
 
-        public TileMap(int width, int height, TileType fillTile, IList<TileSettings> tilesettings)
+        public List<Building> Buildings { get; set; }
+
+        public TileMap(int width, int height, TileType fillTile, IList<TileSettings> tilesettings, IList<BuildingSetting> buildingSettings)
         {
             MapRefresh += tm => { };
             MapWidth = width;
             MapHeight = height;
             MapData = new Tile[MapWidth, MapHeight];
             TileSettings = tilesettings;
+            BuildingSettings = buildingSettings;
+            Buildings = new List<Building>();
 
             for (var x = 0; x < MapWidth; x++)
             {
@@ -32,15 +36,13 @@ namespace Assets.Systems.TileMap
             }
         }
 
+        public Building GetBuildingAt(int x, int y)
+        {
+            return Buildings.FirstOrDefault(b => b.X == x && b.Y == y);
+        }
+
         public void SetTile(int x, int y, TileType type)
         {
-            if(x < 0 || x >= MapWidth)
-                Debug.WriteLine("X: " + x);
-
-            if (y < 0 || y >= MapHeight)
-                Debug.WriteLine("Y: " + y);
-
-
             if (MapData[x, y] == null)
                 MapData[x, y] = new Tile(x, y);
 
@@ -51,6 +53,24 @@ namespace Assets.Systems.TileMap
             MapData[x, y].DecayRate = tileDefaults.DecayRate;
             MapData[x, y].MoveCost = tileDefaults.MoveCost;
             MapData[x, y].TileType = type;
+        }
+
+        public Building SetBuilding(int x, int y, BuildingType type)
+        {
+            var settings = BuildingSettings.First(b => b.Type == type);
+
+            var building = new Building
+            {
+                Type = type,
+                PlayerOwned = false,
+                Population = 0,
+                X = x,
+                Y = y
+            };
+
+            Buildings.Add(building);
+
+            return building;
         }
 
         public void MapUpdate()

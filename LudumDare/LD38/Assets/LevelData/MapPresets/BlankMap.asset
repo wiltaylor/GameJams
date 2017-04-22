@@ -17,5 +17,11 @@ MonoBehaviour:
   FillType: 2
   MutateCycles: 0
   Islands: []
+  Buildings:
+  - Type: 0
+    MaxQty: 1
+    MinQty: 1
+    MaxCityPopulation: 1
+    MinCityPopulation: 1
   TileDamageRange: 0
   TileDamageAmmount: 0

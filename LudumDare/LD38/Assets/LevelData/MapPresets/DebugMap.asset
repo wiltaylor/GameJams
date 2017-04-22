@@ -47,5 +47,11 @@ MonoBehaviour:
     MaxHeight: 3
     MinHeight: 1
     Qty: 5
+  Buildings:
+  - Type: 0
+    MaxQty: 30
+    MinQty: 10
+    MaxCityPopulation: 1
+    MinCityPopulation: 1
   TileDamageRange: 0
   TileDamageAmmount: 0

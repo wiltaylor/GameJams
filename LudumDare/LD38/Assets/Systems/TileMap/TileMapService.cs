@@ -11,10 +11,10 @@ namespace Assets.Systems.TileMap
             get { return _instance ?? (_instance = new TileMapService()); }
         }
 
-        public void NewMap(TileMapGeneratorSettings genSettings, IList<TileSettings> tilesettings)
+        public void NewMap(TileMapGeneratorSettings genSettings, IList<TileSettings> tilesettings, IList<BuildingSetting> buildingSettings)
         {
             var generator = new TileMapGenerator();
-            Map = generator.Generate(genSettings, tilesettings);
+            Map = generator.Generate(genSettings, tilesettings, buildingSettings);
         }
 
         public TileMap Map { get; private set; }
