@@ -85,11 +85,10 @@ public class UserInput : MonoBehaviour
 
         var hit = Physics2D.GetRayIntersection(ray);
 
-        if (hit.collider != null)
-        {
-            var tile = hit.collider.GetComponent<TileView>();
-            CommandService.Instance.ReportTileClick(tile.X, tile.Y, btn);
-        }
+        if (hit.collider == null) return;
+
+        var tile = hit.collider.GetComponent<TileView>();
+        CommandService.Instance.ReportTileClick(tile.X, tile.Y, btn);
     }
 }
 
