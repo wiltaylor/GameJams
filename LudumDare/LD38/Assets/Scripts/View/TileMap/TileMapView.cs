@@ -77,6 +77,6 @@ public class TileMapView : MonoBehaviour
         tile.Destruct();
 
         if(building != null)
-            Destroy(building.gameObject);
+            building.Destruct();
     }
 }
