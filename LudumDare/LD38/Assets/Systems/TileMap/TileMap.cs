@@ -10,7 +10,7 @@ namespace Assets.Systems.TileMap
         public int MapHeight { get; private set; }
         public int MapWidth { get; private set; }
         public Tile[,] MapData { get; set; }
-        public event Action<TileMap> MapRefresh;
+        public event EventHandler<TileMapEventAargs> TileChanged;
         public readonly IList<TileSettings> TileSettings;
         public readonly IList<BuildingSetting> BuildingSettings;
         public int TileDamageRange { get; set; }
@@ -20,7 +20,7 @@ namespace Assets.Systems.TileMap
 
         public TileMap(int width, int height, TileType fillTile, IList<TileSettings> tilesettings, IList<BuildingSetting> buildingSettings)
         {
-            MapRefresh += tm => { };
+            TileChanged += (sender, aargs) => { };
             MapWidth = width;
             MapHeight = height;
             MapData = new Tile[MapWidth, MapHeight];
@@ -81,12 +81,6 @@ namespace Assets.Systems.TileMap
             return building;
         }
 
-        public void MapUpdate()
-        {
-            if (MapRefresh != null)
-                MapRefresh(this);
-        }
-
         public void DamageTile(int x, int y, float ammount)
         {
             var tile = MapData[x, y];
@@ -103,7 +97,7 @@ namespace Assets.Systems.TileMap
 
             DamageTile(x, y, TileDamageRange, TileDamageAmmount);
 
-
+            TileChanged(this, new TileMapEventAargs(x, y));
         }
 
         public void DamageTile(int x, int y, int range, float ammount)
