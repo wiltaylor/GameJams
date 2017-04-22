@@ -2,6 +2,8 @@
 {
     public enum BuildingType
     {
-        City
+        City,
+        IronOre,
+        EnergyOre
     }
 }

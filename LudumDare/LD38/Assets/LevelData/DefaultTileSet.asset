@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Tiles:
   - Type: 0
-    Prefab: {fileID: 1570645894017772, guid: e64aed3f2b717fd48adcd6ea1bbce66f, type: 2}
+    Prefab: {fileID: 0}
     TileSettings: {fileID: 11400000, guid: acdb3c04661782c4c955ed9fab46483e, type: 2}
   - Type: 1
     Prefab: {fileID: 1983693931983228, guid: 007f2439be19d1c43a84736092945f93, type: 2}
@@ -40,3 +40,9 @@ MonoBehaviour:
   - Type: 0
     Prefab: {fileID: 1820911865283394, guid: 9b3937024465b584eab29238426219ce, type: 2}
     BuildingSettings: {fileID: 11400000, guid: c7540d38bcb862f46a8e90f65540b215, type: 2}
+  - Type: 1
+    Prefab: {fileID: 1913941419798754, guid: c512ff851ff9246429f7df3b7ae51800, type: 2}
+    BuildingSettings: {fileID: 11400000, guid: 95b46ff668682bc42bf7fb1cb92bfe2a, type: 2}
+  - Type: 2
+    Prefab: {fileID: 1419522320694214, guid: 104e0a909ec50d24088bb68212ab3630, type: 2}
+    BuildingSettings: {fileID: 11400000, guid: 718396e40ab0e354ea48419fc27d4a12, type: 2}

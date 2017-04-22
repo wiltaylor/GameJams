@@ -8,5 +8,6 @@ namespace Assets.Systems.TileMap
         public BuildingType Type;
         public TileType[] AllowedToBuildOn;
         public int BuildingDistance;
+        public bool Mineable;
     }
 }

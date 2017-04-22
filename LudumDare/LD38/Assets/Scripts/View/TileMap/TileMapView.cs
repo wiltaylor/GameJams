@@ -26,6 +26,10 @@ public class TileMapView : MonoBehaviour
 	        {
 	            var tile = _map.MapData[x, y];
 	            var prefab = TileSet.Tiles.First(t => t.Type == tile.TileType).Prefab;
+
+                if(prefab == null)
+                    continue;
+
 	            var obj = Instantiate(prefab, transform);
 
                 obj.transform.position = new Vector3(x * (TilePixelWidth * 0.01f), y * (TilePixelHeight * 0.01f));
