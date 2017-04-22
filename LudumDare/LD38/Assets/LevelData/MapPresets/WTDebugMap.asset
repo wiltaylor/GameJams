@@ -9,41 +9,55 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 032c74450f4e54a439830a85fea1d464, type: 3}
-  m_Name: WTDebugMap
+  m_Name: 32 Test
   m_EditorClassIdentifier: 
-  Width: 256
-  Height: 256
-  Name: WT Debug Map
-  FillType: 0
-  MutateCycles: 10000000
+  Width: 32
+  Height: 32
+  Name: 32 test
+  FillType: 1
+  MutateCycles: 1000
   Islands:
   - Tile: 2
-    MaxWidth: 80
-    MinWidth: 100
-    MaxHeight: 80
-    MinHeight: 100
+    MaxWidth: 20
+    MinWidth: 8
+    MaxHeight: 20
+    MinHeight: 8
     Qty: 5
-  - Tile: 7
-    MaxWidth: 2
-    MinWidth: 4
+  - Tile: 4
+    MaxWidth: 10
+    MinWidth: 5
     MaxHeight: 10
-    MinHeight: 9
+    MinHeight: 5
+    Qty: 8
+  - Tile: 6
+    MaxWidth: 6
+    MinWidth: 3
+    MaxHeight: 6
+    MinHeight: 3
     Qty: 5
+  - Tile: 3
+    MaxWidth: 5
+    MinWidth: 2
+    MaxHeight: 5
+    MinHeight: 2
+    Qty: 4
+  - Tile: 5
+    MaxWidth: 7
+    MinWidth: 4
+    MaxHeight: 7
+    MinHeight: 4
+    Qty: 1
+  - Tile: 7
+    MaxWidth: 4
+    MinWidth: 1
+    MaxHeight: 4
+    MinHeight: 1
+    Qty: 8
   Buildings:
   - Type: 0
-    MaxQty: 10
-    MinQty: 5
-    MaxCityPopulation: 10
-    MinCityPopulation: 5
-  - Type: 1
-    MaxQty: 200
-    MinQty: 100
-    MaxCityPopulation: 10
-    MinCityPopulation: 5
-  - Type: 2
-    MaxQty: 200
-    MinQty: 100
-    MaxCityPopulation: 10
-    MinCityPopulation: 5
-  TileDamageRange: 2
-  TileDamageAmmount: 0.1
+    MaxQty: 30
+    MinQty: 10
+    MaxCityPopulation: 1
+    MinCityPopulation: 1
+  TileDamageRange: 0
+  TileDamageAmmount: 0

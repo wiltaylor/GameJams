@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 namespace Assets.Systems.TileMap
 {
@@ -43,6 +44,13 @@ namespace Assets.Systems.TileMap
 
         public void SetTile(int x, int y, TileType type)
         {
+
+            if(x >= MapWidth)
+                Debug.Log("bad x");
+
+            if (y >= MapHeight)
+                Debug.Log("bad y");
+
             if (MapData[x, y] == null)
                 MapData[x, y] = new Tile(x, y);
 
