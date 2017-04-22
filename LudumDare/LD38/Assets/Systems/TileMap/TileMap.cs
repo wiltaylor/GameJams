@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 namespace Assets.Systems.TileMap
@@ -33,6 +34,13 @@ namespace Assets.Systems.TileMap
 
         public void SetTile(int x, int y, TileType type)
         {
+            if(x < 0 || x >= MapWidth)
+                Debug.WriteLine("X: " + x);
+
+            if (y < 0 || y >= MapHeight)
+                Debug.WriteLine("Y: " + y);
+
+
             if (MapData[x, y] == null)
                 MapData[x, y] = new Tile(x, y);
 
@@ -42,6 +50,7 @@ namespace Assets.Systems.TileMap
             MapData[x, y].Hp = tileDefaults.StartHp;
             MapData[x, y].DecayRate = tileDefaults.DecayRate;
             MapData[x, y].MoveCost = tileDefaults.MoveCost;
+            MapData[x, y].TileType = type;
         }
 
         public void MapUpdate()

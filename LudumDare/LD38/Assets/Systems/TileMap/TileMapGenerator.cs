@@ -24,14 +24,19 @@ namespace Assets.Systems.TileMap
 
                 for (var x = 0; x < islandWidth; x++)
                 {
-                    if (left + x >= map.MapWidth)
-                        break;
+                    var targetX = x;
+                    if (left + targetX >= map.MapWidth)
+                        targetX -= map.MapWidth;
+
                     for (var y = 0; y < islandHeight; y++)
                     {
-                        if (top + y >= map.MapHeight)
-                            break;
-                        
-                        map.SetTile(left + x, top + y, island.Tile);
+                        var targetY = y;
+
+                        if (top + targetY >= map.MapHeight)
+                            targetY -= map.MapHeight;
+
+
+                        map.SetTile(left + targetX, top + targetY, island.Tile);
                     }
                 }
             }
@@ -66,11 +71,17 @@ namespace Assets.Systems.TileMap
                     targetY = y;
                 }
 
-                if (targetX > map.MapWidth)
+                if (targetX >= map.MapWidth)
                     targetX -= map.MapWidth;
 
-                if (targetY > map.MapHeight)
+                if (targetY >= map.MapHeight)
                     targetY -= map.MapHeight;
+
+                if (targetX < 0)
+                    targetX += map.MapWidth;
+
+                if (targetY < 0)
+                    targetY += map.MapHeight;
 
                 map.SetTile(targetX, targetY, tile);
             }
