@@ -9,13 +9,43 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 032c74450f4e54a439830a85fea1d464, type: 3}
-  m_Name: MapGeneratorSettings
+  m_Name: AwesomeMap
   m_EditorClassIdentifier: 
   Width: 0
   Height: 0
   Name: 
   FillType: 0
-  MutateCycles: 0
-  Islands: []
-  TileDamageRange: 0
-  TileDamageAmmount: 0
+  MutateCycles: 70000000
+  Islands:
+  - Tile: 2
+    MaxWidth: 0
+    MinWidth: 0
+    MaxHeight: 0
+    MinHeight: 0
+    Qty: 0
+  - Tile: 3
+    MaxWidth: 0
+    MinWidth: 0
+    MaxHeight: 0
+    MinHeight: 0
+    Qty: 0
+  - Tile: 5
+    MaxWidth: 0
+    MinWidth: 0
+    MaxHeight: 0
+    MinHeight: 0
+    Qty: 0
+  - Tile: 6
+    MaxWidth: 0
+    MinWidth: 0
+    MaxHeight: 0
+    MinHeight: 0
+    Qty: 0
+  - Tile: 7
+    MaxWidth: 2
+    MinWidth: 5
+    MaxHeight: 10
+    MinHeight: 5
+    Qty: 5
+  TileDamageRange: 2
+  TileDamageAmmount: 0.1

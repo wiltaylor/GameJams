@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212998332511491926}
   - component: {fileID: 114560769220694738}
   m_Layer: 0
-  m_Name: SandTile
+  m_Name: DesertTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -87,7 +87,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0a46eb2c29e939142901e35cd0ca0164, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2481c09d666768b4e81fea91fb336d2f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -11,11 +11,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 032c74450f4e54a439830a85fea1d464, type: 3}
   m_Name: DebugMap
   m_EditorClassIdentifier: 
-  Width: 0
-  Height: 0
-  Name: 
-  FillType: 0
-  MutateCycles: 0
-  Islands: []
+  Width: 256
+  Height: 256
+  Name: Debug Map
+  FillType: 1
+  MutateCycles: 10000000
+  Islands:
+  - Tile: 2
+    MaxWidth: 100
+    MinWidth: 90
+    MaxHeight: 100
+    MinHeight: 80
+    Qty: 2
+  - Tile: 4
+    MaxWidth: 20
+    MinWidth: 5
+    MaxHeight: 20
+    MinHeight: 5
+    Qty: 5
+  - Tile: 2
+    MaxWidth: 20
+    MinWidth: 5
+    MaxHeight: 20
+    MinHeight: 5
+    Qty: 5
+  - Tile: 3
+    MaxWidth: 20
+    MinWidth: 5
+    MaxHeight: 20
+    MinHeight: 5
+    Qty: 5
+  - Tile: 1
+    MaxWidth: 3
+    MinWidth: 1
+    MaxHeight: 3
+    MinHeight: 1
+    Qty: 5
   TileDamageRange: 0
   TileDamageAmmount: 0
