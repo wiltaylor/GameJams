@@ -11,7 +11,8 @@ namespace Assets.Systems.TileMap
     public class TileSettings : ScriptableObject
     {
         public TileType TileId;
-        public float StartHp;
+        public float MaxStartHp;
+        public float MinStartHp;
         public float DecayRate;
         public int MoveCost;
         public bool Passable;
