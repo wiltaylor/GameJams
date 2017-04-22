@@ -11,7 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1c4421d1a2bed94aa74aaaad1a7c495, type: 3}
   m_Name: SandTile
   m_EditorClassIdentifier: 
-  TileId: 0
-  StartHp: 0
-  DecayRate: 0
-  MoveCost: 0
+  TileId: 3
+  StartHp: 10
+  DecayRate: 0.1
+  MoveCost: 1
+  Passable: 1

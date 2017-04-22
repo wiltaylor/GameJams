@@ -11,10 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 032c74450f4e54a439830a85fea1d464, type: 3}
   m_Name: BlankMap
   m_EditorClassIdentifier: 
-  Width: 0
-  Height: 0
-  Name: 
-  FillType: 0
+  Width: 128
+  Height: 128
+  Name: Blank Debug Map
+  FillType: 2
   MutateCycles: 0
   Islands: []
   TileDamageRange: 0

@@ -9,13 +9,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 032c74450f4e54a439830a85fea1d464, type: 3}
-  m_Name: MapGeneratorSettings
+  m_Name: WTDebugMap
   m_EditorClassIdentifier: 
-  Width: 0
-  Height: 0
-  Name: 
+  Width: 256
+  Height: 256
+  Name: WT Debug Map
   FillType: 0
-  MutateCycles: 0
-  Islands: []
-  TileDamageRange: 0
-  TileDamageAmmount: 0
+  MutateCycles: 10000000
+  Islands:
+  - Tile: 2
+    MaxWidth: 80
+    MinWidth: 100
+    MaxHeight: 80
+    MinHeight: 100
+    Qty: 5
+  - Tile: 7
+    MaxWidth: 2
+    MinWidth: 4
+    MaxHeight: 10
+    MinHeight: 9
+    Qty: 5
+  TileDamageRange: 2
+  TileDamageAmmount: 0.1

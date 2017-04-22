@@ -15,3 +15,4 @@ MonoBehaviour:
   StartHp: 0
   DecayRate: 0
   MoveCost: 0
+  Passable: 0

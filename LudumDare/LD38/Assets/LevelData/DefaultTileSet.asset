@@ -11,4 +11,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ff50fdbab495f94799765b338e35c42, type: 3}
   m_Name: DefaultTileSet
   m_EditorClassIdentifier: 
-  Tiles: []
+  Tiles:
+  - Type: 0
+    Prefab: {fileID: 1570645894017772, guid: e64aed3f2b717fd48adcd6ea1bbce66f, type: 2}
+    TileSettings: {fileID: 11400000, guid: acdb3c04661782c4c955ed9fab46483e, type: 2}
+  - Type: 1
+    Prefab: {fileID: 1983693931983228, guid: 007f2439be19d1c43a84736092945f93, type: 2}
+    TileSettings: {fileID: 11400000, guid: 34b5d3524dbc1df43a716ab723799f41, type: 2}
+  - Type: 2
+    Prefab: {fileID: 1745575991115932, guid: 9bf74728135f34841b2a355e9dd93fb7, type: 2}
+    TileSettings: {fileID: 11400000, guid: 74d9d7d5dfb1e654bab71c70cf6868c4, type: 2}
+  - Type: 3
+    Prefab: {fileID: 1094611082043704, guid: ade4fa81c97c6444184ae3210f56488f, type: 2}
+    TileSettings: {fileID: 11400000, guid: 4594794e6f0b40240ba10a633fc63451, type: 2}
+  - Type: 4
+    Prefab: {fileID: 1239958353979772, guid: 77da51a5677cd6d4a82873471b5ba8c9, type: 2}
+    TileSettings: {fileID: 11400000, guid: 257d3c7c39af9d747908bb00cdb191f4, type: 2}
+  - Type: 5
+    Prefab: {fileID: 1133903510726042, guid: d3ff0f51b009286459fc053c3322a75c, type: 2}
+    TileSettings: {fileID: 11400000, guid: be805fe58c13518469f781b634ed02be, type: 2}
+  - Type: 7
+    Prefab: {fileID: 1206708557472790, guid: 67e2cb01b06f50c4ab2167406a63555f, type: 2}
+    TileSettings: {fileID: 11400000, guid: fd0ea97609ce5cb4c847c7e19f87a35e, type: 2}
+  - Type: 6
+    Prefab: {fileID: 1187100452125184, guid: db077c6210ff70640b6ca8b501f52d30, type: 2}
+    TileSettings: {fileID: 11400000, guid: d36e0e81ace2b9548b01691ffc9845cc, type: 2}
