@@ -14,5 +14,6 @@ namespace Assets.Systems.TileMap
         public float StartHp;
         public float DecayRate;
         public int MoveCost;
+        public bool Passable;
     }
 }

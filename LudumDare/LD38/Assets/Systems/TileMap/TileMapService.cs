@@ -6,7 +6,7 @@ namespace Assets.Systems.TileMap
     {
         private static TileMapService _instance;
 
-        public TileMapService Instance
+        public static TileMapService Instance
         {
             get { return _instance ?? (_instance = new TileMapService()); }
         }
