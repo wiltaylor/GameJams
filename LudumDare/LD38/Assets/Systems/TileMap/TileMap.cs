@@ -79,6 +79,9 @@ namespace Assets.Systems.TileMap
 
             Buildings.Add(building);
 
+            var dmg = Random.Range(settings.MinHpModifier, settings.MaxHpModifier);
+            DamageTile(x, y, settings.HpModifierRange, dmg);
+
             return building;
         }
 
