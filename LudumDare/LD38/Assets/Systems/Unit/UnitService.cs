@@ -5,7 +5,7 @@ using Random = UnityEngine.Random;
 
 namespace Assets.Systems.Unit
 {
-    public struct TileCords
+    public class TileCords
     {
         public int X;
         public int Y;
@@ -66,6 +66,13 @@ namespace Assets.Systems.Unit
             UnitChanged(this, new UnitEventArgs{ ChangedUnit = unit});
 
             return unit;
+        }
+
+        public void MoveUnit(Unit unit, int x, int y)
+        {
+            unit.X = x;
+            unit.Y = y;
+            UnitChanged(this, new UnitEventArgs {ChangedUnit = unit});
         }
     }
 }

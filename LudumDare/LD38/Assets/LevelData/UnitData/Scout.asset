@@ -21,4 +21,4 @@ MonoBehaviour:
   CanSpawnInCity: 0
   CanSpawnInDemonGate: 0
   CanSpawnOn: 0200000003000000040000000500000006000000
-  MovePoints: 10
+  MovePoints: 3

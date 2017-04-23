@@ -8,7 +8,7 @@ public class WTDebug : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-		Invoke("Debug", 1f);
+		Invoke("Debug", 3f);
 	}
 	
 	// Update is called once per frame

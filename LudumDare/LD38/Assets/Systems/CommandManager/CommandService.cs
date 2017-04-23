@@ -40,6 +40,21 @@ namespace Assets.Systems.CommandManager
         {
             if(btn == 0)
                 HandleLeftClick(x,y);
+
+            if (btn == 1)
+                HandleRightClick(x, y);
+        }
+
+        private void HandleRightClick(int x, int y)
+        {
+            if (SelectionState != CommandSelectionState.Unit || SelectedUnit.Faction != UnitFaction.Player) return;
+
+            var coords = UnitMoveRange.FirstOrDefault(m => m.X == x && m.Y == y);
+
+            if (coords == null) return;
+
+            UnitService.Instance.MoveUnit(SelectedUnit, x, y);
+            RefreshSelection();
         }
 
         private void HandleLeftClick(int x, int y)
@@ -95,6 +110,11 @@ namespace Assets.Systems.CommandManager
                     break;
             }
 
+            RefreshSelection();
+        }
+
+        private void RefreshSelection()
+        {
             switch (SelectionState)
             {
                 case CommandSelectionState.Nothing:
@@ -114,7 +134,6 @@ namespace Assets.Systems.CommandManager
             }
 
             HighlightChanged(this, EventArgs.Empty);
-
         }
     }
 }

@@ -55,6 +55,9 @@ namespace Assets.Systems.TileMap
             if (MapData[x, y] == null)
                 MapData[x, y] = new Tile(x, y);
 
+            if(TileSettings == null)
+                Debug.Log("foo");
+
             var tileDefaults = TileSettings.First(t => t.TileId == type);
 
             MapData[x, y].StartHp = Random.Range(tileDefaults.MinStartHp, tileDefaults.MaxStartHp);
