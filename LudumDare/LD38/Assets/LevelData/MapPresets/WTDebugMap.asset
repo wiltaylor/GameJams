@@ -70,8 +70,8 @@ MonoBehaviour:
     MaxCityPopulation: 1
     MinCityPopulation: 1
   - Type: 3
-    MaxQty: 1
-    MinQty: 1
+    MaxQty: 6
+    MinQty: 2
     MaxCityPopulation: 0
     MinCityPopulation: 0
   TileDamageRange: 0

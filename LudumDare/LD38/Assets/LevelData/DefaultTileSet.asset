@@ -56,3 +56,6 @@ MonoBehaviour:
   - Unit: 1
     Prefab: {fileID: 1469913157823796, guid: c2e765a3245e82440b3f767327fd35ce, type: 2}
     UnitSettings: {fileID: 11400000, guid: 8b3c526415fc2504c909a95a2681cadf, type: 2}
+  - Unit: 2
+    Prefab: {fileID: 1331019487026982, guid: 64907917366e99345be2d531c4a17297, type: 2}
+    UnitSettings: {fileID: 11400000, guid: df40ab8973bea714886ae5eaaca2932b, type: 2}

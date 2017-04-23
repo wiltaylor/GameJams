@@ -11,12 +11,6 @@ namespace Assets.Systems.Unit
         Move
     }
 
-    public enum UnitType
-    {
-        Scout,
-        Worker
-    }
-
     [CreateAssetMenu(fileName = "UnitSettings", menuName = "Unit/Unit Settings", order = 1)]
     public class UnitSettings : ScriptableObject
     {
