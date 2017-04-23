@@ -108,23 +108,6 @@ NavMeshSettings:
     tileSize: 256
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &83211804 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1717316855887540, guid: 275145e7c498f494f8fb8aee25d49020,
-    type: 2}
-  m_PrefabInternal: {fileID: 1221818762}
---- !u!114 &83211807
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 83211804}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3e24de3522ebec469e8e33445a553f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayerMovesLeft: {fileID: 1536167457}
 --- !u!1001 &333184265
 Prefab:
   m_ObjectHideFlags: 0
@@ -206,12 +189,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114519080506408576, guid: ce63d312e0c05a04499ddb9218d5e8a7,
-        type: 2}
-      propertyPath: GeneratorSettings
-      value: 
-      objectReference: {fileID: 11400000, guid: fe1639285b67a2043870d04a7bc49799,
-        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ce63d312e0c05a04499ddb9218d5e8a7, type: 2}
   m_IsPrefabParent: 0
@@ -254,89 +231,22 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 224114269185829226, guid: 275145e7c498f494f8fb8aee25d49020,
-        type: 2}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 224994183007433636, guid: 275145e7c498f494f8fb8aee25d49020,
-        type: 2}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224496792651875334, guid: 275145e7c498f494f8fb8aee25d49020,
-        type: 2}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114495137596560838, guid: 275145e7c498f494f8fb8aee25d49020,
-        type: 2}
-      propertyPath: m_Text
-      value: 'Move Points Left: xxx
-
-'
-      objectReference: {fileID: 0}
-    - target: {fileID: 114495137596560838, guid: 275145e7c498f494f8fb8aee25d49020,
-        type: 2}
-      propertyPath: m_Color.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114495137596560838, guid: 275145e7c498f494f8fb8aee25d49020,
-        type: 2}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114495137596560838, guid: 275145e7c498f494f8fb8aee25d49020,
-        type: 2}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 275145e7c498f494f8fb8aee25d49020, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &1536167457 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114495137596560838, guid: 275145e7c498f494f8fb8aee25d49020,
-    type: 2}
-  m_PrefabInternal: {fileID: 1221818762}
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
---- !u!1 &2019387526
+--- !u!1 &1632946374 stripped
 GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 2019387528}
-  - component: {fileID: 2019387527}
-  m_Layer: 0
-  m_Name: WtDebug
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2019387527
+  m_PrefabParentObject: {fileID: 1676082699055126, guid: 3d099ca860a6ea64bb1cdc971f1212a5,
+    type: 2}
+  m_PrefabInternal: {fileID: 333184265}
+--- !u!114 &1632946381
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2019387526}
+  m_GameObject: {fileID: 1632946374}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1cfcf15dd93a5f546ba6803710c8e180, type: 3}
+  m_Script: {fileID: 11500000, guid: 31eca3a7e440c5c4c8542b4452016d83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &2019387528
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2019387526}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
