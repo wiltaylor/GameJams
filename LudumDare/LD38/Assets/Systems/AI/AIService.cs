@@ -39,7 +39,28 @@ namespace Assets.Systems.AI
             foreach (var unit in aiunits)
             {
                 var rnd = new System.Random();
-                var movepoint = UnitService.Instance.GetMovableCords(unit).OrderBy(u => rnd.Next()).FirstOrDefault();
+                var accessable = UnitService.Instance.GetMovableCords(unit).ToList();
+
+                var playerunit = accessable.FirstOrDefault(a => a.HasUnit &&
+                                                        UnitService.Instance.GetUnitAt(a.X, a.Y).Faction ==
+                                                        UnitFaction.Player);
+
+                if (playerunit != null)
+                {
+                    UnitService.Instance.AttackTile(playerunit.X, playerunit.Y, unit, accessable);
+                    continue;
+                }
+
+                var city = accessable.FirstOrDefault(a => a.IsCity);
+
+                if (city != null)
+                {
+                    UnitService.Instance.AttackTile(city.X, city.Y, unit, accessable);
+                    continue;
+                }
+                
+
+                var movepoint = accessable.OrderBy(u => rnd.Next()).FirstOrDefault();
 
                 if(movepoint == null)
                     continue;

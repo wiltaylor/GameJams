@@ -83,7 +83,8 @@ namespace Assets.Systems.Unit
             
             _allUnits.Add(unit);
 
-            TileMapService.Instance.Map.RevealMap(x, y, unit.ViewRange);
+            if(unit.Faction == UnitFaction.Player)
+                TileMapService.Instance.Map.RevealMap(x, y, unit.ViewRange);
             UnitChanged(this, new UnitEventArgs{ ChangedUnit = unit});
 
             return unit;
@@ -105,16 +106,20 @@ namespace Assets.Systems.Unit
             }
         }
 
-        public void AttackTile(int x, int y, Unit unit)
+        public void AttackTile(int x, int y, Unit unit, IEnumerable<TileCords> attackRange)
         {
             //Check attack type.
-
+            var range = attackRange.ToList();
             var targetunit = GetUnitAt(x, y);
 
             if (targetunit != null && targetunit.Faction == unit.Faction)
                 return;
 
-            //Do unit attack
+            if (targetunit != null)
+            {
+                AttackUnit(targetunit, x, y, unit, range);
+                return;
+            }
 
             var building = TileMapService.Instance.Map.GetBuildingAt(x, y);
 
@@ -124,10 +129,40 @@ namespace Assets.Systems.Unit
             if (building.PlayerOwned && unit.Faction == UnitFaction.Player)
                 return;
 
-            AttackBuilding(building, x, y, unit);
+            AttackBuilding(building, x, y, unit, range);
         }
 
-        private void AttackBuilding(Building building, int x, int y, Unit unit)
+        private void AttackUnit(Unit targetUnit, int x, int y, Unit unit, IList<TileCords> attackRange)
+        {
+            if (!IsAttackPosition(x, y, unit.X, unit.Y))
+            {
+                var attackpos = attackRange.FirstOrDefault(c => IsAttackPosition(x, y, c.X, c.Y));
+                if (attackpos == null)
+                    return;
+
+                MoveUnit(unit, attackpos.X, attackpos.Y);
+            }
+
+            unit.MovePointsLeft = 0;
+            targetUnit.Hp -= Random.Range(unit.MinAttack, unit.MaxAttack);
+            unit.Hp -= Random.Range(targetUnit.MinAttack, targetUnit.MaxAttack);
+
+            if (unit.Hp <= 0)
+            {
+                KillUnitAt(unit.X, unit.Y);
+                if (targetUnit.Hp < 0)
+                    targetUnit.Hp = 0.5f;
+                return;
+            }
+
+            if (targetUnit.Hp > 0)
+                return;
+
+            KillUnitAt(x, y);
+            MoveUnit(unit, x, y);
+        }
+
+        private void AttackBuilding(Building building, int x, int y, Unit unit, IEnumerable<TileCords> attackRange)
         {
             if (unit.Faction == UnitFaction.Player && (building.Type != BuildingType.City && building.Type != BuildingType.Hellgate))
                 return;
@@ -135,7 +170,7 @@ namespace Assets.Systems.Unit
             if (!IsAttackPosition(x, y, unit.X, unit.Y))
             {
                 var newAttackPosition =
-                    CommandService.Instance.UnitMoveRange.FirstOrDefault(c => IsAttackPosition(x, y, c.X, c.Y));
+                    attackRange.FirstOrDefault(c => IsAttackPosition(x, y, c.X, c.Y));
 
                 if (newAttackPosition == null)
                     return;

@@ -69,7 +69,7 @@ namespace Assets.Systems.CommandManager
                 if (unit.Faction == UnitFaction.Player)
                     return;
 
-                UnitService.Instance.AttackTile(x,y, SelectedUnit);
+                UnitService.Instance.AttackTile(x,y, SelectedUnit, UnitMoveRange);
                 SelectionState = CommandSelectionState.Nothing;
                 RefreshSelection();
                 return;
@@ -81,7 +81,7 @@ namespace Assets.Systems.CommandManager
                 if (building.PlayerOwned)
                     return;
 
-                UnitService.Instance.AttackTile(x, y, SelectedUnit);
+                UnitService.Instance.AttackTile(x, y, SelectedUnit, UnitMoveRange);
                 SelectionState = CommandSelectionState.Nothing;
                 RefreshSelection();
                 return;
