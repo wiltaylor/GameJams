@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Assets.Scripts.View.TileMap;
 using Assets.Systems.CommandManager;
+using Assets.Systems.PlayerManager;
 using Assets.Systems.TileMap;
 using Assets.Systems.Unit;
 using UnityEngine;
@@ -18,18 +19,32 @@ public class TileMapView : MonoBehaviour
     private readonly List<TileView> _tiles = new List<TileView>();
     private readonly List<BuildingView> _buildings = new List<BuildingView>();
     private readonly List<UnitView> _units = new List<UnitView>();
-    
+
+    private void StartUpCamera()
+    {
+        var building = TileMapService.Instance.Map.Buildings.First(b => b.PlayerOwned);
+        PlayerService.Instance.CentreCameraAtTile(building.X, building.Y);
+    }
+
 	private void Start ()
 	{
-	    var tilesettings = TileSet.Tiles.Select(t => t.TileSettings).ToArray();
+	    CommandService.Instance.HighlightChanged += InstanceOnHighlightChanged;
+
+        var tilesettings = TileSet.Tiles.Select(t => t.TileSettings).ToArray();
 	    var buildingsettings = TileSet.Buildings.Select(b => b.BuildingSettings).ToArray();
 	    TileMapService.Instance.NewMap(GeneratorSettings, tilesettings, buildingsettings);
+	    
         _map = TileMapService.Instance.Map;
         _map.TileChanged += _map_TileChanged;
 
         UnitService.Instance.AssignUnitDefinition(TileSet.Units.Select(t => t.UnitSettings).ToArray());
         UnitService.Instance.UnitChanged += UnitChanged;
-        CommandService.Instance.HighlightChanged += InstanceOnHighlightChanged;
+        
+        PlayerService.Instance.GenerateStartPosition();
+
+        PlayerService.Instance.BeforeCameraCentre += Instance_BeforeCameraCentre;
+
+	    Invoke("StartUpCamera", 0.25f);
 
 	    for (var x = 0; x < _map.MapWidth; x++)
 	    {
@@ -73,6 +88,15 @@ public class TileMapView : MonoBehaviour
         }
 	}
 
+    private void Instance_BeforeCameraCentre(object sender, CameraEventArgs e)
+    {
+        var obj = _tiles.FirstOrDefault(t => t.X == e.X && t.Y == e.Y);
+        if (obj == null)
+            return;
+
+        e.ObjectToCentreOn = obj.gameObject;
+    }
+
     private void InstanceOnHighlightChanged(object sender, EventArgs eventArgs)
     {
         foreach(var t in _tiles)
@@ -94,7 +118,7 @@ public class TileMapView : MonoBehaviour
     {
         var unit = unitEventArgs.ChangedUnit;
 
-        var view = _units.FirstOrDefault(u => u.X == unit.X && u.Y == unit.Y);
+        var view = _units.FirstOrDefault(u => u.Id == unit.UnitId);
 
         if (view == null)
         {
@@ -106,9 +130,14 @@ public class TileMapView : MonoBehaviour
 
             view.X = unit.X;
             view.Y = unit.Y;
+            view.Id = unit.UnitId;
 
             obj.transform.position = new Vector3(unit.X * (TilePixelWidth * 0.01f), unit.Y * (TilePixelHeight * 0.01f));
             obj.SetActive(true);
+        }
+        else
+        {
+            view.transform.position = new Vector3(unit.X * (TilePixelWidth * 0.01f), unit.Y * (TilePixelHeight * 0.01f));
         }
 
         if(unit.Hp <= 0)

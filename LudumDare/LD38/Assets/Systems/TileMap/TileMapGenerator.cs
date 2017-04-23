@@ -26,11 +26,12 @@ namespace Assets.Systems.TileMap
             foreach (var building in buildingGeneratorSettings)
             {
                 var qty = Random.Range(building.MinQty, building.MaxQty);
-                var x = 0;
-                var y = 0;
 
                 for (var q = 0; q < qty; q++)
                 {
+                    var x = 0;
+                    var y = 0;
+
                     while (true)
                     {
                         x = Random.Range(0, map.MapWidth - 1);

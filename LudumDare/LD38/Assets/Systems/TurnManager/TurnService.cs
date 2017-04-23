@@ -1,4 +1,6 @@
-﻿using Assets.Systems.TileMap;
+﻿using Assets.Systems.CommandManager;
+using Assets.Systems.TileMap;
+using Assets.Systems.Unit;
 
 public class TurnService
 {
@@ -13,7 +15,11 @@ public class TurnService
 
     public void NextTurn()
     {
+
+        UnitService.Instance.RefreshMovementPoints();
         TileMapService.Instance.Map.DamageMap(1f);
         Turn++;
+
+        CommandService.Instance.Deselect();
     }
 }

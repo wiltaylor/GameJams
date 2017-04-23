@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using Random = UnityEngine.Random;
 
 namespace Assets.Systems.Unit
@@ -35,7 +36,7 @@ namespace Assets.Systems.Unit
 
         public IEnumerable<TileCords> GetMovableCords(Unit unit)
         {
-            return PathFinder.FindMoveableLocations(unit.X, unit.Y, unit.MovePoints);
+            return PathFinder.FindMoveableLocations(unit.X, unit.Y, unit.MovePointsLeft);
         }
 
         public Unit GetUnitAt(int x, int y)
@@ -56,10 +57,12 @@ namespace Assets.Systems.Unit
                 Actions = settings.Actions,
                 Faction = faction,
                 Type = type,
-                MovePoints = settings.MovePoints
+                MovePoints = settings.MovePoints,
+                UnitId = GUID.Generate(),
             };
 
             unit.Hp = unit.MaxHp;
+            unit.MovePointsLeft = unit.MovePoints;
             
             _allUnits.Add(unit);
 
@@ -73,6 +76,14 @@ namespace Assets.Systems.Unit
             unit.X = x;
             unit.Y = y;
             UnitChanged(this, new UnitEventArgs {ChangedUnit = unit});
+        }
+
+        public void RefreshMovementPoints()
+        {
+            foreach (var unit in _allUnits)
+            {
+                unit.MovePointsLeft = unit.MovePoints;
+            }
         }
     }
 }
