@@ -55,7 +55,9 @@ namespace Assets.Systems.Unit
             _allUnits.Remove(unit);
 
             unit.Hp = 0;
-        }
+
+            UnitChanged(this, new UnitEventArgs{ ChangedUnit = unit});
+    }
 
         public Unit AddUnit(int x, int y, UnitType type, UnitFaction faction)
         {
@@ -127,7 +129,7 @@ namespace Assets.Systems.Unit
 
         private void AttackBuilding(Building building, int x, int y, Unit unit)
         {
-            if (unit.Faction == UnitFaction.Player && building.Type != BuildingType.City)
+            if (unit.Faction == UnitFaction.Player && (building.Type != BuildingType.City && building.Type != BuildingType.Hellgate))
                 return;
 
             if (!IsAttackPosition(x, y, unit.X, unit.Y))
@@ -148,12 +150,14 @@ namespace Assets.Systems.Unit
             if (unit.Hp <= 0)
             {
                 KillUnitAt(unit.X, unit.Y);
+                if (building.Hp < 0)
+                    building.Hp = 1;
                 return;
             }
 
             if (!(building.Hp <= 0)) return;
 
-            if (unit.Faction == UnitFaction.Player)
+            if (unit.Faction == UnitFaction.Player && building.Type == BuildingType.City)
             {
                 building.PlayerOwned = true;
                 building.Hp = building.MaxHp;
@@ -163,7 +167,8 @@ namespace Assets.Systems.Unit
             else
             {
                 MoveUnit(unit, x, y);
-                TileMapService.Instance.Map.DamageTile(x,y,1000);
+                TileMapService.Instance.Map.DamageTile(x,y,100000);
+                TileMapService.Instance.Map.RefreshBuilding(building);
             }
         }
 

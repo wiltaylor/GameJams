@@ -52,6 +52,13 @@ namespace Assets.Systems.TileMap
             BuildingChange(this, new BuildingEventArgs{Building = building});
         }
 
+        public void KillBuilding(Building building)
+        {
+            building.Hp = 0;
+            BuildingChange(this, new BuildingEventArgs { Building = building });
+            Buildings.Remove(building);
+        }
+
         public void RevealMap(int x, int y, int range)
         {
             var top = y - range;

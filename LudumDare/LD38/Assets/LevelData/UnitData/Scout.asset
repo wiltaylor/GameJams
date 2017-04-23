@@ -15,8 +15,8 @@ MonoBehaviour:
   Name: Scout
   MaxHp: 10
   MinHp: 1
-  MaxAttack: 2
-  MinAttack: 1
+  MaxAttack: 100
+  MinAttack: 50
   Actions: 0100000002000000
   CanSpawnInCity: 0
   CanSpawnInDemonGate: 0

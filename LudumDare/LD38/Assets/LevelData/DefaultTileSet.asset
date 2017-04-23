@@ -46,6 +46,9 @@ MonoBehaviour:
   - Type: 2
     Prefab: {fileID: 1419522320694214, guid: 104e0a909ec50d24088bb68212ab3630, type: 2}
     BuildingSettings: {fileID: 11400000, guid: 718396e40ab0e354ea48419fc27d4a12, type: 2}
+  - Type: 3
+    Prefab: {fileID: 1777875037462306, guid: 2df41731e30ed684b97dd007e7a8c509, type: 2}
+    BuildingSettings: {fileID: 11400000, guid: cdff6418237745041bb2b9441dec5618, type: 2}
   Units:
   - Unit: 0
     Prefab: {fileID: 1951252881338568, guid: df6cc78e0cb33784c81563a8fb0bd4b0, type: 2}

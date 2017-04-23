@@ -75,7 +75,7 @@ namespace Assets.Systems.CommandManager
                 return;
             }
 
-            if (coords.HasBuilding && coords.IsCity)
+            if (coords.HasBuilding && (coords.IsCity || coords.IsHellGate))
             {
                 var building = TileMapService.Instance.Map.GetBuildingAt(x, y);
                 if (building.PlayerOwned)

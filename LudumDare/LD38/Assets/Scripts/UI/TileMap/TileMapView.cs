@@ -109,7 +109,11 @@ public class TileMapView : MonoBehaviour
             view = _buildings.First(b => b.X == building.X && b.Y == building.Y);
         }
 
-        view.SetOwnership(building.PlayerOwned);
+        if(building.PlayerOwned)
+            view.SetOwnership(building.PlayerOwned);
+
+        if(building.Hp <= 0)
+            view.Destruct();
     }
 
     private void Instance_BeforeCameraCentre(object sender, CameraEventArgs e)

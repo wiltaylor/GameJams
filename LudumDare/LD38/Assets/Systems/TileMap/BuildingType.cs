@@ -4,6 +4,7 @@
     {
         City,
         IronOre,
-        EnergyOre
+        EnergyOre,
+        Hellgate
     }
 }

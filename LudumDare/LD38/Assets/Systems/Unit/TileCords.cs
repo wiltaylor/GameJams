@@ -8,5 +8,6 @@ namespace Assets.Systems.Unit
         public bool HasUnit;
         public bool HasBuilding;
         public bool IsCity;
+        public bool IsHellGate;
     }
 }
