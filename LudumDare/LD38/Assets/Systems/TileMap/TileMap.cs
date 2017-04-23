@@ -47,6 +47,11 @@ namespace Assets.Systems.TileMap
             }
         }
 
+        public void RefreshBuilding(Building building)
+        {
+            BuildingChange(this, new BuildingEventArgs{Building = building});
+        }
+
         public void RevealMap(int x, int y, int range)
         {
             var top = y - range;

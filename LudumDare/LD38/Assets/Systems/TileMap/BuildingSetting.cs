@@ -16,8 +16,8 @@ namespace Assets.Systems.TileMap
         public int FaithPerTurn;
         public int IronPerOwn;
         public int HumanPerOwn;
-        public int MaxHp;
-        public int MinHp;
+        public float MaxHp;
+        public float MinHp;
         public int DefenceRating;
         public UnitAction CaptureAction;
         public bool AiTarget;

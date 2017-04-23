@@ -63,6 +63,30 @@ namespace Assets.Systems.CommandManager
 
             if (coords == null) return;
 
+            if (coords.HasUnit)
+            {
+                var unit = UnitService.Instance.GetUnitAt(x, y);
+                if (unit.Faction == UnitFaction.Player)
+                    return;
+
+                UnitService.Instance.AttackTile(x,y, SelectedUnit);
+                SelectionState = CommandSelectionState.Nothing;
+                RefreshSelection();
+                return;
+            }
+
+            if (coords.HasBuilding)
+            {
+                var building = TileMapService.Instance.Map.GetBuildingAt(x, y);
+                if (building.PlayerOwned)
+                    return;
+
+                UnitService.Instance.AttackTile(x, y, SelectedUnit);
+                SelectionState = CommandSelectionState.Nothing;
+                RefreshSelection();
+                return;
+            }
+
             SelectedUnit.MovePointsLeft -= coords.Cost;
 
             if (SelectedUnit.MovePointsLeft < 0)

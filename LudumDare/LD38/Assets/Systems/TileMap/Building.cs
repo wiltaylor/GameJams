@@ -16,8 +16,8 @@ namespace Assets.Systems.TileMap
         public int FaithPerTurn { get; set; }
         public int IronPerOwn { get; set; }
         public int HumanPerOwn { get; set; }
-        public int Hp { get; set; }
-        public int MaxHp { get; set; }
+        public float Hp { get; set; }
+        public float MaxHp { get; set; }
         public int DefenceRating { get; set; }
     }
 }

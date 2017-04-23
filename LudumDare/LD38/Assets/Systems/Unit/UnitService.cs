@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Runtime.InteropServices;
+using Assets.Scripts.View.TileMap;
+using Assets.Systems.CommandManager;
 using Assets.Systems.TileMap;
 using UnityEditor;
 using Random = UnityEngine.Random;
@@ -106,6 +110,70 @@ namespace Assets.Systems.Unit
             {
                 unit.MovePointsLeft = unit.MovePoints;
             }
+        }
+
+        public void AttackTile(int x, int y, Unit unit)
+        {
+            //Check attack type.
+
+            var targetunit = GetUnitAt(x, y);
+
+            if (targetunit != null && targetunit.Faction == unit.Faction)
+                return;
+
+            //Do unit attack
+
+            var building = TileMapService.Instance.Map.GetBuildingAt(x, y);
+
+            if (building == null)
+                return;
+
+            if (building.PlayerOwned && unit.Faction == UnitFaction.Player)
+                return;
+
+            AttackBuilding(building, x, y, unit);
+        }
+
+        private void AttackBuilding(Building building, int x, int y, Unit unit)
+        {
+            if (!IsAttackPosition(x, y, unit.X, unit.Y))
+            {
+                var newAttackPosition =
+                    CommandService.Instance.UnitMoveRange.FirstOrDefault(c => IsAttackPosition(x, y, c.X, c.Y));
+
+                if (newAttackPosition == null)
+                    return;
+
+                MoveUnit(unit, x, y);
+            }
+
+            unit.MovePointsLeft = 0;
+            building.Hp -= Random.Range(unit.MinAttack, unit.MaxAttack);
+
+            if (!(building.Hp <= 0)) return;
+
+            if (unit.Faction == UnitFaction.Player)
+            {
+                building.PlayerOwned = true;
+                building.Hp = building.MaxHp;
+                MoveUnit(unit, x, y);
+                TileMapService.Instance.Map.RefreshBuilding(building);
+            }
+            else
+            {
+                MoveUnit(unit, x, y);
+                TileMapService.Instance.Map.DamageTile(x,y,1000);
+            }
+        }
+
+        private static bool IsAttackPosition(int x, int y, int targetX, int targetY)
+        {
+            var inAttackPosition =
+                targetX == x && TileMapUtil.CalculateY(targetY - 1) == y ||
+                targetX == x && TileMapUtil.CalculateY(targetY + 1) == y ||
+                TileMapUtil.CalculateX(targetX - 1) == x && targetY == y ||
+                TileMapUtil.CalculateX(targetX + 1) == x && targetY == y;
+            return inAttackPosition;
         }
     }
 }
