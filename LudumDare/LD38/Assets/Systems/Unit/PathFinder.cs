@@ -9,10 +9,10 @@ namespace Assets.Systems.Unit
     {
         public static IEnumerable<TileCords> FindMoveableLocations(int x, int y, int points)
         {
-            return points <= 0 ? new List<TileCords>() : CheckTile(x,y,points, true);
+            return points <= 0 ? new List<TileCords>() : CheckTile(x,y,points, 0,true);
         }
 
-        private static IEnumerable<TileCords> CheckTile(int x, int y, int points, bool freeCost = false)
+        private static IEnumerable<TileCords> CheckTile(int x, int y, int points, int cost, bool freeCost = false)
         {
             if(points <= 0)
                 return new List<TileCords>();
@@ -26,17 +26,20 @@ namespace Assets.Systems.Unit
             if (!tile.Passable && !freeCost)
                 return avilpoints;
 
+            if (!freeCost)
+                cost += tile.MoveCost;
+
             points -= freeCost ?  0 : tile.MoveCost;
-            avilpoints.Add(new TileCords{X = x, Y = y, Cost = tile.MoveCost, HasBuilding = building != null, HasUnit = unit != null});
+            avilpoints.Add(new TileCords{X = x, Y = y, Cost = cost, HasBuilding = building != null, HasUnit = unit != null});
 
             if(!avilpoints.Any(a => a.X == TileMapUtil.CalculateX(x + 1) && a.Y == y))
-                avilpoints.AddRange(CheckTile(TileMapUtil.CalculateX(x + 1), y, points));
+                avilpoints.AddRange(CheckTile(TileMapUtil.CalculateX(x + 1), y, points, cost));
             if (!avilpoints.Any(a => a.X == TileMapUtil.CalculateX(x - 1) && a.Y == y))
-                avilpoints.AddRange(CheckTile(TileMapUtil.CalculateX(x - 1), y, points));
+                avilpoints.AddRange(CheckTile(TileMapUtil.CalculateX(x - 1), y, points, cost));
             if (!avilpoints.Any(a => a.X == x && a.Y == TileMapUtil.CalculateY(y - 1)))
-                avilpoints.AddRange(CheckTile(x, TileMapUtil.CalculateY(y - 1), points));
+                avilpoints.AddRange(CheckTile(x, TileMapUtil.CalculateY(y - 1), points, cost));
             if (!avilpoints.Any(a => a.X == x && a.Y == TileMapUtil.CalculateY(y + 1)))
-                avilpoints.AddRange(CheckTile(x, TileMapUtil.CalculateY(y + 1), points));
+                avilpoints.AddRange(CheckTile(x, TileMapUtil.CalculateY(y + 1), points, cost));
             
             return avilpoints;
         }

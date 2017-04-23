@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Assets.Scripts.View.TileMap;
 using Assets.Systems.CommandManager;
+using Assets.Systems.PlayerManager;
 using Assets.Systems.TileMap;
 using Assets.Systems.Unit;
 using UnityEngine;
@@ -30,6 +31,8 @@ public class TileMapView : MonoBehaviour
         UnitService.Instance.AssignUnitDefinition(TileSet.Units.Select(t => t.UnitSettings).ToArray());
         UnitService.Instance.UnitChanged += UnitChanged;
         CommandService.Instance.HighlightChanged += InstanceOnHighlightChanged;
+
+        PlayerService.Instance.GenerateStartPosition();
 
 	    for (var x = 0; x < _map.MapWidth; x++)
 	    {

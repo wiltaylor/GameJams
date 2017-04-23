@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73c134835244d0f43a761dd3f19af4d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GeneratorSettings: {fileID: 11400000, guid: 575d7340605adaa4dbfb763628d8f492, type: 2}
+  GeneratorSettings: {fileID: 11400000, guid: fe1639285b67a2043870d04a7bc49799, type: 2}
   TileSet: {fileID: 11400000, guid: ccdc67c3439d0a04f8b3c8c069962f61, type: 2}
   TilePixelWidth: 64
   TilePixelHeight: 64
