@@ -12,7 +12,12 @@ MonoBehaviour:
   m_Name: GrassTile
   m_EditorClassIdentifier: 
   TileId: 2
+<<<<<<< HEAD
   StartHp: 35
+=======
+  MaxStartHp: 10
+  MinStartHp: 5
+>>>>>>> master
   DecayRate: 0.1
   MoveCost: 1
   Passable: 1

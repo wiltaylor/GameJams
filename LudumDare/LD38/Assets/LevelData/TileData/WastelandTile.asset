@@ -12,7 +12,12 @@ MonoBehaviour:
   m_Name: WastelandTile
   m_EditorClassIdentifier: 
   TileId: 6
+<<<<<<< HEAD
   StartHp: 25
+=======
+  MaxStartHp: 10
+  MinStartHp: 5
+>>>>>>> master
   DecayRate: 0.1
   MoveCost: 1
   Passable: 1

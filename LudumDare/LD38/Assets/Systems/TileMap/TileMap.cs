@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Assets.Systems.TileMap
 {
@@ -56,8 +57,8 @@ namespace Assets.Systems.TileMap
 
             var tileDefaults = TileSettings.First(t => t.TileId == type);
 
-            MapData[x, y].StartHp = tileDefaults.StartHp;
-            MapData[x, y].Hp = tileDefaults.StartHp;
+            MapData[x, y].StartHp = Random.Range(tileDefaults.MinStartHp, tileDefaults.MaxStartHp);
+            MapData[x, y].Hp = MapData[x, y].StartHp;
             MapData[x, y].DecayRate = tileDefaults.DecayRate;
             MapData[x, y].MoveCost = tileDefaults.MoveCost;
             MapData[x, y].TileType = type;
