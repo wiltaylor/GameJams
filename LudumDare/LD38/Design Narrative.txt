@@ -30,10 +30,39 @@ Cardinal: "Excellent."
 
 <Turn Twenty Dialog>
 Knight: "Your Eminence, I return from my campaign abroad with news. Hellfire demons have clawed onto the land and"
-Cardinal: "Continue
-Knight: "
+Cardinal: "Continue with your crusade. We must protect the innocent from the influence of heathens."
+Knight: "Are you sure that..."
+Cardinal: "You dare...?"
+Knight: "No, your eminence. We shall double our efforts!"
 
 <Turn Fifty Dialog>
+Knight: "Your Eminence?"
+Cardinal: "..."
+Knight: "Your Eminence, are you...hiding under your bed?"
+Cardinal: "I have seen them. The demons...they are, real!"
+Knight: "My knights have been dying by the thousands, and you have only just believed me?"
+Cardinal: "Hell is real! The demons, they are coming for us all!"
+Knight: "You fool!"
+Cardinal: *uncontrollable sobbing*
+Knight: "Then I shall finish what you cannot! For God!"
 
+<Winning End Game Dialog>
+Knight: "The heathens have been punished, God looks upon us and smiles!"
+Cardinal: "..."
+Demon: "Well done, my child."
+Knight: "Who are you?"
+Demon: "There is plenty of time for us to get acquainted."
+Knight: "I shall vanquish you myself."
+Demon: "Perhaps. But your world is small, and there are too few left to stop us now."
+Knight: "But..."
+Demon: "Thank you for assisting us, good Knight."
+Cardinal: *sobs in terror*
+Knight: *screams*
 
-<End Game Dialog>
+<Losing End Game Dialog>
+Knight: "You Eminence...."
+Cardinal: *sobs*
+Knight: "We are, too late..."
+Cardinal: *sobs*
+Demon: "It is your time, good knight."
+Knight: *screams*
