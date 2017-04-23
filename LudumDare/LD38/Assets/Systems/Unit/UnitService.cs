@@ -172,6 +172,11 @@ namespace Assets.Systems.Unit
             }
         }
 
+        public IEnumerable<Unit> GetAllAIUnits()
+        {
+            return _allUnits.Where(u => u.Faction == UnitFaction.Demon);
+        }
+
         private static bool IsAttackPosition(int x, int y, int targetX, int targetY)
         {
             var inAttackPosition =

@@ -11,6 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ff50fdbab495f94799765b338e35c42, type: 3}
   m_Name: DefaultTileSet
   m_EditorClassIdentifier: 
+  Profile: {fileID: 11400000, guid: e088d6c0e2d677848a0a469d214c8fd1, type: 2}
   Tiles:
   - Type: 0
     Prefab: {fileID: 0}
