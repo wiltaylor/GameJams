@@ -140,6 +140,7 @@ GameObject:
   - component: {fileID: 224994183007433636}
   - component: {fileID: 222363672543525498}
   - component: {fileID: 114599719967642684}
+  - component: {fileID: 114599841834519910}
   m_Layer: 5
   m_Name: UnitInfo
   m_TagString: Untagged
@@ -426,7 +427,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -446,7 +447,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: UnitSelected
+  m_Text: 'Move Points Left: xxx
+
+'
 --- !u!114 &114599719967642684
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -474,6 +477,18 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114599841834519910
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1717316855887540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3e24de3522ebec469e8e33445a553f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerMovesLeft: {fileID: 114495137596560838}
 --- !u!114 &114616421891863876
 MonoBehaviour:
   m_ObjectHideFlags: 1

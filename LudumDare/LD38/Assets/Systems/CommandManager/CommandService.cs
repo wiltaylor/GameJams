@@ -45,6 +45,12 @@ namespace Assets.Systems.CommandManager
                 HandleRightClick(x, y);
         }
 
+        public void Deselect()
+        {
+            SelectionState = CommandSelectionState.Nothing;
+            RefreshSelection();
+        }
+
         private void HandleRightClick(int x, int y)
         {
             if (SelectionState != CommandSelectionState.Unit || SelectedUnit.Faction != UnitFaction.Player) return;
@@ -52,6 +58,11 @@ namespace Assets.Systems.CommandManager
             var coords = UnitMoveRange.FirstOrDefault(m => m.X == x && m.Y == y);
 
             if (coords == null) return;
+
+            SelectedUnit.MovePointsLeft -= coords.Cost;
+
+            if (SelectedUnit.MovePointsLeft < 0)
+                SelectedUnit.MovePointsLeft = 0;
 
             UnitService.Instance.MoveUnit(SelectedUnit, x, y);
             SelectionState = CommandSelectionState.Nothing;
@@ -86,7 +97,8 @@ namespace Assets.Systems.CommandManager
                     {
                         SelectedUnit = unit;
                         SelectionState = CommandSelectionState.Unit;
-                        UnitMoveRange = UnitService.Instance.GetMovableCords(unit).ToArray();
+                        if(unit.MovePointsLeft > 0)
+                            UnitMoveRange = UnitService.Instance.GetMovableCords(unit).ToArray();
                         break;
                     }
 
