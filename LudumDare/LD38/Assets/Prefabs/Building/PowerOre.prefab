@@ -73,6 +73,8 @@ MonoBehaviour:
   X: 0
   Y: 0
   MapView: {fileID: 0}
+  Unclaimed: {fileID: 21300000, guid: 0316fdc5a758ca946825a02bdf0a92f1, type: 3}
+  Claimed: {fileID: 21300000, guid: 0316fdc5a758ca946825a02bdf0a92f1, type: 3}
 --- !u!212 &212156610197541194
 SpriteRenderer:
   m_ObjectHideFlags: 1
