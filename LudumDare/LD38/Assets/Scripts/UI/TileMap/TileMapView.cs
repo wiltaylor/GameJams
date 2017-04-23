@@ -80,6 +80,7 @@ public class TileMapView : MonoBehaviour
 	        view.MapView = this;
 	        view.X = building.X;
 	        view.Y = building.Y;
+            view.SetOwnership(building.PlayerOwned);
             
             obj.transform.position = new Vector3(building.X * (TilePixelWidth * 0.01f), building.Y * (TilePixelHeight * 0.01f));
 	        obj.SetActive(true);
