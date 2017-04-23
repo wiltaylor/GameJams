@@ -9,9 +9,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 821192dc103b8ad41b748c1d83bd0c84, type: 3}
-  m_Name: PowerOre
+  m_Name: FaithOre
   m_EditorClassIdentifier: 
   Type: 2
   AllowedToBuildOn: 0200000003000000040000000700000005000000
   BuildingDistance: 1
   Mineable: 1
+  MaxHpModifier: 10
+  MinHpModifier: 4
+  HpModifierRange: 3
