@@ -19,6 +19,10 @@ namespace Assets.Systems.TileMap
 
         public List<Building> Buildings { get; set; }
 
+        public int TotalTiles { get; private set; }
+        public int VoidTiles { get; private set; }
+
+
         public TileMap(int width, int height, TileType fillTile, IList<TileSettings> tilesettings, IList<BuildingSetting> buildingSettings)
         {
             TileChanged += (sender, aargs) => { };
@@ -53,12 +57,18 @@ namespace Assets.Systems.TileMap
                 Debug.Log("bad y");
 
             if (MapData[x, y] == null)
+            {
+                TotalTiles++;
                 MapData[x, y] = new Tile(x, y);
+            }
 
             if(TileSettings == null)
                 Debug.Log("foo");
 
             var tileDefaults = TileSettings.First(t => t.TileId == type);
+
+            if (type == TileType.Void)
+                VoidTiles++;
 
             MapData[x, y].StartHp = Random.Range(tileDefaults.MinStartHp, tileDefaults.MaxStartHp);
             MapData[x, y].Hp = MapData[x, y].StartHp;

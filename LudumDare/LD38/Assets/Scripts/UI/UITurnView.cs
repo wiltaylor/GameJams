@@ -11,6 +11,6 @@ public class UITurnView : MonoBehaviour
 	
 	private void Update ()
 	{
-	    TurnText.text = "Turn: " + TurnService.Instance.Turn;
+	    TurnText.text = "Turn: " + TurnService.Instance.Turn + "/100";
 	}
 }
