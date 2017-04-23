@@ -94,7 +94,7 @@ public class TileMapView : MonoBehaviour
     {
         var unit = unitEventArgs.ChangedUnit;
 
-        var view = _units.FirstOrDefault(u => u.X == unit.X && u.Y == unit.Y);
+        var view = _units.FirstOrDefault(u => u.Id == unit.UnitId);
 
         if (view == null)
         {
@@ -106,9 +106,14 @@ public class TileMapView : MonoBehaviour
 
             view.X = unit.X;
             view.Y = unit.Y;
+            view.Id = unit.UnitId;
 
             obj.transform.position = new Vector3(unit.X * (TilePixelWidth * 0.01f), unit.Y * (TilePixelHeight * 0.01f));
             obj.SetActive(true);
+        }
+        else
+        {
+            view.transform.position = new Vector3(unit.X * (TilePixelWidth * 0.01f), unit.Y * (TilePixelHeight * 0.01f));
         }
 
         if(unit.Hp <= 0)

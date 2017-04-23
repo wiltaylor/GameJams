@@ -1,4 +1,6 @@
-﻿namespace Assets.Systems.Unit
+﻿using UnityEditor;
+
+namespace Assets.Systems.Unit
 {
     public enum UnitFaction
     {
@@ -17,5 +19,6 @@
         public UnitAction[] Actions { get; set; }
         public UnitFaction Faction { get; set; }
         public UnitType Type { get; set; }
+        public GUID UnitId { get; set; } 
     }
 }

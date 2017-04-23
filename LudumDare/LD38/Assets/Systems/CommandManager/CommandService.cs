@@ -54,6 +54,7 @@ namespace Assets.Systems.CommandManager
             if (coords == null) return;
 
             UnitService.Instance.MoveUnit(SelectedUnit, x, y);
+            SelectionState = CommandSelectionState.Nothing;
             RefreshSelection();
         }
 

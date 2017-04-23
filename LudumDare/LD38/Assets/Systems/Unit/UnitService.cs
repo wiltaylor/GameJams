@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using Random = UnityEngine.Random;
 
 namespace Assets.Systems.Unit
@@ -56,7 +57,8 @@ namespace Assets.Systems.Unit
                 Actions = settings.Actions,
                 Faction = faction,
                 Type = type,
-                MovePoints = settings.MovePoints
+                MovePoints = settings.MovePoints,
+                UnitId = GUID.Generate()
             };
 
             unit.Hp = unit.MaxHp;
