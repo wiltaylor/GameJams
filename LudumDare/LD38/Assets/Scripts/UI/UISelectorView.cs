@@ -18,7 +18,7 @@ public class UISelectorView : MonoBehaviour
                 BuildingPanel.SetActive(true);
                 break;
             case CommandSelectionState.Nothing:
-                UnitPanel.SetActive(true);
+                UnitPanel.SetActive(false);
                 BuildingPanel.SetActive(false);
                 break;
             case CommandSelectionState.Unit:
