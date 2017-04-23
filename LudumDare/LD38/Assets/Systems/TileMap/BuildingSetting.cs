@@ -9,5 +9,8 @@ namespace Assets.Systems.TileMap
         public TileType[] AllowedToBuildOn;
         public int BuildingDistance;
         public bool Mineable;
+        public float MaxHpModifier;
+        public float MinHpModifier;
+        public int HpModifierRange;
     }
 }

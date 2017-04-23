@@ -1,4 +1,4 @@
-Opening Script
+<Opening Script>
 A thousand years ago the Holy Martyr Petros (first of his name) willingly gave his life and was bathed in the sanctified light of God, proving the worth of mankind to their all-powerful creator.
 
 God looked down upon this one man’s sacrifice and blessed the lands of Parva Mundi. The sins of mankind were instantly washed away, and the world was renewed in spirit, faith and generosity.
@@ -17,4 +17,23 @@ The screams of the Pontiff masked the sounds of demonic creatures crawling forth
 
 Before anyone to act, it was too late. The End Times were upon them.
 
+<Turn One Dialog>
+Knight: "Cardinal, fisherman are telling tales of gaping maws from Hell consuming the very oceans!"
+Cardinal: "Such tales are folly. You cannot beleve the words of peasants, they are not men of the cloth."
+Knight: "Yes, your Eminence. I shall have these heretics put to the sword immediately." 
 
+<Turn Six Dialog>
+Knight: "Cardinal, the oceans have been drawn into the very bowels of Hell. Its waters cannot quench the thirst of the Devil, and our people can stand at the end of the world and gaze into madness!"
+Cardinal: "This is surely the work of heretics. Muster your armies and besiege the other cities of the land. Once they have been purified our faith in God will save these lands."
+Knight: "As you wish your Eminence. That God has spoken to you is a blessing for our people. If the others do not listen, we will trap them in their homes and burn them to the ground!"
+Cardinal: "Excellent."
+
+<Turn Twenty Dialog>
+Knight: "Your Eminence, I return from my campaign abroad with news. Hellfire demons have clawed onto the land and"
+Cardinal: "Continue
+Knight: "
+
+<Turn Fifty Dialog>
+
+
+<End Game Dialog>

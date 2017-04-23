@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Assets.Scripts.View.TileMap;
 using Assets.Systems.TileMap;
+using Assets.Systems.Unit;
 using UnityEngine;
 
 public class TileMapView : MonoBehaviour
@@ -14,7 +16,8 @@ public class TileMapView : MonoBehaviour
 
     private readonly List<TileView> _tiles = new List<TileView>();
     private readonly List<BuildingView> _buildings = new List<BuildingView>();
-
+    private readonly List<UnitView> _units = new List<UnitView>();
+    
 	private void Start ()
 	{
 	    var tilesettings = TileSet.Tiles.Select(t => t.TileSettings).ToArray();
@@ -22,6 +25,9 @@ public class TileMapView : MonoBehaviour
 	    TileMapService.Instance.NewMap(GeneratorSettings, tilesettings, buildingsettings);
         _map = TileMapService.Instance.Map;
         _map.TileChanged += _map_TileChanged;
+
+        UnitService.Instance.AssignUnitDefinition(TileSet.Units.Select(t => t.UnitSettings).ToArray());
+        UnitService.Instance.UnitChanged += UnitChanged;
 
 	    for (var x = 0; x < _map.MapWidth; x++)
 	    {
@@ -64,6 +70,31 @@ public class TileMapView : MonoBehaviour
             _buildings.Add(view);
         }
 	}
+
+    private void UnitChanged(object sender, UnitEventArgs unitEventArgs)
+    {
+        var unit = unitEventArgs.ChangedUnit;
+
+        var view = _units.FirstOrDefault(u => u.X == unit.X && u.Y == unit.Y);
+
+        if (view == null)
+        {
+            var prefab = TileSet.Units.First(u => u.UnitSettings.Type == unit.Type).Prefab;
+            var obj = Instantiate(prefab, transform);
+            view = obj.GetComponent<UnitView>();
+
+            _units.Add(view);
+
+            view.X = unit.X;
+            view.Y = unit.Y;
+
+            obj.transform.position = new Vector3(unit.X * (TilePixelWidth * 0.01f), unit.Y * (TilePixelHeight * 0.01f));
+            obj.SetActive(true);
+        }
+
+        if(unit.Hp <= 0)
+            view.Destruct();
+    }
 
     private void _map_TileChanged(object sender, TileMapEventAargs e)
     {

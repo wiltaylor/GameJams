@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Name: VoidTile
   m_EditorClassIdentifier: 
   TileId: 0
-  MaxStartHp: 10
-  MinStartHp: 5
+  MaxStartHp: 1
+  MinStartHp: 1
   DecayRate: 0
   MoveCost: 0
   Passable: 0
