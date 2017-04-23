@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using System.Runtime.Remoting.Channels;
 using Assets.Systems.TileMap;
 using Assets.Systems.Unit;
 
@@ -15,7 +14,7 @@ namespace Assets.Systems.PlayerManager
         public int Iron;
         public int IronUsed;
         public int Faith;
-        public int TotalHuamns;
+        public int TotalHumans;
         public int UsedHumans;
         public int FaithPerTurn;
 
@@ -43,6 +42,11 @@ namespace Assets.Systems.PlayerManager
             BeforeCameraCentre(this, args);
             CameraCentre(this, args);
 
+        }
+
+        public void IncrementResources()
+        {
+            Faith += FaithPerTurn;
         }
     }
 }

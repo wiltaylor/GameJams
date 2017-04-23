@@ -23,8 +23,8 @@ public class MainPanelView : MonoBehaviour
 	    
         IronText.text = PlayerService.Instance.Iron.ToString();
 	    FaithText.text = PlayerService.Instance.Faith.ToString();
-	    HumanText.text = (PlayerService.Instance.TotalHuamns - PlayerService.Instance.UsedHumans) + "/" +
-	                     PlayerService.Instance.TotalHuamns;
+	    HumanText.text = (PlayerService.Instance.TotalHumans - PlayerService.Instance.UsedHumans) + "/" +
+	                     PlayerService.Instance.TotalHumans;
 	    WorldDecayText.text = percent + " %";
 	    TurnText.text = TurnService.Instance.Turn.ToString();
 

@@ -54,7 +54,7 @@ namespace Assets.Systems.TileMap
 
             PlayerService.Instance.Iron += building.IronPerOwn;
             PlayerService.Instance.FaithPerTurn += building.FaithPerTurn;
-            PlayerService.Instance.TotalHuamns += building.HumanPerOwn;
+            PlayerService.Instance.TotalHumans += building.HumanPerOwn;
 
             BuildingChange(this, new BuildingEventArgs{Building = building});
         }

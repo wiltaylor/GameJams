@@ -1,4 +1,5 @@
 ﻿using Assets.Systems.CommandManager;
+using Assets.Systems.PlayerManager;
 using Assets.Systems.TileMap;
 using Assets.Systems.Unit;
 
@@ -18,6 +19,7 @@ public class TurnService
         UnitService.Instance.RefreshMovementPoints();
         TileMapService.Instance.Map.TurnRefresh();
         CommandService.Instance.Deselect();
+        PlayerService.Instance.IncrementResources();
         Turn++;
     }
 }

@@ -34,6 +34,11 @@ namespace Assets.Systems.Unit
             _unitSettings = settings;
         }
 
+        public UnitSettings GetUnitSettings(UnitType type)
+        {
+            return _unitSettings.FirstOrDefault(u => u.Type == type);
+        }
+
         public IEnumerable<TileCords> GetMovableCords(Unit unit)
         {
             return PathFinder.FindMoveableLocations(unit.X, unit.Y, unit.MovePointsLeft);

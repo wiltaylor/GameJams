@@ -22,3 +22,6 @@ MonoBehaviour:
   CanSpawnInDemonGate: 0
   CanSpawnOn: 0200000003000000040000000500000006000000
   MovePoints: 4
+  FaithCost: 1
+  HumanCost: 100
+  IronCost: 0

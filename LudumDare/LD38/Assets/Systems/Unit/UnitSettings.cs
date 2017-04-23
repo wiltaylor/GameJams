@@ -31,5 +31,8 @@ namespace Assets.Systems.Unit
         public bool CanSpawnInDemonGate;
         public TileType[] CanSpawnOn;
         public int MovePoints;
+        public int FaithCost;
+        public int HumanCost;
+        public int IronCost;
     }
 }
