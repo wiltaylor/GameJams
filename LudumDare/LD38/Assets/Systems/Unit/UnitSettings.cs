@@ -30,5 +30,6 @@ namespace Assets.Systems.Unit
         public bool CanSpawnInCity;
         public bool CanSpawnInDemonGate;
         public TileType[] CanSpawnOn;
+        public int MovePoints;
     }
 }

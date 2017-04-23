@@ -5,6 +5,15 @@ using Random = UnityEngine.Random;
 
 namespace Assets.Systems.Unit
 {
+    public struct TileCords
+    {
+        public int X;
+        public int Y;
+        public int Cost;
+        public bool HasUnit;
+        public bool HasBuilding;
+    }
+
     public class UnitService
     {
         private static UnitService _instance;
@@ -24,6 +33,11 @@ namespace Assets.Systems.Unit
             _unitSettings = settings;
         }
 
+        public IEnumerable<TileCords> GetMovableCords(Unit unit)
+        {
+            return PathFinder.FindMoveableLocations(unit.X, unit.Y, unit.MovePoints);
+        }
+
         public Unit GetUnitAt(int x, int y)
         {
             return _allUnits.FirstOrDefault(u => u.X == x && u.Y == y);
@@ -41,7 +55,8 @@ namespace Assets.Systems.Unit
                 Attack = Random.Range(settings.MinAttack, settings.MaxAttack),
                 Actions = settings.Actions,
                 Faction = faction,
-                Type = type
+                Type = type,
+                MovePoints = settings.MovePoints
             };
 
             unit.Hp = unit.MaxHp;

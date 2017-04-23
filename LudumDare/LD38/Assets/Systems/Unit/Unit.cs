@@ -13,7 +13,7 @@
         public float MaxHp { get; set; }
         public float Hp { get; set; }
         public float Attack { get; set; }
-        public float MovePoints { get; set; }
+        public int MovePoints { get; set; }
         public UnitAction[] Actions { get; set; }
         public UnitFaction Faction { get; set; }
         public UnitType Type { get; set; }

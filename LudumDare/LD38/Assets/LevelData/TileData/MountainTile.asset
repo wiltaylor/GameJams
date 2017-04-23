@@ -15,5 +15,5 @@ MonoBehaviour:
   MaxStartHp: 10
   MinStartHp: 5
   DecayRate: 0.1
-  MoveCost: 0
+  MoveCost: 5
   Passable: 0

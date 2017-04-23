@@ -1,7 +1,7 @@
 ﻿using System;
+using System.Linq;
 using Assets.Systems.TileMap;
 using Assets.Systems.Unit;
-using UnityEngine;
 
 namespace Assets.Systems.CommandManager
 {
@@ -22,6 +22,9 @@ namespace Assets.Systems.CommandManager
         public CommandSelectionState SelectionState { get; private set; }
         public Building SelectedBuilding { get; private set; }
         public Unit.Unit SelectedUnit { get; private set; }
+        public TileCords[] UnitMoveRange { get; private set; }
+
+        public event EventHandler HighlightChanged = (sender, args) => { };
         
         public static CommandService Instance
         {
@@ -67,6 +70,7 @@ namespace Assets.Systems.CommandManager
                     {
                         SelectedUnit = unit;
                         SelectionState = CommandSelectionState.Unit;
+                        UnitMoveRange = UnitService.Instance.GetMovableCords(unit).ToArray();
                         break;
                     }
 
@@ -96,9 +100,11 @@ namespace Assets.Systems.CommandManager
                 case CommandSelectionState.Nothing:
                     SelectedBuilding = null;
                     SelectedUnit = null;
+                    UnitMoveRange = null;
                     break;
                 case CommandSelectionState.Building:
                     SelectedUnit = null;
+                    UnitMoveRange = null;
                     break;
                 case CommandSelectionState.Unit:
                     SelectedBuilding = null;
@@ -106,6 +112,8 @@ namespace Assets.Systems.CommandManager
                 default:
                     throw new ArgumentOutOfRangeException();
             }
+
+            HighlightChanged(this, EventArgs.Empty);
 
         }
     }

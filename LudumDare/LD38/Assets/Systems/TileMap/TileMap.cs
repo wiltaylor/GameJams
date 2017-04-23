@@ -62,6 +62,7 @@ namespace Assets.Systems.TileMap
             MapData[x, y].DecayRate = tileDefaults.DecayRate;
             MapData[x, y].MoveCost = tileDefaults.MoveCost;
             MapData[x, y].TileType = type;
+            MapData[x, y].Passable = tileDefaults.Passable;
         }
 
         public Building SetBuilding(int x, int y, BuildingType type)

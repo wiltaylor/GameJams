@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Assets.Scripts.View.TileMap;
+using Assets.Systems.CommandManager;
 using Assets.Systems.TileMap;
 using Assets.Systems.Unit;
 using UnityEngine;
@@ -28,6 +29,7 @@ public class TileMapView : MonoBehaviour
 
         UnitService.Instance.AssignUnitDefinition(TileSet.Units.Select(t => t.UnitSettings).ToArray());
         UnitService.Instance.UnitChanged += UnitChanged;
+        CommandService.Instance.HighlightChanged += InstanceOnHighlightChanged;
 
 	    for (var x = 0; x < _map.MapWidth; x++)
 	    {
@@ -70,6 +72,23 @@ public class TileMapView : MonoBehaviour
             _buildings.Add(view);
         }
 	}
+
+    private void InstanceOnHighlightChanged(object sender, EventArgs eventArgs)
+    {
+        foreach(var t in _tiles)
+            t.Highlight(false);
+
+        if (CommandService.Instance.UnitMoveRange == null) return; 
+        
+        var hviews = CommandService.Instance.UnitMoveRange
+            .Select(c => _tiles.FirstOrDefault(t => t.X == c.X && t.Y == c.Y))
+            .Where(v => v != null);
+
+        foreach (var h in hviews)
+        {
+            h.Highlight(true);
+        }
+    }
 
     private void UnitChanged(object sender, UnitEventArgs unitEventArgs)
     {
