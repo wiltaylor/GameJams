@@ -30,7 +30,7 @@ namespace Assets.Systems.Unit
                 cost += tile.MoveCost;
 
             points -= freeCost ?  0 : tile.MoveCost;
-            avilpoints.Add(new TileCords{X = x, Y = y, Cost = cost, HasBuilding = building != null, HasUnit = unit != null});
+            avilpoints.Add(new TileCords{X = x, Y = y, Cost = cost, HasBuilding = building != null, HasUnit = unit != null, IsCity = building != null && building.Type == BuildingType.City });
 
             if(!avilpoints.Any(a => a.X == TileMapUtil.CalculateX(x + 1) && a.Y == y))
                 avilpoints.AddRange(CheckTile(TileMapUtil.CalculateX(x + 1), y, points, cost));

@@ -18,6 +18,7 @@ namespace Assets.Systems.TileMap
         public int HumanPerOwn { get; set; }
         public float Hp { get; set; }
         public float MaxHp { get; set; }
-        public int DefenceRating { get; set; }
+        public float MinDamage { get; set; }
+        public float MaxDamage { get; set; }
     }
 }

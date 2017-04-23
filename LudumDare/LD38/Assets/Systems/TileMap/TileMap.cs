@@ -143,7 +143,9 @@ namespace Assets.Systems.TileMap
                 FaithPerTurn = settings.FaithPerTurn,
                 IronPerOwn = settings.IronPerOwn,
                 HumanPerOwn = settings.HumanPerOwn,
-                MaxHp = Random.Range(settings.MinHp, settings.MaxHp)
+                MaxHp = Random.Range(settings.MinHp, settings.MaxHp),
+                MinDamage =  settings.MinDamage,
+                MaxDamage =  settings.MaxDamage
             };
 
             building.Hp = building.MaxHp;

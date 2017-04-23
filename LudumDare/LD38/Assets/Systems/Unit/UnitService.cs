@@ -11,15 +11,6 @@ using Random = UnityEngine.Random;
 
 namespace Assets.Systems.Unit
 {
-    public class TileCords
-    {
-        public int X;
-        public int Y;
-        public int Cost;
-        public bool HasUnit;
-        public bool HasBuilding;
-    }
-
     public class UnitService
     {
         private static UnitService _instance;
@@ -136,6 +127,9 @@ namespace Assets.Systems.Unit
 
         private void AttackBuilding(Building building, int x, int y, Unit unit)
         {
+            if (unit.Faction == UnitFaction.Player && building.Type != BuildingType.City)
+                return;
+
             if (!IsAttackPosition(x, y, unit.X, unit.Y))
             {
                 var newAttackPosition =
@@ -144,11 +138,18 @@ namespace Assets.Systems.Unit
                 if (newAttackPosition == null)
                     return;
 
-                MoveUnit(unit, x, y);
+                MoveUnit(unit, newAttackPosition.X, newAttackPosition.Y);
             }
 
             unit.MovePointsLeft = 0;
             building.Hp -= Random.Range(unit.MinAttack, unit.MaxAttack);
+            unit.Hp -= Random.Range(building.MinDamage, building.MaxDamage);
+
+            if (unit.Hp <= 0)
+            {
+                KillUnitAt(unit.X, unit.Y);
+                return;
+            }
 
             if (!(building.Hp <= 0)) return;
 

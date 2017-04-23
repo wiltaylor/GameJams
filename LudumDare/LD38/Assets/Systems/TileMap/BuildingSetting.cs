@@ -18,7 +18,8 @@ namespace Assets.Systems.TileMap
         public int HumanPerOwn;
         public float MaxHp;
         public float MinHp;
-        public int DefenceRating;
+        public float MinDamage;
+        public float MaxDamage;
         public UnitAction CaptureAction;
         public bool AiTarget;
     }

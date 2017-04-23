@@ -6,6 +6,7 @@ using Assets.Systems.CommandManager;
 using Assets.Systems.PlayerManager;
 using Assets.Systems.TileMap;
 using Assets.Systems.Unit;
+using Mono.Cecil;
 using UnityEngine;
 
 public class TileMapView : MonoBehaviour
@@ -161,6 +162,8 @@ public class TileMapView : MonoBehaviour
         else
         {
             view.transform.position = new Vector3(unit.X * (TilePixelWidth * 0.01f), unit.Y * (TilePixelHeight * 0.01f));
+            view.X = unit.X;
+            view.Y = unit.Y;
         }
 
         if(unit.Hp <= 0)
