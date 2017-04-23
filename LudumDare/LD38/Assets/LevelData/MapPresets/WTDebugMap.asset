@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 032c74450f4e54a439830a85fea1d464, type: 3}
-  m_Name: 32 Test
+  m_Name: WTDebugMap
   m_EditorClassIdentifier: 
   Width: 32
   Height: 32

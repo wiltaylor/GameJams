@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Name: WaterTile
   m_EditorClassIdentifier: 
   TileId: 1
-  MaxStartHp: 3
+  MaxStartHp: 1
   MinStartHp: 1
-  DecayRate: 0.1
+  DecayRate: 1
   MoveCost: 0
   Passable: 0

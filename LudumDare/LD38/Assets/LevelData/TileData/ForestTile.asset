@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Name: ForestTile
   m_EditorClassIdentifier: 
   TileId: 4
-  MaxStartHp: 10
-  MinStartHp: 5
-  DecayRate: 0.1
+  MaxStartHp: 75
+  MinStartHp: 40
+  DecayRate: 1
   MoveCost: 2
   Passable: 1

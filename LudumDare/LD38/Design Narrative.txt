@@ -1,4 +1,4 @@
-Opening Script
+<Opening Script>
 A thousand years ago the Holy Martyr Petros (first of his name) willingly gave his life and was bathed in the sanctified light of God, proving the worth of mankind to their all-powerful creator.
 
 God looked down upon this one man’s sacrifice and blessed the lands of Parva Mundi. The sins of mankind were instantly washed away, and the world was renewed in spirit, faith and generosity.
@@ -17,4 +17,52 @@ The screams of the Pontiff masked the sounds of demonic creatures crawling forth
 
 Before anyone to act, it was too late. The End Times were upon them.
 
+<Turn One Dialog>
+Knight: "Cardinal, fisherman are telling tales of gaping maws from Hell consuming the very oceans!"
+Cardinal: "Such tales are folly. You cannot beleve the words of peasants, they are not men of the cloth."
+Knight: "Yes, your Eminence. I shall have these heretics put to the sword immediately." 
 
+<Turn Six Dialog>
+Knight: "Cardinal, the oceans have been drawn into the very bowels of Hell. Its waters cannot quench the thirst of the Devil, and our people can stand at the end of the world and gaze into madness!"
+Cardinal: "This is surely the work of heretics. Muster your armies and besiege the other cities of the land. Once they have been purified our faith in God will save these lands."
+Knight: "As you wish your Eminence. That God has spoken to you is a blessing for our people. If the others do not listen, we will trap them in their homes and burn them to the ground!"
+Cardinal: "Excellent."
+
+<Turn Twenty Dialog>
+Knight: "Your Eminence, I return from my campaign abroad with news. Hellfire demons have clawed onto the land and"
+Cardinal: "Continue with your crusade. We must protect the innocent from the influence of heathens."
+Knight: "Are you sure that..."
+Cardinal: "You dare...?"
+Knight: "No, your eminence. We shall double our efforts!"
+
+<Turn Fifty Dialog>
+Knight: "Your Eminence?"
+Cardinal: "..."
+Knight: "Your Eminence, are you...hiding under your bed?"
+Cardinal: "I have seen them. The demons...they are, real!"
+Knight: "My knights have been dying by the thousands, and you have only just believed me?"
+Cardinal: "Hell is real! The demons, they are coming for us all!"
+Knight: "You fool!"
+Cardinal: *uncontrollable sobbing*
+Knight: "Then I shall finish what you cannot! For God!"
+
+<Winning End Game Dialog>
+Knight: "The heathens have been punished, God looks upon us and smiles!"
+Cardinal: "..."
+Demon: "Well done, my child."
+Knight: "Who are you?"
+Demon: "There is plenty of time for us to get acquainted."
+Knight: "I shall vanquish you myself."
+Demon: "Perhaps. But your world is small, and there are too few left to stop us now."
+Knight: "But..."
+Demon: "Thank you for assisting us, good Knight."
+Cardinal: *sobs in terror*
+Knight: *screams*
+
+<Losing End Game Dialog>
+Knight: "You Eminence...."
+Cardinal: *sobs*
+Knight: "We are, too late..."
+Cardinal: *sobs*
+Demon: "It is your time, good knight."
+Knight: *screams*

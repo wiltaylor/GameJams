@@ -14,3 +14,7 @@ MonoBehaviour:
   Type: 0
   AllowedToBuildOn: 0200000003000000040000000500000006000000
   BuildingDistance: 3
+  Mineable: 0
+  MaxHpModifier: 10
+  MinHpModifier: 8
+  HpModifierRange: 3
