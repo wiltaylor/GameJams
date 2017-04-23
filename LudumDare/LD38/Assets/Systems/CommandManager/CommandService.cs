@@ -1,5 +1,6 @@
 ﻿using System;
 using Assets.Systems.TileMap;
+using Assets.Systems.Unit;
 using UnityEngine;
 
 namespace Assets.Systems.CommandManager
@@ -20,10 +21,16 @@ namespace Assets.Systems.CommandManager
 
         public CommandSelectionState SelectionState { get; private set; }
         public Building SelectedBuilding { get; private set; }
+        public Unit.Unit SelectedUnit { get; private set; }
         
         public static CommandService Instance
         {
             get { return _instance ?? (_instance = new CommandService()); }
+        }
+
+        private CommandService()
+        {
+            SelectionState = CommandSelectionState.Nothing;
         }
 
         public void ReportTileClick(int x, int y, int btn)
@@ -47,7 +54,7 @@ namespace Assets.Systems.CommandManager
 
             var map = TileMapService.Instance.Map;
             var building = map.GetBuildingAt(x, y);
-            //Unit
+            var unit = UnitService.Instance.GetUnitAt(x, y);
 
             switch (_clickCount)
             {
@@ -56,7 +63,12 @@ namespace Assets.Systems.CommandManager
                     SelectionState = CommandSelectionState.Nothing;
                     break;
                 case 1:
-                    //first check unit
+                    if (unit != null)
+                    {
+                        SelectedUnit = unit;
+                        SelectionState = CommandSelectionState.Unit;
+                        break;
+                    }
 
                     if (building != null)
                     {
@@ -83,8 +95,10 @@ namespace Assets.Systems.CommandManager
             {
                 case CommandSelectionState.Nothing:
                     SelectedBuilding = null;
+                    SelectedUnit = null;
                     break;
                 case CommandSelectionState.Building:
+                    SelectedUnit = null;
                     break;
                 case CommandSelectionState.Unit:
                     SelectedBuilding = null;

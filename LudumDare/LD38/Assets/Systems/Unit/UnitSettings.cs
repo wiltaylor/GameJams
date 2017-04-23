@@ -1,0 +1,34 @@
+﻿using Assets.Systems.TileMap;
+using UnityEngine;
+
+namespace Assets.Systems.Unit
+{
+
+    public enum UnitAction
+    {
+        Mine,
+        Attack,
+        Move
+    }
+
+    public enum UnitType
+    {
+        Scout,
+        Worker
+    }
+
+    [CreateAssetMenu(fileName = "UnitSettings", menuName = "Unit/Unit Settings", order = 1)]
+    public class UnitSettings : ScriptableObject
+    {
+        public UnitType Type;
+        public string Name;
+        public float MaxHp;
+        public float MinHp;
+        public float MaxAttack;
+        public float MinAttack;
+        public UnitAction[] Actions;
+        public bool CanSpawnInCity;
+        public bool CanSpawnInDemonGate;
+        public TileType[] CanSpawnOn;
+    }
+}
