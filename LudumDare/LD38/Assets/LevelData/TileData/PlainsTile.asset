@@ -9,15 +9,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b1c4421d1a2bed94aa74aaaad1a7c495, type: 3}
-  m_Name: GrassTile
+  m_Name: PlainsTile
   m_EditorClassIdentifier: 
   TileId: 2
-<<<<<<< HEAD
-  StartHp: 35
-=======
-  MaxStartHp: 10
-  MinStartHp: 5
->>>>>>> master
-  DecayRate: 0.1
+  MaxStartHp: 70
+  MinStartHp: 95
+  DecayRate: 1
   MoveCost: 1
   Passable: 1

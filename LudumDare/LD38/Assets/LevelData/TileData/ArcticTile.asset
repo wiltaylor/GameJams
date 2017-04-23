@@ -12,12 +12,8 @@ MonoBehaviour:
   m_Name: ArcticTile
   m_EditorClassIdentifier: 
   TileId: 5
-<<<<<<< HEAD
-  StartHp: 40
-=======
-  MaxStartHp: 10
-  MinStartHp: 5
->>>>>>> master
-  DecayRate: 0.1
+  MaxStartHp: 70
+  MinStartHp: 25
+  DecayRate: 1
   MoveCost: 2
   Passable: 1
