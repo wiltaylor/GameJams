@@ -11,6 +11,7 @@ public class MainPanelView : MonoBehaviour
     public Text FaithText;
     public Text HumanText;
     public Text WorldDecayText;
+    public Text TurnText;
 	
 	void Update ()
 	{
@@ -24,6 +25,8 @@ public class MainPanelView : MonoBehaviour
 	    HumanText.text = (PlayerService.Instance.TotalHuamns - PlayerService.Instance.UsedHumans) + "/" +
 	                     PlayerService.Instance.TotalHuamns;
 	    WorldDecayText.text = percent + " %";
+	    TurnText.text = TurnService.Instance.Turn + "/100";
+
 
 	}
 }
