@@ -18,3 +18,11 @@ MonoBehaviour:
   MaxHpModifier: 10
   MinHpModifier: 8
   HpModifierRange: 3
+  FaithPerTurn: 1
+  IronPerOwn: 0
+  HumanPerOwn: 5
+  MaxHp: 20
+  MinHp: 10
+  DefenceRating: 10
+  CaptureAction: 1
+  AITarget: 1

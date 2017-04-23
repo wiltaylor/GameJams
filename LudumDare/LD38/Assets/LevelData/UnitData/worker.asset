@@ -9,16 +9,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b43f1be21cf4be445acc74f8fc6578d7, type: 3}
-  m_Name: Scout
+  m_Name: worker
   m_EditorClassIdentifier: 
-  Type: 0
-  Name: Scout
+  Type: 1
+  Name: Worker
   MaxHp: 10
   MinHp: 1
-  MaxAttack: 2
-  MinAttack: 1
-  Actions: 0100000002000000
-  CanSpawnInCity: 0
+  MaxAttack: 0
+  MinAttack: 0
+  Actions: 00000000
+  CanSpawnInCity: 1
   CanSpawnInDemonGate: 0
-  CanSpawnOn: 0200000003000000040000000500000006000000
-  MovePoints: 4
+  CanSpawnOn: 020000000300000004000000050000000600000007000000
+  MovePoints: 2

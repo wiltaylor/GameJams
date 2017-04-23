@@ -14,7 +14,8 @@ namespace Assets.Systems.Unit
         public int Y { get; set; }
         public float MaxHp { get; set; }
         public float Hp { get; set; }
-        public float Attack { get; set; }
+        public float MaxAttack { get; set; }
+        public float MinAttack { get; set; }
         public int MovePoints { get; set; }
         public int MovePointsLeft { get; set; }
         public UnitAction[] Actions { get; set; }

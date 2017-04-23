@@ -14,5 +14,6 @@ namespace Assets.Systems.TileMap
         public BuildingGeneratorSetting[] Buildings;
         public int TileDamageRange;
         public float TileDamageAmmount;
+        public float DamagePerTurn = 1f;
     }
 }

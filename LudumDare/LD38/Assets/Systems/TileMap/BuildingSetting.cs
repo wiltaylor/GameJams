@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets.Systems.Unit;
+using UnityEngine;
 
 namespace Assets.Systems.TileMap
 {
@@ -12,5 +13,13 @@ namespace Assets.Systems.TileMap
         public float MaxHpModifier;
         public float MinHpModifier;
         public int HpModifierRange;
+        public int FaithPerTurn;
+        public int IronPerOwn;
+        public int HumanPerOwn;
+        public int MaxHp;
+        public int MinHp;
+        public int DefenceRating;
+        public UnitAction CaptureAction;
+        public bool AiTarget;
     }
 }

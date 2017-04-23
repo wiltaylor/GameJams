@@ -36,6 +36,7 @@ public class TileMapView : MonoBehaviour
 	    
         _map = TileMapService.Instance.Map;
         _map.TileChanged += _map_TileChanged;
+        _map.BuildingChange += MapOnBuildingChange;
 
         UnitService.Instance.AssignUnitDefinition(TileSet.Units.Select(t => t.UnitSettings).ToArray());
         UnitService.Instance.UnitChanged += UnitChanged;
@@ -73,21 +74,40 @@ public class TileMapView : MonoBehaviour
 
 	    foreach (var building in _map.Buildings)
 	    {
-	        var prefab = TileSet.Buildings.First(b => b.Type == building.Type).Prefab;
-	        var obj = Instantiate(prefab, transform);
-	        var view = obj.GetComponent<BuildingView>();
-
-	        view.MapView = this;
-	        view.X = building.X;
-	        view.Y = building.Y;
-            view.SetOwnership(building.PlayerOwned);
-            
-            obj.transform.position = new Vector3(building.X * (TilePixelWidth * 0.01f), building.Y * (TilePixelHeight * 0.01f));
-	        obj.SetActive(true);
-
-            _buildings.Add(view);
-        }
+	        AddBuildingView(building);
+	    }
 	}
+
+    private void AddBuildingView(Building building)
+    {
+        var prefab = TileSet.Buildings.First(b => b.Type == building.Type).Prefab;
+        var obj = Instantiate(prefab, transform);
+        var view = obj.GetComponent<BuildingView>();
+
+        view.MapView = this;
+        view.X = building.X;
+        view.Y = building.Y;
+        view.SetOwnership(building.PlayerOwned);
+
+        obj.transform.position = new Vector3(building.X * (TilePixelWidth * 0.01f), building.Y * (TilePixelHeight * 0.01f));
+        obj.SetActive(true);
+
+        _buildings.Add(view);
+    }
+
+    private void MapOnBuildingChange(object sender, BuildingEventArgs buildingEventArgs)
+    {
+        var building = buildingEventArgs.Building;
+        var view = _buildings.FirstOrDefault(b => b.X == building.X && b.Y == building.Y);
+
+        if (view == null)
+        {
+            AddBuildingView(building);
+            view = _buildings.First(b => b.X == building.X && b.Y == building.Y);
+        }
+
+        view.SetOwnership(building.PlayerOwned);
+    }
 
     private void Instance_BeforeCameraCentre(object sender, CameraEventArgs e)
     {

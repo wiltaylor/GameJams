@@ -15,11 +15,9 @@ public class TurnService
 
     public void NextTurn()
     {
-
         UnitService.Instance.RefreshMovementPoints();
-        TileMapService.Instance.Map.DamageMap(1f);
-        Turn++;
-
+        TileMapService.Instance.Map.TurnRefresh();
         CommandService.Instance.Deselect();
+        Turn++;
     }
 }

@@ -59,5 +59,16 @@ MonoBehaviour:
     MinQty: 10
     MaxCityPopulation: 1
     MinCityPopulation: 1
+  - Type: 1
+    MaxQty: 30
+    MinQty: 10
+    MaxCityPopulation: 1
+    MinCityPopulation: 1
+  - Type: 2
+    MaxQty: 30
+    MinQty: 10
+    MaxCityPopulation: 1
+    MinCityPopulation: 1
   TileDamageRange: 0
   TileDamageAmmount: 0
+  DamagePerTurn: 1

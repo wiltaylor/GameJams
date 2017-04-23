@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Assets.Systems.PlayerManager;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -11,7 +12,9 @@ namespace Assets.Systems.TileMap
         public int MapHeight { get; private set; }
         public int MapWidth { get; private set; }
         public Tile[,] MapData { get; set; }
-        public event EventHandler<TileMapEventAargs> TileChanged;
+        public event EventHandler<TileMapEventAargs> TileChanged = (sender, args) => { };
+        public event EventHandler<BuildingEventArgs> BuildingChange = (sender, args) => { };
+
         public readonly IList<TileSettings> TileSettings;
         public readonly IList<BuildingSetting> BuildingSettings;
         public int TileDamageRange { get; set; }
@@ -22,7 +25,8 @@ namespace Assets.Systems.TileMap
         public int TotalTiles { get; private set; }
         public int VoidTiles { get; private set; }
 
-
+        public float TileDamagePerTurn { get; set; }
+        
         public TileMap(int width, int height, TileType fillTile, IList<TileSettings> tilesettings, IList<BuildingSetting> buildingSettings)
         {
             TileChanged += (sender, aargs) => { };
@@ -40,6 +44,19 @@ namespace Assets.Systems.TileMap
                     SetTile(x, y, fillTile);
                 }
             }
+        }
+
+        public void MineBuilding(int x, int y)
+        {
+            var building = GetBuildingAt(x, y);
+
+            building.PlayerOwned = true;
+
+            PlayerService.Instance.Iron += building.IronPerOwn;
+            PlayerService.Instance.FaithPerTurn += building.FaithPerTurn;
+            PlayerService.Instance.TotalHuamns += building.HumanPerOwn;
+
+            BuildingChange(this, new BuildingEventArgs{Building = building});
         }
 
         public Building GetBuildingAt(int x, int y)
@@ -88,8 +105,14 @@ namespace Assets.Systems.TileMap
                 PlayerOwned = false,
                 Population = 0,
                 X = x,
-                Y = y
+                Y = y,
+                FaithPerTurn = settings.FaithPerTurn,
+                IronPerOwn = settings.IronPerOwn,
+                HumanPerOwn = settings.HumanPerOwn,
+                MaxHp = Random.Range(settings.MinHp, settings.MaxHp)
             };
+
+            building.Hp = building.MaxHp;
 
             Buildings.Add(building);
 
@@ -157,6 +180,14 @@ namespace Assets.Systems.TileMap
                     DamageTile(x, y, ammount);
                 }
             }
+        }
+
+        public void TurnRefresh()
+        {
+            foreach (var b in Buildings)
+                b.HasBuiltThisTurn = false;
+
+            DamageMap(TileDamagePerTurn);
         }
     }
 }

@@ -13,9 +13,11 @@ namespace Assets.Systems.PlayerManager
         public event EventHandler<CameraEventArgs> BeforeCameraCentre = (sender, args) => { };
         public event EventHandler<CameraEventArgs> CameraCentre = (sender, args) => { };
         public int Iron;
+        public int IronUsed;
         public int Faith;
         public int TotalHuamns;
         public int UsedHumans;
+        public int FaithPerTurn;
 
         public static PlayerService Instance
         {

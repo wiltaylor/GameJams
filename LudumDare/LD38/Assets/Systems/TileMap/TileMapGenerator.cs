@@ -18,6 +18,8 @@ namespace Assets.Systems.TileMap
             GenerateTileMap(map, tileMapGeneratorSettings, tileSettings);
             GenerateBuildings(map, tileMapGeneratorSettings.Buildings, buildingSettings);
 
+            map.TileDamagePerTurn = tileMapGeneratorSettings.DamagePerTurn;
+
             return map;
         }
 

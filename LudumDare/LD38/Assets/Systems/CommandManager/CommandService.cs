@@ -2,6 +2,7 @@
 using System.Linq;
 using Assets.Systems.TileMap;
 using Assets.Systems.Unit;
+using UnityEngine.EventSystems;
 
 namespace Assets.Systems.CommandManager
 {
@@ -25,7 +26,7 @@ namespace Assets.Systems.CommandManager
         public TileCords[] UnitMoveRange { get; private set; }
 
         public event EventHandler HighlightChanged = (sender, args) => { };
-        
+
         public static CommandService Instance
         {
             get { return _instance ?? (_instance = new CommandService()); }
@@ -38,6 +39,9 @@ namespace Assets.Systems.CommandManager
 
         public void ReportTileClick(int x, int y, int btn)
         {
+            if (EventSystem.current.IsPointerOverGameObject())
+                return;
+
             if(btn == 0)
                 HandleLeftClick(x,y);
 
