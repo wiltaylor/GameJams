@@ -27,8 +27,11 @@ namespace Assets.Systems.PlayerManager
         {
             var building = TileMapService.Instance.Map.Buildings.First(b => b.Type == BuildingType.City);
             building.PlayerOwned = true;
+            FaithPerTurn += building.FaithPerTurn;
+            TotalHumans += building.HumanPerOwn;
+            Iron += building.IronPerOwn;
 
-            UnitService.Instance.AddUnit(building.X, building.Y, UnitType.Scout, UnitFaction.Player);
+            var unit = UnitService.Instance.AddUnit(building.X, building.Y, UnitType.Scout, UnitFaction.Player);
         }
 
         public void CentreCameraAtTile(int x, int y)

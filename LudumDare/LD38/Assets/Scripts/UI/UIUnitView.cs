@@ -20,7 +20,14 @@ public class UIUnitView : MonoBehaviour
 
 	private void Update ()
 	{
+	    if (CommandService.Instance.SelectionState != CommandSelectionState.Unit)
+	        return;
+
 	    var unit = CommandService.Instance.SelectedUnit;
+
+	    if (unit == null)
+	        return;
+
         MineButton.gameObject.SetActive(CanMine(unit));
 
 	    OwnerText.text = unit.Faction == UnitFaction.Player ? "You" : "Deamonic Invasion";
@@ -45,6 +52,9 @@ public class UIUnitView : MonoBehaviour
 
     private bool CanMine(Unit unit)
     {
+        if(!unit.Actions.Any(a => a == UnitAction.Mine))
+            return false;
+
         var building = TileMapService.Instance.Map.GetBuildingAt(unit.X, unit.Y);
 
         if (building == null)

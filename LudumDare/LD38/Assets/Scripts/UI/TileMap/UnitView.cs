@@ -9,7 +9,21 @@ public class UnitView : MonoBehaviour
     public int Y;
     public GUID Id;
 
-    public void Destruct()
+    private Animator _animator;
+    private SpriteRenderer _render;
+
+    private void Start()
+    {
+        _animator = GetComponent<Animator>();
+        _render = GetComponent<SpriteRenderer>();
+    }
+
+    public void Fall()
+    {
+        _animator.SetTrigger("KillTile");
+    }
+
+    public void EndAnimation()
     {
         Destroy(gameObject);
     }

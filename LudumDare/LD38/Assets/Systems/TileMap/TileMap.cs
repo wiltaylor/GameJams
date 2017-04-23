@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Assets.Scripts.View.TileMap;
 using Assets.Systems.PlayerManager;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -42,6 +43,34 @@ namespace Assets.Systems.TileMap
                 for (var y = 0; y < MapHeight; y++)
                 {
                     SetTile(x, y, fillTile);
+                }
+            }
+        }
+
+        public void RevealMap(int x, int y, int range)
+        {
+            var top = y - range;
+            var left = x - range;
+            var bottom = y + range;
+            var right = x + range;
+
+            for (var tx = left; tx < right; tx++)
+            {
+                for (var ty = top; ty < bottom; ty++)
+                {
+                    MapData[TileMapUtil.CalculateX(tx), TileMapUtil.CalculateY(ty)].Visable = true;
+                    TileChanged(this, new TileMapEventAargs(TileMapUtil.CalculateX(tx), TileMapUtil.CalculateY(ty)));
+                }
+            }
+        }
+
+        public void RefreshMap()
+        {
+            for(var x = 0; x < MapWidth; x++)
+            {
+                for (var y = 0; y < MapHeight; y++)
+                {
+                    TileChanged(this, new TileMapEventAargs(x, y));
                 }
             }
         }
@@ -188,6 +217,24 @@ namespace Assets.Systems.TileMap
                 b.HasBuiltThisTurn = false;
 
             DamageMap(TileDamagePerTurn);
+        }
+
+        public void DestroyBuilding(int x, int y)
+        {
+            var building = GetBuildingAt(x, y);
+
+            if (building == null)
+                return;
+
+            if (building.PlayerOwned)
+            {
+                PlayerService.Instance.Iron -= building.IronPerOwn;
+                PlayerService.Instance.TotalHumans -= building.HumanPerOwn;
+                PlayerService.Instance.FaithPerTurn -= building.FaithPerTurn;
+            }
+
+            Buildings.Remove(building);
+
         }
     }
 }

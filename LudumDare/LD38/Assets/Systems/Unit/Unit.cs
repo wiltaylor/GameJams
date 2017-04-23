@@ -22,5 +22,6 @@ namespace Assets.Systems.Unit
         public UnitFaction Faction { get; set; }
         public UnitType Type { get; set; }
         public GUID UnitId { get; set; } 
+        public int ViewRange { get; set; }
     }
 }

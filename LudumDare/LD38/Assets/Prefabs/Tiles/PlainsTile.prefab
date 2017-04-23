@@ -130,6 +130,8 @@ MonoBehaviour:
   Y: 0
   MapView: {fileID: 0}
   HighlightObject: {fileID: 1767794222925404}
+  TileImage: {fileID: 21300000, guid: 590db7f45240a2c4b960aca1858c753a, type: 3}
+  DarkImage: {fileID: 21300000, guid: 0efc78c197570ac40a73cd38c3dfe6fa, type: 3}
 --- !u!212 &212003845880496432
 SpriteRenderer:
   m_ObjectHideFlags: 1

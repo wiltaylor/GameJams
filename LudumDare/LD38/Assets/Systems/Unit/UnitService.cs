@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Assets.Systems.TileMap;
 using UnityEditor;
 using Random = UnityEngine.Random;
 
@@ -49,6 +50,18 @@ namespace Assets.Systems.Unit
             return _allUnits.FirstOrDefault(u => u.X == x && u.Y == y);
         }
 
+        public void KillUnitAt(int x, int y)
+        {
+            var unit = GetUnitAt(x, y);
+
+            if (unit == null)
+                return;
+
+            _allUnits.Remove(unit);
+
+            unit.Hp = 0;
+        }
+
         public Unit AddUnit(int x, int y, UnitType type, UnitFaction faction)
         {
             var settings = _unitSettings.First(s => s.Type == type);
@@ -65,6 +78,7 @@ namespace Assets.Systems.Unit
                 Type = type,
                 MovePoints = settings.MovePoints,
                 UnitId = GUID.Generate(),
+                ViewRange = settings.ViewRange
             };
 
             unit.Hp = unit.MaxHp;
@@ -72,6 +86,7 @@ namespace Assets.Systems.Unit
             
             _allUnits.Add(unit);
 
+            TileMapService.Instance.Map.RevealMap(x, y, unit.ViewRange);
             UnitChanged(this, new UnitEventArgs{ ChangedUnit = unit});
 
             return unit;
@@ -82,6 +97,7 @@ namespace Assets.Systems.Unit
             unit.X = x;
             unit.Y = y;
             UnitChanged(this, new UnitEventArgs {ChangedUnit = unit});
+            TileMapService.Instance.Map.RevealMap(x, y, unit.ViewRange);
         }
 
         public void RefreshMovementPoints()

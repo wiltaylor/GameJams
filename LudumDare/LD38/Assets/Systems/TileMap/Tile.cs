@@ -11,7 +11,6 @@
         public TileType TileType { get; set; }
         public bool Visable { get; set; }
         public bool Passable { get; set; }
-
         
         public Tile(int x, int y)
         {

@@ -19,6 +19,5 @@ namespace Assets.Systems.TileMap
         public int Hp { get; set; }
         public int MaxHp { get; set; }
         public int DefenceRating { get; set; }
-
     }
 }

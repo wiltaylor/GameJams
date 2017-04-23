@@ -23,5 +23,6 @@ MonoBehaviour:
   CanSpawnOn: 020000000300000004000000050000000600000007000000
   MovePoints: 2
   FaithCost: 1
-  HumanCost: 100
+  HumanCost: 0
   IronCost: 0
+  ViewRange: 2

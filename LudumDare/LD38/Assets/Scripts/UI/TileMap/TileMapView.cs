@@ -24,6 +24,8 @@ public class TileMapView : MonoBehaviour
     {
         var building = TileMapService.Instance.Map.Buildings.First(b => b.PlayerOwned);
         PlayerService.Instance.CentreCameraAtTile(building.X, building.Y);
+
+        _map.RefreshMap();
     }
 
 	private void Start ()
@@ -162,21 +164,38 @@ public class TileMapView : MonoBehaviour
         }
 
         if(unit.Hp <= 0)
-            view.Destruct();
+            view.Fall();
     }
 
     private void _map_TileChanged(object sender, TileMapEventAargs e)
     {
-        Debug.Log("Tile Changed: X - " + e.X + " Y - " + e.Y);
-        var tile = _tiles.FirstOrDefault(t => t.X == e.X && t.Y == e.Y);
+        var view = _tiles.FirstOrDefault(t => t.X == e.X && t.Y == e.Y);
         var building = _buildings.FirstOrDefault(b => b.X == e.X && b.Y == e.Y);
+        var unit = _units.FirstOrDefault(u => u.X == e.X && u.Y == e.Y);
+        var tile = _map.MapData[e.X, e.Y];
 
-        if (tile == null) return;
-        if (_map.MapData[e.X, e.Y].TileType != TileType.Void) return;
+        if (view == null) return;
 
-        tile.Destruct();
+        view.SetVisability(tile.Visable);
 
         if(building != null)
+            _buildings.First(b => b.X == e.X && b.Y == e.Y).gameObject.SetActive(tile.Visable);
+        
+        
+        if (_map.MapData[e.X, e.Y].TileType != TileType.Void) return;
+
+        view.Destruct();
+
+        if (building != null)
+        {
+            _map.DestroyBuilding(e.X, e.Y);
             building.Destruct();
+        }
+
+        if (unit != null)
+        {
+            UnitService.Instance.KillUnitAt(e.X, e.Y);
+            unit.Fall();
+        }
     }
 }

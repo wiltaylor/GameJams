@@ -34,5 +34,6 @@ namespace Assets.Systems.Unit
         public int FaithCost;
         public int HumanCost;
         public int IronCost;
+        public int ViewRange;
     }
 }
