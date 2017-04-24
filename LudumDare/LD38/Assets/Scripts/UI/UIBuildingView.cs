@@ -45,7 +45,11 @@ public class UIBuildingView : MonoBehaviour
         
 	    switch (building.Type)
 	    {
-	        case Assets.Systems.TileMap.BuildingType.City:
+            case Assets.Systems.TileMap.BuildingType.Hellgate:
+                BuildingName.text = "";
+                BuildingType.text = "Hellgate";
+                break;
+            case Assets.Systems.TileMap.BuildingType.City:
 	            BuildingName.text = building.Name;
 	            BuildingType.text = "City";
 	            break;
