@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36b543b2fef67324c8ceabee10e6838c, type: 3}
+  m_Name: TurnSix
+  m_EditorClassIdentifier: 
+  Name: TurnSix
+  Dialogue:
+  - Charecter: 1
+    Text: '"Cardinal, the oceans have been drawn into the very bowels of Hell. Its
+      waters cannot quench the thirst of the Devil, and our people can stand at the
+      end of the world and gaze into madness!"'
+  - Charecter: 2
+    Text: '"This is surely the work of heretics. Muster your armies and besiege the
+      other cities of the land. Once they have been purified our faith in God will
+      save these lands."'
+  - Charecter: 1
+    Text: '"As you wish your Eminence. That God has spoken to you is a blessing for
+      our people. If the others do not listen, we will trap them in their homes and
+      burn them to the ground!"'
+  - Charecter: 2
+    Text: '"Excellent."'
