@@ -213,6 +213,9 @@ public class TileMapView : MonoBehaviour
 
         view.SetVisability(tile.Visable);
 
+        if(unit != null)
+            unit.gameObject.SetActive(tile.Visable);
+
         if(building != null)
             _buildings.First(b => b.X == e.X && b.Y == e.Y).gameObject.SetActive(tile.Visable);
         
