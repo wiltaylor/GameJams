@@ -39,7 +39,7 @@ public class UIBuildingView : MonoBehaviour
 
 
         if(building.MaxHp > 0)
-	        BuildingHp.text = "HP:" + building.Hp + "/" + building.MaxHp;
+	        BuildingHp.text = "HP:" + Mathf.Round(building.Hp) + "/" + Mathf.Round(building.MaxHp);
         
 	    switch (building.Type)
 	    {
