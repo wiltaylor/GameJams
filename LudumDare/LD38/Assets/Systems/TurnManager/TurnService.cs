@@ -1,5 +1,6 @@
 ﻿using Assets.Systems.AI;
 using Assets.Systems.CommandManager;
+using Assets.Systems.GameEventManager;
 using Assets.Systems.PlayerManager;
 using Assets.Systems.TileMap;
 using Assets.Systems.Unit;
@@ -21,6 +22,7 @@ public class TurnService
         TileMapService.Instance.Map.TurnRefresh();
         CommandService.Instance.Deselect();
         PlayerService.Instance.IncrementResources();
+        GameEventService.Instance.CheckForGameEvents();
         AIService.Instance.SpawnAI();
         AIService.Instance.ProcessAI();
         Turn++;

@@ -4,6 +4,7 @@ using System.Linq;
 using Assets.Scripts.View.TileMap;
 using Assets.Systems.AI;
 using Assets.Systems.CommandManager;
+using Assets.Systems.GameEventManager;
 using Assets.Systems.PlayerManager;
 using Assets.Systems.TileMap;
 using Assets.Systems.Unit;
@@ -42,6 +43,7 @@ public class TileMapView : MonoBehaviour
         _map.BuildingChange += MapOnBuildingChange;
 
         AIService.Instance.AssignAISpawnProfile(TileSet.Profile);
+        GameEventService.Instance.AssignEventTriggers(TileSet.Events);
 
         UnitService.Instance.AssignUnitDefinition(TileSet.Units.Select(t => t.UnitSettings).ToArray());
         UnitService.Instance.UnitChanged += UnitChanged;
