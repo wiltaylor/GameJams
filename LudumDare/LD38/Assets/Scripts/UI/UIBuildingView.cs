@@ -12,6 +12,7 @@ public class UIBuildingView : MonoBehaviour
     public Text IronText;
     public Text FaithText;
     public Text HumanText;
+    public Text ComabatText;
 
     public GameObject[] BuildButtons;
 	
@@ -37,8 +38,9 @@ public class UIBuildingView : MonoBehaviour
 
 	    RenderResources(building);
 
+	    ComabatText.text = "Defence Rating:" + building.MinDamage + "-" + building.MinDamage;
 
-        if(building.MaxHp > 0)
+        if (building.MaxHp > 0)
 	        BuildingHp.text = "HP:" + Mathf.Round(building.Hp) + "/" + Mathf.Round(building.MaxHp);
         
 	    switch (building.Type)

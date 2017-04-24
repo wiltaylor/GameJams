@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using Assets.Systems.CommandManager;
 using UnityEngine;
 
@@ -8,6 +6,7 @@ public class UISelectorView : MonoBehaviour
 {
     public GameObject BuildingPanel;
     public GameObject UnitPanel;
+    public GameObject MenuPanel;
 
 	private void Update ()
     {
@@ -29,4 +28,14 @@ public class UISelectorView : MonoBehaviour
                 throw new ArgumentOutOfRangeException();
         }
 	}
+
+    public void OpenMenu()
+    {
+        MenuPanel.gameObject.SetActive(true);
+    }
+
+    public void CloseMenu()
+    {
+        MenuPanel.gameObject.SetActive(false);
+    }
 }
