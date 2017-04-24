@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using Assets.Systems.CommandManager;
+using Assets.Systems.Music;
 using Assets.Systems.PlayerManager;
 using Assets.Systems.TileMap;
 using Assets.Systems.Unit;
@@ -65,5 +66,8 @@ public class UnitBuildHamdler : MonoBehaviour
         UnitService.Instance.AddUnit(building.X, building.Y, Type, UnitFaction.Player);
 
         building.HasBuiltThisTurn = true;
+        
+        MusicService.Instance.PlaySfx(SfxType.BuildUnit);
+        
     }
 }

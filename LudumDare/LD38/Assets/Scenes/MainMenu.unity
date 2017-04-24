@@ -920,6 +920,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114280301541070720, guid: 56087a5c3e084e2498651c4dfcefa9a0,
+        type: 2}
+      propertyPath: SoundFxList
+      value: 
+      objectReference: {fileID: 11400000, guid: 39baca6c8bf9bc24680b3a1ec39ab785,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 56087a5c3e084e2498651c4dfcefa9a0, type: 2}
   m_IsPrefabParent: 0

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Assets.Scripts.View.TileMap;
+using Assets.Systems.Music;
 using Assets.Systems.NameGenerator;
 using Assets.Systems.PlayerManager;
 using Assets.Systems.TileMap;
@@ -169,6 +170,8 @@ namespace Assets.Systems.Unit
             if (targetunit != null && targetunit.Faction == unit.Faction)
                 return;
 
+            MusicService.Instance.PlaySfx(unit.Faction == UnitFaction.Player ? SfxType.Attack : SfxType.DemonAttack);
+            
             if (targetunit != null)
             {
                 AttackUnit(targetunit, x, y, unit, range);

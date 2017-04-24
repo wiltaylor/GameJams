@@ -5,12 +5,12 @@ public class MusicPlayer : MonoBehaviour
 {
     public AudioSource AudioSource;
     public MusicPlaylist[] Playlists;
+    public SfxList SoundFxList;
 	
 	private void Start ()
     {
 		DontDestroyOnLoad(gameObject);
-        MusicService.Instance.AssignPlaylists(Playlists);
-
+        MusicService.Instance.AssignPlaylists(Playlists, SoundFxList);
     }
 	
 	private void Update ()

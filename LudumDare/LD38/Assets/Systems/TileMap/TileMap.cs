@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Assets.Scripts.View.TileMap;
+using Assets.Systems.Music;
 using Assets.Systems.PlayerManager;
 using Assets.Systems.Unit;
 using UnityEngine;
@@ -104,6 +105,7 @@ namespace Assets.Systems.TileMap
             PlayerService.Instance.TotalHumans += building.HumanPerOwn;
 
             BuildingChange(this, new BuildingEventArgs{Building = building});
+            MusicService.Instance.PlaySfx(SfxType.Mine);
         }
 
         public Building GetBuildingAt(int x, int y)

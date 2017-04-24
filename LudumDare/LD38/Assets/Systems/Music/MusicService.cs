@@ -1,14 +1,24 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using UnityEngine;
 
 namespace Assets.Systems.Music
 {
+    public enum SfxType
+    {
+        Attack,
+        BuildUnit,
+        DemonAttack,
+        Mine
+    }
+
     public class MusicService
     {
         private static MusicService _instance;
         private MusicPlaylist[] _playlists;
         private MusicPlaylist _currentPlaylist;
         private int _currentTrack;
+        private SfxList _sfx;
 
         public static MusicService Instance
         {
@@ -24,10 +34,12 @@ namespace Assets.Systems.Music
             _currentTrack = 0;
         }
 
-        public void AssignPlaylists(MusicPlaylist[] playlists)
+        public void AssignPlaylists(MusicPlaylist[] playlists, SfxList sfx)
         {
             _playlists = playlists;
             _currentPlaylist = _playlists.First();
+
+            _sfx = sfx;
         }
 
         public AudioClip CurrentTrack
@@ -48,6 +60,30 @@ namespace Assets.Systems.Music
 
             if (_currentTrack >= _currentPlaylist.Track.Length)
                 _currentTrack = 0;
+        }
+
+        public void PlaySfx(SfxType type)
+        {
+            if (_sfx == null)
+                return;
+
+            switch (type)
+            {
+                case SfxType.Attack:
+                    AudioSource.PlayClipAtPoint(_sfx.Attack, Vector3.zero);
+                    break;
+                case SfxType.BuildUnit:
+                    AudioSource.PlayClipAtPoint(_sfx.BuildUnit, Vector3.zero);
+                    break;
+                case SfxType.DemonAttack:
+                    AudioSource.PlayClipAtPoint(_sfx.DemonAttack, Vector3.zero);
+                    break;
+                case SfxType.Mine:
+                    AudioSource.PlayClipAtPoint(_sfx.Mine, Vector3.zero);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException("type", type, null);
+            }
         }
     }
 }
