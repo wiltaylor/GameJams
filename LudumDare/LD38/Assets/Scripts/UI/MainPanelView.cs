@@ -21,8 +21,9 @@ public class MainPanelView : MonoBehaviour
 	    var nonvoid = map.TotalTiles - map.VoidTiles;
 	    var percent = Mathf.RoundToInt((float) nonvoid / (float) map.TotalTiles * 100f);
 	    
-        IronText.text = PlayerService.Instance.Iron.ToString();
-	    FaithText.text = PlayerService.Instance.Faith.ToString();
+        IronText.text = (PlayerService.Instance.Iron - PlayerService.Instance.IronUsed) + "/" +
+                        PlayerService.Instance.Iron;
+        FaithText.text = PlayerService.Instance.Faith.ToString();
 	    HumanText.text = (PlayerService.Instance.TotalHumans - PlayerService.Instance.UsedHumans) + "/" +
 	                     PlayerService.Instance.TotalHumans;
 	    WorldDecayText.text = percent + " %";

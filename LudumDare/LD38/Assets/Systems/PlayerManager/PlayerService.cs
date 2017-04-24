@@ -31,7 +31,7 @@ namespace Assets.Systems.PlayerManager
             TotalHumans += building.HumanPerOwn;
             Iron += building.IronPerOwn;
 
-            var unit = UnitService.Instance.AddUnit(building.X, building.Y, UnitType.Scout, UnitFaction.Player);
+            var unit = UnitService.Instance.AddUnit(building.X, building.Y, UnitType.Scout, UnitFaction.Player, true);
         }
 
         public void CentreCameraAtTile(int x, int y)

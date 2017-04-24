@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Assets.Scripts.View.TileMap;
 using Assets.Systems.NameGenerator;
+using Assets.Systems.PlayerManager;
 using Assets.Systems.TileMap;
 using UnityEditor;
 using Random = UnityEngine.Random;
@@ -46,13 +47,21 @@ namespace Assets.Systems.Unit
         public void KillUnitAt(int x, int y)
         {
             var unit = GetUnitAt(x, y);
-
+            
             if (unit == null)
                 return;
 
+            
             _allUnits.Remove(unit);
 
             unit.Hp = 0;
+
+            if (unit.Faction == UnitFaction.Player)
+            {
+                var settings = _unitSettings.First(s => s.Type == unit.Type);
+                PlayerService.Instance.IronUsed -= settings.IronCost;
+                PlayerService.Instance.UsedHumans -= settings.HumanCost;
+            }
 
             UnitChanged(this, new UnitEventArgs{ ChangedUnit = unit});
         }
@@ -84,7 +93,7 @@ namespace Assets.Systems.Unit
             UnitChanged(this, new UnitEventArgs{ ChangedUnit = unit});
         }
 
-        public Unit AddUnit(int x, int y, UnitType type, UnitFaction faction)
+        public Unit AddUnit(int x, int y, UnitType type, UnitFaction faction, bool noResourceCost = false)
         {
             var settings = _unitSettings.First(s => s.Type == type);
 
@@ -114,8 +123,18 @@ namespace Assets.Systems.Unit
             
             _allUnits.Add(unit);
 
-            if(unit.Faction == UnitFaction.Player)
+            if (unit.Faction == UnitFaction.Player)
+            {
                 TileMapService.Instance.Map.RevealMap(x, y, unit.ViewRange);
+
+                if (!noResourceCost)
+                {
+                    PlayerService.Instance.Faith -= settings.FaithCost;
+                    PlayerService.Instance.IronUsed += settings.IronCost;
+                    PlayerService.Instance.UsedHumans += settings.HumanCost;
+                }
+            }
+                
             UnitChanged(this, new UnitEventArgs{ ChangedUnit = unit});
 
             return unit;
