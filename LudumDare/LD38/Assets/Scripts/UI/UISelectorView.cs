@@ -20,6 +20,9 @@ public class UISelectorView : MonoBehaviour
             return;
         }
 
+        if(TurnService.Instance.EndGame)
+            TurnService.Instance.NextTurn();
+
         DialoguePanel.SetActive(false);
 
         switch (CommandService.Instance.SelectionState)

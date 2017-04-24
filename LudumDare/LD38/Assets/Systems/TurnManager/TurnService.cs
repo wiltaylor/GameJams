@@ -26,7 +26,7 @@ public class TurnService
             return;
 
         if(EndGame)
-            SceneManager.LoadScene("GameOver");
+            SceneManager.LoadScene("Credits");
 
         UnitService.Instance.RefreshMovementPoints();
         TileMapService.Instance.Map.TurnRefresh();
