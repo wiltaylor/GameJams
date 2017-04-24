@@ -75,7 +75,32 @@ MonoBehaviour:
   - Unit: 7
     Prefab: {fileID: 1557566336588890, guid: d5b398dcc5df5c648b376495d26de878, type: 2}
     UnitSettings: {fileID: 11400000, guid: 1bc5864ed70c71b44a4c1d0f30fa0671, type: 2}
-  Events: []
+  Events:
+  - TriggerType: 0
+    TriggerValue: 0
+    BuildingType: 0
+    ActionType: 2
+    ActionValue: Opening
+  - TriggerType: 0
+    TriggerValue: 1
+    BuildingType: 0
+    ActionType: 2
+    ActionValue: TurnOne
+  - TriggerType: 0
+    TriggerValue: 6
+    BuildingType: 0
+    ActionType: 2
+    ActionValue: TurnSix
+  - TriggerType: 0
+    TriggerValue: 20
+    BuildingType: 0
+    ActionType: 2
+    ActionValue: TurnTwenty
+  - TriggerType: 0
+    TriggerValue: 50
+    BuildingType: 0
+    ActionType: 2
+    ActionValue: TurnFifty
   Dialogue:
   - {fileID: 11400000, guid: 54c120d3837125f4fa2e3662c4f46bce, type: 2}
   - {fileID: 11400000, guid: 0765f0a68052c4347a6f8ba4f39f7641, type: 2}

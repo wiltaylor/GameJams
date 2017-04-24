@@ -4,6 +4,7 @@ using System.Linq;
 using Assets.Scripts.View.TileMap;
 using Assets.Systems.AI;
 using Assets.Systems.CommandManager;
+using Assets.Systems.dx;
 using Assets.Systems.GameEventManager;
 using Assets.Systems.PlayerManager;
 using Assets.Systems.TileMap;
@@ -28,6 +29,8 @@ public class TileMapView : MonoBehaviour
         PlayerService.Instance.CentreCameraAtTile(building.X, building.Y);
 
         _map.RefreshMap();
+
+        GameEventService.Instance.CheckForGameEvents();
     }
 
 	private void Start ()
@@ -44,6 +47,7 @@ public class TileMapView : MonoBehaviour
 
         AIService.Instance.AssignAISpawnProfile(TileSet.Profile);
         GameEventService.Instance.AssignEventTriggers(TileSet.Events);
+        DialogueService.Instance.AssignDialogue(TileSet.Dialogue);
 
         UnitService.Instance.AssignUnitDefinition(TileSet.Units.Select(t => t.UnitSettings).ToArray());
         UnitService.Instance.UnitChanged += UnitChanged;
@@ -51,6 +55,7 @@ public class TileMapView : MonoBehaviour
         PlayerService.Instance.GenerateStartPosition();
 
         PlayerService.Instance.BeforeCameraCentre += Instance_BeforeCameraCentre;
+
 
 	    Invoke("StartUpCamera", 0.25f);
 

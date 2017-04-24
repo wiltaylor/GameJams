@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Assets.Systems.AI;
+using Assets.Systems.dx;
 using Assets.Systems.TileMap;
 
 namespace Assets.Systems.GameEventManager
@@ -83,7 +84,7 @@ namespace Assets.Systems.GameEventManager
                     //TODO: impliment end game.
                     break;
                 case GameEventTriggerActionType.Dialogue:
-                    //TODO: impliment dialgoue system.
+                    DialogueService.Instance.StartDialoue(trig.ActionValue);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();

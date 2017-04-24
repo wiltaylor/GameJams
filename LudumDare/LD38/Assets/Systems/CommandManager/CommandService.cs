@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using Assets.Systems.dx;
 using Assets.Systems.TileMap;
 using Assets.Systems.Unit;
 using UnityEngine.EventSystems;
@@ -40,6 +41,9 @@ namespace Assets.Systems.CommandManager
         public void ReportTileClick(int x, int y, int btn)
         {
             if (EventSystem.current.IsPointerOverGameObject())
+                return;
+
+            if (DialogueService.Instance.Active)
                 return;
 
             if(btn == 0)
