@@ -3325,8 +3325,11 @@ MonoBehaviour:
   FaithText: {fileID: 114135877906735772}
   HumanText: {fileID: 114727243417727748}
   BuildButtons:
-  - {fileID: 114000519570828912}
-  - {fileID: 114944689578848220}
+  - {fileID: 1113078876734854}
+  - {fileID: 1548088380422818}
+  - {fileID: 1952494127543118}
+  - {fileID: 1771195972889578}
+  - {fileID: 1443479192011686}
 --- !u!114 &114644712505317782
 MonoBehaviour:
   m_ObjectHideFlags: 1

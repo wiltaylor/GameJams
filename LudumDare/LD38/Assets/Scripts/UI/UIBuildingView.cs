@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using Assets.Systems.CommandManager;
 using Assets.Systems.TileMap;
 using UnityEngine;
@@ -15,7 +13,7 @@ public class UIBuildingView : MonoBehaviour
     public Text FaithText;
     public Text HumanText;
 
-    public Button[] BuildButtons;
+    public GameObject[] BuildButtons;
 	
 	void Update ()
 	{
@@ -28,13 +26,13 @@ public class UIBuildingView : MonoBehaviour
 	    {
 	        foreach (var b in BuildButtons)
 	        {
-                b.gameObject.SetActive(true);
+                b.SetActive(true);
 	        }
 	    }
 	    else
 	    {
 	        foreach (var b in BuildButtons)
-	            b.gameObject.SetActive(false);
+	            b.SetActive(false);
         }
 
 	    RenderResources(building);
