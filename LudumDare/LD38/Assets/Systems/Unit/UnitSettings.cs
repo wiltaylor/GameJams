@@ -21,5 +21,8 @@ namespace Assets.Systems.Unit
         public int HumanCost;
         public int IronCost;
         public int ViewRange;
+        public int HealRange;
+        public float HealAmmount;
+        public float HealDamage;
     }
 }

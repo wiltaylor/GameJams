@@ -108,6 +108,12 @@ NavMeshSettings:
     tileSize: 256
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &98386409 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114765796185261584, guid: 275145e7c498f494f8fb8aee25d49020,
+    type: 2}
+  m_PrefabInternal: {fileID: 1744243882}
+  m_Script: {fileID: 11500000, guid: a3e24de3522ebec469e8e33445a553f9, type: 3}
 --- !u!1001 &333184265
 Prefab:
   m_ObjectHideFlags: 0
@@ -248,6 +254,16 @@ Prefab:
     - target: {fileID: 4094907968936972, guid: 275145e7c498f494f8fb8aee25d49020, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114164069844652824, guid: 275145e7c498f494f8fb8aee25d49020,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 98386409}
+    - target: {fileID: 114164069844652824, guid: 275145e7c498f494f8fb8aee25d49020,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ClickHeal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 275145e7c498f494f8fb8aee25d49020, type: 2}

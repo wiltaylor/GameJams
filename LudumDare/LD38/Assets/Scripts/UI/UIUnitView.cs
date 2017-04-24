@@ -17,6 +17,7 @@ public class UIUnitView : MonoBehaviour
     public Text HpText;
     public Text Combatrating;
     public Button MineButton;
+    public Button HealButton;
 
 	private void Update ()
 	{
@@ -29,6 +30,7 @@ public class UIUnitView : MonoBehaviour
 	        return;
 
         MineButton.gameObject.SetActive(CanMine(unit));
+        HealButton.gameObject.SetActive(CanHeal(unit));
 
 	    OwnerText.text = unit.Faction == UnitFaction.Player ? "You" : "Deamonic Invasion";
 
@@ -68,6 +70,11 @@ public class UIUnitView : MonoBehaviour
 	    }
 	}
 
+    private bool CanHeal(Unit unit)
+    {
+        return unit.HealAmmount > 0;
+    }
+
     private bool CanMine(Unit unit)
     {
         if(!unit.Actions.Any(a => a == UnitAction.Mine))
@@ -88,5 +95,11 @@ public class UIUnitView : MonoBehaviour
     {
         var unit = CommandService.Instance.SelectedUnit;
         TileMapService.Instance.Map.MineBuilding(unit.X, unit.Y);
+    }
+
+    public void ClickHeal()
+    {
+        var unit = CommandService.Instance.SelectedUnit;
+        UnitService.Instance.CastHeal(unit);
     }
 }
