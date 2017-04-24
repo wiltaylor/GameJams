@@ -31,6 +31,9 @@ namespace Assets.Systems.GameEventManager
 
             foreach (var trig in _eventTriggers)
             {
+                if (TurnService.Instance.EndGame)
+                    break;
+
                 switch (trig.TriggerType)
                 {
                     case GameEventTriggerType.Turn:

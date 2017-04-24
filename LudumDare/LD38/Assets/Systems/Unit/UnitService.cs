@@ -155,6 +155,8 @@ namespace Assets.Systems.Unit
             foreach (var unit in _allUnits)
             {
                 unit.MovePointsLeft = unit.MovePoints;
+                if(unit.Hp <= 0f)
+                    KillUnitAt(unit.X, unit.Y);
             }
         }
 
