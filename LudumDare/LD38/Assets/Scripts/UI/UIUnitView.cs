@@ -29,6 +29,8 @@ public class UIUnitView : MonoBehaviour
 	    if (unit == null)
 	        return;
 
+	    MovementText.text = "Move: " + unit.MovePointsLeft + "/" + unit.MovePoints;
+
         MineButton.gameObject.SetActive(CanMine(unit));
         HealButton.gameObject.SetActive(CanHeal(unit));
 
