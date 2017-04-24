@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Assets.Systems.NameGenerator;
 using Random = UnityEngine.Random;
 
 namespace Assets.Systems.TileMap
@@ -88,7 +89,7 @@ namespace Assets.Systems.TileMap
 
                     if (newbuilding.Type == BuildingType.City)
                     {
-                        newbuilding.Population = Random.Range(building.MinCityPopulation, building.MaxCityPopulation);
+                        newbuilding.Name = NameService.Instance.NewCityName();
                     }
                 }
             }

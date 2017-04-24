@@ -6,6 +6,7 @@ using Assets.Systems.AI;
 using Assets.Systems.CommandManager;
 using Assets.Systems.dx;
 using Assets.Systems.GameEventManager;
+using Assets.Systems.NameGenerator;
 using Assets.Systems.PlayerManager;
 using Assets.Systems.TileMap;
 using Assets.Systems.Unit;
@@ -33,9 +34,22 @@ public class TileMapView : MonoBehaviour
         GameEventService.Instance.CheckForGameEvents();
     }
 
+    private void OnDestroy()
+    {
+        if (_map != null)
+        {
+            _map.TileChanged -= _map_TileChanged;
+            _map.BuildingChange -= MapOnBuildingChange;
+        }
+        CommandService.Instance.HighlightChanged -= InstanceOnHighlightChanged;
+        PlayerService.Instance.BeforeCameraCentre -= Instance_BeforeCameraCentre;
+        UnitService.Instance.UnitChanged -= UnitChanged;
+    }
+
 	private void Start ()
 	{
-	    CommandService.Instance.HighlightChanged += InstanceOnHighlightChanged;
+	    NameService.Instance.AssignNames(TileSet.Names);
+        CommandService.Instance.HighlightChanged += InstanceOnHighlightChanged;
 
         var tilesettings = TileSet.Tiles.Select(t => t.TileSettings).ToArray();
 	    var buildingsettings = TileSet.Buildings.Select(b => b.BuildingSettings).ToArray();
@@ -48,6 +62,7 @@ public class TileMapView : MonoBehaviour
         AIService.Instance.AssignAISpawnProfile(TileSet.Profile);
         GameEventService.Instance.AssignEventTriggers(TileSet.Events);
         DialogueService.Instance.AssignDialogue(TileSet.Dialogue);
+        
 
         UnitService.Instance.AssignUnitDefinition(TileSet.Units.Select(t => t.UnitSettings).ToArray());
         UnitService.Instance.UnitChanged += UnitChanged;

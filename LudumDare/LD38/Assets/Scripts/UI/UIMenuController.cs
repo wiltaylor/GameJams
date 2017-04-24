@@ -5,7 +5,7 @@ public class UIMenuController : MonoBehaviour
 {
     public void NewGame()
     {
-        SceneManager.LoadScene("Redirector");
+        SceneManager.LoadScene("MainGame");
     }
 
     public void QuitGame()

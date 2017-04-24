@@ -23,5 +23,6 @@ namespace Assets.Systems.Unit
         public UnitType Type { get; set; }
         public GUID UnitId { get; set; } 
         public int ViewRange { get; set; }
+        public string Name { get; set; }
     }
 }

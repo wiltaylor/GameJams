@@ -5,7 +5,9 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using Assets.Scripts.View.TileMap;
 using Assets.Systems.CommandManager;
+using Assets.Systems.NameGenerator;
 using Assets.Systems.TileMap;
+using Mono.Cecil;
 using UnityEditor;
 using Random = UnityEngine.Random;
 
@@ -75,7 +77,9 @@ namespace Assets.Systems.Unit
                 Type = type,
                 MovePoints = settings.MovePoints,
                 UnitId = GUID.Generate(),
-                ViewRange = settings.ViewRange
+                ViewRange = settings.ViewRange,
+                Name = NameService.Instance.NewUnitName(faction, type)
+                
             };
 
             unit.Hp = unit.MaxHp;

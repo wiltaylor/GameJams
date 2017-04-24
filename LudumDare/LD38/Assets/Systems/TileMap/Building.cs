@@ -7,6 +7,7 @@ namespace Assets.Systems.TileMap
 {
     public class Building
     {
+        public string Name { get; set; }
         public BuildingType Type { get; set; }
         public bool PlayerOwned { get; set; }
         public int Population { get; set; }

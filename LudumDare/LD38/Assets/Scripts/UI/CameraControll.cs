@@ -17,7 +17,11 @@ public class CameraControll : MonoBehaviour
     {
         var obj = cameraEventArgs.ObjectToCentreOn;
         
-        transform.position = new Vector3(obj.transform.position.x, obj.transform.position.y, transform.position.z);
-        
+        transform.position = new Vector3(obj.transform.position.x, obj.transform.position.y, transform.position.z);   
+    }
+
+    private void OnDestroy()
+    {
+        PlayerService.Instance.CameraCentre -= InstanceOnCameraCentre;
     }
 }
