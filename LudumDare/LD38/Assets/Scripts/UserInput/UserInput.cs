@@ -70,7 +70,7 @@ public class UserInput : MonoBehaviour
         if (_camera.orthographicSize > MaxZoom)
             _camera.orthographicSize = MaxZoom;
 
-        if(Input.GetButton("EndTurn"))
+        if(Input.GetButtonUp("EndTurn"))
             TurnService.Instance.NextTurn();
 
         if (Input.GetMouseButtonUp(0))

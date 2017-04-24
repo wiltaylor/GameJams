@@ -9,7 +9,7 @@ namespace Assets.Systems.dx
         private DialogueCollection _currentDialogue;
         private int _currentDialogueIndex;
 
-        public DialogueService Instance
+        public static DialogueService Instance
         {
             get { return _instance ?? (_instance = new DialogueService()); }
         }
@@ -25,13 +25,7 @@ namespace Assets.Systems.dx
             _currentDialogueIndex = 0;
         }
 
-        public bool MoreDialogue()
-        {
-            if (_currentDialogue != null && _currentDialogueIndex >= _currentDialogue.Dialogue.Length)
-                _currentDialogue = null;
-
-            return _currentDialogue != null;
-        }
+        public bool Active { get { return _currentDialogue != null; } }
 
         public DialogueCharecter CurrentCharecter
         {
@@ -41,6 +35,14 @@ namespace Assets.Systems.dx
         public string CurrentText
         {
             get { return _currentDialogue.Dialogue[_currentDialogueIndex].Text; }
+        }
+
+        public void Next()
+        {
+            _currentDialogueIndex++;
+
+            if(_currentDialogue.Dialogue.Length <= _currentDialogueIndex)
+            _currentDialogue = null;
         }
     }
 }

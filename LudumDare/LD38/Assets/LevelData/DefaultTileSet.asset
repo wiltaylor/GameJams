@@ -75,3 +75,12 @@ MonoBehaviour:
   - Unit: 7
     Prefab: {fileID: 1557566336588890, guid: d5b398dcc5df5c648b376495d26de878, type: 2}
     UnitSettings: {fileID: 11400000, guid: 1bc5864ed70c71b44a4c1d0f30fa0671, type: 2}
+  Events: []
+  Dialogue:
+  - {fileID: 11400000, guid: 54c120d3837125f4fa2e3662c4f46bce, type: 2}
+  - {fileID: 11400000, guid: 0765f0a68052c4347a6f8ba4f39f7641, type: 2}
+  - {fileID: 11400000, guid: 2da1ea7daedcd4a4db45a63aebd2915f, type: 2}
+  - {fileID: 11400000, guid: ef40fdc84a1601a4c88c46c6b15b2c6c, type: 2}
+  - {fileID: 11400000, guid: f1dd065fb50b84c4099f8cee547224f5, type: 2}
+  - {fileID: 11400000, guid: 24e9001ae2075494395b5ce3e366bbbf, type: 2}
+  - {fileID: 11400000, guid: e2be7b32dfe3384458ec7c810c81fdc5, type: 2}

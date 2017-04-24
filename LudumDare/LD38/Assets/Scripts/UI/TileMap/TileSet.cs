@@ -1,5 +1,6 @@
 ﻿using System;
 using Assets.Systems.AI;
+using Assets.Systems.dx;
 using Assets.Systems.GameEventManager;
 using Assets.Systems.TileMap;
 using Assets.Systems.Unit;
@@ -15,6 +16,7 @@ namespace Assets.Scripts.View.TileMap
         public BuildingPrefab[] Buildings;
         public UnitPrefab[] Units;
         public GameEventTrigger[] Events;
+        public DialogueCollection[] Dialogue;
     }
 
     [Serializable]
