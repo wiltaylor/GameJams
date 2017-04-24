@@ -26,3 +26,6 @@ MonoBehaviour:
   HumanCost: 0
   IronCost: 0
   ViewRange: 6
+  HealRange: 6
+  HealAmmount: 10
+  HealDamage: 0.5

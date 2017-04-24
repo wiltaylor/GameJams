@@ -1,13 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using System.Runtime.InteropServices;
 using Assets.Scripts.View.TileMap;
-using Assets.Systems.CommandManager;
 using Assets.Systems.NameGenerator;
 using Assets.Systems.TileMap;
-using Mono.Cecil;
 using UnityEditor;
 using Random = UnityEngine.Random;
 
@@ -59,7 +55,34 @@ namespace Assets.Systems.Unit
             unit.Hp = 0;
 
             UnitChanged(this, new UnitEventArgs{ ChangedUnit = unit});
-    }
+        }
+
+        public void CastHeal(Unit unit)
+        {
+            var map = TileMapService.Instance.Map;
+            var top = unit.Y - unit.Healrange;
+            var left = unit.X - unit.Healrange;
+            var bottom = unit.Y + unit.Healrange;
+            var right = unit.X + unit.Healrange;
+
+            for (var x = left; x <= right; x++)
+            {
+                for (var y = top; y <= bottom; y++)
+                {
+                    var foundunit = GetUnitAt(TileMapUtil.CalculateX(x), TileMapUtil.CalculateY(y));
+
+                    if (foundunit == null || foundunit.Faction != UnitFaction.Player || foundunit.UnitId == unit.UnitId) continue;
+
+                    foundunit.Hp += unit.HealAmmount;
+
+                    if (foundunit.Hp > foundunit.MaxHp)
+                        foundunit.Hp = foundunit.MaxHp;
+                }
+            }
+
+            unit.Hp -= unit.HealDamage;
+            UnitChanged(this, new UnitEventArgs{ ChangedUnit = unit});
+        }
 
         public Unit AddUnit(int x, int y, UnitType type, UnitFaction faction)
         {
@@ -78,7 +101,10 @@ namespace Assets.Systems.Unit
                 MovePoints = settings.MovePoints,
                 UnitId = GUID.Generate(),
                 ViewRange = settings.ViewRange,
-                Name = NameService.Instance.NewUnitName(faction, type)
+                Name = NameService.Instance.NewUnitName(faction, type),
+                Healrange =  settings.HealRange,
+                HealAmmount = settings.HealAmmount,
+                HealDamage = settings.HealDamage
                 
             };
 

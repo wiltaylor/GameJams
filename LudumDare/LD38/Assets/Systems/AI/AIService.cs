@@ -34,45 +34,38 @@ namespace Assets.Systems.AI
 
         public void ProcessAI()
         {
-            var aiunits = UnitService.Instance.GetAllAIUnits();
+            var aiunits = UnitService.Instance.GetAllAIUnits().ToArray();
 
-            try
+            foreach (var unit in aiunits)
             {
-                foreach (var unit in aiunits)
+                var rnd = new System.Random();
+                var accessable = UnitService.Instance.GetMovableCords(unit).ToList();
+
+                var playerunit = accessable.FirstOrDefault(a => a.HasUnit &&
+                                                                UnitService.Instance.GetUnitAt(a.X, a.Y).Faction ==
+                                                                UnitFaction.Player);
+
+                if (playerunit != null)
                 {
-                    var rnd = new System.Random();
-                    var accessable = UnitService.Instance.GetMovableCords(unit).ToList();
-
-                    var playerunit = accessable.FirstOrDefault(a => a.HasUnit &&
-                                                                    UnitService.Instance.GetUnitAt(a.X, a.Y).Faction ==
-                                                                    UnitFaction.Player);
-
-                    if (playerunit != null)
-                    {
-                        UnitService.Instance.AttackTile(playerunit.X, playerunit.Y, unit, accessable);
-                        continue;
-                    }
-
-                    var city = accessable.FirstOrDefault(a => a.IsCity);
-
-                    if (city != null)
-                    {
-                        UnitService.Instance.AttackTile(city.X, city.Y, unit, accessable);
-                        continue;
-                    }
-
-
-                    var movepoint = accessable.Where(m => !m.HasUnit).OrderBy(u => rnd.Next()).FirstOrDefault();
-
-                    if (movepoint == null)
-                        continue;
-
-                    UnitService.Instance.MoveUnit(unit, movepoint.X, movepoint.Y);
+                    UnitService.Instance.AttackTile(playerunit.X, playerunit.Y, unit, accessable);
+                    continue;
                 }
-            }
-            finally
-            {
-                //Hack:do nothing. To prevent further issues from units being deleted.
+
+                var city = accessable.FirstOrDefault(a => a.IsCity);
+
+                if (city != null)
+                {
+                    UnitService.Instance.AttackTile(city.X, city.Y, unit, accessable);
+                    continue;
+                }
+
+
+                var movepoint = accessable.Where(m => !m.HasUnit).OrderBy(u => rnd.Next()).FirstOrDefault();
+
+                if (movepoint == null)
+                    continue;
+
+                UnitService.Instance.MoveUnit(unit, movepoint.X, movepoint.Y);
             }
         }
 

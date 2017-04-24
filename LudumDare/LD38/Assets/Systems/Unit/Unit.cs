@@ -24,5 +24,8 @@ namespace Assets.Systems.Unit
         public GUID UnitId { get; set; } 
         public int ViewRange { get; set; }
         public string Name { get; set; }
+        public int Healrange { get; set; }
+        public float HealAmmount { get; set; }
+        public float HealDamage { get; set; }
     }
 }
