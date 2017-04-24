@@ -1,4 +1,5 @@
 ﻿using Assets.Systems.CommandManager;
+using Assets.Systems.dx;
 using UnityEngine;
 
 public class UserInput : MonoBehaviour
@@ -63,6 +64,10 @@ public class UserInput : MonoBehaviour
         {
             _camera.orthographicSize += Time.deltaTime * ZoomSpeed * -Input.mouseScrollDelta.y;
         }
+
+        if(Input.GetButtonUp("NextDialogue"))
+            if(DialogueService.Instance.Active)
+                DialogueService.Instance.Next();
 
         if (_camera.orthographicSize < MinZoom)
             _camera.orthographicSize = MinZoom;
