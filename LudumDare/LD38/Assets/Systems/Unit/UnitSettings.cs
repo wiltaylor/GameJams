@@ -3,14 +3,6 @@ using UnityEngine;
 
 namespace Assets.Systems.Unit
 {
-
-    public enum UnitAction
-    {
-        Mine,
-        Attack,
-        Move
-    }
-
     [CreateAssetMenu(fileName = "UnitSettings", menuName = "Unit/Unit Settings", order = 1)]
     public class UnitSettings : ScriptableObject
     {

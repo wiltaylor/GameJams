@@ -9,20 +9,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b43f1be21cf4be445acc74f8fc6578d7, type: 3}
-  m_Name: Deamon1
+  m_Name: wormowl
   m_EditorClassIdentifier: 
-  Type: 2
-  Name: Red Deamon
-  MaxHp: 1
-  MinHp: 1
-  MaxAttack: 1
-  MinAttack: 1
+  Type: 7
+  Name: Wormowl
+  MaxHp: 10
+  MinHp: 10
+  MaxAttack: 5
+  MinAttack: 5
   Actions: 0100000002000000
   CanSpawnInCity: 0
   CanSpawnInDemonGate: 1
   CanSpawnOn: 020000000300000004000000050000000600000007000000
-  MovePoints: 3
+  MovePoints: 2
   FaithCost: 0
   HumanCost: 0
   IronCost: 0
-  ViewRange: 3
+  ViewRange: 2

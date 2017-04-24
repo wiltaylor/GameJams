@@ -45,7 +45,31 @@ public class UIUnitView : MonoBehaviour
 	            UnitNameText.text = "";
 	            UnitTypeText.text = "Worker";
                 break;
-	        default:
+	        case UnitType.Deamon:
+	            UnitNameText.text = "";
+	            UnitTypeText.text = "Deamon";
+	            break;
+            case UnitType.Knight:
+	            UnitNameText.text = "";
+	            UnitTypeText.text = "Knight";
+	            break;
+            case UnitType.Spearman:
+	            UnitNameText.text = "";
+	            UnitTypeText.text = "Spearman";
+	            break;
+            case UnitType.Spider:
+	            UnitNameText.text = "";
+	            UnitTypeText.text = "Spider";
+	            break;
+            case UnitType.Wormowl:
+	            UnitNameText.text = "";
+	            UnitTypeText.text = "Wormowl";
+	            break;
+            case UnitType.Clearic:
+	            UnitNameText.text = "";
+	            UnitTypeText.text = "Clearic";
+	            break;
+            default:
 	            throw new ArgumentOutOfRangeException();
 	    }
 	}

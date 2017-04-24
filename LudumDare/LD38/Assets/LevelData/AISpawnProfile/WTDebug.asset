@@ -18,4 +18,10 @@ MonoBehaviour:
     - Type: 2
       SpawnChance: 100
       Qty: 1
+    - Type: 6
+      SpawnChance: 100
+      Qty: 1
+    - Type: 7
+      SpawnChance: 100
+      Qty: 1
     WaveFrequency: 10

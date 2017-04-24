@@ -4,6 +4,11 @@
     {
         Scout,
         Worker,
-        Deamon1
+        Deamon,
+        Clearic,
+        Knight,
+        Spearman,
+        Spider,
+        Wormowl
     }
 }

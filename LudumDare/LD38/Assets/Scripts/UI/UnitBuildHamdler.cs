@@ -13,6 +13,10 @@ public class UnitBuildHamdler : MonoBehaviour
     private Button _button;
     private UnitSettings _settings;
 
+    public Text IronText;
+    public Text FaithText;
+    public Text HumanText;
+
     public void Start()
     {
         _button = GetComponent<Button>();
@@ -20,8 +24,11 @@ public class UnitBuildHamdler : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(_settings == null)
+        
+        if (_settings == null)
             _settings = UnitService.Instance.GetUnitSettings(Type);
+
+        RenderText();
 
         var building = CommandService.Instance.SelectedBuilding;
 
@@ -38,6 +45,17 @@ public class UnitBuildHamdler : MonoBehaviour
         var unit = UnitService.Instance.GetUnitAt(building.X, building.Y);
 
         _button.enabled = unit == null;
+    }
+
+    private void RenderText()
+    {
+        IronText.text = _settings.IronCost.ToString();
+        FaithText.text = _settings.FaithCost.ToString();
+        HumanText.text = _settings.HumanCost.ToString();
+
+        IronText.color = _settings.IronCost > PlayerService.Instance.Iron - PlayerService.Instance.IronUsed ? Color.red : Color.white;
+        FaithText.color = _settings.FaithCost > PlayerService.Instance.Faith ? Color.red : Color.white;
+        HumanText.color = _settings.HumanCost > PlayerService.Instance.TotalHumans - PlayerService.Instance.UsedHumans ? Color.red : Color.white;
     }
 
     public void Click()

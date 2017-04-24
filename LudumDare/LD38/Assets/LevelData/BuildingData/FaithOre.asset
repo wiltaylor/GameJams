@@ -21,6 +21,9 @@ MonoBehaviour:
   FaithPerTurn: 5
   IronPerOwn: 0
   HumanPerOwn: 0
-  MaxHp: 0
-  MinHp: 0
-  DefenceRating: 0
+  MaxHp: 1
+  MinHp: 1
+  MinDamage: 0
+  MaxDamage: 0
+  CaptureAction: 0
+  AiTarget: 0
