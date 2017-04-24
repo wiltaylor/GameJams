@@ -14,34 +14,99 @@ namespace Assets.Systems.Unit
 
         private static IEnumerable<TileCords> CheckTile(int x, int y, int points, int cost, bool freeCost = false)
         {
-            if(points <= 0)
-                return new List<TileCords>();
+            try
+            {
 
-            var map = TileMapService.Instance.Map;
-            var avilpoints = new List<TileCords>();
-            var tile = map.MapData[x, y];
-            var building = map.GetBuildingAt(x, y);
-            var unit = UnitService.Instance.GetUnitAt(x, y);
 
-            if (!tile.Passable && !freeCost)
+                if (points <= 0)
+                    return new List<TileCords>();
+
+                var map = TileMapService.Instance.Map;
+                var avilpoints = new List<TileCords>();
+                var tile = map.MapData[x, y];
+                var building = map.GetBuildingAt(x, y);
+                var unit = UnitService.Instance.GetUnitAt(x, y);
+
+                if (!tile.Passable && !freeCost)
+                    return avilpoints;
+
+                if (!freeCost)
+                    cost += tile.MoveCost;
+
+                points -= freeCost ? 0 : tile.MoveCost;
+                avilpoints.Add(new TileCords
+                {
+                    X = x,
+                    Y = y,
+                    Cost = cost,
+                    HasBuilding = building != null,
+                    HasUnit = unit != null,
+                    IsCity = building != null && building.Type == BuildingType.City,
+                    IsHellGate = building != null && building.Type == BuildingType.Hellgate
+                });
+
+                avilpoints.RemoveAll(a => a.X == TileMapUtil.CalculateX(x + 1) && a.Y == y &&
+                                          a.Cost > CalcCost(TileMapUtil.CalculateX(x + 1), y, cost));
+                avilpoints.RemoveAll(a => a.X == TileMapUtil.CalculateX(x - 1) && a.Y == y &&
+                                          a.Cost > CalcCost(TileMapUtil.CalculateX(x - 1), y, cost));
+                avilpoints.RemoveAll(a => a.X == x && a.Y == TileMapUtil.CalculateY(y + 1) &&
+                                          a.Cost > CalcCost(x, TileMapUtil.CalculateY(y + 1), cost));
+                avilpoints.RemoveAll(a => a.X == x && a.Y == TileMapUtil.CalculateY(y - 1) &&
+                                          a.Cost > CalcCost(x, TileMapUtil.CalculateY(y - 1), cost));
+
+                try
+                {
+                    if (!avilpoints.Any(a => a.X == TileMapUtil.CalculateX(x + 1) && a.Y == y))
+                        avilpoints.AddRange(CheckTile(TileMapUtil.CalculateX(x + 1), y, points, cost));
+
+                }
+                catch
+                {
+                    //do nothing
+                }
+
+                try
+                {
+                    if (!avilpoints.Any(a => a.X == TileMapUtil.CalculateX(x - 1) && a.Y == y))
+                        avilpoints.AddRange(CheckTile(TileMapUtil.CalculateX(x - 1), y, points, cost));
+                }
+                catch
+                {
+                    //do nothing
+                }
+
+                try
+                {
+                    if (!avilpoints.Any(a => a.X == x && a.Y == TileMapUtil.CalculateY(y - 1)))
+                        avilpoints.AddRange(CheckTile(x, TileMapUtil.CalculateY(y - 1), points, cost));
+                }
+                catch
+                {
+                    //do nothing
+                }
+
+                try
+                {
+                    if (!avilpoints.Any(a => a.X == x && a.Y == TileMapUtil.CalculateY(y + 1)))
+                        avilpoints.AddRange(CheckTile(x, TileMapUtil.CalculateY(y + 1), points, cost));
+                }
+                catch
+                {
+                    //do nothing.
+                }
+
                 return avilpoints;
+            }
+            catch
+            {
+                return new List<TileCords>();
+            }
+        }
 
-            if (!freeCost)
-                cost += tile.MoveCost;
-
-            points -= freeCost ?  0 : tile.MoveCost;
-            avilpoints.Add(new TileCords{X = x, Y = y, Cost = cost, HasBuilding = building != null, HasUnit = unit != null, IsCity = building != null && building.Type == BuildingType.City, IsHellGate = building != null && building.Type == BuildingType.Hellgate });
-
-            if(!avilpoints.Any(a => a.X == TileMapUtil.CalculateX(x + 1) && a.Y == y))
-                avilpoints.AddRange(CheckTile(TileMapUtil.CalculateX(x + 1), y, points, cost));
-            if (!avilpoints.Any(a => a.X == TileMapUtil.CalculateX(x - 1) && a.Y == y))
-                avilpoints.AddRange(CheckTile(TileMapUtil.CalculateX(x - 1), y, points, cost));
-            if (!avilpoints.Any(a => a.X == x && a.Y == TileMapUtil.CalculateY(y - 1)))
-                avilpoints.AddRange(CheckTile(x, TileMapUtil.CalculateY(y - 1), points, cost));
-            if (!avilpoints.Any(a => a.X == x && a.Y == TileMapUtil.CalculateY(y + 1)))
-                avilpoints.AddRange(CheckTile(x, TileMapUtil.CalculateY(y + 1), points, cost));
-            
-            return avilpoints;
+        private static int CalcCost(int x, int y, int cost)
+        {
+            var tile = TileMapService.Instance.Map.MapData[x, y];
+            return cost + tile.MoveCost;
         }
     }
 }
