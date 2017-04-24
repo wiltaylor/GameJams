@@ -22,7 +22,8 @@ MonoBehaviour:
   IronPerOwn: 0
   HumanPerOwn: 5
   MaxHp: 20
-  MinHp: 10
-  DefenceRating: 10
+  MinHp: 12
+  MinDamage: 0
+  MaxDamage: 0
   CaptureAction: 1
-  AITarget: 1
+  AiTarget: 0

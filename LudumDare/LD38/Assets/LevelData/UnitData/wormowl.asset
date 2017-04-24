@@ -13,15 +13,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 7
   Name: Wormowl
-  MaxHp: 10
+  MaxHp: 12
   MinHp: 10
-  MaxAttack: 5
-  MinAttack: 5
+  MaxAttack: 6
+  MinAttack: 3
   Actions: 0100000002000000
   CanSpawnInCity: 0
   CanSpawnInDemonGate: 1
   CanSpawnOn: 020000000300000004000000050000000600000007000000
-  MovePoints: 2
+  MovePoints: 5
   FaithCost: 0
   HumanCost: 0
   IronCost: 0

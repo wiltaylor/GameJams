@@ -13,10 +13,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 2
   Name: Deamon
-  MaxHp: 1
-  MinHp: 1
-  MaxAttack: 1
-  MinAttack: 1
+  MaxHp: 10
+  MinHp: 6
+  MaxAttack: 5
+  MinAttack: 2
   Actions: 0100000002000000
   CanSpawnInCity: 0
   CanSpawnInDemonGate: 1
