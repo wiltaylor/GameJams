@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Assets.Scripts.View.TileMap;
 using Assets.Systems.PlayerManager;
+using Assets.Systems.Unit;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -90,6 +91,11 @@ namespace Assets.Systems.TileMap
         public void MineBuilding(int x, int y)
         {
             var building = GetBuildingAt(x, y);
+            var unit = UnitService.Instance.GetUnitAt(x, y);
+            unit.Hp -= unit.MineDamage;
+
+            if(unit.Hp <= 0)
+                UnitService.Instance.KillUnitAt(x,y);
 
             building.PlayerOwned = true;
 
