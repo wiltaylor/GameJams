@@ -19,8 +19,8 @@ MonoBehaviour:
   MinHpModifier: 8
   HpModifierRange: 3
   FaithPerTurn: 1
-  IronPerOwn: 1
-  HumanPerOwn: 6
+  IronPerOwn: 0
+  HumanPerOwn: 8
   MaxHp: 30
   MinHp: 20
   MinDamage: 2
