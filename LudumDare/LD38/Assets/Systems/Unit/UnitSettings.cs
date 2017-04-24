@@ -24,5 +24,6 @@ namespace Assets.Systems.Unit
         public int HealRange;
         public float HealAmmount;
         public float HealDamage;
+        public float MineDamage;
     }
 }

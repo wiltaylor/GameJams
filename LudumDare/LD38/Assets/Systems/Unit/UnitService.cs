@@ -104,7 +104,8 @@ namespace Assets.Systems.Unit
                 Name = NameService.Instance.NewUnitName(faction, type),
                 Healrange =  settings.HealRange,
                 HealAmmount = settings.HealAmmount,
-                HealDamage = settings.HealDamage
+                HealDamage = settings.HealDamage,
+                MineDamage = settings.MineDamage
                 
             };
 

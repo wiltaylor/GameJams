@@ -95,6 +95,10 @@ public class UIUnitView : MonoBehaviour
     {
         var unit = CommandService.Instance.SelectedUnit;
         TileMapService.Instance.Map.MineBuilding(unit.X, unit.Y);
+        unit.Hp -= unit.MineDamage;
+
+        if(unit.Hp < 0)
+            UnitService.Instance.KillUnitAt(unit.X, unit.Y);
     }
 
     public void ClickHeal()

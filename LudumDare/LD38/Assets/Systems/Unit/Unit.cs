@@ -27,5 +27,6 @@ namespace Assets.Systems.Unit
         public int Healrange { get; set; }
         public float HealAmmount { get; set; }
         public float HealDamage { get; set; }
+        public float MineDamage { get; set; }
     }
 }
