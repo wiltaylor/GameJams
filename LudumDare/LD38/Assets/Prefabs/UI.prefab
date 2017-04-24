@@ -3721,9 +3721,9 @@ MonoBehaviour:
   AvatarImage: {fileID: 114272578575159534}
   TextContainer: {fileID: 1829267536677314}
   Text: {fileID: 114472938417771720}
-  Knight: {fileID: 21300000, guid: f3d0e51ed9aab4a45b75d9ad7c2dc5cb, type: 3}
-  Cardinal: {fileID: 21300000, guid: eece83ed36d32174181a5e82c6682f89, type: 3}
-  Deamon: {fileID: 21300000, guid: b5b0b392df7a3c54b9fcb7065c63c80e, type: 3}
+  Knight: {fileID: 21300000, guid: 06b66bec51260f9439a0889a6528035b, type: 3}
+  Cardinal: {fileID: 21300000, guid: ade0c90b850fc094786ac96f3aacc1c1, type: 3}
+  Deamon: {fileID: 21300000, guid: 9c576a7bff460264a8978de7754632f9, type: 3}
 --- !u!114 &114505714541822966
 MonoBehaviour:
   m_ObjectHideFlags: 1
