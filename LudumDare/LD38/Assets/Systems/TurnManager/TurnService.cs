@@ -5,6 +5,7 @@ using Assets.Systems.GameEventManager;
 using Assets.Systems.PlayerManager;
 using Assets.Systems.TileMap;
 using Assets.Systems.Unit;
+using UnityEngine.SceneManagement;
 
 public class TurnService
 {
@@ -17,10 +18,15 @@ public class TurnService
         get { return _instance ?? (_instance = new TurnService()); }    
     }
 
+    public bool EndGame { get; set; }
+
     public void NextTurn()
     {
         if (DialogueService.Instance.Active)
             return;
+
+        if(EndGame)
+            SceneManager.LoadScene("GameOver");
 
         UnitService.Instance.RefreshMovementPoints();
         TileMapService.Instance.Map.TurnRefresh();

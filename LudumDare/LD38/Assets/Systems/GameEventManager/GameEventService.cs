@@ -41,11 +41,22 @@ namespace Assets.Systems.GameEventManager
                         }
                         break;
                     }
-                    case GameEventTriggerType.BuildingsControlled:
+                    case GameEventTriggerType.BuildingsControlledOrMore:
                     {
                         var t = trig; //Closure compatability with unity.
                         if (TileMapService.Instance.Map.Buildings.Count(
                                 b => b.PlayerOwned && b.Type == t.BuildingType) >= trig.TriggerValue)
+                        {
+                            RunTrigger(trig);
+                            spent.Add(trig);
+                        }
+                        break;
+                    }
+                    case GameEventTriggerType.BuildingsControlledOrLess:
+                    {
+                        var t = trig; //Closure compatability with unity.
+                        if (TileMapService.Instance.Map.Buildings.Count(
+                                b => b.PlayerOwned && b.Type == t.BuildingType) <= trig.TriggerValue)
                         {
                             RunTrigger(trig);
                             spent.Add(trig);
@@ -81,7 +92,8 @@ namespace Assets.Systems.GameEventManager
                     AIService.Instance.ChangeSpawnSetting(trig.ActionValue);
                     break;
                 case GameEventTriggerActionType.EndGame:
-                    //TODO: impliment end game.
+                    DialogueService.Instance.StartDialoue(trig.ActionValue);
+                    TurnService.Instance.EndGame = true;
                     break;
                 case GameEventTriggerActionType.Dialogue:
                     DialogueService.Instance.StartDialoue(trig.ActionValue);

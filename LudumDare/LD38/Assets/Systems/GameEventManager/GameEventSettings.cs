@@ -1,17 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Assets.Systems.TileMap;
-using UnityEngine;
-using UnityEngine.UI;
 
 namespace Assets.Systems.GameEventManager
 {
     public enum GameEventTriggerType
     {
         Turn,
-        BuildingsControlled,
+        BuildingsControlledOrMore,
+        BuildingsControlledOrLess,
         BuildingsExist
     }
 
