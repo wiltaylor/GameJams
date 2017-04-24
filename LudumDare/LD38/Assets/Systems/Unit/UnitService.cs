@@ -126,7 +126,9 @@ namespace Assets.Systems.Unit
             unit.X = x;
             unit.Y = y;
             UnitChanged(this, new UnitEventArgs {ChangedUnit = unit});
-            TileMapService.Instance.Map.RevealMap(x, y, unit.ViewRange);
+
+            if(unit.Faction == UnitFaction.Player)
+                TileMapService.Instance.Map.RevealMap(x, y, unit.ViewRange);
         }
 
         public void RefreshMovementPoints()

@@ -194,6 +194,10 @@ public class TileMapView : MonoBehaviour
             view.Y = unit.Y;
         }
 
+        var tile = _map.MapData[view.X, view.Y];
+
+        view.gameObject.SetActive(tile.Visable);
+
         if(unit.Hp <= 0)
             view.Fall();
     }
