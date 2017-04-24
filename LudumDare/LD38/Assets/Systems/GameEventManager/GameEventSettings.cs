@@ -15,7 +15,8 @@ namespace Assets.Systems.GameEventManager
     {
         SwitchSpawnProfile,
         EndGame,
-        Dialogue
+        Dialogue,
+        ChangePlaylist
     }
 
     [Serializable]

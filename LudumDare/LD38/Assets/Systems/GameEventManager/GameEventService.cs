@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Assets.Systems.AI;
 using Assets.Systems.dx;
+using Assets.Systems.Music;
 using Assets.Systems.TileMap;
 
 namespace Assets.Systems.GameEventManager
@@ -97,6 +98,9 @@ namespace Assets.Systems.GameEventManager
                     break;
                 case GameEventTriggerActionType.Dialogue:
                     DialogueService.Instance.StartDialoue(trig.ActionValue);
+                    break;
+                case GameEventTriggerActionType.ChangePlaylist:
+                    MusicService.Instance.SetPlaylist(trig.ActionValue);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
