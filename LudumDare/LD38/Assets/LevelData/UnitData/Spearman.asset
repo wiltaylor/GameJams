@@ -13,8 +13,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 5
   Name: Spearman
-  MaxHp: 6
-  MinHp: 4
+  MaxHp: 10
+  MinHp: 6
   MaxAttack: 5
   MinAttack: 3
   Actions: 0100000002000000
@@ -26,3 +26,7 @@ MonoBehaviour:
   HumanCost: 1
   IronCost: 0
   ViewRange: 2
+  HealRange: 0
+  HealAmmount: 0
+  HealDamage: 0
+  MineDamage: 0

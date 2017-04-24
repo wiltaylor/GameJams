@@ -16,12 +16,42 @@ MonoBehaviour:
   - Name: StartLevel
     Spawns:
     - Type: 2
-      SpawnChance: 100
+      SpawnChance: 40
       Qty: 1
     - Type: 6
-      SpawnChance: 100
+      SpawnChance: 20
       Qty: 1
+    - Type: 7
+      SpawnChance: 30
+      Qty: 1
+    WaveFrequency: 1
+  - Name: MidGame
+    Spawns:
+    - Type: 2
+      SpawnChance: 75
+      Qty: 2
+    - Type: 6
+      SpawnChance: 50
+      Qty: 1
+    - Type: 7
+      SpawnChance: 60
+      Qty: 1
+    WaveFrequency: 2
+  - Name: EndGame
+    Spawns:
+    - Type: 2
+      SpawnChance: 100
+      Qty: 3
+    - Type: 6
+      SpawnChance: 80
+      Qty: 2
     - Type: 7
       SpawnChance: 100
       Qty: 1
-    WaveFrequency: 10
+    - Type: 2
+      SpawnChance: 35
+      Qty: 5
+    - Type: 7
+      SpawnChance: 80
+      Qty: 2
+    WaveFrequency: 3

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 4
   Name: Knight
-  MaxHp: 10
-  MinHp: 8
+  MaxHp: 20
+  MinHp: 15
   MaxAttack: 8
   MinAttack: 6
   Actions: 0100000002000000
@@ -26,3 +26,7 @@ MonoBehaviour:
   HumanCost: 2
   IronCost: 1
   ViewRange: 2
+  HealRange: 0
+  HealAmmount: 0
+  HealDamage: 0
+  MineDamage: 0

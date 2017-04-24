@@ -102,7 +102,7 @@ MonoBehaviour:
     ActionType: 2
     ActionValue: TurnFifty
   - TriggerType: 1
-    TriggerValue: 2
+    TriggerValue: 5
     BuildingType: 0
     ActionType: 1
     ActionValue: WinningEnding
@@ -116,6 +116,16 @@ MonoBehaviour:
     BuildingType: 0
     ActionType: 3
     ActionValue: Chill
+  - TriggerType: 0
+    TriggerValue: 30
+    BuildingType: 0
+    ActionType: 0
+    ActionValue: MidGame
+  - TriggerType: 0
+    TriggerValue: 60
+    BuildingType: 0
+    ActionType: 0
+    ActionValue: EndGame
   Dialogue:
   - {fileID: 11400000, guid: 54c120d3837125f4fa2e3662c4f46bce, type: 2}
   - {fileID: 11400000, guid: 0765f0a68052c4347a6f8ba4f39f7641, type: 2}

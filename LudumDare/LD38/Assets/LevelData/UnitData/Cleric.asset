@@ -15,17 +15,18 @@ MonoBehaviour:
   Name: Cleric
   MaxHp: 2
   MinHp: 2
-  MaxAttack: 20
+  MaxAttack: 30
   MinAttack: 1
   Actions: 0200000003000000
   CanSpawnInCity: 1
   CanSpawnInDemonGate: 0
   CanSpawnOn: 020000000300000004000000050000000600000007000000
   MovePoints: 3
-  FaithCost: 10
+  FaithCost: 15
   HumanCost: 0
   IronCost: 0
   ViewRange: 6
   HealRange: 6
   HealAmmount: 10
   HealDamage: 0.5
+  MineDamage: 0

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 6
   Name: Spider
-  MaxHp: 20
-  MinHp: 10
+  MaxHp: 30
+  MinHp: 20
   MaxAttack: 8
   MinAttack: 4
   Actions: 0100000002000000
@@ -26,3 +26,7 @@ MonoBehaviour:
   HumanCost: 0
   IronCost: 0
   ViewRange: 2
+  HealRange: 0
+  HealAmmount: 0
+  HealDamage: 0
+  MineDamage: 0
