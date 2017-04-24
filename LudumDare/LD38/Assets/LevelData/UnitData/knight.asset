@@ -14,15 +14,15 @@ MonoBehaviour:
   Type: 4
   Name: Knight
   MaxHp: 10
-  MinHp: 5
-  MaxAttack: 10
-  MinAttack: 5
+  MinHp: 8
+  MaxAttack: 8
+  MinAttack: 6
   Actions: 0100000002000000
   CanSpawnInCity: 1
   CanSpawnInDemonGate: 0
   CanSpawnOn: 020000000300000004000000050000000600000007000000
-  MovePoints: 2
-  FaithCost: 5
-  HumanCost: 0
-  IronCost: 0
+  MovePoints: 5
+  FaithCost: 10
+  HumanCost: 2
+  IronCost: 1
   ViewRange: 2

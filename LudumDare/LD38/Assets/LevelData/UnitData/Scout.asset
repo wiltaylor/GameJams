@@ -13,16 +13,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 0
   Name: Scout
-  MaxHp: 10
+  MaxHp: 2
   MinHp: 1
-  MaxAttack: 100
-  MinAttack: 50
+  MaxAttack: 1
+  MinAttack: 1
   Actions: 0100000002000000
-  CanSpawnInCity: 0
+  CanSpawnInCity: 1
   CanSpawnInDemonGate: 0
   CanSpawnOn: 0200000003000000040000000500000006000000
-  MovePoints: 4
-  FaithCost: 1
+  MovePoints: 8
+  FaithCost: 2
   HumanCost: 0
   IronCost: 0
-  ViewRange: 6
+  ViewRange: 4

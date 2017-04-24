@@ -13,16 +13,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 5
   Name: Spearman
-  MaxHp: 5
-  MinHp: 5
-  MaxAttack: 1
-  MinAttack: 1
+  MaxHp: 6
+  MinHp: 4
+  MaxAttack: 5
+  MinAttack: 3
   Actions: 0100000002000000
   CanSpawnInCity: 1
   CanSpawnInDemonGate: 0
   CanSpawnOn: 
-  MovePoints: 2
-  FaithCost: 1
-  HumanCost: 0
+  MovePoints: 4
+  FaithCost: 8
+  HumanCost: 1
   IronCost: 0
   ViewRange: 2

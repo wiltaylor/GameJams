@@ -13,16 +13,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 1
   Name: Worker
-  MaxHp: 10
+  MaxHp: 1
   MinHp: 1
-  MaxAttack: 0
-  MinAttack: 0
+  MaxAttack: 1
+  MinAttack: 1
   Actions: 00000000
   CanSpawnInCity: 1
   CanSpawnInDemonGate: 0
   CanSpawnOn: 020000000300000004000000050000000600000007000000
-  MovePoints: 2
-  FaithCost: 1
-  HumanCost: 0
+  MovePoints: 4
+  FaithCost: 4
+  HumanCost: 1
   IronCost: 0
   ViewRange: 2
