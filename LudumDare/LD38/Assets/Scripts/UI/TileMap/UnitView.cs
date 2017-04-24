@@ -20,7 +20,8 @@ public class UnitView : MonoBehaviour
 
     public void Fall()
     {
-        _animator.SetTrigger("KillTile");
+        if(_animator != null)
+            _animator.SetTrigger("KillTile");
     }
 
     public void EndAnimation()

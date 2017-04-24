@@ -60,7 +60,7 @@ namespace Assets.Systems.AI
                 }
 
 
-                var movepoint = accessable.Where(m => !m.HasUnit).OrderBy(u => rnd.Next()).FirstOrDefault();
+                var movepoint = accessable.Where(m => !m.HasUnit && !m.IsCity).OrderBy(u => rnd.Next()).FirstOrDefault();
 
                 if (movepoint == null)
                     continue;
