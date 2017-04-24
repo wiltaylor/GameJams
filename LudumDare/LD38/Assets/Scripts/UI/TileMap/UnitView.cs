@@ -1,13 +1,13 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 public class UnitView : MonoBehaviour
 {
     public int X;
     public int Y;
-    public GUID Id;
+    public Guid Id;
 
     private Animator _animator;
     private SpriteRenderer _render;

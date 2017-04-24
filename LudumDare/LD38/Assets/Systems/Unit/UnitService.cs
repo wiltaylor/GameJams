@@ -6,7 +6,6 @@ using Assets.Systems.Music;
 using Assets.Systems.NameGenerator;
 using Assets.Systems.PlayerManager;
 using Assets.Systems.TileMap;
-using UnityEditor;
 using Random = UnityEngine.Random;
 
 namespace Assets.Systems.Unit
@@ -109,7 +108,7 @@ namespace Assets.Systems.Unit
                 Faction = faction,
                 Type = type,
                 MovePoints = settings.MovePoints,
-                UnitId = GUID.Generate(),
+                UnitId = Guid.NewGuid(),
                 ViewRange = settings.ViewRange,
                 Name = NameService.Instance.NewUnitName(faction, type),
                 Healrange =  settings.HealRange,

@@ -122,6 +122,11 @@ MonoBehaviour:
     ActionType: 0
     ActionValue: MidGame
   - TriggerType: 0
+    TriggerValue: 1
+    BuildingType: 0
+    ActionType: 0
+    ActionValue: StartLevel
+  - TriggerType: 0
     TriggerValue: 60
     BuildingType: 0
     ActionType: 0

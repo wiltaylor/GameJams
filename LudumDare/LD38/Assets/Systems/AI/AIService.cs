@@ -28,6 +28,7 @@ namespace Assets.Systems.AI
 
         public void ChangeSpawnSetting(string name)
         {
+            _spawnQueue.Clear();
             _currentSpawnSetting = _aiSpawnProfile.Setting.First(s => s.Name == name);
             _turnsTillSpawn = _currentSpawnSetting.WaveFrequency;
         }

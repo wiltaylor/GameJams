@@ -25,8 +25,12 @@ public class TurnService
         if (DialogueService.Instance.Active)
             return;
 
-        if(EndGame)
+        if (EndGame)
+        {
+            EndGame = false;
+            Turn = 0;
             SceneManager.LoadScene("Credits");
+        }
 
         UnitService.Instance.RefreshMovementPoints();
         TileMapService.Instance.Map.TurnRefresh();

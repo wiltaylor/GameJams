@@ -1,4 +1,4 @@
-﻿using UnityEditor;
+﻿using System;
 
 namespace Assets.Systems.Unit
 {
@@ -21,7 +21,7 @@ namespace Assets.Systems.Unit
         public UnitAction[] Actions { get; set; }
         public UnitFaction Faction { get; set; }
         public UnitType Type { get; set; }
-        public GUID UnitId { get; set; } 
+        public Guid UnitId { get; set; } 
         public int ViewRange { get; set; }
         public string Name { get; set; }
         public int Healrange { get; set; }
