@@ -257,12 +257,18 @@ namespace Assets.Systems.Unit
 
             if (!(building.Hp <= 0)) return;
 
+            if (unit.Faction != UnitFaction.Player && building.Type == BuildingType.City)
+            {
+                PlayerService.Instance.TotalHumans -= building.HumanPerOwn;
+            }
+
             if (unit.Faction == UnitFaction.Player && building.Type == BuildingType.City)
             {
                 building.PlayerOwned = true;
                 building.Hp = building.MaxHp;
                 MoveUnit(unit, x, y);
                 TileMapService.Instance.Map.RefreshBuilding(building);
+                PlayerService.Instance.TotalHumans += building.HumanPerOwn;
             }
             else
             {
