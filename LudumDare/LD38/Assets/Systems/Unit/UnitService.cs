@@ -29,6 +29,11 @@ namespace Assets.Systems.Unit
             _unitSettings = settings;
         }
 
+        public Unit GetUnitById(Guid id)
+        {
+            return _allUnits.FirstOrDefault(u => u.UnitId == id);
+        }
+
         public UnitSettings GetUnitSettings(UnitType type)
         {
             return _unitSettings.FirstOrDefault(u => u.Type == type);

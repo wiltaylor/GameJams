@@ -46,6 +46,11 @@ public class TileMapView : MonoBehaviour
         UnitService.Instance.UnitChanged -= UnitChanged;
     }
 
+    private void Update()
+    {
+        ReconsileUnits();
+    }
+
 	private void Start ()
 	{
 	    NameService.Instance.AssignNames(TileSet.Names);
@@ -163,6 +168,37 @@ public class TileMapView : MonoBehaviour
         foreach (var h in hviews)
         {
             h.Highlight(true);
+        }
+    }
+
+    private void ReconsileUnits()
+    {
+        foreach (var view in _units.ToArray())
+        {
+            var unit = UnitService.Instance.GetUnitById(view.Id);
+
+            if (unit == null)
+            {
+                view.Fall();
+                return;
+            }
+
+            if(unit.Hp <= 0)
+                UnitService.Instance.KillUnitAt(unit.X, unit.Y);
+
+            if (unit.X != view.X || unit.Y != view.Y)
+            {
+                view.X = unit.X;
+                view.Y = unit.Y;
+                view.transform.position = new Vector3(unit.X * (TilePixelWidth * 0.01f), unit.Y * (TilePixelHeight * 0.01f));
+            }
+
+            var tile = TileMapService.Instance.Map.MapData[unit.X, unit.Y];
+
+            if(tile.TileType == TileType.Void)
+                UnitService.Instance.KillUnitAt(unit.X, unit.Y);
+
+            view.gameObject.SetActive(tile.Visable);
         }
     }
 

@@ -63,6 +63,9 @@ namespace Assets.Systems.CommandManager
         {
             if (SelectionState != CommandSelectionState.Unit || SelectedUnit.Faction != UnitFaction.Player) return;
 
+            if (UnitMoveRange == null)
+                return;
+
             var coords = UnitMoveRange.FirstOrDefault(m => m.X == x && m.Y == y);
 
             if (coords == null) return;
