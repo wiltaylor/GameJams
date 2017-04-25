@@ -257,7 +257,7 @@ namespace Assets.Systems.Unit
 
             if (!(building.Hp <= 0)) return;
 
-            if (unit.Faction != UnitFaction.Player && building.Type == BuildingType.City)
+            if (unit.Faction != UnitFaction.Player && building.Type == BuildingType.City && building.PlayerOwned)
             {
                 PlayerService.Instance.TotalHumans -= building.HumanPerOwn;
             }
