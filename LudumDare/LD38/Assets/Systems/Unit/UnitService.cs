@@ -220,7 +220,11 @@ namespace Assets.Systems.Unit
                 return;
 
             KillUnitAt(x, y);
-            MoveUnit(unit, x, y);
+
+            var building = TileMapService.Instance.Map.GetBuildingAt(x, y);
+
+            if(building == null)
+                MoveUnit(unit, x, y);
         }
 
         private void AttackBuilding(Building building, int x, int y, Unit unit, IEnumerable<TileCords> attackRange)
@@ -231,7 +235,7 @@ namespace Assets.Systems.Unit
             if (!IsAttackPosition(x, y, unit.X, unit.Y))
             {
                 var newAttackPosition =
-                    attackRange.FirstOrDefault(c => IsAttackPosition(x, y, c.X, c.Y));
+                    attackRange.FirstOrDefault(c => IsAttackPosition(x, y, c.X, c.Y) && c.HasBuilding == false && c.HasUnit == false);
 
                 if (newAttackPosition == null)
                     return;
