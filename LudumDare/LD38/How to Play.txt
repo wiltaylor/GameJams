@@ -29,5 +29,7 @@ Iron Ore/Mine - Grants iron, allowing you to build the powerful Knight unit.
 
 Energy Temple/Shrine - Provides faith, the basic building blocks of any good crusade.
 
+Hell Portals - Demonic creatures are spawning from these things. If you send a unit in, they will be able to destory it, but at what cost?
+
 WINNING THE GAME
 The world has fallen from grace and you must mount a successful Crusade against the other nearby cities. If you convert enough of them, your faith will gain you favour with God and the apocolypse should be avoided. Right?
