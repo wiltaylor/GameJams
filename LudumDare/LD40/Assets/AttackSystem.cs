@@ -53,5 +53,9 @@ public class AttackSystem : MonoBehaviour
         OnDown.Invoke();
     }
 
-    
+
+    public bool IsReady()
+    {
+        return !HasCompletedDown && _animator.GetBool("isReady");
+    }
 }

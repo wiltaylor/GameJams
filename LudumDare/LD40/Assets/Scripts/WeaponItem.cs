@@ -16,4 +16,6 @@ public class WeaponItem : ScriptableObject
     public GameObject WeaponSystem;
     public float Damage;
     public GameObject Projectile;
+    public float ProjectileSpeed;
+    public GameObject AIGun;
 }

@@ -6,6 +6,7 @@ public class Projectile : MonoBehaviour
 {
 
     public float Damage;
+    public float TimeOut = 20f;
 
     private Rigidbody _rigidbody;
     public void Shoot(float speed, Vector3 direction)
@@ -22,10 +23,21 @@ public class Projectile : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        //do damage
+        var hitbox = collision.transform.GetComponent<HitBox>();
+
+        if (hitbox != null)
+        {
+            hitbox.DoDamage(Damage);
+        }
 
         Destroy(gameObject);
     }
 
+    void Update()
+    {
+        TimeOut -= Time.deltaTime;
 
+        if(TimeOut < 0f)
+            Destroy(gameObject);
+    }
 }

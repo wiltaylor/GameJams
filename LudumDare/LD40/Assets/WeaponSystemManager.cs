@@ -27,25 +27,35 @@ public class WeaponSystemManager : MonoBehaviour
         _attackSystems[_weaponIndex].gameObject.SetActive(true);
         _attackSystems[_weaponIndex].Up();
     }
-	
+
+    private void ShootProjectile()
+    {
+        if (Registry.Weapons[_weaponIndex].Type == AttackType.Projectile)
+        {
+            var bullet = Instantiate(Registry.Weapons[_weaponIndex].Projectile);
+            var controller = bullet.GetComponent<Projectile>();
+            controller.transform.position = BulletPoint.position;
+            controller.Damage = Registry.Weapons[_weaponIndex].Damage;
+
+            controller.Shoot(Registry.Weapons[_weaponIndex].ProjectileSpeed, BulletPoint.forward);
+        }
+    }
+
 	// Update is called once per frame
 	void Update ()
     {
-        if (!_attacking && Input.GetButtonDown("Fire1"))
+        if (_attacking && _attackSystems[_weaponIndex].IsReady())
+        {
+            ShootProjectile();
+        }
+
+        if (!_attacking && Input.GetButtonDown("Fire1") && _attackSystems[_weaponIndex].IsReady())
         {
             _attacking = true;
 
             _attackSystems[_weaponIndex].StartAttack();
 
-            if (Registry.Weapons[_weaponIndex].Type == AttackType.Projectile)
-            {
-                var bullet = Instantiate(Registry.Weapons[_weaponIndex].Projectile);
-                var controller = bullet.GetComponent<Projectile>();
-                controller.transform.position = BulletPoint.position;
-                controller.Damage = Registry.Weapons[_weaponIndex].Damage;
-
-                controller.Shoot(1, BulletPoint.forward);
-            }
+            ShootProjectile();
         }
 
         if (_attacking && Input.GetButtonUp("Fire1"))
