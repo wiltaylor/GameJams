@@ -8,12 +8,23 @@ public class PlayerInventory : MonoBehaviour
     public List<QuestItem>  QuestItems = new List<QuestItem>();
     public Camera MainCamera;
     public float UseDistance = 10f;
+    public int Gold;
 
     
     public void PickupQuestItem(QuestItem item)
     {
         if(!QuestItems.Contains(item))
             QuestItems.Add(item);
+    }
+
+    public void PickUpAmmo(AmmoPickUp pickup)
+    {
+        Debug.Log("Pickup ammo!");
+    }
+
+    public void PickUpGold(int ammount)
+    {
+        Gold += ammount;
     }
 
     void Update()

@@ -21,4 +21,12 @@ public class Health : MonoBehaviour
         else
             OnDeath.Invoke();
     }
+
+    public void PickUpHealth(float ammount)
+    {
+        CurrentHealth += ammount;
+
+        if (CurrentHealth > MaxHealth)
+            CurrentHealth = MaxHealth;
+    }
 }

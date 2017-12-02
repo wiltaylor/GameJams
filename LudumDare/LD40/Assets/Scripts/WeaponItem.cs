@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts;
+using UnityEngine;
 
 
 public enum AttackType
@@ -18,4 +19,5 @@ public class WeaponItem : ScriptableObject
     public GameObject Projectile;
     public float ProjectileSpeed;
     public GameObject AIGun;
+    public AmmoType Ammo;
 }

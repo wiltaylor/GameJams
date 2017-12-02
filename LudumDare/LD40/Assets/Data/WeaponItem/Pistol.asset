@@ -18,5 +18,5 @@ MonoBehaviour:
     type: 2}
   Damage: 10
   Projectile: {fileID: 1311494123450812, guid: 8b03a3c89e5b893468b5550e47dc5fe0, type: 2}
-  ProjectileSpeed: 20
+  ProjectileSpeed: 5
   AIGun: {fileID: 1350656237031660, guid: 5fe13a2f5c0498e4e96d70eb9750a136, type: 2}

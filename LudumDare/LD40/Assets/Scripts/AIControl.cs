@@ -1,4 +1,5 @@
-﻿using Microsoft.Win32;
+﻿using System.Linq;
+using Microsoft.Win32;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -6,9 +7,10 @@ public class AIControl : MonoBehaviour
 {
     public GameObject WeaponSlot;
     public WeaponItem Weapon;
-
-
+    public float DeathTimeOut = 5f;
+    public ParticleSystem MeatFountain;
     private Transform _bulletPoint;
+    private Vector3 _shootTarget;
 
     public Vector3 MoveTarget
     {
@@ -45,21 +47,40 @@ public class AIControl : MonoBehaviour
     public void ShootAt(Vector3 point)
     {
         transform.LookAt(point);
+        _shootTarget = point;
+
+
         _animator.SetTrigger("Shoot");
     }
 
     public void FireProjectile()
     {
+        _bulletPoint.LookAt(_shootTarget);
+
+
         var bullet = Instantiate(Weapon.Projectile);
         var controller = bullet.GetComponent<Projectile>();
         controller.transform.position = _bulletPoint.position;
         controller.Damage = Weapon.Damage;
-        controller.Shoot(Weapon.ProjectileSpeed, transform.forward);
+        controller.Shoot(Weapon.ProjectileSpeed, _bulletPoint.forward);
     }
 
     public void Die()
     {
-        Destroy(gameObject);
+        Destroy(gameObject, DeathTimeOut);
+        MeatFountain.gameObject.SetActive(true);
+        foreach (var c in GetComponentsInChildren<BoxCollider>())
+            c.enabled = false;
+
+        _agent.enabled = false;
+        _animator.ResetTrigger("Shoot");
+
+        GetComponent<AIAnimation>().enabled = false;
+
+        GetComponent<AttackAI>().enabled = false;
+        //enabled = false;
+
+        _animator.SetTrigger("Dead");
     }
 
     public void Stop()

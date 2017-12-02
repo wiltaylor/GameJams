@@ -24,6 +24,8 @@ GameObject:
   - component: {fileID: 54569385302818834}
   - component: {fileID: 82407820732048920}
   - component: {fileID: 114736634534941458}
+  - component: {fileID: 114767435913553702}
+  - component: {fileID: 114577122819947888}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -46,6 +48,21 @@ GameObject:
   m_Name: FirstPersonCharacter
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1831802860473656
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4588447262575184}
+  m_Layer: 10
+  m_Name: BulletPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: -6488666005112524639, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -90,7 +107,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 4588447262575184}
   m_Father: {fileID: 4382506147936768}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -122,6 +140,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4382506147936768}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4588447262575184
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1831802860473656}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.422, y: 0, z: 1.666}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4090965389596758}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4741267788205072
 Transform:
@@ -308,6 +339,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &114577122819947888
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1261878527030270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8b5f7fa9a5abfc4fbd571627d505c8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetHealth: {fileID: 114767435913553702}
+  Modifer: 1
 --- !u!114 &114736634534941458
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -322,6 +366,30 @@ MonoBehaviour:
   QuestItems: []
   MainCamera: {fileID: 20153380115936096}
   UseDistance: 10
+--- !u!114 &114767435913553702
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1261878527030270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a372e2943b1a358448302e3962d1240b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHealth: 100
+  CurrentHealth: 100
+  Invincible: 0
+  OnHit:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114972851093275898
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -335,7 +403,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Inventory: {fileID: 0}
   Registry: {fileID: 11400000, guid: 631148b262a59624a8590799bdab7b96, type: 2}
-  BulletPoint: {fileID: 4090965389596758}
+  BulletPoint: {fileID: 4588447262575184}
 --- !u!114 &114984541541285496
 MonoBehaviour:
   m_ObjectHideFlags: 1
