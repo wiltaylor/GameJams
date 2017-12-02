@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 54569385302818834}
   - component: {fileID: 82407820732048920}
   - component: {fileID: 114736634534941458}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 20153380115936096}
   - component: {fileID: 81565508973154748}
   - component: {fileID: 124755550644570298}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FirstPersonCharacter
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -59,8 +59,23 @@ GameObject:
   - component: {fileID: 4429045557753918}
   - component: {fileID: 20598657070427984}
   - component: {fileID: 114972851093275898}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: WeaponCamera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1931384688059014
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4741267788205072}
+  m_Layer: 10
+  m_Name: MeeleZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -91,6 +106,7 @@ Transform:
   m_Children:
   - {fileID: 4090965389596758}
   - {fileID: 4429045557753918}
+  - {fileID: 4741267788205072}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -106,6 +122,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4382506147936768}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4741267788205072
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1931384688059014}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4382506147936768}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &20153380115936096
 Camera:
