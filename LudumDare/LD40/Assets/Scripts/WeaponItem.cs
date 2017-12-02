@@ -15,4 +15,5 @@ public class WeaponItem : ScriptableObject
     public AttackType Type;
     public GameObject WeaponSystem;
     public float Damage;
+    public GameObject Projectile;
 }

@@ -17,3 +17,4 @@ MonoBehaviour:
   WeaponSystem: {fileID: 1158686841372308, guid: 3e6ed97899b6e874ebfa91a83ed21a99,
     type: 2}
   Damage: 10
+  Projectile: {fileID: 1311494123450812, guid: 8b03a3c89e5b893468b5550e47dc5fe0, type: 2}

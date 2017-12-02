@@ -335,6 +335,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Inventory: {fileID: 0}
   Registry: {fileID: 11400000, guid: 631148b262a59624a8590799bdab7b96, type: 2}
+  BulletPoint: {fileID: 4090965389596758}
 --- !u!114 &114984541541285496
 MonoBehaviour:
   m_ObjectHideFlags: 1
