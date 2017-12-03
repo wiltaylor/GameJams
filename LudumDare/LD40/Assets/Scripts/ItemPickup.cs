@@ -14,6 +14,7 @@ public class ItemPickup : MonoBehaviour
     public int Ammo;
     public AmmoType AmmoType;
     public int Gold;
+    public WeaponItem Weapon;
 
 
     void OnTriggerEnter(Collider other)
@@ -35,6 +36,9 @@ public class ItemPickup : MonoBehaviour
             {
                 other.gameObject.SendMessage("PickUpGold", Gold);
             }
+
+            if(Weapon != null)
+                other.gameObject.SendMessage("PickUpWeapon", Weapon);
 
             Destroy(gameObject);
         }

@@ -12,10 +12,14 @@ public class PlayerInventory : MonoBehaviour
     public PlayerStats Stats;
 
     public Dictionary<AmmoType, int> Ammo = new Dictionary<AmmoType, int>();
+    public List<WeaponItem> Weapons = new List<WeaponItem>();
 
     void Start()
     {
+        GameManger.Instance.RestorePlayer(this);
+
         Stats.QuestItems = QuestItems;
+        Stats.Weapons = Weapons;
     }
 
     public void PickupQuestItem(QuestItem item)
@@ -43,6 +47,12 @@ public class PlayerInventory : MonoBehaviour
     {
         Gold += ammount;
         Stats.Score = Gold;
+    }
+
+    public void PickUpWeapon(WeaponItem weapon)
+    {
+        if(!Weapons.Contains(weapon))
+            Weapons.Add(weapon);
     }
 
     void Update()

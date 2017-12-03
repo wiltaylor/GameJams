@@ -25,10 +25,41 @@ public class WeaponSystemManager : MonoBehaviour
             _attackSystems.Add(obj.GetComponent<AttackSystem>());
         }
 
+        _weaponIndex = -1;
+        _weaponIndex = NextAvailableWeapon(true);
+
         _attackSystems[_weaponIndex].gameObject.SetActive(true);
         _attackSystems[_weaponIndex].Up();
 
         UpdateGameStats();
+    }
+
+    private int NextAvailableWeapon(bool forward)
+    {
+        var index = _weaponIndex;
+
+        while (true)
+        {
+            if (forward)
+                index++;
+            else
+                index--;
+
+            //Prevent infinite loop
+            if (index == _weaponIndex)
+                break;
+
+            if (index >= _attackSystems.Count)
+                index = 0;
+
+            if (index < 0)
+                index = _attackSystems.Count - 1;
+
+            if (Inventory.Weapons.Contains(Registry.Weapons[index]))
+                break;
+        }
+
+        return index;
     }
 
     private void ShootProjectile()
@@ -118,13 +149,15 @@ public class WeaponSystemManager : MonoBehaviour
 
             _attackSystems[_weaponIndex].gameObject.SetActive(false);
 
-            _weaponIndex++;
+            _weaponIndex = NextAvailableWeapon(true);
 
-            if (_weaponIndex >= _attackSystems.Count)
-                _weaponIndex = 0;
+            Stats.CurrentWeapon = Registry.Weapons[_weaponIndex];
+
 
             _attackSystems[_weaponIndex].gameObject.SetActive(true);
             _attackSystems[_weaponIndex].Up();
+
+            _attackSystems[_weaponIndex].MeeleDamage = Registry.Weapons[_weaponIndex].Damage;
 
             UpdateGameStats();
         }

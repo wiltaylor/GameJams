@@ -7,7 +7,6 @@ public class QuestItemRenderer : MonoBehaviour
 
     public PlayerStats Stats;
     public GameObject ImagePrefab;
-    public float Offset = 32f;
     private List<Image> _images = new List<Image>();
     private int _lastcount = -1;
     
@@ -19,8 +18,6 @@ public class QuestItemRenderer : MonoBehaviour
         }
 
         _images.Clear();
-
-        var currentOffset = Offset;
 
         foreach (var img in Stats.QuestItems)
         {

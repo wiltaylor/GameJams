@@ -1,9 +1,11 @@
 ﻿
+using Boo.Lang;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class AIControl : MonoBehaviour
 {
+    public ItemPickup[] DropList;
     public GameObject WeaponSlot;
     public WeaponItem Weapon;
     public float DeathTimeOut = 5f;
@@ -80,6 +82,13 @@ public class AIControl : MonoBehaviour
         //enabled = false;
 
         _animator.SetTrigger("Dead");
+
+        if(DropList != null)
+            foreach (var item in DropList)
+            {
+                var obj = Instantiate(item);
+                obj.transform.position = new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z);
+            }
     }
 
     public void Stop()

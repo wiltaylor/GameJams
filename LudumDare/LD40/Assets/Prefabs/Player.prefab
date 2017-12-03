@@ -104,7 +104,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1261878527030270}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.594, y: 2.3, z: 0}
+  m_LocalPosition: {x: -0.67807204, y: 7.794465e-18, z: -10.051031}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4090965389596758}
@@ -339,6 +339,8 @@ MonoBehaviour:
   UseDistance: 10
   Gold: 0
   Stats: {fileID: 11400000, guid: d74f1e4e3b76cdc4882151995e32621c, type: 2}
+  Weapons:
+  - {fileID: 11400000, guid: 0971af8fe49c39843ada319dcef9dffd, type: 2}
 --- !u!114 &114767435913553702
 MonoBehaviour:
   m_ObjectHideFlags: 1

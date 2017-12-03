@@ -12,6 +12,8 @@ public class PlayerStats : ScriptableObject
     public Sprite CurrentAmmoIcon;
     public int CurrentAmmoAmmount;
     public List<QuestItem> QuestItems;
+    public List<WeaponItem> Weapons;
+    public WeaponItem CurrentWeapon;
     public int Score;
 }
 
