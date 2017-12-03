@@ -14,9 +14,12 @@ public class PlayerInventory : MonoBehaviour
     public Dictionary<AmmoType, int> Ammo = new Dictionary<AmmoType, int>();
     public List<WeaponItem> Weapons = new List<WeaponItem>();
 
+    private bool _updatePlayerFromGameManager;
+
     void Start()
     {
-        GameManger.Instance.RestorePlayer(this);
+
+        _updatePlayerFromGameManager = true;
 
         Stats.QuestItems = QuestItems;
         Stats.Weapons = Weapons;
@@ -57,6 +60,13 @@ public class PlayerInventory : MonoBehaviour
 
     void Update()
     {
+
+        if (GameManger.Instance != null && _updatePlayerFromGameManager)
+        {
+            _updatePlayerFromGameManager = false;
+            GameManger.Instance.RestorePlayer(this);
+        }
+
         if (Input.GetButton("Use"))
         {
             RaycastHit hit;
