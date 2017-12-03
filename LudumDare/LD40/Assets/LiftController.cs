@@ -11,6 +11,7 @@ public class LiftController : MonoBehaviour
     public float Speed;
     public bool Moving;
     public bool Upwards;
+    public AudioSource LiftSound;
 
     public void ActivateLift()
     {
@@ -19,6 +20,8 @@ public class LiftController : MonoBehaviour
 
         Upwards = transform.position.y - Lower < Upper - transform.position.y;
         Moving = true;
+
+        LiftSound.Play();
     }
     
 	void Update ()
@@ -34,7 +37,9 @@ public class LiftController : MonoBehaviour
 	        {
 	            newVec = new Vector3(newVec.x, Upper, newVec.z);
 	            Moving = false;
-	        }
+	            LiftSound.Stop();
+
+            }
             
 	        transform.position = newVec;
 
@@ -48,7 +53,8 @@ public class LiftController : MonoBehaviour
 	        {
 	            Moving = false;
 	            newVec = new Vector3(newVec.x, Lower, newVec.z);
-	        }
+	            LiftSound.Stop();
+            }
 
 	        transform.position = newVec;
         }

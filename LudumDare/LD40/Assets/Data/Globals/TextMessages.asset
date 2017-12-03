@@ -8,8 +8,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba719b6dd6ec686478880652e37ad33d, type: 3}
-  m_Name: BlueKey 1
+  m_Script: {fileID: 11500000, guid: 299a66dfb9fc2324ab333de85b63af33, type: 3}
+  m_Name: TextMessages
   m_EditorClassIdentifier: 
-  Name: BlueKey1
-  Icon: {fileID: 21300000, guid: 26d99f1d4944ef9468a7f9f5d7d5d312, type: 3}

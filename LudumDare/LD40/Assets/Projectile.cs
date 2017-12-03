@@ -7,6 +7,7 @@ public class Projectile : MonoBehaviour
 
     public float Damage;
     public float TimeOut = 20f;
+    public AudioSource ShootSound;
 
     private Rigidbody _rigidbody;
     public void Shoot(float speed, Vector3 direction)
@@ -19,6 +20,9 @@ public class Projectile : MonoBehaviour
         }
 
         _rigidbody.velocity = direction * speed;
+
+        if(ShootSound != null)
+            ShootSound.Play();
     }
 
     void OnCollisionEnter(Collision collision)

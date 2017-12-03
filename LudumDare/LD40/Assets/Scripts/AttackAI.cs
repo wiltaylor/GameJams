@@ -17,9 +17,12 @@ public class AttackAI : MonoBehaviour
     public float SightDistance;
     public float StopingDistance = 0.1f;
     public LayerMask DetectionMask;
+    public float HaltCoolDown = 5f;
 
     private float _shootCoolDown = 0f;
     private AIControl _aiControl;
+
+    private float _haltCooldown;
 
     void Start()
     {
@@ -39,6 +42,16 @@ public class AttackAI : MonoBehaviour
         if (!Physics.Raycast(transform.position, direction, out hit, SightDistance))
             return false;
 
+        if (!hit.transform.CompareTag("Player"))
+            return false;
+
+        if (_haltCooldown <= 0f)
+        {
+            _aiControl.PlaySighted();
+            _haltCooldown = HaltCoolDown;
+        }
+        
+
         Target = player.transform;
         return true;
     }
@@ -46,6 +59,9 @@ public class AttackAI : MonoBehaviour
 
     void Update()
     {
+        if (_haltCooldown > 0f)
+            _haltCooldown -= Time.deltaTime;
+
         switch (State)
         {
             case AIState.Idle:

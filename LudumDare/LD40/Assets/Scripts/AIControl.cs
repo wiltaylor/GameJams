@@ -12,10 +12,17 @@ public class AIControl : MonoBehaviour
     public ParticleSystem MeatFountain;
     private Transform _bulletPoint;
     private Vector3 _shootTarget;
+    public AudioSource Sighted;
 
     public Vector3 MoveTarget
     {
         get { return _agent.destination; }
+    }
+
+    public void PlaySighted()
+    {
+        if(Sighted != null)
+            Sighted.Play();
     }
 
     public float DistanceToTarget

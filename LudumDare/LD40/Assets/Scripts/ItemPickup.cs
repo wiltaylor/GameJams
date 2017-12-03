@@ -15,13 +15,22 @@ public class ItemPickup : MonoBehaviour
     public AmmoType AmmoType;
     public int Gold;
     public WeaponItem Weapon;
+    public AudioSource Sound;
 
+    private bool _pickedUp;
 
     void OnTriggerEnter(Collider other)
     {
+        if (_pickedUp)
+            return;
+
+        
+
         if (other.CompareTag("Player"))
         {
-            if(Item != null)
+            _pickedUp = true;
+
+            if (Item != null)
                 other.gameObject.SendMessage("PickupQuestItem", Item);
 
             if(Health > 0f)
@@ -40,7 +49,10 @@ public class ItemPickup : MonoBehaviour
             if(Weapon != null)
                 other.gameObject.SendMessage("PickUpWeapon", Weapon);
 
-            Destroy(gameObject);
+            if(Sound != null)
+                Sound.Play();
+
+            Destroy(gameObject, 1f);
         }
     }
 }

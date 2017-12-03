@@ -8,6 +8,8 @@ public class AttackSystem : MonoBehaviour
     public UnityEvent OnUp;
     public UnityEvent OnDown;
 
+    public AudioSource MeeleConnectSound;
+
     public float MeeleDamage = 10f;
     public bool HasCompletedDown { get; private set; }
     private Animator _animator;
@@ -62,12 +64,14 @@ public class AttackSystem : MonoBehaviour
     {
         RaycastHit ray;
 
-        if(Physics.Raycast(transform.position, transform.forward, out ray, 1f))
-        {
-            var hitbox = ray.transform.GetComponent<HitBox>();
+        if (!Physics.Raycast(transform.position, transform.forward, out ray, 1f)) return;
 
-            if(hitbox != null)
-                hitbox.DoDamage(MeeleDamage);
-        }
+        if (MeeleConnectSound != null)
+            MeeleConnectSound.Play();
+
+        var hitbox = ray.transform.GetComponent<HitBox>();
+
+        if(hitbox != null)
+            hitbox.DoDamage(MeeleDamage);
     }
 }

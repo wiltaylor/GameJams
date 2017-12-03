@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class GameManger : MonoBehaviour
 {
 
+    public TextMessages Messages;
+
     private static GameManger _instance;
     private List<WeaponItem> _storedPlayerWeapons;
     private Dictionary<AmmoType, int> _storedPlayerAmmo;
@@ -54,6 +56,9 @@ public class GameManger : MonoBehaviour
         if(savePlayer)
             SavePlayer(_playerReference.GetComponent<PlayerInventory>());
 
+        Messages.Reset();
+
         SceneManager.LoadScene(levelName);
+
     }
 }

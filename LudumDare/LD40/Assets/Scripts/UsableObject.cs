@@ -9,6 +9,7 @@ public class UsableObject : MonoBehaviour
     public List<QuestItem> RequiredItems;
     public UnityEvent OnUse;
     public UnityEvent OnTimeout;
+    public UnityEvent OnFailItemCheck;
 
     public float TimeOut;
 
@@ -27,7 +28,6 @@ public class UsableObject : MonoBehaviour
 
     public void Use(List<QuestItem> items)
     {
-
         if (_animator != null)
         {
             if(!_animator.GetBool("isReady"))
@@ -47,8 +47,7 @@ public class UsableObject : MonoBehaviour
 
             if (itemsFound < RequiredItems.Count)
             {
-                Debug.Log("You need more items to open this!");
-                //TODO: put message to player here.
+                OnFailItemCheck.Invoke();
 
                 return;
             }
