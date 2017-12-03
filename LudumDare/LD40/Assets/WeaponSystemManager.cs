@@ -60,8 +60,6 @@ public class WeaponSystemManager : MonoBehaviour
     // Update is called once per frame
     void Update ()
 	{
-        //Update ammo display.
-
         if (_attacking && _attackSystems[_weaponIndex].IsReady())
         {
             if (Registry.Weapons[_weaponIndex].Ammo != null && Inventory.Ammo.ContainsKey(Registry.Weapons[_weaponIndex].Ammo) &&
@@ -130,7 +128,5 @@ public class WeaponSystemManager : MonoBehaviour
 
             UpdateGameStats();
         }
-        
-            
 	}
 }

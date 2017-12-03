@@ -8,9 +8,8 @@ public class AttackSystem : MonoBehaviour
     public UnityEvent OnUp;
     public UnityEvent OnDown;
 
+    public float MeeleDamage = 10f;
     public bool HasCompletedDown { get; private set; }
-
-
     private Animator _animator;
 
     void Start()
@@ -57,5 +56,18 @@ public class AttackSystem : MonoBehaviour
     public bool IsReady()
     {
         return !HasCompletedDown && _animator.GetBool("isReady");
+    }
+
+    public void MeeleConnect()
+    {
+        RaycastHit ray;
+
+        if(Physics.Raycast(transform.position, transform.forward, out ray, 1f))
+        {
+            var hitbox = ray.transform.GetComponent<HitBox>();
+
+            if(hitbox != null)
+                hitbox.DoDamage(MeeleDamage);
+        }
     }
 }
