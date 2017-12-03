@@ -1987,6 +1987,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: eb69da874acb7fc4782dea01cdad5a48, type: 2}
   m_IsPrefabParent: 0
+--- !u!82 &458309443 stripped
+AudioSource:
+  m_PrefabParentObject: {fileID: 82833796565611238, guid: 16b9be3037ec950498a41e77927969ad,
+    type: 2}
+  m_PrefabInternal: {fileID: 1543087480}
 --- !u!1001 &460916135
 Prefab:
   m_ObjectHideFlags: 0
@@ -6298,6 +6303,16 @@ Prefab:
     - target: {fileID: 1127896801833004, guid: 16b9be3037ec950498a41e77927969ad, type: 2}
       propertyPath: m_Name
       value: Heavy (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114511528385695596, guid: 16b9be3037ec950498a41e77927969ad,
+        type: 2}
+      propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 458309443}
+    - target: {fileID: 114511528385695596, guid: 16b9be3037ec950498a41e77927969ad,
+        type: 2}
+      propertyPath: OnDeath.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 16b9be3037ec950498a41e77927969ad, type: 2}
