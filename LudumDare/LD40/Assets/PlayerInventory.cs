@@ -9,9 +9,15 @@ public class PlayerInventory : MonoBehaviour
     public Camera MainCamera;
     public float UseDistance = 10f;
     public int Gold;
+    public PlayerStats Stats;
 
     public Dictionary<AmmoType, int> Ammo = new Dictionary<AmmoType, int>();
-    
+
+    void Start()
+    {
+        Stats.QuestItems = QuestItems;
+    }
+
     public void PickupQuestItem(QuestItem item)
     {
         if(!QuestItems.Contains(item))
@@ -36,6 +42,7 @@ public class PlayerInventory : MonoBehaviour
     public void PickUpGold(int ammount)
     {
         Gold += ammount;
+        Stats.Score = Gold;
     }
 
     void Update()

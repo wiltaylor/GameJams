@@ -8,6 +8,16 @@ public class Health : MonoBehaviour
     public bool Invincible;
     public UnityEvent OnHit;
     public UnityEvent OnDeath;
+    public PlayerStats PlayerStats;
+
+    void Start()
+    {
+        if (PlayerStats != null)
+        { 
+            PlayerStats.CurrentHP = CurrentHealth;
+            PlayerStats.MaxHP = MaxHealth;
+        }
+    }
 
     public void DoDamage(float ammount)
     {
@@ -15,6 +25,9 @@ public class Health : MonoBehaviour
             return;
 
         CurrentHealth -= ammount;
+
+        if(PlayerStats != null)
+        PlayerStats.CurrentHP = CurrentHealth;
 
         if(CurrentHealth > 0f)
             OnHit.Invoke();
@@ -28,5 +41,8 @@ public class Health : MonoBehaviour
 
         if (CurrentHealth > MaxHealth)
             CurrentHealth = MaxHealth;
+
+        if (PlayerStats != null)
+            PlayerStats.CurrentHP = CurrentHealth;
     }
 }

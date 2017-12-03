@@ -367,6 +367,7 @@ MonoBehaviour:
   MainCamera: {fileID: 20153380115936096}
   UseDistance: 10
   Gold: 0
+  Stats: {fileID: 11400000, guid: d74f1e4e3b76cdc4882151995e32621c, type: 2}
 --- !u!114 &114767435913553702
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -391,6 +392,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  PlayerStats: {fileID: 11400000, guid: d74f1e4e3b76cdc4882151995e32621c, type: 2}
 --- !u!114 &114972851093275898
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -405,6 +407,7 @@ MonoBehaviour:
   Inventory: {fileID: 114736634534941458}
   Registry: {fileID: 11400000, guid: 631148b262a59624a8590799bdab7b96, type: 2}
   BulletPoint: {fileID: 4588447262575184}
+  Stats: {fileID: 11400000, guid: d74f1e4e3b76cdc4882151995e32621c, type: 2}
 --- !u!114 &114984541541285496
 MonoBehaviour:
   m_ObjectHideFlags: 1
