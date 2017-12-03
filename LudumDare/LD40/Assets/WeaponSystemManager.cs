@@ -74,9 +74,6 @@ public class WeaponSystemManager : MonoBehaviour
             controller.Shoot(Registry.Weapons[_weaponIndex].ProjectileSpeed, BulletPoint.forward);
 
             Inventory.Ammo[Registry.Weapons[_weaponIndex].Ammo]--;
-
-            Stats.CurrentAmmoAmmount = Registry.Weapons[_weaponIndex].Ammo != null && Inventory.Ammo.ContainsKey(Registry.Weapons[_weaponIndex].Ammo) ? Inventory.Ammo[Registry.Weapons[_weaponIndex].Ammo] : 0;
-
         }
     }
 
@@ -91,6 +88,8 @@ public class WeaponSystemManager : MonoBehaviour
     // Update is called once per frame
     void Update ()
 	{
+	    Stats.CurrentAmmoAmmount = Registry.Weapons[_weaponIndex].Ammo != null && Inventory.Ammo.ContainsKey(Registry.Weapons[_weaponIndex].Ammo) ? Inventory.Ammo[Registry.Weapons[_weaponIndex].Ammo] : 0;
+
         if (_attacking && _attackSystems[_weaponIndex].IsReady())
         {
             if (Registry.Weapons[_weaponIndex].Ammo != null && Inventory.Ammo.ContainsKey(Registry.Weapons[_weaponIndex].Ammo) &&

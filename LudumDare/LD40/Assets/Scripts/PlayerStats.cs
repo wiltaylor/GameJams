@@ -15,5 +15,6 @@ public class PlayerStats : ScriptableObject
     public List<WeaponItem> Weapons;
     public WeaponItem CurrentWeapon;
     public int Score;
+    public bool BeenHit;
 }
 

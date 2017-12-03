@@ -50000,6 +50000,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb4103892f19e254b83edc762ee34655, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TimeOut: 0
 --- !u!1001 &1678805973
 Prefab:
   m_ObjectHideFlags: 0

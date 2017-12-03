@@ -26,8 +26,11 @@ public class Health : MonoBehaviour
 
         CurrentHealth -= ammount;
 
-        if(PlayerStats != null)
-        PlayerStats.CurrentHP = CurrentHealth;
+        if (PlayerStats != null)
+        {
+            PlayerStats.CurrentHP = CurrentHealth;
+            PlayerStats.BeenHit = true;
+        }
 
         if(CurrentHealth > 0f)
             OnHit.Invoke();

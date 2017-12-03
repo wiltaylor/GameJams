@@ -35,6 +35,12 @@ public class CreditController : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetButton("Cancel"))
+        {
+            Application.Quit();
+        }
+
+
         if (Pause)
             return;
 
@@ -78,8 +84,4 @@ public class CreditController : MonoBehaviour
         }
     }
 
-    public void ExitGame()
-    {
-        Application.Quit();
-    }
 }
