@@ -38,6 +38,8 @@ public class WeaponSystemManager : MonoBehaviour
             controller.Damage = Registry.Weapons[_weaponIndex].Damage;
 
             controller.Shoot(Registry.Weapons[_weaponIndex].ProjectileSpeed, BulletPoint.forward);
+
+            Inventory.Ammo[Registry.Weapons[_weaponIndex].Ammo]--;
         }
     }
 
@@ -46,16 +48,32 @@ public class WeaponSystemManager : MonoBehaviour
     {
         if (_attacking && _attackSystems[_weaponIndex].IsReady())
         {
-            ShootProjectile();
+            if (Inventory.Ammo.ContainsKey(Registry.Weapons[_weaponIndex].Ammo) &&
+                Inventory.Ammo[Registry.Weapons[_weaponIndex].Ammo] > 0)
+            {
+                ShootProjectile();
+            }
+            else
+            {
+                //click
+            }
         }
 
         if (!_attacking && Input.GetButtonDown("Fire1") && _attackSystems[_weaponIndex].IsReady())
         {
-            _attacking = true;
+            if (Inventory.Ammo.ContainsKey(Registry.Weapons[_weaponIndex].Ammo) &&
+                Inventory.Ammo[Registry.Weapons[_weaponIndex].Ammo] > 0)
+            {
+                _attacking = true;
 
-            _attackSystems[_weaponIndex].StartAttack();
+                _attackSystems[_weaponIndex].StartAttack();
 
-            ShootProjectile();
+                ShootProjectile();
+            }
+            else
+            {
+                //click
+            }
         }
 
         if (_attacking && Input.GetButtonUp("Fire1"))

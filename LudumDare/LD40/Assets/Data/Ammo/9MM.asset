@@ -11,6 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c24e01ef58a31ae45bd1352cf0ad79b2, type: 3}
   m_Name: 9MM
   m_EditorClassIdentifier: 
-  Name: 
-  MaxCarry: 0
-  Icon: {fileID: 0}
+  Name: 9MM
+  MaxCarry: 300
+  Icon: {fileID: 21300000, guid: af8d70b7c20d9694eb7e7e7bd241cc67, type: 3}

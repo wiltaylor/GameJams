@@ -20,3 +20,4 @@ MonoBehaviour:
   Projectile: {fileID: 1311494123450812, guid: 8b03a3c89e5b893468b5550e47dc5fe0, type: 2}
   ProjectileSpeed: 5
   AIGun: {fileID: 1350656237031660, guid: 5fe13a2f5c0498e4e96d70eb9750a136, type: 2}
+  Ammo: {fileID: 11400000, guid: d834a56f8d6bdbc45958600099cd0ac6, type: 2}

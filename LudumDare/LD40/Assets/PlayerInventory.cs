@@ -10,6 +10,7 @@ public class PlayerInventory : MonoBehaviour
     public float UseDistance = 10f;
     public int Gold;
 
+    public Dictionary<AmmoType, int> Ammo = new Dictionary<AmmoType, int>();
     
     public void PickupQuestItem(QuestItem item)
     {
@@ -19,7 +20,17 @@ public class PlayerInventory : MonoBehaviour
 
     public void PickUpAmmo(AmmoPickUp pickup)
     {
-        Debug.Log("Pickup ammo!");
+        if (Ammo.ContainsKey(pickup.Type))
+        {
+            Ammo[pickup.Type] += pickup.Ammount;
+
+            if (Ammo[pickup.Type] > pickup.Type.MaxCarry)
+                Ammo[pickup.Type] = pickup.Type.MaxCarry;
+        }
+        else
+        {
+            Ammo.Add(pickup.Type, pickup.Ammount);
+        }
     }
 
     public void PickUpGold(int ammount)

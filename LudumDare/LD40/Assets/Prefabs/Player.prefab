@@ -366,6 +366,7 @@ MonoBehaviour:
   QuestItems: []
   MainCamera: {fileID: 20153380115936096}
   UseDistance: 10
+  Gold: 0
 --- !u!114 &114767435913553702
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -401,7 +402,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 810ba6e11e20956438aae154c60cf086, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Inventory: {fileID: 0}
+  Inventory: {fileID: 114736634534941458}
   Registry: {fileID: 11400000, guid: 631148b262a59624a8590799bdab7b96, type: 2}
   BulletPoint: {fileID: 4588447262575184}
 --- !u!114 &114984541541285496
