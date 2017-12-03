@@ -15,7 +15,11 @@ public class WeaponSystemManager : MonoBehaviour
     private bool _nextWeapon = false;
 
 	void Start ()
-    {
+	{
+	    var rot = transform.rotation;
+        transform.rotation = Quaternion.identity;
+
+
         foreach (var sys in Registry.Weapons)
         {
             var obj = Instantiate(sys.WeaponSystem);
@@ -24,6 +28,8 @@ public class WeaponSystemManager : MonoBehaviour
             obj.SetActive(false);
             _attackSystems.Add(obj.GetComponent<AttackSystem>());
         }
+
+        transform.rotation = rot;
 
         _weaponIndex = -1;
         _weaponIndex = NextAvailableWeapon(true);

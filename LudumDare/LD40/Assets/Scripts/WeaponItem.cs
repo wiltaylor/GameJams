@@ -20,4 +20,5 @@ public class WeaponItem : ScriptableObject
     public float ProjectileSpeed;
     public GameObject AIGun;
     public AmmoType Ammo;
+    public int Priority;
 }
