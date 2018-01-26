@@ -18,6 +18,7 @@ public class LaserLineofSite : MonoBehaviour
     public float Distance;
     private LineRenderer _lineRender;
     private float _timeToNextCheck;
+    private BeamReflector _reflector;
 
     void Start()
     {
@@ -27,12 +28,13 @@ public class LaserLineofSite : MonoBehaviour
 
     public void FixedUpdate()
     {
+        
+
         if (_timeToNextCheck > 0f)
         {
             _timeToNextCheck -= Time.deltaTime;
             return;
         }
-
         _timeToNextCheck = CheckTime;
 
         Ray ray;
@@ -75,6 +77,7 @@ public class LaserLineofSite : MonoBehaviour
         {
             _lineRender.enabled = true;
             _lineRender.SetPosition(1, hit.point);
+            _lineRender.SetPosition(0, transform.position);
 
             var killtarget = hit.transform.GetComponent<Killable>();
 
@@ -83,10 +86,35 @@ public class LaserLineofSite : MonoBehaviour
                 killtarget.Kill();
             }
 
+            var reflector = hit.transform.GetComponent<BeamReflector>();
+
+            if (reflector == _reflector)
+                return;
+
+            if (reflector == null)
+            {
+                if (_reflector != null)
+                    _reflector.OnReset();
+
+                _reflector = null;
+                return;
+            }
+
+            if(_reflector != null)
+                _reflector.OnReset();
+
+            reflector.OnHitByLaser();
+            _reflector = reflector;
         }
         else
         {
+            if (_reflector != null)
+                _reflector.OnReset();
+
+            _reflector = null;
+            
             _lineRender.SetPosition(1, DefaultPosition);
+            _lineRender.SetPosition(0, transform.position);
             _lineRender.enabled = true;
         }
     }
