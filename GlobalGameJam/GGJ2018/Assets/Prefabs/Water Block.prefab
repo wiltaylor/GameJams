@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4454779251874618}
   - component: {fileID: 33367003445862906}
-  - component: {fileID: 64578068260963584}
   - component: {fileID: 23549966651212644}
   m_Layer: 0
   m_Name: Right
@@ -38,7 +37,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4085651137747944}
   - component: {fileID: 33316637668583512}
-  - component: {fileID: 64988412391280624}
   - component: {fileID: 23076515264871208}
   m_Layer: 0
   m_Name: Top
@@ -56,7 +54,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4982412544203348}
   - component: {fileID: 33976681174109992}
-  - component: {fileID: 64771552472398898}
   - component: {fileID: 23758161553626218}
   m_Layer: 0
   m_Name: Back
@@ -74,7 +71,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4101979388914496}
   - component: {fileID: 33137673645556862}
-  - component: {fileID: 64491866662594712}
   - component: {fileID: 23566385565706584}
   m_Layer: 0
   m_Name: Front
@@ -92,7 +88,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4067774077554000}
   - component: {fileID: 33643118628638956}
-  - component: {fileID: 64530765856368366}
   - component: {fileID: 23703738847107742}
   m_Layer: 0
   m_Name: Bottom
@@ -110,7 +105,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4116295942733676}
   - component: {fileID: 33274045684526910}
-  - component: {fileID: 64496230625594204}
   - component: {fileID: 23930495409827474}
   m_Layer: 0
   m_Name: Left
@@ -477,90 +471,6 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1300791382501462}
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!64 &64491866662594712
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1852403007660342}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!64 &64496230625594204
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1949015146370250}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!64 &64530765856368366
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1933255388739362}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!64 &64578068260963584
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1028071473281056}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!64 &64771552472398898
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1300791382501462}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!64 &64988412391280624
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1151932889940656}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!65 &65869648148007690
 BoxCollider:
