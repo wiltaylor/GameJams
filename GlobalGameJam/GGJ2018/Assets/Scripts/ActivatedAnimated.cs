@@ -13,6 +13,9 @@ public class ActivatedAnimated : MonoBehaviour {
     [SerializeField, Range (0f,1f)]
     float m_EmissionMax = 0.7f;
 
+    [SerializeField]
+    MeshRenderer[] renderers;
+
     // state of the object
     enum ACTIVATIONSTATE
     {
@@ -43,7 +46,6 @@ public class ActivatedAnimated : MonoBehaviour {
 
     private void ToggleOnOff()
     {
-        MeshRenderer[] sides = GetComponentsInChildren<MeshRenderer>();
         Material material = null;
         if (state == ACTIVATIONSTATE.OFF)
         {
@@ -57,15 +59,13 @@ public class ActivatedAnimated : MonoBehaviour {
         }
 
 
-        foreach (MeshRenderer mr in sides)
+        foreach (MeshRenderer mr in renderers)
         {
-            if (mr.name != "Top" || mr.name != "Bottom")
-            {
+
                 if (material != null)
                     mr.materials[0] = new Material(material);
                 else
                     Debug.LogWarning("No Material assisgned");
-            }
         }
     }
 }
