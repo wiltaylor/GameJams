@@ -1,20 +1,18 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class BeamInput : MonoBehaviour
+public class Switch : MonoBehaviour
 {
-
-    public GameObject[] AttachedObjects;
-    public bool Powered;
     public float ChangetimeOut = 2f;
+    public UnityEvent OnActivate;
 
 
     private float _currentchangetimeout = 0f;
 
     void Start()
     {
-        foreach (var obj in AttachedObjects)
-            obj.SendMessage("OnPowerChanged", Powered);
+        
     }
 
     void Update()
@@ -45,10 +43,8 @@ public class BeamInput : MonoBehaviour
         if (_currentchangetimeout > 0f)
             return;
 
-        Powered = !Powered;
 
-        foreach(var obj in AttachedObjects)
-            obj.SendMessage("OnPowerChanged", Powered);
+        OnActivate.Invoke();
 
         _currentchangetimeout = ChangetimeOut;
     }

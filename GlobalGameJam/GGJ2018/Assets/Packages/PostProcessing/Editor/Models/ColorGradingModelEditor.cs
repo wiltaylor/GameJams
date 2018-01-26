@@ -475,7 +475,7 @@ namespace UnityEditor.PostProcessing
             {
                 int curveEditingId = 0;
 
-                // Top toolbar
+                // Forward toolbar
                 using (new GUILayout.HorizontalScope(EditorStyles.toolbar))
                 {
                     curveEditingId = EditorGUILayout.Popup(m_Curves.currentEditingCurve.intValue, s_Curves, EditorStyles.toolbarPopup, GUILayout.MaxWidth(150f));
