@@ -40,7 +40,7 @@ public class GA_FREE_Demo02 : MonoBehaviour
 	public GUIAnimFREE m_Title1;
 	public GUIAnimFREE m_Title2;
 	
-	// GUIAnimFREE objects of Top and bottom
+	// GUIAnimFREE objects of Forward and bottom
 	public GUIAnimFREE m_TopBar;
 	public GUIAnimFREE m_BottomBar;
 	

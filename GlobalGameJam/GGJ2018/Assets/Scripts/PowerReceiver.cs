@@ -1,12 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.Events;
 
 public class PowerReceiver : MonoBehaviour
 {
     public Material PoweredMaterial;
     public Material UnPoweredMaterial;
-    public GameObject[] ConnectedObjects;
+
+    public UnityEvent OnPowerOn;
+    public UnityEvent OnPowerOff;
 
     private MeshRenderer _render;
 
@@ -18,15 +19,14 @@ public class PowerReceiver : MonoBehaviour
     public void OnPowerChanged(bool powered)
     {
         if (powered)
-            _render.material = PoweredMaterial;
-        else
-            _render.material = UnPoweredMaterial;
-
-
-        if (ConnectedObjects != null)
         {
-            foreach(var obj in ConnectedObjects)
-                obj.SendMessage("OnPowerChanged", powered);
+            OnPowerOn.Invoke();
+            _render.material = PoweredMaterial;
+        }
+        else
+        {
+            OnPowerOff.Invoke();
+            _render.material = UnPoweredMaterial;
         }
     }
 

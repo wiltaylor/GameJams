@@ -2,18 +2,30 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class PushPlate : MonoBehaviour
+public class Trigger : MonoBehaviour
 {
     public UnityEvent OnPress;
     public UnityEvent OnRelease;
     public string[] InteractWithTags;
 
     public bool Pressed;
-    private Animator _animator;
+    public float PressTimeOut = 5f;
+    private float _currentPressTimeout = 0f;
 
-    void Start()
+
+    void Update()
     {
-        _animator = GetComponent<Animator>();
+        if (_currentPressTimeout > 0f)
+        {
+            _currentPressTimeout -= Time.deltaTime;
+
+            if (_currentPressTimeout < 0f)
+            {
+                Pressed = false;
+                OnRelease.Invoke();
+            }
+        }
+
     }
 
     void OnTriggerEnter(Collider other)
@@ -22,7 +34,7 @@ public class PushPlate : MonoBehaviour
         {
             Pressed = true;
             OnPress.Invoke();
-            _animator.SetBool("Pressed", true);
+            
         }
     }
 
@@ -30,9 +42,7 @@ public class PushPlate : MonoBehaviour
     {
         if (InteractWithTags.Contains(other.tag))
         {
-            Pressed = false;
-            OnRelease.Invoke();
-            _animator.SetBool("Pressed", false);
+            _currentPressTimeout = PressTimeOut;
         }
     }
 }

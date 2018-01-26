@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-public class BeamInput : MonoBehaviour
+public class Switch : MonoBehaviour
 {
 
     public GameObject[] AttachedObjects;
