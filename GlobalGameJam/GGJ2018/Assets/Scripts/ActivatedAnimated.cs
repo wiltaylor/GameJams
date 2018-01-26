@@ -17,7 +17,7 @@ public class ActivatedAnimated : MonoBehaviour {
     MeshRenderer[] renderers;
 
     // state of the object
-    enum ACTIVATIONSTATE
+    public enum ACTIVATIONSTATE
     {
         OFF,
         TURNING_ON,
@@ -28,7 +28,7 @@ public class ActivatedAnimated : MonoBehaviour {
     float m_TimeSinceLastPass;
     float m_TrasissionTime = 2;
 
-    ACTIVATIONSTATE state = ACTIVATIONSTATE.OFF;
+    public ACTIVATIONSTATE state = ACTIVATIONSTATE.OFF;
     // Use this for initialization
     void Start () {
         m_TimeSinceLastPass = Time.timeSinceLevelLoad;	
