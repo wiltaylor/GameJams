@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 4523866603555484}
   - component: {fileID: 65197532430338728}
   m_Layer: 0
-  m_Name: Grass Block
+  m_Name: MetalBlueBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
