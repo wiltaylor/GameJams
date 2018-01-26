@@ -72,9 +72,8 @@ GameObject:
   - component: {fileID: 4523866603555484}
   - component: {fileID: 65197532430338728}
   - component: {fileID: 54526831964998338}
-  - component: {fileID: 114485107826421306}
   m_Layer: 0
-  m_Name: MetalBlueBox 1
+  m_Name: WoodenBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -242,7 +241,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 3dc8b9edb8c6b1141a35dac77f372377, type: 2}
+  - {fileID: 2100000, guid: 4386f7c714c1c7b4b954cf95fe397c67, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -276,7 +275,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 3dc8b9edb8c6b1141a35dac77f372377, type: 2}
+  - {fileID: 2100000, guid: 4386f7c714c1c7b4b954cf95fe397c67, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -310,7 +309,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 3dc8b9edb8c6b1141a35dac77f372377, type: 2}
+  - {fileID: 2100000, guid: 4386f7c714c1c7b4b954cf95fe397c67, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -344,7 +343,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 5384228b780484b4289d2a10cd765ef4, type: 2}
+  - {fileID: 2100000, guid: 4386f7c714c1c7b4b954cf95fe397c67, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -378,7 +377,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 5384228b780484b4289d2a10cd765ef4, type: 2}
+  - {fileID: 2100000, guid: 4386f7c714c1c7b4b954cf95fe397c67, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -412,7 +411,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 3dc8b9edb8c6b1141a35dac77f372377, type: 2}
+  - {fileID: 2100000, guid: 4386f7c714c1c7b4b954cf95fe397c67, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -501,22 +500,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0.5, z: 0}
---- !u!114 &114485107826421306
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1353867485562820}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab7291f0fe129774aa12dcbf4e4c2af3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_OffMaterial: {fileID: 2100000, guid: 3dc8b9edb8c6b1141a35dac77f372377, type: 2}
-  m_OnMaterial: {fileID: 2100000, guid: e165e91ba0d26ee41bd843599975d89f, type: 2}
-  m_EmissionMax: 0.7
-  renderers:
-  - {fileID: 23701931057507264}
-  - {fileID: 23090444624353822}
-  - {fileID: 23319380907315724}
-  - {fileID: 23027094118806854}
