@@ -18,6 +18,7 @@ public class Attractable : MonoBehaviour
 
     private float _remainingMove;
     private Vector3 _attraitionDirection;
+    private Vector3 _targetLocation;
 
     void Start()
     {
@@ -56,7 +57,12 @@ public class Attractable : MonoBehaviour
             _remainingMove -= Speed * Time.deltaTime;
 
             transform.position = transform.position + currentMove;
-            
+
+
+            if (_remainingMove < 0f)
+            {
+                transform.position = new Vector3(transform.position.x, Mathf.Round(transform.position.y), transform.position.z);
+            }
         }
     }
 
