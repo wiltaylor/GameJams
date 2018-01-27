@@ -23,7 +23,9 @@ public class MovePlatformController : MonoBehaviour
         if (Vector3.Distance(transform.position, NextNavPoint.transform.position) <= Distance)
         {
             _waiting = NextNavPoint.Wait;
+            NextNavPoint.OnEnterPoint.Invoke();
             NextNavPoint = NextNavPoint.NextPoint;
+            
             return;
         }
 
