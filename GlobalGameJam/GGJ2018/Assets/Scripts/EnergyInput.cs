@@ -28,8 +28,8 @@ public class EnergyInput : MonoBehaviour
     {
         Energy++;
 
-        _activatedAnimated.state = ActivatedAnimated.ACTIVATIONSTATE.OFF;
-        _activatedAnimated.EmissionMax = Energy * EmissionPerLevel;
+        _activatedAnimated.state = ActivatedAnimated.ACTIVATIONSTATE.TURING_ON;
+       // _activatedAnimated.EmissionMax = Energy * EmissionPerLevel;
 
         UpdateEnergy();
 

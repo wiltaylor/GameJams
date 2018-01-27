@@ -7,12 +7,12 @@ public class Powerable : MonoBehaviour
     public UnityEvent OnPowerUp;
     public UnityEvent OnPowerDown;
 
-    private bool isPowered;
+    private bool isPowered = false;
 
     public void Awake()
     {
         OnPowerDown.Invoke();
-        isPowered = false;
+       // isPowered = false;
     }
 
     public void OnPowerChange(int ammount)
@@ -22,7 +22,7 @@ public class Powerable : MonoBehaviour
             isPowered = false;
             OnPowerDown.Invoke();
         }
-        else if (ammount >= RequiredPower)
+        else if (ammount >= RequiredPower && !isPowered)
         {
             isPowered = true;
             OnPowerUp.Invoke();

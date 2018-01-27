@@ -21,6 +21,9 @@ public class ActivatedAnimated : MonoBehaviour {
     {
         OFF,
         ON,
+        TURING_ON,
+        TURING_OFF,
+
     }
 
     float m_TimeSinceLastPass;
@@ -34,46 +37,48 @@ public class ActivatedAnimated : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+        if(state == ACTIVATIONSTATE.TURING_ON || state == ACTIVATIONSTATE.TURING_OFF) ToggleOnOff();
 
     }
-/*
-    private void OnCollisionEnter(Collision collision)
+
+    private void OnTriggerEnter(Collider col)
     {
-        if (collision.gameObject.tag == "Player")
+        if (col.gameObject.tag == "ActivatedBox")
         {
-            if (collision.gameObject.tag == "Player")
-            {
-                ToggleOnOff();
-            }
-        }
-
-        private void OnCollisionExit(Collision collision)
-        {
-            if (collision.gameObject.tag == "Player")
-            {
-                ToggleOnOff();
-            }
+            ActivatedAnimated _state = col.gameObject.GetComponent<ActivatedAnimated>();
+            if (_state.state == ACTIVATIONSTATE.OFF) _state.state = ACTIVATIONSTATE.TURING_ON;
         }
     }
-    */
+    private void OnTiggerExit(Collider col)
+    {
+        if (col.gameObject.tag == "ActivatedBox")
+        {
+            ActivatedAnimated _state = col.gameObject.GetComponent<ActivatedAnimated>();
+           if (_state.state == ACTIVATIONSTATE.OFF) _state.state = ACTIVATIONSTATE.TURING_ON;
+        }
+    }
+
+
+
     public void ToggleOnOff()
     {
         if (m_Renderers == null)
         {
             m_Renderers = GetComponentsInChildren<MeshRenderer>();
         }
+
+
         Color finalColour = SetColor();
 
         foreach (MeshRenderer mr in m_Renderers)
         {
             if (mr.gameObject.tag != "Top" || mr.gameObject.tag != "Bottom") mr.material.SetColor("_EmissionColor", finalColour);
         }
-        if (state == ACTIVATIONSTATE.OFF)
+        if (state == ACTIVATIONSTATE.TURING_ON)
         {
             state = ACTIVATIONSTATE.ON;
         }
-        else if (state == ACTIVATIONSTATE.ON)
+        else if (state == ACTIVATIONSTATE.TURING_OFF)
         {
             state = ACTIVATIONSTATE.OFF;
         }
@@ -85,12 +90,12 @@ public class ActivatedAnimated : MonoBehaviour {
         Color colour = m_OffColour;
 
 
-        if (state == ACTIVATIONSTATE.OFF)
+        if (state == ACTIVATIONSTATE.TURING_ON)
         {
             emissionPoint = EmissionMax;
             colour = m_OnColour;
         }
-        else if (state == ACTIVATIONSTATE.ON)
+        else if (state == ACTIVATIONSTATE.TURING_OFF)
         {
             emissionPoint = 0.1f;
             colour = m_OffColour;
