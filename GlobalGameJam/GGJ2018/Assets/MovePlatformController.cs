@@ -32,4 +32,9 @@ public class MovePlatformController : MonoBehaviour
         transform.SetPositionAndRotation(Vector3.Lerp(transform.position, NextNavPoint.transform.position, Speed * Time.fixedDeltaTime), transform.rotation);
     }
 
+    public void SetNextNavPoint(NavPoint nav)
+    {
+        NextNavPoint = nav;
+    }
+
 }
