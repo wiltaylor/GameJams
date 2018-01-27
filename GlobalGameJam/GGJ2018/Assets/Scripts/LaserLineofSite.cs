@@ -14,6 +14,8 @@ public class LaserLineofSite : MonoBehaviour
     {
         _lineRender = GetComponent<LineRenderer>();
         _timeToNextCheck = 0;
+
+        _lineRender.positionCount = 2;
     }
 
     void OnDrawGizmosSelected()
