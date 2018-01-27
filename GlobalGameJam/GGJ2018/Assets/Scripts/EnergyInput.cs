@@ -8,6 +8,7 @@ public class EnergyInput : MonoBehaviour
     public Powerable[] PoweredObjects;
     public int Energy;
     public int MaxEnergy;
+    public float EmissionPerLevel = 0.1f;
 
     private ActivatedAnimated _activatedAnimated;
 
@@ -27,7 +28,8 @@ public class EnergyInput : MonoBehaviour
     {
         Energy++;
 
-        _activatedAnimated.state = ActivatedAnimated.ACTIVATIONSTATE.ON;
+        _activatedAnimated.state = ActivatedAnimated.ACTIVATIONSTATE.OFF;
+        _activatedAnimated.EmissionMax = Energy * EmissionPerLevel;
 
         UpdateEnergy();
 
@@ -47,7 +49,7 @@ public class EnergyInput : MonoBehaviour
             link.RemoveEnergy();
 
         if(Energy <= 0)
-            _activatedAnimated.state = ActivatedAnimated.ACTIVATIONSTATE.OFF;
+            _activatedAnimated.state = ActivatedAnimated.ACTIVATIONSTATE.ON;
     }
 
     void OnTriggerEnter(Collider other)

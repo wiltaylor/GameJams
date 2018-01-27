@@ -11,6 +11,7 @@ public class PowerReceiver : MonoBehaviour
 
     private MeshRenderer _render;
 
+
     void Start()
     {
         _render = GetComponent<MeshRenderer>();
