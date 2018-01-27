@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 65197532430338728}
   - component: {fileID: 54526831964998338}
   m_Layer: 0
-  m_Name: MetalBlueBox 2
+  m_Name: WoodenBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
