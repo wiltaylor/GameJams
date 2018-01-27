@@ -9,6 +9,13 @@ public class PlayerEnergyController : MonoBehaviour
     public float EnergyEmissionTimeOut = 1f;
 
     private float _currentTimeOut = 0f;
+    private OrbitController _orbitController;
+
+    void Start()
+    {
+        _orbitController = GetComponentInChildren<OrbitController>();
+    }
+
     public void Update()
     {
 
@@ -33,7 +40,9 @@ public class PlayerEnergyController : MonoBehaviour
             
             Energy--;
             _context.AddEnergy();
-            
+            _orbitController.UseOrb(_context.transform);
+
+
         }
 
         if (Input.GetButton("PopEnergy"))
