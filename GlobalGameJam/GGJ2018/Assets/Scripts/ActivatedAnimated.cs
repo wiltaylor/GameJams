@@ -7,7 +7,7 @@ public class ActivatedAnimated : MonoBehaviour {
     ///  This is used to set the max emission level of the lighted parts of the on Texture.
     /// </Tip>
     [SerializeField, Range (0.1f,2f)]
-    float m_EmissionMax = 0.1f;
+    public float EmissionMax = 0.1f;
     [SerializeField]
     public Color m_OnColour;
     [SerializeField]
@@ -34,26 +34,30 @@ public class ActivatedAnimated : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+	    Color finalColour = SetColor();
+	    foreach (MeshRenderer mr in renderers)
+	    {
+	        mr.material.SetColor("_EmissionColor", finalColour);
+	    }
 
     }
-/*
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "Player")
+    /*
+        private void OnCollisionEnter(Collision collision)
         {
-            ToggleOnOff();
+            if (collision.gameObject.tag == "Player")
+            {
+                ToggleOnOff();
+            }
         }
-    }
 
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.tag == "Player")
+        private void OnCollisionExit(Collision collision)
         {
-            ToggleOnOff();
+            if (collision.gameObject.tag == "Player")
+            {
+                ToggleOnOff();
+            }
         }
-    }
-    */
+        */
     public void ToggleOnOff()
     {
         Color finalColour = SetColor();
@@ -80,7 +84,7 @@ public class ActivatedAnimated : MonoBehaviour {
 
         if (state == ACTIVATIONSTATE.OFF)
         {
-            emissionPoint = m_EmissionMax;
+            emissionPoint = EmissionMax;
             colour = m_OnColour;
         }
         else if (state == ACTIVATIONSTATE.ON)
