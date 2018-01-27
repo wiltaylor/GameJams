@@ -3503,12 +3503,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MovingTurnSpeed: 360
   m_StationaryTurnSpeed: 180
-  m_JumpPower: 8
-  m_GravityMultiplier: 2
+  m_JumpPower: 8.5
+  m_GravityMultiplier: 1.75
   m_RunCycleLegOffset: 0.2
-  m_MoveSpeedMultiplier: 1
-  m_AnimSpeedMultiplier: 1
-  m_GroundCheckDistance: 0.3
+  m_MoveSpeedMultiplier: 0.8
+  m_AnimSpeedMultiplier: 0.8
+  m_GroundCheckDistance: 0.2
 --- !u!114 &114811185826394394
 MonoBehaviour:
   m_ObjectHideFlags: 1
