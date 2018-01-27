@@ -73,9 +73,9 @@ GameObject:
   - component: {fileID: 65197532430338728}
   - component: {fileID: 54526831964998338}
   - component: {fileID: 114485107826421306}
-  - component: {fileID: 114553596574972680}
+  - component: {fileID: 114800176728608446}
   m_Layer: 0
-  m_Name: MetalBoxActivatble
+  m_Name: MetalBoxPowerable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -523,7 +523,7 @@ MonoBehaviour:
   - {fileID: 23027094118806854}
   m_TrasissionTime: 2
   state: 0
---- !u!114 &114553596574972680
+--- !u!114 &114800176728608446
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
