@@ -7,12 +7,14 @@ public class Killable : MonoBehaviour
 {
     public float KillOnY = -100f;
     private List<SpawnController> _spawns = new List<SpawnController>();
+    private PlayerEnergyController _playerEnergyController;
 
     void Start()
     {
         if (tag != "Player")
             return;
 
+        _playerEnergyController = GetComponent<PlayerEnergyController>();
         _spawns.AddRange(FindObjectsOfType<SpawnController>());
     }
 
@@ -29,6 +31,7 @@ public class Killable : MonoBehaviour
 
             transform.position = spawn.transform.position;
             transform.parent = null;
+            spawn.FireBling();
         }
     }
 
