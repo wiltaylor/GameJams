@@ -17,7 +17,7 @@ public class ActivatedAnimated : MonoBehaviour {
     [SerializeField, Range(0.2f, 4f)]
     float m_TrasissionTime = 2;
     // state of the object
-    enum ACTIVATIONSTATE
+    public enum ACTIVATIONSTATE
     {
         OFF,
         ON,
@@ -26,7 +26,7 @@ public class ActivatedAnimated : MonoBehaviour {
     float m_TimeSinceLastPass;
     
 
-    ACTIVATIONSTATE state = ACTIVATIONSTATE.OFF;
+    public ACTIVATIONSTATE state = ACTIVATIONSTATE.OFF;
     // Use this for initialization
     void Start () {
         m_TimeSinceLastPass = Time.timeSinceLevelLoad;	
