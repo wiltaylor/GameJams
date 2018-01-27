@@ -7,12 +7,14 @@ public class Killable : MonoBehaviour
 {
     public float KillOnY = -100f;
     private List<SpawnController> _spawns = new List<SpawnController>();
+    private PlayerEnergyController _playerEnergyController;
 
     void Start()
     {
         if (tag != "Player")
             return;
 
+        _playerEnergyController = GetComponent<PlayerEnergyController>();
         _spawns.AddRange(FindObjectsOfType<SpawnController>());
     }
 
@@ -29,6 +31,7 @@ public class Killable : MonoBehaviour
 
             transform.position = spawn.transform.position;
             transform.parent = null;
+            spawn.FireBling();
         }
     }
 
@@ -37,5 +40,10 @@ public class Killable : MonoBehaviour
         if(transform.position.y <= KillOnY)
             Kill();
     }
-	
+
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "KillCollider") Kill();
+    }
 }
