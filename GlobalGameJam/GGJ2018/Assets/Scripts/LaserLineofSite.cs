@@ -3,19 +3,10 @@ using UnityEngine;
 
 public class LaserLineofSite : MonoBehaviour
 {
-    public enum LaserDirection
-    {
-        Up,
-        Down,
-        Left,
-        Right,
-        Forward,
-        Back
-    }
 
     public float CheckTime = 2f;
-    public LaserDirection Direction;
     public float Distance;
+    public bool AlwaysRun = false;
     private LineRenderer _lineRender;
     private float _timeToNextCheck;
     private BeamReflector _reflector;
@@ -24,36 +15,13 @@ public class LaserLineofSite : MonoBehaviour
     {
         _lineRender = GetComponent<LineRenderer>();
         _timeToNextCheck = 0;
+
+        _lineRender.positionCount = 2;
     }
 
     void OnDrawGizmosSelected()
     {
-        var defaultPosition = Vector3.zero;
-
-        switch (Direction)
-        {
-            case LaserDirection.Up:
-                defaultPosition = new Vector3(transform.position.x, transform.position.y + Distance, transform.position.z);
-                break;
-            case LaserDirection.Down:
-                defaultPosition = new Vector3(transform.position.x, transform.position.y - Distance, transform.position.z);
-                break;
-            case LaserDirection.Left:
-                defaultPosition = new Vector3(transform.position.x - Distance, transform.position.y, transform.position.z);
-                break;
-            case LaserDirection.Right:
-                defaultPosition = new Vector3(transform.position.x + Distance, transform.position.y, transform.position.z);
-                break;
-            case LaserDirection.Forward:
-                defaultPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z + Distance);
-
-                break;
-            case LaserDirection.Back:
-                defaultPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z - Distance);
-                break;
-            default:
-                throw new ArgumentOutOfRangeException();
-        }
+        var defaultPosition = transform.position + (transform.up * Distance);
 
         Gizmos.color = Color.blue;
         Gizmos.DrawLine(transform.position, defaultPosition);
@@ -64,46 +32,16 @@ public class LaserLineofSite : MonoBehaviour
     {
         
 
-        if (_timeToNextCheck > 0f)
+        if (!AlwaysRun && _timeToNextCheck > 0f)
         {
             _timeToNextCheck -= Time.deltaTime;
             return;
         }
+
         _timeToNextCheck = CheckTime;
 
-        Ray ray;
-        var defaultPosition = Vector3.zero;
-
-        switch (Direction)
-        {
-            case LaserDirection.Up:
-                ray = new Ray(transform.position, Vector3.up);
-                defaultPosition = new Vector3(transform.position.x, transform.position.y + Distance, transform.position.z);
-                break;
-            case LaserDirection.Down:
-                ray = new Ray(transform.position, Vector3.down);
-                defaultPosition = new Vector3(transform.position.x, transform.position.y - Distance, transform.position.z);
-                break;
-            case LaserDirection.Left:
-                ray = new Ray(transform.position, Vector3.left);
-                defaultPosition = new Vector3(transform.position.x - Distance, transform.position.y, transform.position.z);
-                break;
-            case LaserDirection.Right:
-                ray = new Ray(transform.position, Vector3.right);
-                defaultPosition = new Vector3(transform.position.x + Distance, transform.position.y, transform.position.z);
-                break;
-            case LaserDirection.Forward:
-                ray = new Ray(transform.position, Vector3.forward);
-                defaultPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z + Distance);
-
-                break;
-            case LaserDirection.Back:
-                ray = new Ray(transform.position, Vector3.back);
-                defaultPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z - Distance);
-                break;
-            default:
-                throw new ArgumentOutOfRangeException();
-        }
+        Ray ray = new Ray(transform.position, transform.up);
+        var defaultPosition = transform.position + (transform.up * Distance);
 
         RaycastHit hit;
 

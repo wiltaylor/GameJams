@@ -20,7 +20,7 @@ public class Rotator : MonoBehaviour
     private Vector3 _targetRotation;
 
     // Update is called once per frame
-	void Update ()
+	void FixedUpdate ()
     {
         if (Always)
         {
