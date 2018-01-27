@@ -26,6 +26,40 @@ public class LaserLineofSite : MonoBehaviour
         _timeToNextCheck = 0;
     }
 
+    void OnDrawGizmosSelected()
+    {
+        var defaultPosition = Vector3.zero;
+
+        switch (Direction)
+        {
+            case LaserDirection.Up:
+                defaultPosition = new Vector3(transform.position.x, transform.position.y + Distance, transform.position.z);
+                break;
+            case LaserDirection.Down:
+                defaultPosition = new Vector3(transform.position.x, transform.position.y - Distance, transform.position.z);
+                break;
+            case LaserDirection.Left:
+                defaultPosition = new Vector3(transform.position.x - Distance, transform.position.y, transform.position.z);
+                break;
+            case LaserDirection.Right:
+                defaultPosition = new Vector3(transform.position.x + Distance, transform.position.y, transform.position.z);
+                break;
+            case LaserDirection.Forward:
+                defaultPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z + Distance);
+
+                break;
+            case LaserDirection.Back:
+                defaultPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z - Distance);
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
+
+        Gizmos.color = Color.blue;
+        Gizmos.DrawLine(transform.position, defaultPosition);
+
+    }
+
     public void FixedUpdate()
     {
         
@@ -38,34 +72,34 @@ public class LaserLineofSite : MonoBehaviour
         _timeToNextCheck = CheckTime;
 
         Ray ray;
-        Vector3 DefaultPosition = Vector3.zero;
+        var defaultPosition = Vector3.zero;
 
         switch (Direction)
         {
             case LaserDirection.Up:
                 ray = new Ray(transform.position, Vector3.up);
-                DefaultPosition = new Vector3(transform.position.x, transform.position.y + Distance, transform.position.z);
+                defaultPosition = new Vector3(transform.position.x, transform.position.y + Distance, transform.position.z);
                 break;
             case LaserDirection.Down:
                 ray = new Ray(transform.position, Vector3.down);
-                DefaultPosition = new Vector3(transform.position.x, transform.position.y - Distance, transform.position.z);
+                defaultPosition = new Vector3(transform.position.x, transform.position.y - Distance, transform.position.z);
                 break;
             case LaserDirection.Left:
                 ray = new Ray(transform.position, Vector3.left);
-                DefaultPosition = new Vector3(transform.position.x - Distance, transform.position.y, transform.position.z);
+                defaultPosition = new Vector3(transform.position.x - Distance, transform.position.y, transform.position.z);
                 break;
             case LaserDirection.Right:
                 ray = new Ray(transform.position, Vector3.right);
-                DefaultPosition = new Vector3(transform.position.x + Distance, transform.position.y, transform.position.z);
+                defaultPosition = new Vector3(transform.position.x + Distance, transform.position.y, transform.position.z);
                 break;
             case LaserDirection.Forward:
                 ray = new Ray(transform.position, Vector3.forward);
-                DefaultPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z + Distance);
+                defaultPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z + Distance);
 
                 break;
             case LaserDirection.Back:
                 ray = new Ray(transform.position, Vector3.back);
-                DefaultPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z - Distance);
+                defaultPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z - Distance);
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
@@ -113,7 +147,7 @@ public class LaserLineofSite : MonoBehaviour
 
             _reflector = null;
             
-            _lineRender.SetPosition(1, DefaultPosition);
+            _lineRender.SetPosition(1, defaultPosition);
             _lineRender.SetPosition(0, transform.position);
             _lineRender.enabled = true;
         }

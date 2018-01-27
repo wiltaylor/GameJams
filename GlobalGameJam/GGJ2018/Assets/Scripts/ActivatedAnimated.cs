@@ -3,32 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ActivatedAnimated : MonoBehaviour {
-    [SerializeField]
-    Material m_OffMaterial;
-    [SerializeField]
-    Material m_OnMaterial;
     /// <Tip>
     ///  This is used to set the max emission level of the lighted parts of the on Texture.
     /// </Tip>
-    [SerializeField, Range (0f,1f)]
-    float m_EmissionMax = 0.7f;
-
+    [SerializeField, Range (0.1f,2f)]
+    float m_EmissionMax = 0.1f;
+    [SerializeField]
+    public Color m_OnColour;
+    [SerializeField]
+    public Color m_OffColour;
     [SerializeField]
     MeshRenderer[] renderers;
-
+    [SerializeField, Range(0.2f, 4f)]
+    float m_TrasissionTime = 2;
     // state of the object
-    enum ACTIVATIONSTATE
+    public enum ACTIVATIONSTATE
     {
         OFF,
-        TURNING_ON,
         ON,
-        TURNING_OFF,
     }
 
     float m_TimeSinceLastPass;
-    float m_TrasissionTime = 2;
+    
 
-    ACTIVATIONSTATE state = ACTIVATIONSTATE.OFF;
+    public ACTIVATIONSTATE state = ACTIVATIONSTATE.OFF;
     // Use this for initialization
     void Start () {
         m_TimeSinceLastPass = Time.timeSinceLevelLoad;	
@@ -36,36 +34,63 @@ public class ActivatedAnimated : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (m_TimeSinceLastPass + m_TrasissionTime < Time.time)
+
+
+    }
+/*
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Player")
         {
             ToggleOnOff();
-            m_TimeSinceLastPass = Time.timeSinceLevelLoad;
-
         }
     }
 
-    private void ToggleOnOff()
+    private void OnCollisionExit(Collision collision)
     {
-        Material material = null;
+        if (collision.gameObject.tag == "Player")
+        {
+            ToggleOnOff();
+        }
+    }
+    */
+    public void ToggleOnOff()
+    {
+        Color finalColour = SetColor();
+
+        foreach (MeshRenderer mr in renderers)
+        {
+            mr.material.SetColor("_EmissionColor", finalColour);
+        }
         if (state == ACTIVATIONSTATE.OFF)
         {
-            material = m_OnMaterial;
             state = ACTIVATIONSTATE.ON;
         }
         else if (state == ACTIVATIONSTATE.ON)
         {
-            material = m_OffMaterial;
             state = ACTIVATIONSTATE.OFF;
         }
+    }
+
+    private Color SetColor()
+    {
+        float emissionPoint = 0.1f;
+        Color colour = m_OffColour;
 
 
-        foreach (MeshRenderer mr in renderers)
+        if (state == ACTIVATIONSTATE.OFF)
         {
-
-                if (material != null)
-                    mr.materials[0] = new Material(material);
-                else
-                    Debug.LogWarning("No Material assisgned");
+            emissionPoint = m_EmissionMax;
+            colour = m_OnColour;
         }
+        else if (state == ACTIVATIONSTATE.ON)
+        {
+            emissionPoint = 0.1f;
+            colour = m_OffColour;
+        }
+
+        float emission = Mathf.PingPong(Time.time, emissionPoint);
+
+        return colour * Mathf.LinearToGammaSpace(emission);
     }
 }
