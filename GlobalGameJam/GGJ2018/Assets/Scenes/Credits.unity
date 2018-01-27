@@ -379,7 +379,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: -496}
-  m_SizeDelta: {x: 250, y: 200}
+  m_SizeDelta: {x: 600, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &219751882
 MonoBehaviour:
@@ -417,9 +417,9 @@ MonoBehaviour:
 
     Geoff Newman
 
-    George Zaibak
+    George Zaibak (georgezaibak.com)
 
-    Wil Taylor'
+    Wil Taylor (danger.zone)'
 --- !u!222 &219751883
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -888,7 +888,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: a52908d74f0d1734196a698d1e77d16a, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
