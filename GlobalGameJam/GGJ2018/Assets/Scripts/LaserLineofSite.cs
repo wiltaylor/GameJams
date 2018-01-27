@@ -6,6 +6,7 @@ public class LaserLineofSite : MonoBehaviour
 
     public float CheckTime = 2f;
     public float Distance;
+    public bool AlwaysRun = false;
     private LineRenderer _lineRender;
     private float _timeToNextCheck;
     private BeamReflector _reflector;
@@ -31,11 +32,12 @@ public class LaserLineofSite : MonoBehaviour
     {
         
 
-        if (_timeToNextCheck > 0f)
+        if (!AlwaysRun && _timeToNextCheck > 0f)
         {
             _timeToNextCheck -= Time.deltaTime;
             return;
         }
+
         _timeToNextCheck = CheckTime;
 
         Ray ray = new Ray(transform.position, transform.up);
