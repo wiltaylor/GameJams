@@ -500,8 +500,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4.02222, y: 1, z: 3.9594016}
-  m_Center: {x: -0.0144844055, y: 0.5, z: -0.007117033}
+  m_Size: {x: 7, y: 1, z: 7}
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!114 &114485107826421306
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -513,7 +513,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab7291f0fe129774aa12dcbf4e4c2af3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EmissionMax: 0.7
+  EmissionMax: 0.1
   m_OnColour: {r: 0, g: 0, b: 0, a: 0}
   m_OffColour: {r: 0, g: 0, b: 0, a: 0}
   renderers:
@@ -538,3 +538,4 @@ MonoBehaviour:
   PoweredObjects: []
   Energy: 0
   MaxEnergy: 0
+  EmissionPerLevel: 0.1
