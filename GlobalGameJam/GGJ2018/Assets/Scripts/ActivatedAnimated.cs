@@ -6,7 +6,7 @@ public class ActivatedAnimated : MonoBehaviour {
     /// <Tip>
     ///  This is used to set the max emission level of the lighted parts of the on Texture.
     /// </Tip>
-    [SerializeField, Range (0.1f,2f)]
+    [SerializeField, Range(0.1f, 2f)]
     float m_EmissionMax = 0.1f;
     [SerializeField]
     public Color m_OnColour;
@@ -24,20 +24,20 @@ public class ActivatedAnimated : MonoBehaviour {
     }
 
     float m_TimeSinceLastPass;
-    
+
 
     public ACTIVATIONSTATE state = ACTIVATIONSTATE.OFF;
     // Use this for initialization
-    void Start () {
-        m_TimeSinceLastPass = Time.timeSinceLevelLoad;	
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    void Start() {
+        m_TimeSinceLastPass = Time.timeSinceLevelLoad;
+    }
 
+    // Update is called once per frame
+    void Update()
+    { 
 
     }
-/*
+    /*
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Player")
@@ -52,6 +52,7 @@ public class ActivatedAnimated : MonoBehaviour {
         {
             ToggleOnOff();
         }
+    
     }
     */
     public void ToggleOnOff()
