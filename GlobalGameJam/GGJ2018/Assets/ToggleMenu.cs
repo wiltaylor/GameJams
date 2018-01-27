@@ -9,6 +9,11 @@ public class ToggleMenu : MonoBehaviour
 
     private float _currentTimeout = 0f;
 
+    void Start()
+    {
+        Cursor.visible = false;
+    }
+
 	void Update ()
 	{
 	    if (_currentTimeout >= 0f)
@@ -20,6 +25,9 @@ public class ToggleMenu : MonoBehaviour
 	    {
 	        MenuObject.SetActive(!MenuObject.activeInHierarchy);
 	        _currentTimeout = TimeOut;
+
+	        Cursor.visible = MenuObject.activeInHierarchy;
+
 
 	    }
 	}
