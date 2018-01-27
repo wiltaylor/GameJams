@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 54526831964998338}
   - component: {fileID: 114485107826421306}
   m_Layer: 0
-  m_Name: MetalBlueBox 1
+  m_Name: MetalBoxActivatble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -237,7 +237,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
+  m_DynamicOccludee: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -271,7 +271,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
+  m_DynamicOccludee: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -305,7 +305,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
+  m_DynamicOccludee: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -407,7 +407,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
+  m_DynamicOccludee: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -485,7 +485,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -512,11 +512,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab7291f0fe129774aa12dcbf4e4c2af3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_OffMaterial: {fileID: 2100000, guid: 3dc8b9edb8c6b1141a35dac77f372377, type: 2}
-  m_OnMaterial: {fileID: 2100000, guid: e165e91ba0d26ee41bd843599975d89f, type: 2}
   m_EmissionMax: 0.7
+  m_OnColour: {r: 0, g: 0, b: 0, a: 0}
+  m_OffColour: {r: 0, g: 0, b: 0, a: 0}
   renderers:
   - {fileID: 23701931057507264}
   - {fileID: 23090444624353822}
   - {fileID: 23319380907315724}
   - {fileID: 23027094118806854}
+  m_TrasissionTime: 2
