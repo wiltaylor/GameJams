@@ -7,7 +7,7 @@ public class ActivatedAnimated : MonoBehaviour {
     ///  This is used to set the max emission level of the lighted parts of the on Texture.
     /// </Tip>
     [SerializeField, Range (0.1f,2f)]
-    float m_EmissionMax = 0.1f;
+    public float EmissionMax = 0.1f;
     [SerializeField]
     public Color m_OnColour;
     [SerializeField]
