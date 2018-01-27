@@ -7,6 +7,10 @@ public class PlayerEnergyController : MonoBehaviour
     public int Energy = 5;
     public int MaxEnergy = 5;
     public float EnergyEmissionTimeOut = 1f;
+    public AudioSource ActivateSound;
+    public AudioSource DeactivateSound;
+    public float StartPitch = 1f;
+    public float PitchPerLevel = 0.2f;
 
     private float _currentTimeOut = 0f;
     private OrbitController _orbitController;
@@ -29,6 +33,8 @@ public class PlayerEnergyController : MonoBehaviour
         {
             _currentTimeOut = EnergyEmissionTimeOut;
 
+
+
             if (Energy <= 0)
                 return;
 
@@ -41,6 +47,8 @@ public class PlayerEnergyController : MonoBehaviour
             Energy--;
             _context.AddEnergy();
             _orbitController.UseOrb(_context.transform);
+            ActivateSound.pitch = StartPitch + (PitchPerLevel * Energy);
+            ActivateSound.Play();
 
 
         }
@@ -48,6 +56,7 @@ public class PlayerEnergyController : MonoBehaviour
         if (Input.GetButton("PopEnergy"))
         {
             _currentTimeOut = EnergyEmissionTimeOut;
+
 
             if (Energy >= MaxEnergy)
                 return;
@@ -60,6 +69,8 @@ public class PlayerEnergyController : MonoBehaviour
 
             Energy++;
             _context.RemoveEnergy();
+            DeactivateSound.pitch = StartPitch + (PitchPerLevel * Energy);
+            DeactivateSound.Play();
 
         }
     }

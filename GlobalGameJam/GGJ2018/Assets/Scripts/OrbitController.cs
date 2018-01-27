@@ -38,7 +38,7 @@ public class OrbitController : MonoBehaviour
     {
         var obj = Instantiate(OrbitPrefab);
         obj.transform.parent = transform;
-
+        
         var controller = obj.GetComponent<Orbiter>();
         controller.Distance = Random.Range(MinDistance, MaxDistance);
         controller.Speed = Random.Range(MinSpeed, MaxSpeed);
