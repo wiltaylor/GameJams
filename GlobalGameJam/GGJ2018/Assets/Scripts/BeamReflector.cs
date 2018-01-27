@@ -20,15 +20,19 @@ public class BeamReflector : MonoBehaviour
 
     public void OnHitByLaser()
     {
-        _lineofSite.enabled = true;
-        _lineRenderer.enabled = true;
+        if(_lineofSite != null)
+            _lineofSite.enabled = true;
+        if (_lineRenderer != null)
+            _lineRenderer.enabled = true;
         OnStartReflect.Invoke();
     }
 
     public void OnReset()
     {
-        _lineofSite.enabled = false;
-        _lineRenderer.enabled = false;
+        if (_lineofSite != null)
+            _lineofSite.enabled = false;
+        if (_lineRenderer != null)
+            _lineRenderer.enabled = false;
         OnStopReflect.Invoke();
 
     }
