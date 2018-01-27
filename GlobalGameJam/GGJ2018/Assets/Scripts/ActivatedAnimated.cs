@@ -24,7 +24,7 @@ public class ActivatedAnimated : MonoBehaviour {
     }
 
     float m_TimeSinceLastPass;
-    
+
 
     public ACTIVATIONSTATE state = ACTIVATIONSTATE.OFF;
     // Use this for initialization
@@ -34,15 +34,13 @@ public class ActivatedAnimated : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	    Color finalColour = SetColor();
-	    foreach (MeshRenderer mr in renderers)
-	    {
-	        mr.material.SetColor("_EmissionColor", finalColour);
-	    }
+
 
     }
-    /*
-        private void OnCollisionEnter(Collision collision)
+/*
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Player")
         {
             if (collision.gameObject.tag == "Player")
             {
@@ -57,7 +55,8 @@ public class ActivatedAnimated : MonoBehaviour {
                 ToggleOnOff();
             }
         }
-        */
+    }
+    */
     public void ToggleOnOff()
     {
         Color finalColour = SetColor();
