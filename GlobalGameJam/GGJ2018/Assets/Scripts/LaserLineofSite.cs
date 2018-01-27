@@ -21,7 +21,7 @@ public class LaserLineofSite : MonoBehaviour
 
     void OnDrawGizmosSelected()
     {
-        var defaultPosition = transform.up * Distance;
+        var defaultPosition = transform.position + (transform.up * Distance);
 
         Gizmos.color = Color.blue;
         Gizmos.DrawLine(transform.position, defaultPosition);
@@ -41,8 +41,8 @@ public class LaserLineofSite : MonoBehaviour
         _timeToNextCheck = CheckTime;
 
         Ray ray = new Ray(transform.position, transform.up);
-        var defaultPosition = transform.up * Distance;
-        
+        var defaultPosition = transform.position + (transform.up * Distance);
+
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit))
