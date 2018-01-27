@@ -513,9 +513,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab7291f0fe129774aa12dcbf4e4c2af3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EmissionMax: 0.7
-  m_OnColour: {r: 0, g: 0, b: 0, a: 0}
-  m_OffColour: {r: 0, g: 0, b: 0, a: 0}
+  EmissionMax: 0.1
+  m_OnColour: {r: 0.5708359, g: 0.9705882, b: 0.035683367, a: 0}
+  m_OffColour: {r: 0.058644556, g: 0.11764705, b: 0.018166091, a: 0}
   renderers:
   - {fileID: 23701931057507264}
   - {fileID: 23090444624353822}
