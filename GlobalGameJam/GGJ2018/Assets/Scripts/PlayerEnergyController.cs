@@ -85,5 +85,4 @@ public class PlayerEnergyController : MonoBehaviour
         if (_context == obj.GetComponent<EnergyInput>())
             _context = null;
     }
-
 }

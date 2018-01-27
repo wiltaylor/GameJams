@@ -8,6 +8,8 @@ public class SpawnController : MonoBehaviour
     private List<SpawnController> _spawns = new List<SpawnController>();
 
     public bool ActiveSpawn;
+    public GameObject Bling;
+    public float BlingTimeOut = 3f;
 
 	void Start ()
 	{
@@ -25,4 +27,19 @@ public class SpawnController : MonoBehaviour
                     spawn.ActiveSpawn = false;
         }
     }
+
+    public void FireBling()
+    {
+        Bling.SetActive(true);
+
+        Invoke("DisableBling", BlingTimeOut);
+
+    }
+
+    public void DisableBling()
+    {
+        Bling.SetActive(false);
+    }
+
+
 }
