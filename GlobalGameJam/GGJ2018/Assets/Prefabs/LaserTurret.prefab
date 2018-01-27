@@ -72,6 +72,7 @@ GameObject:
   - component: {fileID: 4523866603555484}
   - component: {fileID: 65197532430338728}
   - component: {fileID: 54526831964998338}
+  - component: {fileID: 114492788671226206}
   m_Layer: 0
   m_Name: LaserTurret
   m_TagString: Untagged
@@ -154,8 +155,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1353867485562820}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
+  m_LocalPosition: {x: 28.28, y: 6.986, z: 15.23}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4813817800669074}
@@ -626,7 +627,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CheckTime: 0.5
   Distance: 100
-  AlwaysRun: 0
+  AlwaysRun: 1
+--- !u!114 &114492788671226206
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1353867485562820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 001ef7fb993d5e54e8890f911d2291be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 10
+  Always: 1
 --- !u!120 &120311048430023446
 LineRenderer:
   m_ObjectHideFlags: 1
