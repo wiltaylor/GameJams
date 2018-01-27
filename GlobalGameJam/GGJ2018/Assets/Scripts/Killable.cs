@@ -37,5 +37,10 @@ public class Killable : MonoBehaviour
         if(transform.position.y <= KillOnY)
             Kill();
     }
-	
+
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "KillCollider") Kill();
+    }
 }
