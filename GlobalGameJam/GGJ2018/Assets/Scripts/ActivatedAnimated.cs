@@ -12,8 +12,8 @@ public class ActivatedAnimated : MonoBehaviour {
     public Color m_OnColour;
     [SerializeField]
     public Color m_OffColour;
-    [SerializeField]
-    MeshRenderer[] renderers;
+
+    MeshRenderer[] m_Renderers;
     [SerializeField, Range(0.2f, 4f)]
     float m_TrasissionTime = 2;
     // state of the object
@@ -59,11 +59,15 @@ public class ActivatedAnimated : MonoBehaviour {
     */
     public void ToggleOnOff()
     {
+        if (m_Renderers == null)
+        {
+            m_Renderers = GetComponentsInChildren<MeshRenderer>();
+        }
         Color finalColour = SetColor();
 
-        foreach (MeshRenderer mr in renderers)
+        foreach (MeshRenderer mr in m_Renderers)
         {
-            mr.material.SetColor("_EmissionColor", finalColour);
+            if (mr.gameObject.tag != "Top" || mr.gameObject.tag != "Bottom") mr.material.SetColor("_EmissionColor", finalColour);
         }
         if (state == ACTIVATIONSTATE.OFF)
         {
