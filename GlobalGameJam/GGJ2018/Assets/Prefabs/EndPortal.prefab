@@ -643,6 +643,7 @@ GameObject:
   - component: {fileID: 33307593677760642}
   - component: {fileID: 64156327003915574}
   - component: {fileID: 23819450904993172}
+  - component: {fileID: 114300057437856004}
   m_Layer: 0
   m_Name: EventHorizan
   m_TagString: Untagged
@@ -4422,6 +4423,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &114300057437856004
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1592015269604280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8adde2a3832451e42b3183294d7ce344, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SceneIndexToLoad: 0
+  SceneToLoad: 
 --- !u!215 &215346077284063160
 ReflectionProbe:
   m_ObjectHideFlags: 1
