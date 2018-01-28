@@ -6349,30 +6349,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4222671245702686, guid: 9f94831279c08d7458e7789a8c689e5a,
     type: 2}
   m_PrefabInternal: {fileID: 183620099}
---- !u!1 &185044034 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1283451919636892, guid: fd8218db7e5f64647b1bfa8e6f98e4e9,
-    type: 2}
-  m_PrefabInternal: {fileID: 749933632}
---- !u!114 &185044036
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 185044034}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa7155796051b734daa718462081dc5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_BindingMode: 1
-  m_FollowOffset: {x: 0, y: 3, z: -10}
-  m_XDamping: 1
-  m_YDamping: 1
-  m_ZDamping: 1
-  m_PitchDamping: 0
-  m_YawDamping: 0
-  m_RollDamping: 0
 --- !u!1001 &186022360
 Prefab:
   m_ObjectHideFlags: 0
@@ -24560,6 +24536,34 @@ Prefab:
       propertyPath: m_Color.b
       value: 0.77205884
       objectReference: {fileID: 0}
+    - target: {fileID: 4456556267209392, guid: fd8218db7e5f64647b1bfa8e6f98e4e9, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0.02850205
+      objectReference: {fileID: 0}
+    - target: {fileID: 4456556267209392, guid: fd8218db7e5f64647b1bfa8e6f98e4e9, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0.928524
+      objectReference: {fileID: 0}
+    - target: {fileID: 4456556267209392, guid: fd8218db7e5f64647b1bfa8e6f98e4e9, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0.072921306
+      objectReference: {fileID: 0}
+    - target: {fileID: 4456556267209392, guid: fd8218db7e5f64647b1bfa8e6f98e4e9, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: -0.36292332
+      objectReference: {fileID: 0}
+    - target: {fileID: 4456556267209392, guid: fd8218db7e5f64647b1bfa8e6f98e4e9, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 32.307594
+      objectReference: {fileID: 0}
+    - target: {fileID: 4456556267209392, guid: fd8218db7e5f64647b1bfa8e6f98e4e9, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4456556267209392, guid: fd8218db7e5f64647b1bfa8e6f98e4e9, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 8.447062
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114689882121174876, guid: fd8218db7e5f64647b1bfa8e6f98e4e9, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: fd8218db7e5f64647b1bfa8e6f98e4e9, type: 2}
@@ -26646,7 +26650,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 792878173}
-  m_LocalRotation: {x: 0.028408622, y: 0.9289449, z: 0.07295784, w: -0.3618446}
+  m_LocalRotation: {x: 0.028493522, y: 0.9285245, z: 0.07292471, w: -0.36292213}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -31389,6 +31393,93 @@ Transform:
   m_PrefabParentObject: {fileID: 4523866603555484, guid: 62f74f9684c8d6b4e9cf72c2ac25a8dd,
     type: 2}
   m_PrefabInternal: {fileID: 922509923}
+--- !u!1 &923448733
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 923448736}
+  - component: {fileID: 923448735}
+  - component: {fileID: 923448734}
+  m_Layer: 0
+  m_Name: IntoText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!102 &923448734
+TextMesh:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 923448733}
+  m_Text: "You find yourself alone in a strange new place, \nan \"e\"nergy pulsating
+    around you.\n\nYou feel and hear the push and pull of the \"e\"nergy \nin the
+    environment around you and \nyou are curious to find the origin of those sounds!\n"
+  m_OffsetZ: 0
+  m_CharacterSize: 0.05
+  m_LineSpacing: 1
+  m_Anchor: 0
+  m_Alignment: 0
+  m_TabSize: 4
+  m_FontSize: 100
+  m_FontStyle: 0
+  m_RichText: 1
+  m_Font: {fileID: 12800000, guid: a30f933bed2f6504bae572c0ef6aaeb7, type: 3}
+  m_Color:
+    serializedVersion: 2
+    rgba: 4294967295
+--- !u!23 &923448735
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 923448733}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: a30f933bed2f6504bae572c0ef6aaeb7, type: 3}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!4 &923448736
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 923448733}
+  m_LocalRotation: {x: -0, y: 0.99998957, z: -0, w: 0.0045718667}
+  m_LocalPosition: {x: 34.11, y: 7.7860546, z: -14.57}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 179.47601, z: 0}
 --- !u!1001 &924107293
 Prefab:
   m_ObjectHideFlags: 0
@@ -51308,7 +51399,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1469933735}
-  m_LocalRotation: {x: -0.027311021, y: 0.92276657, z: -0.06654181, w: -0.3785871}
+  m_LocalRotation: {x: -0.027311496, y: 0.92276657, z: -0.06654183, w: -0.3785871}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

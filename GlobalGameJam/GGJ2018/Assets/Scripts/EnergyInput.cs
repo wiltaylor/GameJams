@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 using UnityEngine.Events;
 
 public class EnergyInput : MonoBehaviour
@@ -20,7 +21,7 @@ public class EnergyInput : MonoBehaviour
 
     private void UpdateEnergy()
     {
-        foreach(var obj in PoweredObjects)
+        foreach(var obj in PoweredObjects.Where(o => o != null))
             obj.OnPowerChange(Energy);
     }
 
