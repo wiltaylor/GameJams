@@ -1,0 +1,128 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c9da7eecfd761b41a830fa1cd7bced2, type: 3}
+  m_Name: ShipUpgrades
+  m_EditorClassIdentifier: 
+  BeamWeapon:
+  - Cost: 0
+    Range: 100
+    Damage: 10
+    BlastThrough: 0
+    Colour: {r: 0, g: 1, b: 0.91724133, a: 1}
+  - Cost: 1000
+    Range: 150
+    Damage: 20
+    BlastThrough: 0
+    Colour: {r: 0.9862069, g: 1, b: 0, a: 1}
+  - Cost: 2000
+    Range: 200
+    Damage: 50
+    BlastThrough: 0
+    Colour: {r: 0, g: 0.08965492, b: 1, a: 1}
+  - Cost: 5000
+    Range: 250
+    Damage: 75
+    BlastThrough: 0
+    Colour: {r: 0, g: 1, b: 0, a: 1}
+  - Cost: 10000
+    Range: 500
+    Damage: 150
+    BlastThrough: 1
+    Colour: {r: 1, g: 0, b: 0, a: 1}
+  RocketWeapon:
+  - Cost: 0
+    Range: 100
+    Damage: 100
+    Radius: 5
+    MaxCapacity: 3
+  - Cost: 100
+    Range: 200
+    Damage: 250
+    Radius: 10
+    MaxCapacity: 3
+  - Cost: 1000
+    Range: 300
+    Damage: 500
+    Radius: 30
+    MaxCapacity: 5
+  - Cost: 2000
+    Range: 300
+    Damage: 1000
+    Radius: 75
+    MaxCapacity: 5
+  - Cost: 5000
+    Range: 300
+    Damage: 5000
+    Radius: 150
+    MaxCapacity: 5
+  Engines:
+  - Cost: 0
+    MaxSpeed: 100
+    AccelerationAmount: 10
+    MaxFuel: 100
+    FuelConsuption: 0.01
+    BreakFuel: 1
+  - Cost: 100
+    MaxSpeed: 150
+    AccelerationAmount: 15
+    MaxFuel: 150
+    FuelConsuption: 0.02
+    BreakFuel: 2
+  - Cost: 1000
+    MaxSpeed: 250
+    AccelerationAmount: 20
+    MaxFuel: 200
+    FuelConsuption: 0.03
+    BreakFuel: 5
+  - Cost: 2000
+    MaxSpeed: 300
+    AccelerationAmount: 75
+    MaxFuel: 500
+    FuelConsuption: 0.04
+    BreakFuel: 10
+  - Cost: 5000
+    MaxSpeed: 500
+    AccelerationAmount: 100
+    MaxFuel: 1000
+    FuelConsuption: 0.05
+    BreakFuel: 25
+  Shields:
+  - Cost: 0
+    MaxShield: 100
+    RechargeRate: 1
+    MaxHP: 100
+  - Cost: 100
+    MaxShield: 150
+    RechargeRate: 2
+    MaxHP: 200
+  - Cost: 1000
+    MaxShield: 200
+    RechargeRate: 5
+    MaxHP: 500
+  - Cost: 2000
+    MaxShield: 500
+    RechargeRate: 25
+    MaxHP: 1000
+  - Cost: 10000
+    MaxShield: 1000
+    RechargeRate: 100
+    MaxHP: 2000
+  CargoCapacity:
+  - Cost: 0
+    MaxCapacity: 10
+  - Cost: 100
+    MaxCapacity: 50
+  - Cost: 1000
+    MaxCapacity: 100
+  - Cost: 2000
+    MaxCapacity: 200
+  - Cost: 5000
+    MaxCapacity: 500

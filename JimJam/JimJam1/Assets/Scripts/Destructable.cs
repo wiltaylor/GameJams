@@ -1,34 +1,62 @@
-﻿using UnityEngine;
+﻿using NUnit.Framework.Constraints;
+using UnityEngine;
 using UnityEngine.Events;
 
 public class Destructable : MonoBehaviour
 {
 
     public float HP;
-    public float DeathTimeOut;
+    public float MaxHP;
+    public float Shield;
+    public float MaxShield;
+    public float ShieldRechargeRate;
     public UnityEvent OnDeath;
     public UnityEvent OnHit;
     public GameObject LastHitBy;
 
-    private bool _deathTriggered = false;
-
     public void DoHit(float damage, GameObject attacker)
     {
+        if (Shield > 0f)
+        {
+            Shield -= damage;
+
+            if (Shield < 0f)
+            {
+                damage = -1 * Shield;
+                Shield = 0f;
+            }
+            else
+            {
+                damage = 0f;
+            }
+        }
+
+        HP -= damage;
+
         LastHitBy = attacker;
         OnHit.Invoke();
+    }
+
+    public void DestroyMe(float time)
+    {
+        Destroy(gameObject, time);
     }
 
 
 	void Update ()
 	{
-	    if (_deathTriggered)
-	        return;
-
         if (HP <= 0.0f)
         {
             OnDeath.Invoke();
-            Destroy(gameObject, DeathTimeOut);
-            _deathTriggered = true;
         }
+
+	    if (Shield < MaxShield)
+	    {
+	        Shield += ShieldRechargeRate * Time.deltaTime;
+	    }
+	    else
+	    {
+	        Shield = MaxShield;
+	    }
 	}
 }

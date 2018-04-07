@@ -15,6 +15,7 @@ public class BeamWeaponController : MonoBehaviour
     public float BeamDamage = 1f;
     public bool BeamPunchThrough = false;
     public GameObject Owner;
+    public Camera Camera;
 
     private Vector3 _leftEndVector;
     private Vector3 _rightEndVector;
@@ -75,7 +76,8 @@ public class BeamWeaponController : MonoBehaviour
 
         Vector3 leftHit = Vector3.zero;
         Vector3 rightHit = Vector3.zero;
-        
+
+       
         var leftBeamStart = transform.TransformPoint(LeftBeam.GetPosition(0));
         var leftBeamEnd = transform.TransformPoint(_leftEndVector);
 
@@ -96,7 +98,7 @@ public class BeamWeaponController : MonoBehaviour
             var dmg = hit.transform.GetComponent<Destructable>();
 
             if (dmg != null)
-                dmg.HP -= BeamDamage * Time.fixedDeltaTime;
+                dmg.DoHit(BeamDamage, PlayerController.Instance.gameObject);
 
             if (leftHit == Vector3.zero)
             {
