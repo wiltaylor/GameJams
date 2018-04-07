@@ -7,8 +7,17 @@ public class Destructable : MonoBehaviour
     public float HP;
     public float DeathTimeOut;
     public UnityEvent OnDeath;
+    public UnityEvent OnHit;
+    public GameObject LastHitBy;
 
     private bool _deathTriggered = false;
+
+    public void DoHit(float damage, GameObject attacker)
+    {
+        LastHitBy = attacker;
+        OnHit.Invoke();
+    }
+
 
 	void Update ()
 	{

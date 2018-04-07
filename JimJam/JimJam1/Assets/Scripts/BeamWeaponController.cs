@@ -10,8 +10,11 @@ public class BeamWeaponController : MonoBehaviour
     public float distance;
     public LineRenderer LeftBeam;
     public LineRenderer RightBeam;
+    public ParticleSystem LeftParticle;
+    public ParticleSystem RightParticle;
     public float BeamDamage = 1f;
     public bool BeamPunchThrough = false;
+    public GameObject Owner;
 
     private Vector3 _leftEndVector;
     private Vector3 _rightEndVector;
@@ -22,6 +25,12 @@ public class BeamWeaponController : MonoBehaviour
 
         LeftBeam.gameObject.SetActive(_beamOn);
         RightBeam.gameObject.SetActive(_beamOn);
+
+        if (!_beamOn)
+        {
+            RightParticle.gameObject.SetActive(false);
+            LeftParticle.gameObject.SetActive(false);
+        }
     }
 
     private bool _beamOn;
@@ -46,16 +55,17 @@ public class BeamWeaponController : MonoBehaviour
 
         RightBeam.startColor = BeamColour;
         RightBeam.endColor = BeamColour;
+
+        var leftMain = LeftParticle.main;
+        var rightMain = RightParticle.main;
+
+        leftMain.startColor = new ParticleSystem.MinMaxGradient(BeamColour);
+        rightMain.startColor = new ParticleSystem.MinMaxGradient(BeamColour);
     }
 
     void Start()
     {
         ResetBeam();
-    }
-
-    void Update()
-    {
-
     }
 
     void FixedUpdate()
@@ -102,7 +112,7 @@ public class BeamWeaponController : MonoBehaviour
             var dmg = hit.transform.GetComponent<Destructable>();
 
             if (dmg != null)
-                dmg.HP -= BeamDamage * Time.fixedDeltaTime;
+                dmg.DoHit(BeamDamage, Owner);
             
             if (rightHit == Vector3.zero)
             {
@@ -115,5 +125,11 @@ public class BeamWeaponController : MonoBehaviour
 
         LeftBeam.SetPosition(1, leftHit != Vector3.zero ? leftHit : _leftEndVector);
         RightBeam.SetPosition(1, rightHit != Vector3.zero ? rightHit : _rightEndVector);
+
+        LeftParticle.gameObject.SetActive(leftHit != Vector3.zero);
+        LeftParticle.transform.position = transform.TransformPoint(leftHit);
+        RightParticle.gameObject.SetActive(rightHit != Vector3.zero);
+        RightParticle.transform.position = transform.TransformPoint(rightHit);
+
     }
 }
