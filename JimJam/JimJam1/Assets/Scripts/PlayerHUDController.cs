@@ -1,8 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerHUDController : MonoBehaviour
@@ -21,6 +23,8 @@ public class PlayerHUDController : MonoBehaviour
     public GameObject ComsButton;
     public GameObject FreeControlButton;
     public GameObject CargoButton;
+    public Texture2D MouseCursor;
+    public Vector2 MouseHotSpot;
 
     //Windows
     public GameObject SpaceStationWindow;
@@ -34,12 +38,36 @@ public class PlayerHUDController : MonoBehaviour
     private Camera _camera = null;
     private Destructable _playerDestructable;
 
+    private static PlayerHUDController _instance;
+
+    public static PlayerHUDController Instance { get { return _instance; } }
+
     private readonly List<TrackableObject> _trackableObjects = new List<TrackableObject>();
+
+    void Awake()
+    {
+        if (_instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        _instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
 
     void Start()
     {
+        Player = PlayerController.Instance;
         _camera = Player.GetComponentsInChildren<Camera>().First(c => c.tag == "MainCamera" );
         _playerDestructable = Player.GetComponent<Destructable>();
+
+        //Open tutorial at the start of the game.
+        if(SceneManager.GetActiveScene().name.ToLower() == "start")
+            TutorialWindow.SetActive(true);
+
+
+        Cursor.SetCursor(MouseCursor, MouseHotSpot, CursorMode.Auto);
     }
 
     public void EngageFreeControl()
@@ -53,9 +81,10 @@ public class PlayerHUDController : MonoBehaviour
         onscreenTracker.transform.SetParent(transform);
         onscreenTracker.GetComponent<Image>().color = colour;
 
-        var onscreentext = onscreenTracker.GetComponentInChildren<Text>();
-        onscreentext.text = text;
-        onscreentext.color = colour;
+        var control = onscreenTracker.GetComponent<OnScreenTracker>();
+        control.Name.text = text;
+        control.Name.color = colour;
+        control.Distance.color = colour;
 
         var offscreenTracker = Instantiate(OffScreenIndicatorPrefab);
         offscreenTracker.transform.SetParent(transform);
@@ -82,6 +111,11 @@ public class PlayerHUDController : MonoBehaviour
 	    {
 	        HideAllWindows();
         }
+
+	    if (Player.isWarping)
+	    {
+	        FreeControlButton.gameObject.SetActive(false);
+	    }
 
 	    Speed.maxValue = Player.MaxSpeed;
 	    Speed.minValue = 0;
@@ -163,6 +197,8 @@ public class PlayerHUDController : MonoBehaviour
                 var destruct = obj.Object.GetComponent<Destructable>();
                 var control = obj.OnScreenTracker.GetComponent<OnScreenTracker>();
 
+                control.Distance.text = Math.Round(Vector3.Distance(obj.Object.transform.position, Player.transform.position) / 1000, 2) + " LDU";
+                
                 if (destruct != null)
                 {
                     if (destruct.Shield > 0f)

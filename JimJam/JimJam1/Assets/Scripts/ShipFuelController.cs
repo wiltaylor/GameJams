@@ -8,7 +8,11 @@ public class ShipFuelController : MonoBehaviour
     public PlayerController Player;
     public Button BuyButton;
     public Text CostText;
-	
+
+    void Start()
+    {
+        Player = PlayerController.Instance;
+    }
 	void Update ()
 	{
 	    var cost = Mathf.FloorToInt((Player.MaxFuel - Player.Fuel) * Player.CurrentSpaceStaion.FuelCostPerUnit);

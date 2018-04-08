@@ -19,6 +19,7 @@ public class ShopItemController : MonoBehaviour
 
     void Start()
     {
+        Player = PlayerController.Instance;
         UpdateSlider();
         QtySlider.value = 0f;
     }

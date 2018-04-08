@@ -9,6 +9,12 @@ public class ShopController : MonoBehaviour
     public GameObject ShopItemPrefab;
     public float YOffset = 100f;
 
+    void Start()
+    {
+        Player = PlayerController.Instance;
+    }
+
+
     void OnEnable()
     {
         Player = PlayerController.Instance;

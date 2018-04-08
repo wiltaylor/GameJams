@@ -21,9 +21,13 @@ public class Destructable : MonoBehaviour
     public UnityEvent OnHit;
     public GameObject LastHitBy;
     public DestructableFaction Faction;
+    public bool Invincible = false;
 
     public void DoHit(float damage, GameObject attacker)
     {
+        if (Invincible)
+            return;
+
         if (Shield > 0f)
         {
             Shield -= damage;

@@ -20,7 +20,10 @@ public class ShipUpgradeController : MonoBehaviour
     public Text ShieldText;
     public Text CargoText;
 
-	
+    void Start()
+    {
+        Player = PlayerController.Instance;
+    }
 
 	void Update ()
 	{

@@ -11,6 +11,11 @@ public class SpaceStationPanelController : MonoBehaviour
     public Button FuelButton;
     public Text WelcomeText;
 
+    void Start()
+    {
+        Player = PlayerController.Instance;
+    }
+
     void Update()
     {
         FuelButton.enabled = !(Player.Fuel >= Player.MaxFuel);

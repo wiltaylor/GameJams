@@ -18,10 +18,10 @@ public class LevelManager : MonoBehaviour
         var playerGate = _gates.FirstOrDefault(g => string.Equals(g.TargetScene, _player.LastScene, StringComparison.CurrentCultureIgnoreCase));
 
         if (playerGate == null) return;
-
+        _player.Brake();
         _player.transform.position = playerGate.JumpPoint.position;
         _player.transform.rotation = playerGate.JumpPoint.rotation;
-        _player.Brake();
+        
     }
 
 }

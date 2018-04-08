@@ -7,4 +7,6 @@ public class OnScreenTracker : MonoBehaviour
 {
     public Slider HP;
     public Slider Shield;
+    public Text Distance;
+    public Text Name;
 }

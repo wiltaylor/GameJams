@@ -14,6 +14,10 @@ public class JumpGateController : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            //Stops race condition when loading level where existing player would trigger a level transition.
+            if (other.gameObject != PlayerController.Instance.gameObject)
+                return;
+
             var player = other.GetComponent<PlayerController>();
 
             if (player.isWarping)

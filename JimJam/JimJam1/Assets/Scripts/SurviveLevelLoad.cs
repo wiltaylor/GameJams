@@ -13,7 +13,7 @@ public class SurviveLevelLoad : MonoBehaviour
         if(_types == null)
             _types = new List<Type>();
 
-        if (_types.Any(t => t == this.GetType()))
+          if (_types.Any(t => t == this.GetType()))
         {
             Destroy(gameObject);
             return;

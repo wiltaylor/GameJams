@@ -16,13 +16,16 @@ public class PlayerController : MonoBehaviour
     public bool FreeLookOn = false;
     public WeaponController Weapon;
     public string LastScene = "";
+    public GameObject HudPrefab;
 
     public BeamWeaponController BeamWeapon;
     //Need to add rockets.
     
-    private Camera _mainCam;
-    private Camera _warpCam;
     private float _warpTimeOut = 0f;
+
+    //Cameras
+    public Camera MainCam;
+    public Camera WarpCam;
 
     //Cargo
     public int Credits = 1000;
@@ -126,17 +129,15 @@ public class PlayerController : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         _instance = this;
+
+        var hud = Instantiate(HudPrefab);
+        hud.SetActive(true);
     }
 
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
         _destructable = GetComponent<Destructable>();
-
-        var cams = GetComponentsInChildren<Camera>();
-
-        _mainCam = cams.FirstOrDefault(c => c.CompareTag("MainCamera"));
-        _warpCam = cams.FirstOrDefault(c => !c.CompareTag("MainCamera"));
 
         UpdateStats();
 
@@ -153,8 +154,8 @@ public class PlayerController : MonoBehaviour
         FreeLookOn = false;
 
         _warpTimeOut = time;
-        _mainCam.gameObject.SetActive(false);
-        _warpCam.gameObject.SetActive(true);
+        MainCam.enabled = false;
+        WarpCam.gameObject.SetActive(true);
     }
 
     public void Brake()
@@ -177,12 +178,14 @@ public class PlayerController : MonoBehaviour
 
         if (_warpTimeOut > 0f)
         {
+            _destructable.Invincible = true;
             _warpTimeOut -= Time.deltaTime;
             return;
         }
 
-        _mainCam.gameObject.SetActive(true);
-        _warpCam.gameObject.SetActive(false);
+	    _destructable.Invincible = false;
+        MainCam.enabled = true;
+        WarpCam.gameObject.SetActive(false);
         
         if (Input.GetButtonDown("FreeLook"))
         {
@@ -308,6 +311,6 @@ public class PlayerController : MonoBehaviour
 
     public void GameOver()
     {
-        SceneManager.LoadScene("gameover");
+        SceneManager.LoadScene("Credits");
     }
 }
