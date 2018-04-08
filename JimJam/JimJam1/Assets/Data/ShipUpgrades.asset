@@ -13,26 +13,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BeamWeapon:
   - Cost: 0
-    Range: 100
+    Range: 1000
     Damage: 10
     BlastThrough: 0
     Colour: {r: 0, g: 1, b: 0.91724133, a: 1}
-  - Cost: 1000
+  - Cost: 10000
     Range: 150
     Damage: 20
     BlastThrough: 0
     Colour: {r: 0.9862069, g: 1, b: 0, a: 1}
-  - Cost: 2000
+  - Cost: 20000
     Range: 200
     Damage: 50
     BlastThrough: 0
     Colour: {r: 0, g: 0.08965492, b: 1, a: 1}
-  - Cost: 5000
+  - Cost: 50000
     Range: 250
     Damage: 75
     BlastThrough: 0
     Colour: {r: 0, g: 1, b: 0, a: 1}
-  - Cost: 10000
+  - Cost: 100000
     Range: 500
     Damage: 150
     BlastThrough: 1

@@ -210,44 +210,54 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 198472145671095036, guid: d75b98bc96ac5054886863d959728777,
+    - target: {fileID: 224786907636713158, guid: d75b98bc96ac5054886863d959728777,
         type: 2}
-      propertyPath: ColorModule.enabled
-      value: 1
+      propertyPath: m_AnchorMax.x
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 198472145671095036, guid: d75b98bc96ac5054886863d959728777,
+    - target: {fileID: 224786907636713158, guid: d75b98bc96ac5054886863d959728777,
         type: 2}
-      propertyPath: randomSeed
-      value: -1580942141
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 198472145671095036, guid: d75b98bc96ac5054886863d959728777,
+    - target: {fileID: 224106255085085420, guid: d75b98bc96ac5054886863d959728777,
         type: 2}
-      propertyPath: ColorModule.gradient.maxGradient.key0.r
-      value: 1
+      propertyPath: m_AnchorMax.x
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 198472145671095036, guid: d75b98bc96ac5054886863d959728777,
+    - target: {fileID: 224106255085085420, guid: d75b98bc96ac5054886863d959728777,
         type: 2}
-      propertyPath: ColorModule.gradient.maxGradient.key0.g
-      value: 1
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 198472145671095036, guid: d75b98bc96ac5054886863d959728777,
+    - target: {fileID: 224042315229967648, guid: d75b98bc96ac5054886863d959728777,
         type: 2}
-      propertyPath: ColorModule.gradient.maxGradient.key0.b
-      value: 1
+      propertyPath: m_AnchorMax.x
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 198472145671095036, guid: d75b98bc96ac5054886863d959728777,
+    - target: {fileID: 224042315229967648, guid: d75b98bc96ac5054886863d959728777,
         type: 2}
-      propertyPath: ColorModule.gradient.maxGradient.key1.r
-      value: 0.90344834
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 198472145671095036, guid: d75b98bc96ac5054886863d959728777,
+    - target: {fileID: 224840762539418190, guid: d75b98bc96ac5054886863d959728777,
         type: 2}
-      propertyPath: ColorModule.gradient.maxGradient.key1.g
-      value: 1
+      propertyPath: m_AnchorMax.x
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 198472145671095036, guid: d75b98bc96ac5054886863d959728777,
+    - target: {fileID: 224840762539418190, guid: d75b98bc96ac5054886863d959728777,
         type: 2}
-      propertyPath: ColorModule.gradient.maxGradient.key1.b
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224333738370558900, guid: d75b98bc96ac5054886863d959728777,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224333738370558900, guid: d75b98bc96ac5054886863d959728777,
+        type: 2}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -258,71 +268,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4608848062775412, guid: 19a214f04ed7e9c4c9bc433f211148d9,
     type: 2}
   m_PrefabInternal: {fileID: 190884355}
---- !u!1 &965289156 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1285584264728010, guid: 91b016b178f22fe40a4adb364da03e64,
-    type: 2}
-  m_PrefabInternal: {fileID: 1403299334}
---- !u!4 &965289163 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4305693190354568, guid: 91b016b178f22fe40a4adb364da03e64,
-    type: 2}
-  m_PrefabInternal: {fileID: 1403299334}
---- !u!114 &965289164
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 965289156}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a9205886f258805489cb03cd950d9ae3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Colour: {r: 1, g: 0.9724138, b: 0, a: 1}
-  Text: Shooty Box
---- !u!1001 &1403299334
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1627086266}
-    m_Modifications:
-    - target: {fileID: 4305693190354568, guid: 91b016b178f22fe40a4adb364da03e64, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 61.755615
-      objectReference: {fileID: 0}
-    - target: {fileID: 4305693190354568, guid: 91b016b178f22fe40a4adb364da03e64, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 105.184326
-      objectReference: {fileID: 0}
-    - target: {fileID: 4305693190354568, guid: 91b016b178f22fe40a4adb364da03e64, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -167.07971
-      objectReference: {fileID: 0}
-    - target: {fileID: 4305693190354568, guid: 91b016b178f22fe40a4adb364da03e64, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4305693190354568, guid: 91b016b178f22fe40a4adb364da03e64, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4305693190354568, guid: 91b016b178f22fe40a4adb364da03e64, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4305693190354568, guid: 91b016b178f22fe40a4adb364da03e64, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4305693190354568, guid: 91b016b178f22fe40a4adb364da03e64, type: 2}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 91b016b178f22fe40a4adb364da03e64, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &1627086264
 GameObject:
   m_ObjectHideFlags: 0
@@ -361,7 +306,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 847226621}
-  - {fileID: 965289163}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -28,6 +28,7 @@ public class PlayerHUDController : MonoBehaviour
     public GameObject ShipUpgradeWindow;
     public GameObject ShopWindow;
     public GameObject CargoWindow;
+    public GameObject TutorialWindow;
 
 
     private Camera _camera = null;

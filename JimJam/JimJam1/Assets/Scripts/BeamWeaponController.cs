@@ -19,6 +19,7 @@ public class BeamWeaponController : MonoBehaviour
 
     private Vector3 _leftEndVector;
     private Vector3 _rightEndVector;
+    private AudioSource _audio;
 
     public void EnableBeam(bool active)
     {
@@ -27,11 +28,21 @@ public class BeamWeaponController : MonoBehaviour
         LeftBeam.gameObject.SetActive(_beamOn);
         RightBeam.gameObject.SetActive(_beamOn);
 
+
+
         if (!_beamOn)
         {
             RightParticle.gameObject.SetActive(false);
             LeftParticle.gameObject.SetActive(false);
         }
+
+        if (_audio == null)
+            return;
+
+        if (_beamOn)
+            _audio.Play();
+        else
+            _audio.Stop();
     }
 
     private bool _beamOn;
@@ -66,6 +77,7 @@ public class BeamWeaponController : MonoBehaviour
 
     void Start()
     {
+        _audio = GetComponent<AudioSource>();
         ResetBeam();
     }
 

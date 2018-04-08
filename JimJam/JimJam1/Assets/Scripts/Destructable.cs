@@ -2,6 +2,13 @@
 using UnityEngine;
 using UnityEngine.Events;
 
+public enum DestructableFaction
+{
+    None,
+    Pirate,
+    Police
+}
+
 public class Destructable : MonoBehaviour
 {
 
@@ -13,6 +20,7 @@ public class Destructable : MonoBehaviour
     public UnityEvent OnDeath;
     public UnityEvent OnHit;
     public GameObject LastHitBy;
+    public DestructableFaction Faction;
 
     public void DoHit(float damage, GameObject attacker)
     {

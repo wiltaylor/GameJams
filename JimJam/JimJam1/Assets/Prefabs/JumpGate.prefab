@@ -226,6 +226,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TargetScene: Debug
   JumpPoint: {fileID: 4090764209877474}
+  Distance: 1
 --- !u!114 &114990837750994972
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -238,3 +239,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Colour: {r: 0, g: 0.08965492, b: 1, a: 1}
+  Text: 
+  Type: 0

@@ -15,6 +15,7 @@ public enum AIState
 
 public class ShipAI : MonoBehaviour
 {
+    public float RotSpeed = 10f;
     public AIState State;
     public bool HostileToPlayer;
     public GameObject Target;
@@ -31,13 +32,18 @@ public class ShipAI : MonoBehaviour
     private float _fireDuration;
     private float _fireCoolDown = 0f;
     private Destructable _destructable;
+    private AudioSource _audio;
 
 
     void Update()
     {
+        foreach (var weapon in AIWeapons)
+            weapon.StopShooting();
+
         switch (State)
         {
             case AIState.Idle:
+                _audio.Stop();
                 break;
             case AIState.Attacking:
                 AttackingUpdate();
@@ -59,6 +65,8 @@ public class ShipAI : MonoBehaviour
     void Start()
     {
         _destructable = GetComponent<Destructable>();
+        _audio = GetComponent<AudioSource>();
+
     }
 
     public void OnShot()
@@ -68,6 +76,11 @@ public class ShipAI : MonoBehaviour
 
         Target = _destructable.LastHitBy;
         State = AIState.MovingToAttack;
+    }
+
+    void RotatingToAttackUpdate()
+    {
+        
     }
 
     void AttackingUpdate()
@@ -84,11 +97,18 @@ public class ShipAI : MonoBehaviour
             return;
         }
 
-        transform.LookAt(Target.transform.position);
+        //transform.LookAt(Target.transform.position);
+
+        var dir = (Target.transform.position - transform.position).normalized;
+        var rot = Quaternion.FromToRotation(transform.forward, dir);
+
+        transform.rotation = Quaternion.Lerp(transform.rotation, rot, Time.deltaTime * RotSpeed);
+
 
         if (_fireDuration > 0f)
         {
-            foreach(var weapon in AIWeapons)
+            _audio.Play();
+            foreach (var weapon in AIWeapons)
                 weapon.ShootAt(Target);
 
             _fireDuration -= Time.deltaTime;
@@ -97,6 +117,7 @@ public class ShipAI : MonoBehaviour
         }
 
         _fireDuration = 0;
+        _audio.Stop();
 
         foreach (var weapon in AIWeapons)
             weapon.StopShooting();
@@ -128,8 +149,10 @@ public class ShipAI : MonoBehaviour
 
         transform.position += direction * Speed * Time.deltaTime;
 
-        transform.LookAt(Target.transform.position);
+        var dir = (Target.transform.position - transform.position).normalized;
+        var rot = Quaternion.FromToRotation(transform.forward, dir);
 
+        transform.rotation = Quaternion.Lerp(transform.rotation, rot, Time.deltaTime * RotSpeed);
     }
 
     void MovingUpdate()
@@ -151,6 +174,23 @@ public class ShipAI : MonoBehaviour
     void SleepUpdate()
     {
         //TODO: When/if plans are added this will allow the ai to sleep for a bit.
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (Target != null)
+            return;
+
+        var dmg = other.GetComponent<Destructable>();
+
+        if (dmg == null)
+            return;
+
+        if (dmg.Faction == DestructableFaction.None || dmg.Faction == _destructable.Faction)
+            return;
+
+        Target = other.gameObject;
+        State = AIState.MovingToAttack;
     }
 
 }
