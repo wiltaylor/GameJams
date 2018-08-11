@@ -16,7 +16,7 @@ include_directories(${SDL2_INCLUDE_DIR})
 
 find_package(SDL2 REQUIRED)
 
-add_executable(LD42 src/Main.cpp)
+add_executable(LD42 src/Main.cpp src/Game.cpp src/Player.cpp src/RayCastRender.cpp src/Renderer.cpp src/Timer.cpp src/Input.cpp)
 target_link_libraries(LD42 ${SDL2_LIBRARIES})
 
 if(WIN32)
