@@ -1,0 +1,8 @@
+# NES Binary files
+*.o
+*.nes
+
+# NIX files
+result
+
+*.fdb
