@@ -1,70 +1,48 @@
-# LUDUM DARE 53
+# Delivery
 
-Theme: Delivery
-Platform: Nintendo Entertainment System (NES)
+> A delivery driving game for the Nintendo Entertainment System. Duck and weave through traffic while launching packages at houses to meet your deadlines.
 
-## Description
+Created for **Ludum Dare 53** (Compo) | Theme: *Delivery*
 
-You are a delivery driver with unrealistic deadlines set by an evil AI. To meet your deadlines you need to duck and weave through traffic while launching your packages at peoples houses.
+> **What went wrong:** Ran into a lot of problems with memory corruption while building the game. I should have spent more time getting debugging working and learning more 6502 assembly techniques before attempting this. Doing a dry run before the jam would have been really helpful too.
 
-## Controls
+## Links
 
-- Left/Right: Steer left and right
-- Up: Accelerate
-- Down: Brake
-- A: Throw package Left
-- B: Throw package Right
-- Start: Pause
-- Select: Honk Horn in frustration
-
-## Game Goals
-
-- Avoid crashing into other cars
-- Deliver packages to houses designated with flashing rectangles
-- Bonus points if you can launch the package through the window of the house (got to have some job satisfaction right?).
-- The game will keep getting faster and tricker to deliver packages as you play. Try to get the highest score you can.
+- [Game Page](https://wil.dev/gamejams/ld53-nes-delivery/)
 
 ## How to Play
 
-- Download the rom from itch.io and play in your favorite NES emulator.
-- Alternatively you can play online on my itch io page which has a web based emulator.
-- If you have a flash cart you can play on real hardware (I have not tested this as I don't have one to test on).
+- Avoid crashing into other cars
+- Deliver packages to houses designated with flashing rectangles
+- Bonus points if you launch the package through the window
+- The game keeps getting faster and trickier - try to get the highest score
+- Download the ROM and play in your favourite NES emulator, or on real hardware with a flash cart
 
-## How to Build
+## Controls
 
-- Before you can build you need the following tools installed:
-  - [cc65](https://cc65.github.io/)
-  - [Just](https://github.com/casey/just)
-  - [FCEUX](https://www.fceux.com/web/home.html) (or your favorite NES emulator) to run the game. FCEUX has a pretty good debugger.
+| Input | Action |
+|-------|--------|
+| **[NES]** Left / Right | Steer left and right |
+| **[NES]** Up | Accelerate |
+| **[NES]** Down | Brake |
+| **[NES]** A | Throw package Left |
+| **[NES]** B | Throw package Right |
+| **[NES]** Start | Pause |
+| **[NES]** Select | Honk Horn in frustration |
 
-- Then build with:
+## Details
 
-```shell
-just build
-```
+| | |
+|---|---|
+| Engine | Custom |
+| Language | 6502 Assembly |
+| Platforms | NES |
+| Status | Failed |
 
-You will then have a game.nes file in the source directory. You can run this with your emulator.
+## Screenshots
 
-> There is also a nix flake which has a nix shell you can run with all the tools used to develop the game installed.
+![Screenshot](.images/LD53-01.png)
 
-## License
+## Licence
 
-Copyright (c)  Wil Taylor
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+See [../../LICENCE.md](../../LICENCE.md).
