@@ -17,7 +17,7 @@ A collection of all my game jam games. Each game lives in its own subdirectory u
 | [Litch Defence](https://wil.dev/gamejams/ld33-litch-defence/) | Ludum Dare | Unity | C# | :white_check_mark: Submitted | :white_check_mark: | `LudumDare/LD33/` |
 | [Repair Runner](https://wil.dev/gamejams/ld34-repair-runner/) | Ludum Dare | Unity | C# | :white_check_mark: Submitted | :white_check_mark: | `LudumDare/LD34/` |
 | [Dungeon Shift](https://wil.dev/gamejams/ld35-sungeon-shift/) | Ludum Dare | Unity | C# | :white_check_mark: Submitted | :white_check_mark: | `LudumDare/LD35/` |
-| [RTS](https://wil.dev/gamejams/ld36-rts/) | Ludum Dare | Unity | C# | :x: Failed | :white_check_mark: | `LudumDare/LD36/` |
+| [RTS](https://wil.dev/gamejams/ld36-rts/) | Ludum Dare | Unity | C# | :x: Failed | :x: | `LudumDare/LD36/` |
 | [Parva Mundi](https://wil.dev/gamejams/ld38-crusade/) | Ludum Dare | Unity | C# | :white_check_mark: Submitted | :x: | `LudumDare/LD38/` |
 | [Power Tank](https://wil.dev/gamejams/ld39-power-out/) | Ludum Dare | Unity | C# | :white_check_mark: Submitted | :x: | `LudumDare/LD39/` |
 | [Shooter Guy](https://wil.dev/gamejams/ld40-shooter-guy/) | Ludum Dare | Unity | C# | :white_check_mark: Submitted | :white_check_mark: | `LudumDare/LD40/` |
