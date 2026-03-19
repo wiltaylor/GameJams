@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scene/mainmenu.unity
+    guid: b3c35e88826e39345ab01b8ee4f27f43
+  - enabled: 1
+    path: Assets/Scene/debug2.unity
+    guid: 7bb75f24172ab364ba48b5d49a85a60c
+  - enabled: 1
+    path: Assets/Scene/debug.unity
+    guid: 864264aee23050c419bb62ed61d1f5ee
+  - enabled: 1
+    path: Assets/Scene/gameover.unity
+    guid: 4a401d4c9b307534583645df9d47ae72
+  - enabled: 1
+    path: Assets/Scene/start.unity
+    guid: 6c54504a75f90bb439c41e2eaea078ef
+  - enabled: 1
+    path: Assets/Scene/A1.unity
+    guid: 57836723b5d13104ab8a27fb1ca08b44
+  - enabled: 1
+    path: Assets/Scene/A2.unity
+    guid: e2e82134ff019f4419feaecf79ed9439
+  - enabled: 1
+    path: Assets/Scene/A3.unity
+    guid: 3a94faf22a73776478159844a6c6293c
+  - enabled: 1
+    path: Assets/Scene/A4.unity
+    guid: eea36be489a44f44f8ccb52cf7349010
+  - enabled: 1
+    path: Assets/Scene/B1.unity
+    guid: 8f0260d7bd2abb74c9fdb819f417520d
+  - enabled: 1
+    path: Assets/Scene/B2.unity
+    guid: 44435a525685fe642a4f44797d48666c
+  - enabled: 1
+    path: Assets/Scene/B3.unity
+    guid: cc53650f03022294285a6599d26a9f82
+  - enabled: 1
+    path: Assets/Scene/B4.unity
+    guid: b277ef24d7126424fa6d9613d9a1b652
+  - enabled: 1
+    path: Assets/Scene/C1.unity
+    guid: 4ec614fd76ee42d45bf5528e4ea7b722
+  - enabled: 1
+    path: Assets/Scene/C2.unity
+    guid: 5160439476f69894dabbe91fba4bde8c
+  - enabled: 1
+    path: Assets/Scene/C3.unity
+    guid: 0d77048f04e353545949ab1d5d950f1a
+  - enabled: 1
+    path: Assets/Scene/C4.unity
+    guid: 1e772811024f107428cae5011a4ac245
+  - enabled: 1
+    path: Assets/Scene/C5.unity
+    guid: 6396a6622f731fc4e8195c9d678aee82
+  - enabled: 1
+    path: Assets/Scene/D1.unity
+    guid: 52380a5001633e449b65d5779d241cbe
+  - enabled: 1
+    path: Assets/Scene/D2.unity
+    guid: 1246ff28ff40e1040a2460cc5679c075
+  - enabled: 1
+    path: Assets/Scene/D3.unity
+    guid: f5b38e5eb7a108444a3cf05f9ba8ae1c
+  - enabled: 1
+    path: Assets/Scene/E1.unity
+    guid: 51519d71e94e03f4bb2d0ba1d9b50d1d
+  - enabled: 1
+    path: Assets/Scene/E4.unity
+    guid: 4e9ab4141cce6b847a5fc7526d401c0a
+  - enabled: 1
+    path: Assets/Scene/F1.unity
+    guid: d573e47708da5cb4093fd9366252285b
+  - enabled: 1
+    path: Assets/Scene/F2.unity
+    guid: bd56f14d0426c744fb369e2d04272a4d
+  - enabled: 1
+    path: Assets/Scene/F3.unity
+    guid: 31f8b4a016e580a4da2fb43f1401d6cb
+  - enabled: 1
+    path: Assets/Scene/F4.unity
+    guid: b141bb5bb5794e24c919e446d8131763
