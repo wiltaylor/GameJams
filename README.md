@@ -1,5 +1,9 @@
 # Game Jams
 
+<p align="center">
+  <img src="assets/logo.png" alt="Game Jams Logo">
+</p>
+
 A collection of all my game jam games. Each game lives in its own subdirectory under the relevant jam series folder.
 
 ## Structure
@@ -26,6 +30,7 @@ A collection of all my game jam games. Each game lives in its own subdirectory u
 | `LudumDare/LD50/` | Ludum Dare 50 |
 | `LudumDare/LD53/` | Ludum Dare 53 |
 | `JimJam/JimJam1/` | JimJam 1 |
+| `GlobalGameJam/GGJ2018/` | Global Game Jam 2018 |
 
 ## Licence
 
