@@ -25,6 +25,7 @@ A collection of all my game jam games. Each game lives in its own subdirectory u
 | `LudumDare/LD48/` | Ludum Dare 48 |
 | `LudumDare/LD50/` | Ludum Dare 50 |
 | `LudumDare/LD53/` | Ludum Dare 53 |
+| `JimJam/JimJam1/` | JimJam 1 |
 
 ## Licence
 
