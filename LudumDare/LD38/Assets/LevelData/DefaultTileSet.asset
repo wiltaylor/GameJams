@@ -1,0 +1,147 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ff50fdbab495f94799765b338e35c42, type: 3}
+  m_Name: DefaultTileSet
+  m_EditorClassIdentifier: 
+  Profile: {fileID: 11400000, guid: e088d6c0e2d677848a0a469d214c8fd1, type: 2}
+  Tiles:
+  - Type: 0
+    Prefab: {fileID: 0}
+    TileSettings: {fileID: 11400000, guid: acdb3c04661782c4c955ed9fab46483e, type: 2}
+  - Type: 1
+    Prefab: {fileID: 1983693931983228, guid: 007f2439be19d1c43a84736092945f93, type: 2}
+    TileSettings: {fileID: 11400000, guid: 34b5d3524dbc1df43a716ab723799f41, type: 2}
+  - Type: 2
+    Prefab: {fileID: 1745575991115932, guid: 9bf74728135f34841b2a355e9dd93fb7, type: 2}
+    TileSettings: {fileID: 11400000, guid: 74d9d7d5dfb1e654bab71c70cf6868c4, type: 2}
+  - Type: 3
+    Prefab: {fileID: 1094611082043704, guid: ade4fa81c97c6444184ae3210f56488f, type: 2}
+    TileSettings: {fileID: 11400000, guid: 4594794e6f0b40240ba10a633fc63451, type: 2}
+  - Type: 4
+    Prefab: {fileID: 1239958353979772, guid: 77da51a5677cd6d4a82873471b5ba8c9, type: 2}
+    TileSettings: {fileID: 11400000, guid: 257d3c7c39af9d747908bb00cdb191f4, type: 2}
+  - Type: 5
+    Prefab: {fileID: 1133903510726042, guid: d3ff0f51b009286459fc053c3322a75c, type: 2}
+    TileSettings: {fileID: 11400000, guid: be805fe58c13518469f781b634ed02be, type: 2}
+  - Type: 7
+    Prefab: {fileID: 1206708557472790, guid: 67e2cb01b06f50c4ab2167406a63555f, type: 2}
+    TileSettings: {fileID: 11400000, guid: fd0ea97609ce5cb4c847c7e19f87a35e, type: 2}
+  - Type: 6
+    Prefab: {fileID: 1187100452125184, guid: db077c6210ff70640b6ca8b501f52d30, type: 2}
+    TileSettings: {fileID: 11400000, guid: d36e0e81ace2b9548b01691ffc9845cc, type: 2}
+  Buildings:
+  - Type: 0
+    Prefab: {fileID: 1820911865283394, guid: 9b3937024465b584eab29238426219ce, type: 2}
+    BuildingSettings: {fileID: 11400000, guid: c7540d38bcb862f46a8e90f65540b215, type: 2}
+  - Type: 1
+    Prefab: {fileID: 1913941419798754, guid: c512ff851ff9246429f7df3b7ae51800, type: 2}
+    BuildingSettings: {fileID: 11400000, guid: 95b46ff668682bc42bf7fb1cb92bfe2a, type: 2}
+  - Type: 2
+    Prefab: {fileID: 1419522320694214, guid: 104e0a909ec50d24088bb68212ab3630, type: 2}
+    BuildingSettings: {fileID: 11400000, guid: 718396e40ab0e354ea48419fc27d4a12, type: 2}
+  - Type: 3
+    Prefab: {fileID: 1777875037462306, guid: 2df41731e30ed684b97dd007e7a8c509, type: 2}
+    BuildingSettings: {fileID: 11400000, guid: cdff6418237745041bb2b9441dec5618, type: 2}
+  Units:
+  - Unit: 0
+    Prefab: {fileID: 1951252881338568, guid: df6cc78e0cb33784c81563a8fb0bd4b0, type: 2}
+    UnitSettings: {fileID: 11400000, guid: 987a481301ff39f419abbfe262198819, type: 2}
+  - Unit: 1
+    Prefab: {fileID: 1469913157823796, guid: c2e765a3245e82440b3f767327fd35ce, type: 2}
+    UnitSettings: {fileID: 11400000, guid: 8b3c526415fc2504c909a95a2681cadf, type: 2}
+  - Unit: 2
+    Prefab: {fileID: 1331019487026982, guid: 64907917366e99345be2d531c4a17297, type: 2}
+    UnitSettings: {fileID: 11400000, guid: df40ab8973bea714886ae5eaaca2932b, type: 2}
+  - Unit: 3
+    Prefab: {fileID: 1451464673011102, guid: e22d4795f117d2042900eb4fa5129f73, type: 2}
+    UnitSettings: {fileID: 11400000, guid: e603271cc72386746899e3a9cb8ece7d, type: 2}
+  - Unit: 4
+    Prefab: {fileID: 1332740423216604, guid: 54215b4450b8e1547a86766931cff74c, type: 2}
+    UnitSettings: {fileID: 11400000, guid: fadb785b5adfcf04a887eb8aa6f6f297, type: 2}
+  - Unit: 5
+    Prefab: {fileID: 1996516304305484, guid: e82e371fb33bc5c4795e0c88528dc135, type: 2}
+    UnitSettings: {fileID: 11400000, guid: 5e3d4ac5aaa0606459b22074d1990376, type: 2}
+  - Unit: 6
+    Prefab: {fileID: 1742582596648800, guid: e78c7005eae23a14ea45607853496e66, type: 2}
+    UnitSettings: {fileID: 11400000, guid: 1cd244dd6d374df419eaed7b77a3ceaf, type: 2}
+  - Unit: 7
+    Prefab: {fileID: 1557566336588890, guid: d5b398dcc5df5c648b376495d26de878, type: 2}
+    UnitSettings: {fileID: 11400000, guid: 1bc5864ed70c71b44a4c1d0f30fa0671, type: 2}
+  Events:
+  - TriggerType: 0
+    TriggerValue: 0
+    BuildingType: 0
+    ActionType: 2
+    ActionValue: Opening
+  - TriggerType: 0
+    TriggerValue: 1
+    BuildingType: 0
+    ActionType: 2
+    ActionValue: TurnOne
+  - TriggerType: 0
+    TriggerValue: 6
+    BuildingType: 0
+    ActionType: 2
+    ActionValue: TurnSix
+  - TriggerType: 0
+    TriggerValue: 20
+    BuildingType: 0
+    ActionType: 2
+    ActionValue: TurnTwenty
+  - TriggerType: 0
+    TriggerValue: 50
+    BuildingType: 0
+    ActionType: 2
+    ActionValue: TurnFifty
+  - TriggerType: 1
+    TriggerValue: 5
+    BuildingType: 0
+    ActionType: 1
+    ActionValue: WinningEnding
+  - TriggerType: 2
+    TriggerValue: 0
+    BuildingType: 0
+    ActionType: 1
+    ActionValue: LosingEnding
+  - TriggerType: 0
+    TriggerValue: 0
+    BuildingType: 0
+    ActionType: 3
+    ActionValue: Chill
+  - TriggerType: 0
+    TriggerValue: 30
+    BuildingType: 0
+    ActionType: 0
+    ActionValue: MidGame
+  - TriggerType: 0
+    TriggerValue: 1
+    BuildingType: 0
+    ActionType: 0
+    ActionValue: StartLevel
+  - TriggerType: 0
+    TriggerValue: 60
+    BuildingType: 0
+    ActionType: 0
+    ActionValue: EndGame
+  Dialogue:
+  - {fileID: 11400000, guid: 54c120d3837125f4fa2e3662c4f46bce, type: 2}
+  - {fileID: 11400000, guid: 0765f0a68052c4347a6f8ba4f39f7641, type: 2}
+  - {fileID: 11400000, guid: 2da1ea7daedcd4a4db45a63aebd2915f, type: 2}
+  - {fileID: 11400000, guid: ef40fdc84a1601a4c88c46c6b15b2c6c, type: 2}
+  - {fileID: 11400000, guid: f1dd065fb50b84c4099f8cee547224f5, type: 2}
+  - {fileID: 11400000, guid: 24e9001ae2075494395b5ce3e366bbbf, type: 2}
+  - {fileID: 11400000, guid: e2be7b32dfe3384458ec7c810c81fdc5, type: 2}
+  Names:
+  - {fileID: 11400000, guid: 2619c24dabbf91c4098b53270b2494b6, type: 2}
+  - {fileID: 11400000, guid: f7c2a9e5ced78834a9633e69cd4b80f1, type: 2}
+  - {fileID: 11400000, guid: 96cbf3d3c7316904f851716b71264b3d, type: 2}
+  - {fileID: 11400000, guid: f3d68499b237d944182c96e12c9a6a32, type: 2}
+  - {fileID: 11400000, guid: a65f9d6ab7fef8242a7ef4721853ff20, type: 2}

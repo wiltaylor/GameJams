@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0c7946619cfe1c409e93420ff689f8b, type: 3}
+  m_Name: Chill
+  m_EditorClassIdentifier: 
+  Name: 
+  Track:
+  - {fileID: 8300000, guid: 9f86726102a2e834f8deca1218576ff1, type: 3}
+  - {fileID: 8300000, guid: 5befa9d269a89b54cbff76b3b06b9cdf, type: 3}
+  - {fileID: 8300000, guid: 8b8e8b5a2bd05f74dbac84a57023225c, type: 3}
+  - {fileID: 8300000, guid: dec3494e9fde8c0468508fff7904b4af, type: 3}

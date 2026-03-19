@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43f1be21cf4be445acc74f8fc6578d7, type: 3}
+  m_Name: Cleric
+  m_EditorClassIdentifier: 
+  Type: 3
+  Name: Cleric
+  MaxHp: 2
+  MinHp: 2
+  MaxAttack: 30
+  MinAttack: 1
+  Actions: 0200000003000000
+  CanSpawnInCity: 1
+  CanSpawnInDemonGate: 0
+  CanSpawnOn: 020000000300000004000000050000000600000007000000
+  MovePoints: 3
+  FaithCost: 15
+  HumanCost: 0
+  IronCost: 0
+  ViewRange: 6
+  HealRange: 6
+  HealAmmount: 10
+  HealDamage: 0.5
+  MineDamage: 0

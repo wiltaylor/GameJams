@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36b543b2fef67324c8ceabee10e6838c, type: 3}
+  m_Name: WinningEnding
+  m_EditorClassIdentifier: 
+  Name: WinningEnding
+  Dialogue:
+  - Charecter: 1
+    Text: '"The heathens have been punished, God looks upon us and smiles!"'
+  - Charecter: 2
+    Text: '"..."'
+  - Charecter: 3
+    Text: '"Well done, my child."'
+  - Charecter: 1
+    Text: '"Who are you?"'
+  - Charecter: 3
+    Text: '"There is plenty of time for us to get acquainted."'
+  - Charecter: 1
+    Text: '"I shall vanquish you myself."'
+  - Charecter: 3
+    Text: '"Perhaps. But your world is small, and there are too few left to stop us
+      now."'
+  - Charecter: 1
+    Text: '"But..."'
+  - Charecter: 3
+    Text: '"Thank you for assisting us, good Knight."'
+  - Charecter: 2
+    Text: '*sobs in terror*'
+  - Charecter: 1
+    Text: '*screams*'

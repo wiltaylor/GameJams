@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36b543b2fef67324c8ceabee10e6838c, type: 3}
+  m_Name: Opening
+  m_EditorClassIdentifier: 
+  Name: Opening
+  Dialogue:
+  - Charecter: 0
+    Text: A thousand years ago the Holy Martyr Petros (first of his name) willingly
+      gave his life and was bathed in the sanctified light of God, proving the worth
+      of mankind to their all-powerful creator.
+  - Charecter: 0
+    Text: "God looked down upon this one man\u2019s sacrifice and blessed the lands
+      of Parva Mundi. The sins of mankind were instantly washed away, and the world
+      was renewed in spirit, faith and generosity."
+  - Charecter: 0
+    Text: Generations have now passed and though the stories of the Martyr Petros
+      are still told in the chapels and cathedrals of the lands, the many denominations
+      that divided the faith bickered and argued over their version of the tale, often
+      leading to conflict.
+  - Charecter: 0
+    Text: "The increase in reformations eventually forced the hand of Our Enlightened
+      Saviour, Pontiff Bontiface VIII, to act against the heathens that he had proclaimed
+      strayed far. He soon began excommunicating kings, sieging castles, seizing lands
+      under the claim that \u201Call human creatures were subject to this rule\u201D."
+  - Charecter: 0
+    Text: Travelling the lands in a golden carriage protected by his most dedicated
+      holy knights, Bontiface VIII proselytizing or burning villages in his wake.
+      He ordered local clergymen drawn and quartered for condemning his actions as
+      foretold in the Apocalypsis Tome.
+  - Charecter: 0
+    Text: One night he forcefully took a local woman for his own, ordering her family
+      crucified for daring to resist the Will of God, then bedded her as her family
+      screamed nearby.
+  - Charecter: 0
+    Text: 'When the villagers came to enact revenge on the Pontiff, his Holy Knights
+      could not stop the tide as they dragged him to the granary and slowly pulverised
+      his body beneath its great stone wheel, beginning with his toes. '
+  - Charecter: 0
+    Text: The screams of the Pontiff masked the sounds of demonic creatures crawling
+      forth from the earth and dragging the nearby village to Hell.
+  - Charecter: 0
+    Text: Before anyone to act, it was too late. The End Times were upon them.

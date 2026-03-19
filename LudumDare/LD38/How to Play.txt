@@ -1,0 +1,35 @@
+CONTROLLING THE GAME
+Arrow Keys - Move camera.
+
+Space Bar - Skip in-game dialog
+
+End Turn - Enter
+
+Left Click - Select Unit/Building, Select Unit to Build (Cities) or Construct Building (Worker Unit).
+
+Right Click - Move selected unit and attack clicked unit/city.
+
+UNIT TYPES
+Scout - A fast unit capable of scouting the countryside looking for dangers.
+
+Worker - A one-use item used to build mines and shrines, giving you more resources to survive.
+
+Spear Man - When you are out of iron and cannot field your powerful knights, peasants with sticks is a good staple of any army!
+
+Knight - The most powerful military unit at your command.
+
+Cleric - A powerful unit capable of martyring itself to heal nearby units, convert cities to your cause, or destroying powerful demons. They have very few hitpoints, so make your decision wisely.
+
+Demons - Look out! There are three different types of demon that had crawled forth from hell. They are intent in not only devouring the souls of your people, but also dragging ANY city they come across, to Hell!
+
+BUILDING TYPES
+Cities - Capturing cities provides you more manpower to bolster your armies. Gather as many cities to your cause as possible, and between you your faith will banish the demons from this land.
+
+Iron Ore/Mine - Grants iron, allowing you to build the powerful Knight unit.
+
+Energy Temple/Shrine - Provides faith, the basic building blocks of any good crusade.
+
+Hell Portals - Demonic creatures are spawning from these things. If you send a unit in, they will be able to destory it, but at what cost?
+
+WINNING THE GAME
+The world has fallen from grace and you must mount a successful Crusade against the other nearby cities. If you convert enough of them, your faith will gain you favour with God and the apocolypse should be avoided. Right?

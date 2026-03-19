@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36b543b2fef67324c8ceabee10e6838c, type: 3}
+  m_Name: TurnFifty
+  m_EditorClassIdentifier: 
+  Name: TurnFifty
+  Dialogue:
+  - Charecter: 1
+    Text: '"Your Eminence?"'
+  - Charecter: 2
+    Text: '"..."'
+  - Charecter: 1
+    Text: '"Your Eminence, are you...hiding under your bed?"'
+  - Charecter: 2
+    Text: '"I have seen them. The demons...they are, real!"'
+  - Charecter: 1
+    Text: '"My knights have been dying by the thousands, and you have only just believed
+      me?"'
+  - Charecter: 2
+    Text: '"Hell is real! The demons, they are coming for us all!"'
+  - Charecter: 1
+    Text: '"You fool!"'
+  - Charecter: 2
+    Text: '*uncontrollable sobbing*'
+  - Charecter: 1
+    Text: '"Then I shall finish what you cannot! For God!"'

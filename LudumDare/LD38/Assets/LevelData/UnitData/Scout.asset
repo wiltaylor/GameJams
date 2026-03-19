@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b43f1be21cf4be445acc74f8fc6578d7, type: 3}
+  m_Name: Scout
+  m_EditorClassIdentifier: 
+  Type: 0
+  Name: Scout
+  MaxHp: 2
+  MinHp: 1
+  MaxAttack: 1
+  MinAttack: 1
+  Actions: 0100000002000000
+  CanSpawnInCity: 1
+  CanSpawnInDemonGate: 0
+  CanSpawnOn: 0200000003000000040000000500000006000000
+  MovePoints: 8
+  FaithCost: 2
+  HumanCost: 0
+  IronCost: 0
+  ViewRange: 4

@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36b543b2fef67324c8ceabee10e6838c, type: 3}
+  m_Name: TurnTwenty
+  m_EditorClassIdentifier: 
+  Name: TurnTwenty
+  Dialogue:
+  - Charecter: 1
+    Text: '"Your Eminence, I return from my campaign abroad with news. Hellfire demons
+      have clawed onto the land and"'
+  - Charecter: 2
+    Text: '"Continue with your crusade. We must protect the innocent from the influence
+      of heathens."'
+  - Charecter: 1
+    Text: '"Are you sure that..."'
+  - Charecter: 2
+    Text: '"You dare...?"'
+  - Charecter: 1
+    Text: '"No, your eminence. We shall double our efforts!"'

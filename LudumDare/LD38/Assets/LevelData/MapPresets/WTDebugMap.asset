@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 032c74450f4e54a439830a85fea1d464, type: 3}
+  m_Name: WTDebugMap
+  m_EditorClassIdentifier: 
+  Width: 32
+  Height: 32
+  Name: 32 test
+  FillType: 1
+  MutateCycles: 1000
+  Islands:
+  - Tile: 2
+    MaxWidth: 20
+    MinWidth: 8
+    MaxHeight: 20
+    MinHeight: 8
+    Qty: 5
+  - Tile: 4
+    MaxWidth: 10
+    MinWidth: 5
+    MaxHeight: 10
+    MinHeight: 5
+    Qty: 8
+  - Tile: 6
+    MaxWidth: 6
+    MinWidth: 3
+    MaxHeight: 6
+    MinHeight: 3
+    Qty: 5
+  - Tile: 3
+    MaxWidth: 5
+    MinWidth: 2
+    MaxHeight: 5
+    MinHeight: 2
+    Qty: 4
+  - Tile: 5
+    MaxWidth: 7
+    MinWidth: 4
+    MaxHeight: 7
+    MinHeight: 4
+    Qty: 1
+  - Tile: 7
+    MaxWidth: 4
+    MinWidth: 1
+    MaxHeight: 4
+    MinHeight: 1
+    Qty: 8
+  Buildings:
+  - Type: 0
+    MaxQty: 30
+    MinQty: 10
+    MaxCityPopulation: 1
+    MinCityPopulation: 1
+  - Type: 1
+    MaxQty: 30
+    MinQty: 10
+    MaxCityPopulation: 1
+    MinCityPopulation: 1
+  - Type: 2
+    MaxQty: 30
+    MinQty: 10
+    MaxCityPopulation: 1
+    MinCityPopulation: 1
+  - Type: 3
+    MaxQty: 6
+    MinQty: 2
+    MaxCityPopulation: 0
+    MinCityPopulation: 0
+  TileDamageRange: 0
+  TileDamageAmmount: 0
+  DamagePerTurn: 1
