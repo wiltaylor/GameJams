@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e3bd5acbd9f37d4c88c836c6ac0041b, type: 3}
+  m_Name: Pistol
+  m_EditorClassIdentifier: 
+  Name: Pistol
+  Item: {fileID: 21300000, guid: 9144c03b7322b0e4f90074808cfcb251, type: 3}
+  Type: 1
+  WeaponSystem: {fileID: 1158686841372308, guid: 3e6ed97899b6e874ebfa91a83ed21a99,
+    type: 2}
+  Damage: 10
+  Projectile: {fileID: 1311494123450812, guid: 8b03a3c89e5b893468b5550e47dc5fe0, type: 2}
+  ProjectileSpeed: 30
+  AIGun: {fileID: 1350656237031660, guid: 5fe13a2f5c0498e4e96d70eb9750a136, type: 2}
+  Ammo: {fileID: 11400000, guid: d834a56f8d6bdbc45958600099cd0ac6, type: 2}
