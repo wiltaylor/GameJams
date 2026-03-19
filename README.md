@@ -31,6 +31,8 @@ A collection of all my game jam games. Each game lives in its own subdirectory u
 | `LudumDare/LD53/` | Ludum Dare 53 |
 | `JimJam/JimJam1/` | JimJam 1 |
 | `GlobalGameJam/GGJ2018/` | Global Game Jam 2018 |
+| `1GAM/DotsAndBoxes/` | 1GAM - Dots and Boxes |
+| `1GAM/SpaceEmpire/` | 1GAM - Space Empire |
 
 ## Licence
 
